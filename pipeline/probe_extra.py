@@ -215,11 +215,28 @@ def brandstof(s: requests.Session, uit: list[str]) -> None:
                 uit.append(f"### {l}\n- HTTP {q.status_code}, {q.headers.get('content-type')}, {len(q.content)} bytes")
 
 
+PDFS = [
+    "https://economie.fgov.be/sites/default/files/Files/Energy/prices/Officiele-Maximumtarieven-aardolieproducten.pdf",
+    "https://economie.fgov.be/sites/default/files/Files/Energy/prices/Pmax-gemiddelden-09-2026.pdf",
+]
+
+
+def brandstof_pdf(s: requests.Session, uit: list[str]) -> None:
+    from pypdf import PdfReader
+    for url in PDFS:
+        r = s.get(url, timeout=60)
+        uit.append(f"## {url}\n- HTTP {r.status_code}, {r.headers.get('content-type')}, {len(r.content)} bytes, last-modified {r.headers.get('last-modified')}")
+        if r.status_code == 200:
+            pdf = PdfReader(io.BytesIO(r.content))
+            for i, pg in enumerate(pdf.pages[:3]):
+                uit.append(f"### pagina {i + 1}\n```\n{pg.extract_text()[:4000]}\n```")
+
+
 def main() -> None:
     s = requests.Session()
     s.headers["User-Agent"] = "belgie-in-cijfers (bronverkenning; github.com/jonathanmaes97/belgie-in-cijfers)"
     uit = ["# Verkenning: PISA, energieprijzen, mazout, BBSZ\n"]
-    for stap in (brandstof,):
+    for stap in (brandstof_pdf,):
         try:
             stap(s, uit)
         except Exception as e:  # een verkenning mag nooit de publicatie tegenhouden
