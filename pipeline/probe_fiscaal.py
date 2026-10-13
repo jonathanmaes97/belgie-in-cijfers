@@ -14,11 +14,11 @@ import requests
 
 WORTEL = Path(__file__).resolve().parent.parent
 START = [
-    "https://financien.belgium.be/nl",
-    "https://financien.belgium.be/nl/particulieren",
-    "https://financien.belgium.be/nl/particulieren/belastingaangifte",
-    "https://www.socialsecurity.be/employer/instructions/dmfa/nl/latest/instructions/deductions/workers_deductions/socialbonus.html",
+    "https://financien.belgium.be/nl/particulieren/belastingaangifte/inkomsten",
+    "https://financien.belgium.be/nl/particulieren/belastingaangifte/persoonlijke-situatie/personen-ten-laste",
 ]
+# alleen pagina's onder deze paden volgen (schijven, beroepskosten, belastingvrije som, kinderen ten laste)
+VOLG = re.compile(r"/belastingaangifte/(inkomsten|persoonlijke-situatie)/", re.I)
 RELEVANT = re.compile(r"tarie|belastingvrije|beroepskosten|gemeentebelasting|aanvullende|opcentiem|werkbonus|bijzondere-bijdrage|socialbonus|indexering|geindexeerd|belastingaangifte|berekening|particulieren/belasting", re.I)
 
 
@@ -53,7 +53,7 @@ def main() -> None:
             v = urljoin(url, href).split("#")[0]
             if re.search(r"\.(pdf|xlsx?|csv)$", v, re.I):
                 uit.append(f"- BESTAND: {v}")
-            elif RELEVANT.search(v) and v not in gezien and "financien.belgium.be/nl/particulieren" in v:
+            elif VOLG.search(v) and v not in gezien and "financien.belgium.be/nl/particulieren" in v:
                 rij.append(v)
         uit.append("```")
         t = tekst(r.text)
@@ -62,6 +62,20 @@ def main() -> None:
             t = t[i:] if i >= 0 else t
         uit.append(t[:9000])
         uit.append("```\n")
+    # lijst gemeentebelasting
+    import io
+    import openpyxl
+    for u in ("https://financien.belgium.be/sites/default/files/media/documents/tarieven-gemeentebelasting-2026.xlsx",):
+        r = s.get(u, timeout=60)
+        uit.append(f"## {u}\n- HTTP {r.status_code}, {len(r.content)} bytes\n```")
+        if r.ok:
+            wb = openpyxl.load_workbook(io.BytesIO(r.content), data_only=True, read_only=True)
+            for ws in wb.worksheets:
+                uit.append(f"[blad {ws.title}]")
+                for i, rij in enumerate(ws.iter_rows(values_only=True)):
+                    if i < 15 or i % 100 == 0:
+                        uit.append(f"{i + 1}: " + " | ".join("" if c is None else str(c)[:30] for c in rij[:10]))
+        uit.append("```")
     (WORTEL / "reports" / "fiscaal.md").write_text("\n".join(uit) + "\n", encoding="utf-8")
 
 
