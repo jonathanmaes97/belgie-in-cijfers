@@ -692,6 +692,16 @@ snel:
     uitleg: The average price of heating gas oil, including all taxes, as Belgium reports it to the European Commission every week. The Commission gives the price per 1,000 litres; we divide by 1,000. What you pay also depends on the quantity and your supplier.
     vergelijk: EU
     bron: European Commission (Weekly Oil Bulletin)
+  benzine:
+    titel: Maximum petrol price
+    vraag: What does a litre of petrol cost?
+    uitleg: 'The official maximum price of 95 RON E10 petrol at the pump, including VAT, as set by the FPS Economy. Filling stations may not charge more, but they may charge less. The large figure is the price that applies now; the chart shows the monthly average.'
+    bron: FPS Economy (maximum prices)
+  diesel:
+    titel: Maximum diesel price
+    vraag: What does a litre of diesel cost?
+    uitleg: 'The official maximum price of B7 diesel at the pump, including VAT, as set by the FPS Economy. Filling stations may not charge more, but they may charge less. The large figure is the price that applies now; the chart shows the monthly average.'
+    bron: FPS Economy (maximum prices)
 instellingen:
   Federaal Planbureau: Federal Planning Bureau
   Nationale Bank van België: National Bank of Belgium
@@ -700,6 +710,7 @@ instellingen:
   IMF: IMF
   Koninklijke Commissie voor Geschiedenis: Royal Historical Commission
   RIZIV: RIZIV/INAMI
+  FOD Economie: FPS Economy
 niet_meegerekend:
 - The work bonus for low wages (a reduction of your social security contribution and your tax)
 - 'The final settlement of the special social security contribution: this shows the amount withheld from your pay, for a single person'

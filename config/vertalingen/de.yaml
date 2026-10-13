@@ -693,6 +693,16 @@ snel:
     uitleg: Der Durchschnittspreis für Heizöl, einschließlich aller Steuern, wie Belgien ihn jede Woche der Europäischen Kommission meldet. Die Kommission gibt den Preis pro 1.000 Liter an; wir teilen durch 1.000. Was Sie selbst zahlen, hängt auch von der Menge und Ihrem Lieferanten ab.
     vergelijk: EU
     bron: Europäische Kommission (Weekly Oil Bulletin)
+  benzine:
+    titel: Höchstpreis für Benzin
+    vraag: Was kostet ein Liter Benzin?
+    uitleg: 'Der offizielle Höchstpreis für Benzin 95 RON E10 an der Zapfsäule, einschließlich MwSt., wie ihn der FÖD Wirtschaft festlegt. Tankstellen dürfen nicht mehr verlangen, wohl aber weniger. Die große Zahl ist der geltende Preis; die Grafik zeigt den Monatsdurchschnitt.'
+    bron: FÖD Wirtschaft (Höchstpreise)
+  diesel:
+    titel: Höchstpreis für Diesel
+    vraag: Was kostet ein Liter Diesel?
+    uitleg: 'Der offizielle Höchstpreis für Diesel B7 an der Zapfsäule, einschließlich MwSt., wie ihn der FÖD Wirtschaft festlegt. Tankstellen dürfen nicht mehr verlangen, wohl aber weniger. Die große Zahl ist der geltende Preis; die Grafik zeigt den Monatsdurchschnitt.'
+    bron: FÖD Wirtschaft (Höchstpreise)
 instellingen:
   Federaal Planbureau: Föderales Planbüro
   Nationale Bank van België: Belgische Nationalbank
@@ -701,6 +711,7 @@ instellingen:
   IMF: IWF
   Koninklijke Commissie voor Geschiedenis: Königliche Kommission für Geschichte
   RIZIV: LIKIV
+  FOD Economie: FÖD Wirtschaft
 niet_meegerekend:
 - Der Beschäftigungsbonus für niedrige Löhne (eine Ermäßigung Ihres LSS-Beitrags und Ihrer Steuer)
 - 'Die endgültige Abrechnung des Sonderbeitrags zur sozialen Sicherheit: hier steht der Einbehalt über Ihren Lohn, für eine alleinstehende Person'

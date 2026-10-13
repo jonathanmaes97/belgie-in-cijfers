@@ -689,6 +689,16 @@ snel:
     uitleg: Le prix moyen du gasoil de chauffage, toutes taxes comprises, tel que la Belgique le communique chaque semaine à la Commission européenne. La Commission donne le prix pour 1 000 litres ; nous divisons par 1 000. Ce que vous payez dépend aussi de la quantité et de votre fournisseur.
     vergelijk: UE
     bron: Commission européenne (Weekly Oil Bulletin)
+  benzine:
+    titel: Prix maximum de l'essence
+    vraag: Combien coûte un litre d'essence ?
+    uitleg: 'Le prix maximum officiel de l''essence 95 RON E10 à la pompe, TVA comprise, tel que fixé par le SPF Economie. Les stations-service ne peuvent pas demander plus, mais bien moins. Le grand chiffre est le prix en vigueur ; le graphique montre la moyenne par mois.'
+    bron: SPF Economie (prix maximums)
+  diesel:
+    titel: Prix maximum du diesel
+    vraag: Combien coûte un litre de diesel ?
+    uitleg: 'Le prix maximum officiel du diesel B7 à la pompe, TVA comprise, tel que fixé par le SPF Economie. Les stations-service ne peuvent pas demander plus, mais bien moins. Le grand chiffre est le prix en vigueur ; le graphique montre la moyenne par mois.'
+    bron: SPF Economie (prix maximums)
 instellingen:
   Federaal Planbureau: Bureau fédéral du Plan
   Nationale Bank van België: Banque nationale de Belgique
@@ -697,6 +707,7 @@ instellingen:
   IMF: FMI
   Koninklijke Commissie voor Geschiedenis: Commission royale d'histoire
   RIZIV: INAMI
+  FOD Economie: SPF Economie
 niet_meegerekend:
 - Le bonus à l'emploi pour les bas salaires (une réduction de vos cotisations ONSS et de votre impôt)
 - 'Le décompte définitif de la cotisation spéciale de sécurité sociale : nous montrons la retenue sur votre salaire, pour une personne isolée'

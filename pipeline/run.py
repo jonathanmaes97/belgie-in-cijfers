@@ -24,7 +24,7 @@ from pathlib import Path
 
 import yaml
 
-from . import belastingen, eurostat, infrabel, nbb, olie, planbureau, riziv, uitgaven
+from . import belastingen, brandstof, eurostat, infrabel, nbb, olie, planbureau, riziv, uitgaven
 from .eurostat import BronFout
 
 WORTEL = Path(__file__).resolve().parent.parent
@@ -34,7 +34,7 @@ CHANGELOG = WORTEL / "data" / "changelog.json"
 SITE_DATA = WORTEL / "site" / "data" / "dashboard.json"
 STATUS = WORTEL / "reports" / "status.md"
 
-EXTRA = [("vooruitzichten", planbureau.haal_op), ("uitgaven", uitgaven.haal_op), ("inkomsten", belastingen.haal_op), ("snel", nbb.haal_op), ("olie", olie.haal_op)]
+EXTRA = [("vooruitzichten", planbureau.haal_op), ("uitgaven", uitgaven.haal_op), ("inkomsten", belastingen.haal_op), ("snel", nbb.haal_op), ("olie", olie.haal_op), ("brandstof", brandstof.haal_op)]
 
 # Een herziening wordt pas gemeld vanaf dit verschil (afrondingsruis negeren).
 HERZIENING_DREMPEL = 0.05

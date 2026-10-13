@@ -38,6 +38,7 @@ VOORWAARDEN = {
     "Infrabel": ("https://opendata.infrabel.be/pages/license/", True),
     "Federaal Planbureau": ("https://www.plan.be", False),
     "RIZIV": ("https://www.inami.fgov.be/nl/statistieken/statistieken-uitkeringen", False),
+    "FOD Economie": ("https://economie.fgov.be/nl/themas/energie/energieprijzen/maximumprijzen", False),
     "Europese Commissie": ("https://commission.europa.eu/legal-notice_en", True),
     "Koninklijke Commissie voor Geschiedenis": ("https://www.commissionroyalehistoire.be/belelite/nl/gov/governmentsoverview/fed", False),
 }
@@ -293,7 +294,7 @@ def vertaal(data: dict, taal: str) -> dict:
     if d.get("inkomsten"):
         for f in d["inkomsten"]["functies"]:
             f.update((v.get("inkomsten") or {}).get(f["code"]) or {})
-    for blok in ("snel", "olie"):
+    for blok in ("snel", "olie", "brandstof"):
         for r in (d.get(blok) or {}).get("reeksen", []):
             w = (v.get("snel") or {}).get(r["id"]) or {}
             for k in ("titel", "vraag", "uitleg"):
@@ -580,6 +581,10 @@ def startpagina(data: dict, per_id: dict) -> str:
     for o in (data.get("olie") or {}).get("reeksen", []):
         zoekindex.append({"v": tx(o["vraag"]), "t": tx(o["titel"]), "th": themanaam.get("klimaat_energie", ""),
                           "z": "mazout stookolie gasolie verwarming fioul mazout de chauffage Heizöl heating oil", "u": f'thema/klimaat_energie.html#{o["id"]}'})
+    for o in (data.get("brandstof") or {}).get("reeksen", []):
+        zoekindex.append({"v": tx(o["vraag"]), "t": tx(o["titel"]), "th": themanaam.get("klimaat_energie", ""),
+                          "z": "brandstof tanken tankstation maximumprijs pomp carburant essence pompe Kraftstoff tanken Tankstelle fuel petrol gasoline "
+                               + ("benzine essence Benzin" if o["id"] == "benzine" else "diesel gasoil Diesel"), "u": f'thema/klimaat_energie.html#{o["id"]}'})
     zoekindex.append({"v": T("zoek_index_gewesten"), "t": T("gw_kruimel"), "th": T("gewesten_kort"),
                       "z": "vlaanderen wallonie brussel gewest regio deelstaat flandre bruxelles région Flandern Brüssel Region "
                            "flanders wallonia brussels region", "u": "gewesten.html"})
@@ -830,7 +835,10 @@ def snelkaart(r: dict) -> str:
                              + (getal(abs(a - b), r["decimalen"]) + T("procentpunt") if r["eenheid"] == "%"
                                 else kort_met_eenheid(abs(a - b), r)))
     regels = []
-    if vorig:
+    nu = r.get("nu")
+    if nu:  # geldende prijs (bv. maximumprijs brandstof) als groot cijfer; de reeks zijn maandgemiddelden
+        regels.append(T("gem_in", periode=periode_tekst(laatst[0]), waarde=fmt(laatst[1])))
+    elif vorig:
         regels.append(T("tegenover", verschil=verschil(laatst[1], vorig[1]), periode=periode_tekst(vorig[0])))
     if jaar_eerder:
         regels.append(T("jaar_eerder", waarde=fmt(jaar_eerder[1])))
@@ -841,15 +849,16 @@ def snelkaart(r: dict) -> str:
     return (
         f'<article class="snel-kaart" id="{escape(r["id"])}"><p class="sk-vraag">{escape(tx(r["vraag"]))}</p>'
         f'<p class="sk-titel">{escape(tx(r["titel"]))}</p>'
-        f'<p class="sk-waarde">{fmt(laatst[1])}</p><p class="sk-periode">{periode_tekst(laatst[0])}</p>'
-        f'{mini_spark(p[-2 * stap:])}<ul>{"".join(f"<li>{x}</li>" for x in regels)}</ul>'
+        + (f'<p class="sk-waarde">{fmt(nu["waarde"])}</p><p class="sk-periode">{T("max_vanaf", datum=datum(nu["geldig_vanaf"]))}</p>' if nu else
+           f'<p class="sk-waarde">{fmt(laatst[1])}</p><p class="sk-periode">{periode_tekst(laatst[0])}</p>')
+        + f'{mini_spark(p[-2 * stap:])}<ul>{"".join(f"<li>{x}</li>" for x in regels)}</ul>'
         f'<details><summary>{T("wat_is_dit")}</summary><p>{escape(tx(r["uitleg"]))}</p></details>'
         f'<p class="sk-bron">{T("bron")}: <a href="{escape(r["bron"]["url"])}" rel="noopener">{escape(tx(r["bron"].get("naam")) or T("nationale_bank"))}</a> · <a href="{escape(r["api_url"])}" rel="noopener">{T("ruwe_data")}</a></p></article>')
 
 
 def mazoutkaarten(data: dict) -> str:
-    """Weekprijs van mazout (Europese Commissie): als laatste kaart op de pagina Klimaat en energie."""
-    reeksen = (data.get("olie") or {}).get("reeksen") or []
+    """Mazout (weekprijs, Europese Commissie) en maximumprijzen benzine en diesel (FOD Economie): onderaan Klimaat en energie."""
+    reeksen = ((data.get("olie") or {}).get("reeksen") or []) + ((data.get("brandstof") or {}).get("reeksen") or [])
     return "".join(snelkaart(r).replace('class="snel-kaart"', 'class="kaart snel-kaart week-kaart"', 1) for r in reeksen)
 
 

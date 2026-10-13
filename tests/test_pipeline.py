@@ -240,3 +240,26 @@ Algemeen totaal 455.996 471.927 493.681 514.551 537.728"""
     assert t[2025] == (537728, True) and t[2021] == (455996, False)
     with pytest.raises(BronFout):
         lees_tabel1(tekst.replace("537.728", "537.729"))
+
+
+def test_brandstof_maximumprijzen_met_btw_controle():
+    from pipeline.brandstof import lees_lijst, lees_maand
+    lijst = """Officiële maximumprijzen volgens de Programma-overeenkomst.
+Lijst nr: 2026/198
+geldig vanaf : 14/10/2026
+in EURO Excl. BTW %BTW Incl. BTW
+Benzine 95 RON E5 aan de pomp l 1,781 21 2,155
+Benzine 95 RON E10 aan de pomp l 1,7397 21 2,105
+Diesel B7 aan de pomp l 2,0066 (-0,0529) 21 2,428 (-0,064)
+Diesel B10 aan de pomp l 2,0008 (-0,0521) 21 2,421 (-0,063)"""
+    assert lees_lijst(lijst) == {"geldig_vanaf": "2026-10-14", "lijst": "2026/198", "benzine": 2.105, "diesel": 2.428}
+    maand = """09/2026
+btw excl. btw incl.
+Benzine 95 RON E10 1,6999 2,0570
+Benzine 95 RON E5 1,7374 2,1022
+Diesel B10 1,9916 2,4098
+Diesel B7 1,9982 2,4178
+Diesel XTL 3,1530 3,8151"""
+    assert lees_maand(maand) == {"benzine": 2.057, "diesel": 2.4178}
+    with pytest.raises(BronFout):
+        lees_maand(maand.replace("2,4178", "2,5178"))

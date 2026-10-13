@@ -484,6 +484,16 @@ t:
     fr: "Banque nationale"
     de: "Nationalbank"
     en: "National Bank"
+  max_vanaf:
+    nl: "maximumprijs vanaf {datum}"
+    fr: "prix maximum à partir du {datum}"
+    de: "Höchstpreis ab {datum}"
+    en: "maximum price from {datum}"
+  gem_in:
+    nl: "gemiddeld in {periode}: {waarde}"
+    fr: "moyenne en {periode} : {waarde}"
+    de: "Durchschnitt im {periode}: {waarde}"
+    en: "average in {periode}: {waarde}"
   ruwe_data:
     nl: "ruwe data"
     fr: "données brutes"
