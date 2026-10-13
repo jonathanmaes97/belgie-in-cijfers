@@ -829,7 +829,11 @@ def snelkaart(r: dict) -> str:
     p = r["punten"]
     laatst, vorig = p[-1], p[-2] if len(p) > 1 else None
     stap = 4 if "-Q" in laatst[0] else 52 if len(laatst[0]) == 10 else 12
-    jaar_eerder = p[-1 - stap] if len(p) > stap else None
+    if len(laatst[0]) == 7:  # maandcijfer: zoek dezelfde maand een jaar eerder (de reeks kan gaten hebben)
+        sleutel = f"{int(laatst[0][:4]) - 1}{laatst[0][4:]}"
+        jaar_eerder = next((x for x in p if x[0] == sleutel), None)
+    else:
+        jaar_eerder = p[-1 - stap] if len(p) > stap else None
     fmt = lambda v: kort_met_eenheid(v, r)
     verschil = lambda a, b: (("+" if a - b > 0 else "−" if a - b < 0 else "±")
                              + (getal(abs(a - b), r["decimalen"]) + T("procentpunt") if r["eenheid"] == "%"
