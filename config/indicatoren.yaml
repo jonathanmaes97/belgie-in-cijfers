@@ -291,16 +291,17 @@ indicatoren:
 
   - id: belastingwig
     thema: overheidsfinancien
-    titel: {nl: Belastingdruk op een loon}
+    titel: {nl: Belastingdruk op een lager loon}
     vraag: {nl: "Hoeveel van wat een werkgever betaalt, gaat naar belastingen en bijdragen?"}
-    definitie: {nl: "Belastingwig: personenbelasting plus sociale bijdragen van werknemer en werkgever, in procent van de totale loonkost. Voor een alleenstaande zonder kinderen met een gemiddeld loon."}
-    uitleg: {nl: "Stel dat een werkgever 100 euro uitgeeft aan je loon. Dit cijfer zegt hoeveel daarvan naar de overheid en de sociale zekerheid gaat, samen met je eigen personenbelasting. De rest krijg je netto. Het gaat om een voorbeeldpersoon: alleenstaand, geen kinderen, gemiddeld loon."}
+    definitie: {nl: "Belastingwig: personenbelasting plus sociale bijdragen van werknemer en werkgever, in procent van de totale loonkost. Voor een alleenstaande zonder kinderen die 67% van het gemiddelde loon verdient (zo definieert Eurostat deze reeks)."}
+    uitleg: {nl: "Stel dat een werkgever 100 euro uitgeeft aan je loon. Dit cijfer zegt hoeveel daarvan naar de overheid en de sociale zekerheid gaat, samen met je eigen personenbelasting. De rest krijg je netto. Het gaat om een voorbeeldpersoon: alleenstaand, geen kinderen, met een loon van twee derde van het gemiddelde. Bij hogere lonen ligt de druk hoger, bij de laagste lonen lager."}
     eenheid: "%"
     decimalen: 1
     weergave: lijn
     beeld: wafel
-    wafel_tekst: {nl: "euro loonkost gaat naar belastingen en sociale bijdragen (alleenstaande, gemiddeld loon)"}
+    wafel_tekst: {nl: "euro loonkost gaat naar belastingen en sociale bijdragen (alleenstaande, lager loon)"}
     zoekwoorden: [belastingen, loon, netto, bruto, rsz, loonkost, belastingwig, personenbelasting]
+    # Eurostat publiceert deze reeks enkel voor een alleenstaande zonder kinderen met 67% van het gemiddelde loon
     bron: {instelling: Eurostat, dataset: earn_nt_taxwedge, filters: {}}
 
   - id: overheidsschuld_eur
