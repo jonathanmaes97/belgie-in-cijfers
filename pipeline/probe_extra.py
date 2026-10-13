@@ -124,16 +124,37 @@ def bbsz(s: requests.Session, uit: list[str]) -> None:
             uit.append(f"```\n{t[max(0, i):][:15000]}\n```")
 
 
+def riziv(s: requests.Session, uit: list[str]) -> None:
+    """Jaarlijkse statistiek invaliditeit (PDF) van het RIZIV: is de opbouw stabiel genoeg om automatisch te lezen?"""
+    from pypdf import PdfReader
+    for jaar in range(2015, 2027):
+        for semester in (2, 1):
+            url = f"https://www.inami.fgov.be/SiteCollectionDocuments/stat_du{jaar}_{semester}_invaliditeit.pdf"
+            try:
+                r = s.get(url, timeout=90)
+            except requests.RequestException as e:
+                uit.append(f"- {url}: {e}")
+                continue
+            uit.append(f"## {url}\n- HTTP {r.status_code}, {len(r.content)} bytes, {r.headers.get('Content-Type')}")
+            if r.status_code != 200 or not r.content.startswith(b"%PDF"):
+                continue
+            pdf = PdfReader(io.BytesIO(r.content))
+            uit.append(f"- {len(pdf.pages)} pagina's")
+            for i, pg in enumerate(pdf.pages[:6]):
+                uit.append(f"### pagina {i + 1}\n```\n{(pg.extract_text() or '')[:3500]}\n```")
+            break
+
+
 def main() -> None:
     s = requests.Session()
     s.headers["User-Agent"] = "belgie-in-cijfers (bronverkenning; github.com/jonathanmaes97/belgie-in-cijfers)"
     uit = ["# Verkenning: PISA, energieprijzen, mazout, BBSZ\n"]
-    for stap in (eurostat,):
+    for stap in (riziv,):
         try:
             stap(s, uit)
         except Exception as e:  # een verkenning mag nooit de publicatie tegenhouden
             uit.append(f"## {stap.__name__}: FOUT {type(e).__name__}: {e}\n")
-    (WORTEL / "reports" / "extra3.md").write_text("\n".join(uit) + "\n", encoding="utf-8")
+    (WORTEL / "reports" / "riziv.md").write_text("\n".join(uit) + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":
