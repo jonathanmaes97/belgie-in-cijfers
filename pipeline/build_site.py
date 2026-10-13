@@ -26,7 +26,7 @@ SITE_URL = "https://jonathanmaes97.github.io/belgie-in-cijfers/"
 MERK = "State of the Union"
 MAKER = "Jonathan Maes"
 CONTACT = "sotu@jonathanmaes.be"
-LINKEDIN_URL = ""  # in te vullen: link naar het LinkedIn-profiel van de maker
+LINKEDIN_URL = "https://www.linkedin.com/in/maesjonathan/"
 ONDERTITEL = "België in cijfers"
 GEWESTEN = [("BE2", "Vlaanderen"), ("BE3", "Wallonië"), ("BE1", "Brussel")]
 # Thema's waar federale regeringen als laag zinvol zijn (onderwijs is volledig een bevoegdheid van de gemeenschappen).

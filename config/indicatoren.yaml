@@ -122,11 +122,12 @@ themas:
     kop: hernieuwbare_energie
     intro: >-
       Broeikasgassen warmen de aarde op. Europa wil dat de uitstoot daalt en dat meer energie uit zon, wind
-      en andere hernieuwbare bronnen komt. Hier zie je hoe België het doet.
+      en andere hernieuwbare bronnen komt. Hier zie je hoe België het doet: hoeveel we uitstoten, hoeveel
+      energie hernieuwbaar is en welk deel van onze elektriciteit uit kerncentrales komt.
     bevoegd: >-
       Bevoegdheden zijn verdeeld: de federale overheid is onder meer bevoegd voor windmolens op zee en
       kernenergie, de gewesten voor hernieuwbare energie op land en energiebesparing.
-    begrippen: [co2_equivalent]
+    begrippen: [co2_equivalent, gwh]
 
   - id: mobiliteit
     nl: Mobiliteit
@@ -165,6 +166,7 @@ begrippen:
   hoger_onderwijs: {term: Hoger onderwijs, uitleg: "Een bachelor- of masterdiploma, of een gelijkwaardige opleiding na het secundair onderwijs."}
   arope: {term: Armoede of sociale uitsluiting, uitleg: "Wie een laag inkomen heeft, zich basisdingen niet kan veroorloven (zoals de verwarming aanzetten), of in een gezin woont waar bijna niemand werkt."}
   co2_equivalent: {term: CO₂-equivalent, uitleg: "Alle broeikasgassen omgerekend naar de hoeveelheid CO₂ die evenveel opwarming veroorzaakt."}
+  gwh: {term: Gigawattuur (GWh), uitleg: "Een maat voor een hoeveelheid elektriciteit: één miljoen kilowattuur."}
   stiptheid: {term: Stiptheid, uitleg: "Een trein is stipt als hij minder dan 6 minuten te laat op zijn eindbestemming aankomt. Afgeschafte treinen tellen in dit cijfer niet mee."}
   vergrijzing: {term: Vergrijzing, uitleg: "Het aandeel ouderen in de bevolking neemt toe, omdat we langer leven en er minder kinderen geboren worden."}
 
@@ -447,6 +449,40 @@ indicatoren:
     zoekwoorden: [co2, klimaat, uitstoot, broeikasgassen]
     # TOTXMEMO = totaal inclusief landgebruik en bossen (LULUCF), dus de netto uitstoot
     bron: {instelling: Eurostat, dataset: sdg_13_10, filters: {unit: T_HAB, src_crf: TOTXMEMO}}
+
+  - id: kernenergie_aandeel
+    thema: klimaat_energie
+    titel: {nl: Kernenergie in onze stroom}
+    vraag: {nl: "Hoeveel van onze elektriciteit komt uit kerncentrales?"}
+    definitie: {nl: Aandeel kernenergie in de bruto elektriciteitsproductie van het land.}
+    uitleg: {nl: "Het gaat enkel over elektriciteit, niet over alle energie. Kerncentrales stoten bij het draaien vrijwel geen broeikasgassen uit, maar kernenergie telt niet als hernieuwbare energie. Stroom die we invoeren uit het buitenland zit niet in dit cijfer."}
+    eenheid: "%"
+    decimalen: 1
+    weergave: lijn
+    zoekwoorden: [kernenergie, kerncentrale, nucleair, doel, tihange, elektriciteit, stroom]
+    afgeleid:
+      formule: "nucleair * 100 / totaal"
+      invoer: {nucleair: elektriciteit_nucleair, totaal: elektriciteit_totaal}
+
+  - id: elektriciteit_nucleair
+    thema: klimaat_energie
+    titel: {nl: Elektriciteit uit kernenergie}
+    vraag: {nl: "Hoeveel elektriciteit maken kerncentrales?"}
+    definitie: {nl: Bruto elektriciteitsproductie uit kernenergie, in gigawattuur.}
+    eenheid: " GWh"
+    decimalen: 0
+    verborgen: true
+    bron: {instelling: Eurostat, dataset: nrg_ind_peh, filters: {siec: N9000, unit: GWH, nrg_bal: GEP}}
+
+  - id: elektriciteit_totaal
+    thema: klimaat_energie
+    titel: {nl: Elektriciteitsproductie}
+    vraag: {nl: "Hoeveel elektriciteit produceren we?"}
+    definitie: {nl: Totale bruto elektriciteitsproductie, in gigawattuur.}
+    eenheid: " GWh"
+    decimalen: 0
+    verborgen: true
+    bron: {instelling: Eurostat, dataset: nrg_ind_peh, filters: {siec: TOTAL, unit: GWH, nrg_bal: GEP}}
 
   # ---------- Mobiliteit ----------
   - id: treinstiptheid

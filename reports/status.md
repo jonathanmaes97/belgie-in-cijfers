@@ -1,6 +1,6 @@
 # Status van de datapipeline
 
-Laatste run: 2026-10-13T14:09:19+00:00
+Laatste run: 2026-10-13T14:14:45+00:00
 
 | Indicator | Status | Opgehaald | Melding |
 |---|---|---|---|
@@ -25,6 +25,9 @@ Laatste run: 2026-10-13T14:09:19+00:00
 | woningprijzen | ✅ | 2026-10-13T14:09:19+00:00 |  |
 | hernieuwbare_energie | ✅ | 2026-10-13T14:09:19+00:00 |  |
 | uitstoot_per_inwoner | ✅ | 2026-10-13T14:09:19+00:00 |  |
+| kernenergie_aandeel | ❌ | — | Invoer 'elektriciteit_nucleair' ontbreekt. |
+| elektriciteit_nucleair | ❌ | — | niet opgehaald (offline) |
+| elektriciteit_totaal | ❌ | — | niet opgehaald (offline) |
 | treinstiptheid | ✅ | 2026-10-13T14:09:19+00:00 |  |
 | verkeersdoden | ✅ | 2026-10-13T14:09:19+00:00 |  |
 | bevolking | ✅ | 2026-10-13T14:09:19+00:00 |  |

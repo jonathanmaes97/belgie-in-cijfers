@@ -40,24 +40,24 @@ def html(titel: str, blokken: list[str], bronnen: set[str], bijgewerkt: str, acc
 body {{ width: 1200px; height: 630px; overflow: hidden; background: #f6f7f9; color: #1a1f24; font-family: Plex, sans-serif; position: relative; }}
 .raster {{ position: absolute; inset: 0; background-image: linear-gradient(rgba(20,30,45,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(20,30,45,.05) 1px, transparent 1px); background-size: 48px 48px; }}
 .gloed {{ position: absolute; width: 620px; height: 620px; border-radius: 50%; filter: blur(90px); opacity: .35; background: #fdda24; right: -120px; top: -300px; }}
-.streep {{ position: absolute; left: 0; right: 0; top: 0; height: 10px; background: linear-gradient(90deg, #1f1f1f 0 33.33%, #fdda24 33.33% 66.66%, #ef3340 66.66%); }}
+
 .gloed2 {{ position: absolute; width: 520px; height: 520px; border-radius: 50%; filter: blur(100px); opacity: .16; background: #ef3340; right: -260px; top: 80px; }}
 .binnen {{ position: absolute; inset: 0; padding: 58px 64px 40px; display: flex; flex-direction: column; }}
 .merk {{ display: flex; align-items: center; gap: 16px; }}
 .vlag {{ display: flex; gap: 3px; height: 40px; }} .vlag i {{ width: 8px; }}
 .vlag i {{ border-radius: 3px; }} .vlag i:nth-child(1) {{ background: #1f1f1f; }} .vlag i:nth-child(2) {{ background: #fdda24; }} .vlag i:nth-child(3) {{ background: #ef3340; }}
-.merk b {{ display: block; font: 500 17px PlexMono; letter-spacing: .16em; text-transform: uppercase; color: #c8202d; }}
+.merk b {{ display: block; font-size: 19px; font-weight: 500; color: #5b636b; }}
 .merk span {{ font-size: 24px; font-weight: 600; }}
 h1 {{ font-size: 62px; line-height: 1.02; font-weight: 650; letter-spacing: -.035em; margin-top: 36px; max-width: 1000px; }}
 .cijfers {{ display: flex; margin-top: auto; background: rgba(255,255,255,.8); border: 1px solid #e1e4e8; border-radius: 18px; overflow: hidden; }}
 .cijfer {{ flex: 1; padding: 22px 26px 22px; border-right: 1px solid #e1e4e8; }}
 .cijfer:last-child {{ border-right: 0; }}
-.l {{ font: 500 15px PlexMono; letter-spacing: .1em; text-transform: uppercase; color: #5b636b; }}
+.l {{ font-size: 19px; font-weight: 500; color: #5b636b; }}
 .w {{ font-size: 52px; font-weight: 650; letter-spacing: -.03em; margin-top: 6px; color: #1a1f24; }}
 .s {{ font-size: 18px; color: #80888f; margin-top: 2px; }}
 .cijfer {{ box-shadow: inset 0 4px 0 var(--t); }}
 .voet {{ margin-top: 22px; font-size: 17px; color: #5b636b; display: flex; justify-content: space-between; }}
-</style></head><body><div class="raster"></div><div class="gloed"></div><div class="gloed2"></div><div class="streep"></div>
+</style></head><body><div class="raster"></div><div class="gloed"></div><div class="gloed2"></div>
 <div class="binnen">
   <div class="merk"><div class="vlag"><i></i><i></i><i></i></div><div><b>{MERK}</b><span>{ONDERTITEL}</span></div></div>
   <h1>{escape(titel)}</h1>
