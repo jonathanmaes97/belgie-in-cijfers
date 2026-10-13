@@ -84,6 +84,7 @@ h1, h2, h3 { line-height: 1.2; letter-spacing: -.015em; }
 .kop-zoek { color: inherit; opacity: .8; display: flex; gap: 6px; align-items: center; text-decoration: none; font-size: .9rem; }
 .kop-zoek:hover { opacity: 1; }
 .themabalk { background: color-mix(in srgb, var(--vlak) 92%, transparent); backdrop-filter: blur(8px); border-top: 1px solid var(--raster); border-bottom: 1px solid var(--lijn); position: sticky; top: 0; z-index: 10; }
+.themabalk.vast { background: var(--vlak); box-shadow: 0 -120px 0 120px var(--vlak); clip-path: inset(-240px 0 0 0); }
 .themabalk .binnen { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; padding-top: 5px; padding-bottom: 5px; }
 .themabalk .binnen::-webkit-scrollbar { display: none; }
 @media (min-width: 1180px) { .themabalk .binnen { justify-content: space-between; } }

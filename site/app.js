@@ -494,6 +494,14 @@
     kijk();
     balk.querySelectorAll(".schuif-knop").forEach((k) => k.addEventListener("click", () =>
       rij.scrollBy({ left: (k.classList.contains("rechts") ? 1 : -1) * rij.clientWidth * 0.7, behavior: "smooth" })));
+    // Sommige in-app browsers (Telegram, Instagram) laten de balk niet helemaal bovenaan plakken:
+    // inhoud schuift er dan boven langs. Als de balk vastzit, dekken we de strook erboven af.
+    const voor = balk.previousElementSibling;
+    if (voor) {
+      const vast = () => balk.classList.toggle("vast", balk.getBoundingClientRect().top > voor.getBoundingClientRect().bottom + 1);
+      addEventListener("scroll", vast, { passive: true });
+      vast();
+    }
   }
 
   // ---------- uitgaven: controle-informatie tonen of verbergen ----------

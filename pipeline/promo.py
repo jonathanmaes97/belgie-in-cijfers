@@ -103,7 +103,7 @@ def dias(d: dict) -> list[tuple[str, str]]:
         '<p class="sub">De belangrijkste officiële cijfers over ons land op één plek. In gewone taal, met bij elk cijfer de bron, en elke dag automatisch bijgewerkt.</p>'
         '<p class="sub">In het Nederlands, Frans, Duits en Engels.</p>'
         + kern,
-        "Eurostat · Nationale Bank · Federaal Planbureau · RIZIV · Infrabel · Europese Commissie", volgende(), TOTAAL)))
+        "Eurostat · Nationale Bank · Federaal Planbureau · RIZIV · Europese Commissie", volgende(), TOTAAL)))
 
     # 2. belastingen: waar komen ze vandaan
     ink = d["inkomsten"]
@@ -126,11 +126,13 @@ def dias(d: dict) -> list[tuple[str, str]]:
     ju = str(u["jaar"])
     top = sorted(u["functies"], key=lambda f: -(u["aandelen"][f["code"]]["BE"].get(ju) or 0))[:5]
     kleuren = bs.UITGAVEN_KLEUREN
-    rijen = "".join(f'<div class="rij"><span class="stip" style="background:{kleuren[i]}"></span><span>{escape(f["nl"])}</span><b>{eur(u["aandelen"][f["code"]]["BE"][ju], 1)}</b></div>'
+    if not any(f["code"] == "GF02" for f in top):  # defensie altijd tonen, ook buiten de top vijf
+        top.append(next(f for f in u["functies"] if f["code"] == "GF02"))
+    rijen = "".join(f'<div class="rij"><span class="stip" style="background:{kleuren[i % len(kleuren)]}"></span><span>{escape(f["nl"])}</span><b>{eur(u["aandelen"][f["code"]]["BE"][ju], 1)}</b></div>'
                     for i, f in enumerate(top))
     uit.append(("03-uitgaven", dia(
         f'<p class="label">Uitgaven</p><h1>En waar gaan die 100 euro naartoe?</h1>'
-        f'<div class="inhoud">{rijen}<p class="sub" style="font-size:30px">De vijf grootste posten van alle Belgische overheden samen, in {ju}.</p></div>',
+        f'<div class="inhoud">{rijen}<p class="sub" style="font-size:30px">De vijf grootste posten van alle Belgische overheden samen, en defensie, in {ju}.</p></div>',
         f"Eurostat, gov_10a_exp (COFOG), {ju}", volgende(), TOTAAL, THEMA_KLEUR["overheidsfinancien"])))
 
     # 3b. rekenmodule: vul je brutoloon in
