@@ -64,7 +64,7 @@ h1.groot {{ font-size: 104px; margin-top: 110px; }}
 .maker {{ display: inline-flex; align-items: center; gap: 18px; font-size: 25px; line-height: 1.3; }}
 .maker b {{ color: #1a1f24; font-size: 29px; }}
 .maker img {{ width: 84px; height: 84px; border-radius: 50%; object-fit: cover; }}
-.scherm {{ margin-top: 54px; border-radius: 18px; overflow: hidden; border: 2px solid #dfe3e7; box-shadow: 0 24px 60px rgba(20,30,45,.16); background: #fff; }}
+.scherm {{ margin: 40px 0 auto; width: 680px; flex-shrink: 0; align-self: center; border-radius: 18px; overflow: hidden; border: 2px solid #dfe3e7; box-shadow: 0 24px 60px rgba(20,30,45,.16); background: #fff; }}
 .scherm-balk {{ display: flex; align-items: center; gap: 9px; height: 46px; padding: 0 20px; background: #eef0f3; border-bottom: 2px solid #dfe3e7; }}
 .scherm-balk i {{ width: 13px; height: 13px; border-radius: 50%; background: #c9ced4; }}
 .scherm-balk span {{ margin-left: 18px; font-size: 20px; color: #6b737b; }}
@@ -222,9 +222,10 @@ def dias(d: dict, scherm: Path | None = None) -> list[tuple[str, str]]:
 
     # 9. afsluiter
     uit.append(("08-afsluiter", dia(
-        '<h1 class="groot" style="font-size:88px;margin-top:80px">Zoek het zelf op.</h1>'
-        '<p class="sub">Elk cijfer met een link naar de bron. Een rekenmodule voor je eigen belastingen. Vlaanderen, Wallonië en Brussel naast elkaar. Geen mening, geen reclame, geen cookies.</p>'
-        + (f'<div class="scherm"><div class="scherm-balk"><i></i><i></i><i></i><span>{DOMEIN}</span></div><img src="{scherm.resolve().as_uri()}" alt=""></div>' if scherm else f'<span class="cta">{DOMEIN}</span>'),
+        '<h1 class="groot" style="font-size:84px;margin-top:64px">Zoek het zelf op.</h1>' +
+        ('<p class="sub" style="font-size:34px;margin-top:24px">Elk cijfer met een link naar de bron. Vergelijk met de buurlanden, de gewesten of je eigen loon. Geen mening, geen reclame, geen cookies.</p>' if scherm else
+         '<p class="sub">Elk cijfer met een link naar de bron. Een rekenmodule voor je eigen belastingen. Vlaanderen, Wallonië en Brussel naast elkaar. Geen mening, geen reclame, geen cookies.</p>')
+        + (f'<div class="scherm"><img src="{scherm.resolve().as_uri()}" alt=""></div>' if scherm else f'<span class="cta">{DOMEIN}</span>'),
         f'<span class="maker"><img src="{(SITE / "img" / "jonathan-maes@2x.jpg").resolve().as_uri()}" alt=""><span>Een onafhankelijk project van<br><b>Jonathan Maes</b></span></span>',
         volgende(), TOTAAL)))
     return uit
@@ -239,11 +240,18 @@ def main() -> None:
     with sync_playwright() as pw:
         b = pw.chromium.launch()
         scherm = doel / "_scherm.png"
-        site = b.new_page(viewport={"width": 1440, "height": 830}, device_scale_factor=2)
-        site.goto((SITE / "index.html").resolve().as_uri())
-        site.wait_for_timeout(600)
-        site.screenshot(path=str(scherm))
+        # een kaart van de site, ingezoomd: bbp per inwoner, België en de buren (via een lokale webserver, want de grafieken laden JSON)
+        import functools, http.server, threading
+        srv = http.server.ThreadingHTTPServer(("127.0.0.1", 0), functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(SITE)))
+        threading.Thread(target=srv.serve_forever, daemon=True).start()
+        site = b.new_page(viewport={"width": 1200, "height": 900}, device_scale_factor=2)
+        site.goto(f"http://127.0.0.1:{srv.server_address[1]}/thema/economie.html")
+        site.add_style_tag(content="#bbp_per_inwoner .uitleg, #bbp_per_inwoner .zinnen, #bbp_per_inwoner .technisch, #bbp_per_inwoner .deel { display: none !important; } #bbp_per_inwoner { align-self: start; }")
+        site.locator("#bbp_per_inwoner .tabs button").nth(1).click()
+        site.wait_for_timeout(800)
+        site.locator("#bbp_per_inwoner").screenshot(path=str(scherm))
         site.close()
+        srv.shutdown()
         lijst = dias(d, scherm)
         pg = b.new_page(viewport={"width": 1080, "height": 1350})
         assert len(lijst) == TOTAAL
