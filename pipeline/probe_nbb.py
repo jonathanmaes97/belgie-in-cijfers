@@ -49,5 +49,32 @@ def main() -> None:
     (WORTEL / "reports" / "nbb.md").write_text("\n".join(regels) + "\n", encoding="utf-8")
 
 
+def codes() -> None:
+    """Somt per gekozen dataset alle codes per dimensie op (met hun naam)."""
+    import csv
+    import io
+    s = requests.Session()
+    s.headers["User-Agent"] = "belgie-in-cijfers (bronverkenning; github.com/jonathanmaes97/belgie-in-cijfers)"
+    regels = ["# Nationale Bank: codes per dimensie\n"]
+    for flow in ("DF_CONSN", "DF_BUSSURVM", "DF_UNEMPLOY_RATE", "DF_QNA_DISS"):
+        u = f"{API}/data/BE2,{flow},1.0/all?lastNObservations=1&format=csvfilewithlabels"
+        r = s.get(u, timeout=120)
+        regels.append(f"## {flow}\n- HTTP {r.status_code}\n")
+        if not r.ok:
+            continue
+        lezer = list(csv.reader(io.StringIO(r.text)))
+        kop, rijen = lezer[0], lezer[1:]
+        for i in range(4, len(kop) - 1, 2):
+            if kop[i] in ("TIME_PERIOD", "OBS_VALUE"):
+                continue
+            waarden = sorted({(rij[i], rij[i + 1]) for rij in rijen if len(rij) > i + 1})
+            if len(waarden) > 60:
+                waarden = waarden[:60] + [("…", f"{len(waarden)} waarden")]
+            regels.append(f"- **{kop[i]}**: " + "; ".join(f"`{c}` {n}" for c, n in waarden))
+        regels.append("")
+    (WORTEL / "reports" / "nbb_codes.md").write_text("\n".join(regels) + "\n", encoding="utf-8")
+
+
 if __name__ == "__main__":
     main()
+    codes()
