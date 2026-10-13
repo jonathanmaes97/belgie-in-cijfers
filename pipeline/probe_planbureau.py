@@ -62,5 +62,32 @@ def main() -> None:
     print(pad.read_text(encoding="utf-8")[:4000])
 
 
+def dump_excel() -> None:
+    """Schrijft de structuur van de Excel-bestanden van het Planbureau naar reports/planbureau_excel.md."""
+    import io
+    import openpyxl
+    s = requests.Session()
+    s.headers["User-Agent"] = "belgie-in-cijfers (bronverkenning; github.com/jonathanmaes97/belgie-in-cijfers)"
+    regels = ["# Structuur van de Excel-bestanden van het Planbureau\n"]
+    for url in ("https://www.plan.be/sites/default/files/documents/DATA_FOR_Inflation.xlsx",
+                "https://www.plan.be/sites/default/files/documents/FOR_BE_NL.xlsx"):
+        r = s.get(url, timeout=60)
+        regels.append(f"## {url}\n- HTTP {r.status_code}, {len(r.content)} bytes, Last-Modified: {r.headers.get('Last-Modified')}\n")
+        if not r.ok:
+            continue
+        wb = openpyxl.load_workbook(io.BytesIO(r.content), data_only=True, read_only=True)
+        for ws in wb.worksheets:
+            regels.append(f"### blad `{ws.title}`\n```")
+            for i, rij in enumerate(ws.iter_rows(values_only=True)):
+                if i >= 45:
+                    break
+                cellen = ["" if c is None else str(c)[:28] for c in rij[:16]]
+                if any(cellen):
+                    regels.append(f"{i + 1:>3}: " + " | ".join(cellen))
+            regels.append("```\n")
+    (WORTEL / "reports" / "planbureau_excel.md").write_text("\n".join(regels) + "\n", encoding="utf-8")
+
+
 if __name__ == "__main__":
     main()
+    dump_excel()
