@@ -38,7 +38,9 @@ jobs:
 
       - name: Bronnen verkennen (fase 0)
         continue-on-error: true
-        run: python -m pipeline.probe_sources
+        run: |
+          python -m pipeline.probe_sources
+          python -m pipeline.probe_infrabel
 
       - name: Wijzigingen bewaren
         run: |
