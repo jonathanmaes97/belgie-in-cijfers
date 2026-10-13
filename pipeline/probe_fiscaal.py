@@ -14,15 +14,12 @@ import requests
 
 WORTEL = Path(__file__).resolve().parent.parent
 START = [
-    "https://financien.belgium.be/nl/particulieren/belastingaangifte/belastingtarieven-inkomsten",
-    "https://financien.belgium.be/nl/particulieren/belastingaangifte/belastingtarieven-inkomsten/belastingtarieven",
-    "https://financien.belgium.be/nl/particulieren/belastingaangifte/belastingtarieven-inkomsten/belastingvrije-som",
-    "https://financien.belgium.be/nl/particulieren/belastingaangifte/belastingtarieven-inkomsten/gemeentebelasting",
-    "https://financien.belgium.be/nl/particulieren/belastingaangifte/aangifte/beroepskosten",
-    "https://www.socialsecurity.be/employer/instructions/dmfa/nl/latest/instructions/socialsecuritycontributions/contributions.html",
+    "https://financien.belgium.be/nl",
+    "https://financien.belgium.be/nl/particulieren",
+    "https://financien.belgium.be/nl/particulieren/belastingaangifte",
     "https://www.socialsecurity.be/employer/instructions/dmfa/nl/latest/instructions/deductions/workers_deductions/socialbonus.html",
 ]
-RELEVANT = re.compile(r"belastingtarie|belastingvrije|beroepskosten|gemeentebelasting|aanvullende|opcentiem|werkbonus|bijzondere bijdrage|socialsecuritycontributions|socialbonus|indexering|geindexeerd|geïndexeerd", re.I)
+RELEVANT = re.compile(r"tarie|belastingvrije|beroepskosten|gemeentebelasting|aanvullende|opcentiem|werkbonus|bijzondere-bijdrage|socialbonus|indexering|geindexeerd|belastingaangifte|berekening|particulieren/belasting", re.I)
 
 
 def tekst(html: str) -> str:
@@ -39,7 +36,7 @@ def main() -> None:
     s.headers["User-Agent"] = "belgie-in-cijfers (bronverkenning; github.com/jonathanmaes97/belgie-in-cijfers)"
     uit = ["# Fiscale en sociale parameters: officiële pagina's\n"]
     rij, gezien = list(START), set()
-    while rij and len(gezien) < 18:
+    while rij and len(gezien) < 30:
         url = rij.pop(0)
         if url in gezien:
             continue
@@ -56,10 +53,14 @@ def main() -> None:
             v = urljoin(url, href).split("#")[0]
             if re.search(r"\.(pdf|xlsx?|csv)$", v, re.I):
                 uit.append(f"- BESTAND: {v}")
-            elif RELEVANT.search(v) and v not in gezien and ("financien.belgium.be/nl/particulieren" in v or "socialsecurity.be" in v):
+            elif RELEVANT.search(v) and v not in gezien and "financien.belgium.be/nl/particulieren" in v:
                 rij.append(v)
         uit.append("```")
-        uit.append(tekst(r.text)[:6000])
+        t = tekst(r.text)
+        if "socialsecurity.be" in url:
+            i = t.find("Werkbonus")
+            t = t[i:] if i >= 0 else t
+        uit.append(t[:9000])
         uit.append("```\n")
     (WORTEL / "reports" / "fiscaal.md").write_text("\n".join(uit) + "\n", encoding="utf-8")
 
