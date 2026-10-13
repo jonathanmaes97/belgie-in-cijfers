@@ -1,0 +1,504 @@
+{
+ "inflatie": {
+  "jaren": [
+   {
+    "jaar": 2026,
+    "cpi": 103.68916666666668,
+    "inflatie": 3.6908948482474724,
+    "gezondheidsindex": 103.30583333333333,
+    "gezondheid_groei": 3.296364499920834
+   },
+   {
+    "jaar": 2027,
+    "cpi": 107.55250000000001,
+    "inflatie": 3.7258794313131283,
+    "gezondheidsindex": 107.2475,
+    "gezondheid_groei": 3.8155315527519607
+   }
+  ],
+  "maanden": [
+   {
+    "maand": "2026-01",
+    "cpi": 101.17,
+    "inflatie": 1.1,
+    "gezondheidsindex": 101.33,
+    "gezondheid_groei": 1.37,
+    "afgevlakt": 98.73,
+    "spilindex": 100.28,
+    "vooruitzicht": false
+   },
+   {
+    "maand": "2026-02",
+    "cpi": 101.72,
+    "inflatie": 1.45,
+    "gezondheidsindex": 101.84,
+    "gezondheid_groei": 1.68,
+    "afgevlakt": 99.14,
+    "spilindex": 100.28,
+    "vooruitzicht": false
+   },
+   {
+    "maand": "2026-03",
+    "cpi": 101.84,
+    "inflatie": 1.65,
+    "gezondheidsindex": 101.63,
+    "gezondheid_groei": 1.38,
+    "afgevlakt": 99.38,
+    "spilindex": 100.28,
+    "vooruitzicht": false
+   },
+   {
+    "maand": "2026-04",
+    "cpi": 103.34,
+    "inflatie": 4.01,
+    "gezondheidsindex": 102.77,
+    "gezondheid_groei": 3.38,
+    "afgevlakt": 99.85,
+    "spilindex": 100.28,
+    "vooruitzicht": false
+   },
+   {
+    "maand": "2026-05",
+    "cpi": 103.26,
+    "inflatie": 4.08,
+    "gezondheidsindex": 102.69,
+    "gezondheid_groei": 3.48,
+    "afgevlakt": 100.19,
+    "spilindex": 100.28,
+    "vooruitzicht": false
+   },
+   {
+    "maand": "2026-06",
+    "cpi": 102.95,
+    "inflatie": 3.4,
+    "gezondheidsindex": 102.59,
+    "gezondheid_groei": 2.99,
+    "afgevlakt": 100.37,
+    "spilindex": 100.28,
+    "vooruitzicht": false
+   },
+   {
+    "maand": "2026-07",
+    "cpi": 103.6,
+    "inflatie": 3.56,
+    "gezondheidsindex": 103.24,
+    "gezondheid_groei": 3.22,
+    "afgevlakt": 100.77,
+    "spilindex": 102.29,
+    "vooruitzicht": false
+   },
+   {
+    "maand": "2026-08",
+    "cpi": 104.01,
+    "inflatie": 3.97,
+    "gezondheidsindex": 103.49,
+    "gezondheid_groei": 3.44,
+    "afgevlakt": 100.94,
+    "spilindex": 102.29,
+    "vooruitzicht": false
+   },
+   {
+    "maand": "2026-09",
+    "cpi": 104.42,
+    "inflatie": 4.69,
+    "gezondheidsindex": 103.76,
+    "gezondheid_groei": 4.0,
+    "afgevlakt": 101.2,
+    "spilindex": 102.29,
+    "vooruitzicht": false
+   },
+   {
+    "maand": "2026-10",
+    "cpi": 105.58,
+    "inflatie": 5.47,
+    "gezondheidsindex": 104.94,
+    "gezondheid_groei": 4.79,
+    "afgevlakt": 101.78,
+    "spilindex": 102.29,
+    "vooruitzicht": true
+   },
+   {
+    "maand": "2026-11",
+    "cpi": 106.1,
+    "inflatie": 5.39,
+    "gezondheidsindex": 105.55,
+    "gezondheid_groei": 4.84,
+    "afgevlakt": 102.35,
+    "spilindex": 102.29,
+    "vooruitzicht": true
+   },
+   {
+    "maand": "2026-12",
+    "cpi": 106.28,
+    "inflatie": 5.51,
+    "gezondheidsindex": 105.84,
+    "gezondheid_groei": 4.98,
+    "afgevlakt": 102.92,
+    "spilindex": 104.34,
+    "vooruitzicht": true
+   },
+   {
+    "maand": "2027-01",
+    "cpi": 106.91,
+    "inflatie": 5.67,
+    "gezondheidsindex": 106.47,
+    "gezondheid_groei": 5.07,
+    "afgevlakt": 103.59,
+    "spilindex": 104.34,
+    "vooruitzicht": true
+   },
+   {
+    "maand": "2027-02",
+    "cpi": 107.21,
+    "inflatie": 5.4,
+    "gezondheidsindex": 106.8,
+    "gezondheid_groei": 4.87,
+    "afgevlakt": 104.04,
+    "spilindex": 104.34,
+    "vooruitzicht": true
+   },
+   {
+    "maand": "2027-03",
+    "cpi": 107.06,
+    "inflatie": 5.13,
+    "gezondheidsindex": 106.73,
+    "gezondheid_groei": 5.02,
+    "afgevlakt": 104.33,
+    "spilindex": 104.34,
+    "vooruitzicht": true
+   },
+   {
+    "maand": "2027-04",
+    "cpi": 107.18,
+    "inflatie": 3.72,
+    "gezondheidsindex": 106.84,
+    "gezondheid_groei": 3.96,
+    "afgevlakt": 104.58,
+    "spilindex": 104.34,
+    "vooruitzicht": true
+   },
+   {
+    "maand": "2027-05",
+    "cpi": 107.31,
+    "inflatie": 3.92,
+    "gezondheidsindex": 106.97,
+    "gezondheid_groei": 4.17,
+    "afgevlakt": 104.7,
+    "spilindex": 106.43,
+    "vooruitzicht": true
+   },
+   {
+    "maand": "2027-06",
+    "cpi": 107.17,
+    "inflatie": 4.1,
+    "gezondheidsindex": 106.84,
+    "gezondheid_groei": 4.14,
+    "afgevlakt": 104.71,
+    "spilindex": 106.43,
+    "vooruitzicht": true
+   },
+   {
+    "maand": "2027-07",
+    "cpi": 107.64,
+    "inflatie": 3.9,
+    "gezondheidsindex": 107.36,
+    "gezondheid_groei": 3.99,
+    "afgevlakt": 104.86,
+    "spilindex": 106.43,
+    "vooruitzicht": true
+   },
+   {
+    "maand": "2027-08",
+    "cpi": 107.54,
+    "inflatie": 3.39,
+    "gezondheidsindex": 107.25,
+    "gezondheid_groei": 3.63,
+    "afgevlakt": 104.96,
+    "spilindex": 106.43,
+    "vooruitzicht": true
+   },
+   {
+    "maand": "2027-09",
+    "cpi": 107.43,
+    "inflatie": 2.88,
+    "gezondheidsindex": 107.21,
+    "gezondheid_groei": 3.32,
+    "afgevlakt": 105.02,
+    "spilindex": 106.43,
+    "vooruitzicht": true
+   },
+   {
+    "maand": "2027-10",
+    "cpi": 108.01,
+    "inflatie": 2.3,
+    "gezondheidsindex": 107.74,
+    "gezondheid_groei": 2.67,
+    "afgevlakt": 105.24,
+    "spilindex": 106.43,
+    "vooruitzicht": true
+   },
+   {
+    "maand": "2027-11",
+    "cpi": 108.49,
+    "inflatie": 2.25,
+    "gezondheidsindex": 108.27,
+    "gezondheid_groei": 2.58,
+    "afgevlakt": 105.47,
+    "spilindex": 106.43,
+    "vooruitzicht": true
+   },
+   {
+    "maand": "2027-12",
+    "cpi": 108.68,
+    "inflatie": 2.26,
+    "gezondheidsindex": 108.49,
+    "gezondheid_groei": 2.5,
+    "afgevlakt": 105.77,
+    "spilindex": 106.43,
+    "vooruitzicht": true
+   }
+  ],
+  "overschrijdingen": [
+   {
+    "maand": "2026-06",
+    "vooruitzicht": false,
+    "spilindex": 100.28
+   },
+   {
+    "maand": "2026-11",
+    "vooruitzicht": true,
+    "spilindex": 102.29
+   },
+   {
+    "maand": "2027-04",
+    "vooruitzicht": true,
+    "spilindex": 104.34
+   }
+  ],
+  "laatste_gemeten": "2026-09",
+  "kleur_uit_bestand": true,
+  "gepubliceerd": "2026-10-06",
+  "bron": "https://www.plan.be/sites/default/files/documents/DATA_FOR_Inflation.xlsx",
+  "pagina": "https://www.plan.be/nl/data/indexcijfer-der-consumptieprijzen"
+ },
+ "consensus": {
+  "jaren": [
+   2026,
+   2027
+  ],
+  "instellingen": [
+   {
+    "naam": "Federaal Planbureau",
+    "groei": [
+     0.7,
+     1.0
+    ],
+    "inflatie": [
+     3.4,
+     2.9
+    ],
+    "saldo": [
+     -5.1,
+     -5.2
+    ],
+    "update": "2026-06"
+   },
+   {
+    "naam": "Nationale Bank van België",
+    "groei": [
+     0.6,
+     1.1
+    ],
+    "inflatie": [
+     3.4,
+     2.3
+    ],
+    "saldo": [
+     -5.3,
+     -5.5
+    ],
+    "update": "2026-06"
+   },
+   {
+    "naam": "Europese Commissie",
+    "groei": [
+     0.7,
+     0.9
+    ],
+    "inflatie": [
+     3.4,
+     2.6
+    ],
+    "saldo": [
+     -5.2,
+     -5.4
+    ],
+    "update": "2026-05"
+   },
+   {
+    "naam": "OESO",
+    "groei": [
+     0.7,
+     1.1
+    ],
+    "inflatie": [
+     3.5,
+     2.6
+    ],
+    "saldo": [
+     -5.2,
+     -5.1
+    ],
+    "update": "2026-06"
+   },
+   {
+    "naam": "IMF",
+    "groei": [
+     0.7,
+     1.1
+    ],
+    "inflatie": [
+     2.8,
+     2.2
+    ],
+    "saldo": [
+     -5.1,
+     -5.2
+    ],
+    "update": "2026-04"
+   },
+   {
+    "naam": "ING",
+    "groei": [
+     0.6,
+     1.2
+    ],
+    "inflatie": [
+     3.4,
+     2.9
+    ],
+    "saldo": [
+     null,
+     null
+    ],
+    "update": "2026-09"
+   },
+   {
+    "naam": "BNP Paribas Fortis",
+    "groei": [
+     0.6,
+     1.0
+    ],
+    "inflatie": [
+     3.3,
+     2.1
+    ],
+    "saldo": [
+     -5.5,
+     -5.5
+    ],
+    "update": "2026-09"
+   },
+   {
+    "naam": "KBC",
+    "groei": [
+     0.6,
+     0.9
+    ],
+    "inflatie": [
+     3.2,
+     2.7
+    ],
+    "saldo": [
+     -5.5,
+     -5.4
+    ],
+    "update": "2026-09"
+   },
+   {
+    "naam": "Oxford Economics",
+    "groei": [
+     0.6,
+     1.0
+    ],
+    "inflatie": [
+     3.4,
+     2.4
+    ],
+    "saldo": [
+     -4.9,
+     -4.5
+    ],
+    "update": "2026-09"
+   },
+   {
+    "naam": "IRES",
+    "groei": [
+     0.7,
+     1.1
+    ],
+    "inflatie": [
+     2.9,
+     2.5
+    ],
+    "saldo": [
+     -5.0,
+     -4.9
+    ],
+    "update": "2026-04"
+   },
+   {
+    "naam": "Belgian Prime News",
+    "groei": [
+     0.6,
+     1.1
+    ],
+    "inflatie": [
+     3.4,
+     2.5
+    ],
+    "saldo": [
+     -5.3,
+     -5.2
+    ],
+    "update": "2026-07"
+   },
+   {
+    "naam": "Consensus Economics",
+    "groei": [
+     0.7,
+     1.0
+    ],
+    "inflatie": [
+     3.4,
+     2.6
+    ],
+    "saldo": [
+     null,
+     null
+    ],
+    "update": "2026-09"
+   },
+   {
+    "naam": "Consensus Wirtschaftsinstitute",
+    "groei": [
+     0.8,
+     1.3
+    ],
+    "inflatie": [
+     3.2,
+     3.7
+    ],
+    "saldo": [
+     null,
+     null
+    ],
+    "update": "2026-03"
+   }
+  ],
+  "gepubliceerd": "2026-09-22",
+  "bron": "https://www.plan.be/sites/default/files/documents/FOR_BE_NL.xlsx",
+  "pagina": "https://www.plan.be/nl/data/vooruitzichten-van-verschillende-instellingen-voor"
+ },
+ "opgehaald": "2026-10-13T14:44:58+00:00"
+}
