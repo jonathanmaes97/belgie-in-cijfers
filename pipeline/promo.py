@@ -58,12 +58,17 @@ h1.groot {{ font-size: 104px; margin-top: 110px; }}
 .kern div {{ padding: 30px 28px; border-right: 2px solid #e1e4e8; display: flex; flex-direction: column; gap: 8px; }}
 .kern div:last-child {{ border-right: 0; }}
 .kern b {{ font-size: 50px; letter-spacing: -.03em; }} .kern span {{ font-size: 24px; color: #6b737b; }}
-.rij.klein {{ font-size: 32px; padding: 11px 0; }}
+.rij.klein {{ font-size: 31px; padding: 9px 0; }}
 .invoer {{ display: flex; justify-content: space-between; align-items: center; margin-top: 32px; padding: 30px 36px; border: 3px solid #1a1f24; border-radius: 22px; background: #fff; font-size: 34px; color: #5b636b; }}
 .invoer b {{ font-size: 60px; color: #1a1f24; letter-spacing: -.02em; }}
 .maker {{ display: inline-flex; align-items: center; gap: 18px; font-size: 25px; line-height: 1.3; }}
 .maker b {{ color: #1a1f24; font-size: 29px; }}
 .maker img {{ width: 84px; height: 84px; border-radius: 50%; object-fit: cover; }}
+.scherm {{ margin-top: 54px; border-radius: 18px; overflow: hidden; border: 2px solid #dfe3e7; box-shadow: 0 24px 60px rgba(20,30,45,.16); background: #fff; }}
+.scherm-balk {{ display: flex; align-items: center; gap: 9px; height: 46px; padding: 0 20px; background: #eef0f3; border-bottom: 2px solid #dfe3e7; }}
+.scherm-balk i {{ width: 13px; height: 13px; border-radius: 50%; background: #c9ced4; }}
+.scherm-balk span {{ margin-left: 18px; font-size: 20px; color: #6b737b; }}
+.scherm img {{ display: block; width: 100%; }}
 .cta {{ display: inline-block; margin-top: 70px; padding: 28px 44px; border-radius: 18px; background: #1a1f24; color: #fff; font-size: 40px; font-weight: 600; }}
 </style></head><body style="--k:{kleur}"><div class="raster"></div><div class="gloed"></div><div class="gloed2"></div>
 <div class="binnen">
@@ -87,7 +92,7 @@ def rekenvoorbeeld(maandloon: float) -> dict:
     return json.loads(subprocess.run(["node", "-e", code], capture_output=True, text=True, check=True).stdout)
 
 
-def dias(d: dict) -> list[tuple[str, str]]:
+def dias(d: dict, scherm: Path | None = None) -> list[tuple[str, str]]:
     bs.zet_taal("nl")
     p = {i["id"]: i for i in d["indicatoren"]}
     teller = iter(range(1, 100))
@@ -145,12 +150,14 @@ def dias(d: dict) -> list[tuple[str, str]]:
     waarheen = "".join(
         f'<div class="rij klein"><span class="stip" style="background:{kleuren[i % len(kleuren)]}"></span><span>{escape(naam)}</span><b>{eur(rk["totaal"] * u["aandelen"][code]["BE"][ju] / 100)}</b></div>'
         for i, (code, naam) in enumerate(posten))
+    rest = rk["totaal"] * (1 - sum(u["aandelen"][code]["BE"][ju] for code, _ in posten) / 100)
+    waarheen += f'<div class="rij klein" style="color:#6b737b"><span class="stip" style="background:#c9ced4"></span><span>Al de rest (andere uitkeringen, economie …)</span><b>{eur(rest)}</b></div>'
     gem = json.loads((SITE / "data" / "fiscaal-2026.json").read_text(encoding="utf-8"))["gemeentebelasting"]["voorbeeld_percentage"]
     uit.append(("rekenmodule", dia(
         f'<p class="label">Rekenmodule</p><h1 style="font-size:56px">Vul je brutoloon in en zie waar je bijdrage naartoe gaat.</h1>'
         f'<div class="invoer"><span>Brutoloon per maand</span><b>{eur(loon)}</b></div>'
         f'<p class="sub" style="font-size:30px;margin-top:28px">Je betaalt <b style="color:#1a1f24">{pct(rk["druk"] * 100, 1)}</b> aan sociale bijdragen en belastingen: '
-        f'{eur(rk["totaal"])} per jaar. Daarvan gaat, verdeeld zoals alle overheidsuitgaven, naar:</p>'
+        f'{eur(rk["totaal"])} per jaar. Verdeeld zoals alle overheidsuitgaven gaat dat naar:</p>'
         f'<div class="inhoud" style="margin-top:20px">{waarheen}</div>',
         f"Voorbeeld: bediende, alleenstaand, met vakantiegeld en eindejaarspremie, gemeentebelasting {pct(gem, 0)}. Tarieven 2026.",
         volgende(), TOTAAL, THEMA_KLEUR["overheidsfinancien"])))
@@ -215,9 +222,9 @@ def dias(d: dict) -> list[tuple[str, str]]:
 
     # 9. afsluiter
     uit.append(("08-afsluiter", dia(
-        '<h1 class="groot" style="font-size:88px">Zoek het zelf op.</h1>'
+        '<h1 class="groot" style="font-size:88px;margin-top:80px">Zoek het zelf op.</h1>'
         '<p class="sub">Elk cijfer met een link naar de bron. Een rekenmodule voor je eigen belastingen. Vlaanderen, Wallonië en Brussel naast elkaar. Geen mening, geen reclame, geen cookies.</p>'
-        f'<span class="cta">{DOMEIN}</span>',
+        + (f'<div class="scherm"><div class="scherm-balk"><i></i><i></i><i></i><span>{DOMEIN}</span></div><img src="{scherm.resolve().as_uri()}" alt=""></div>' if scherm else f'<span class="cta">{DOMEIN}</span>'),
         f'<span class="maker"><img src="{(SITE / "img" / "jonathan-maes@2x.jpg").resolve().as_uri()}" alt=""><span>Een onafhankelijk project van<br><b>Jonathan Maes</b></span></span>',
         volgende(), TOTAAL)))
     return uit
@@ -228,10 +235,16 @@ def main() -> None:
     doel = Path(sys.argv[1] if len(sys.argv) > 1 else "promo")
     doel.mkdir(parents=True, exist_ok=True)
     d = json.loads((SITE / "data" / "dashboard.json").read_text(encoding="utf-8"))
-    lijst = dias(d)
     pngs = []
     with sync_playwright() as pw:
         b = pw.chromium.launch()
+        scherm = doel / "_scherm.png"
+        site = b.new_page(viewport={"width": 1440, "height": 830}, device_scale_factor=2)
+        site.goto((SITE / "index.html").resolve().as_uri())
+        site.wait_for_timeout(600)
+        site.screenshot(path=str(scherm))
+        site.close()
+        lijst = dias(d, scherm)
         pg = b.new_page(viewport={"width": 1080, "height": 1350})
         assert len(lijst) == TOTAAL
         for nr, (naam, inhoud) in enumerate(lijst, 1):
@@ -245,6 +258,7 @@ def main() -> None:
             pngs.append(png)
             html.unlink()
         b.close()
+    scherm.unlink()
     # carrousel als PDF (LinkedIn "document"), één dia per pagina
     from PIL import Image
     beelden = [Image.open(x).convert("RGB") for x in pngs]
