@@ -1071,6 +1071,66 @@ t:
     fr: "Vérifier vous-même chez Eurostat"
     de: "Selbst bei Eurostat prüfen"
     en: "Check it yourself at Eurostat"
+  ink_label:
+    nl: "Belastingen per economische functie"
+    fr: "Impôts par fonction économique"
+    de: "Steuern nach wirtschaftlicher Funktion"
+    en: "Taxes by economic function"
+  ink_titel:
+    nl: "Waar komen onze belastingen vandaan?"
+    fr: "D'où viennent nos impôts ?"
+    de: "Woher kommen unsere Steuern?"
+    en: "Where do our taxes come from?"
+  ink_intro:
+    nl: "Van elke 100 euro aan belastingen en sociale bijdragen die alle Belgische overheden samen in {jaar} ontvingen, kwam zoveel uit elk soort inkomen of uitgave."
+    fr: "Sur chaque tranche de 100 euros d'impôts et de cotisations sociales perçus par l'ensemble des pouvoirs publics belges en {jaar}, voici ce qui provenait de chaque type de revenu ou de dépense."
+    de: "Von jeden 100 Euro an Steuern und Sozialbeiträgen, die alle belgischen Behörden zusammen {jaar} eingenommen haben, kam so viel aus jeder Art von Einkommen oder Ausgabe."
+    en: "Of every 100 euros in taxes and social contributions that all Belgian governments together received in {jaar}, this is how much came from each kind of income or spending."
+  ink_aria:
+    nl: "Verdeling van 100 euro belastingen"
+    fr: "Répartition de 100 euros d'impôts"
+    de: "Aufteilung von 100 Euro Steuern"
+    en: "Breakdown of 100 euros in taxes"
+  ink_soort:
+    nl: "Belast op"
+    fr: "Imposé sur"
+    de: "Besteuert auf"
+    en: "Taxed on"
+  ink_voet:
+    nl: "Gemiddeld belast aan"
+    fr: "Taux moyen d'imposition"
+    de: "Durchschnittlich besteuert mit"
+    en: "Average tax rate"
+  ink_voet_eu:
+    nl: "EU: {waarde}"
+    fr: "UE : {waarde}"
+    de: "EU: {waarde}"
+    en: "EU: {waarde}"
+  ink_uitleg:
+    nl: "\"Gemiddeld belast aan\" is de impliciete belastingvoet van de Europese Commissie: alle belastingen op arbeid gedeeld door het totale inkomen uit arbeid, en zo ook voor consumptie en kapitaal. Het is een gemiddelde over het hele land, geen tarief dat één persoon betaalt. De inkomsten van zelfstandigen tellen grotendeels mee bij kapitaal."
+    fr: "« Taux moyen d'imposition » est le taux implicite d'imposition de la Commission européenne : l'ensemble des impôts sur le travail divisé par le revenu total du travail, et de même pour la consommation et le capital. C'est une moyenne pour tout le pays, pas un taux payé par une personne. Les revenus des indépendants sont en grande partie comptés dans le capital."
+    de: "„Durchschnittlich besteuert mit“ ist der implizite Steuersatz der Europäischen Kommission: alle Steuern auf Arbeit geteilt durch das gesamte Arbeitseinkommen, ebenso für Konsum und Kapital. Es ist ein Durchschnitt für das ganze Land, kein Satz, den eine einzelne Person zahlt. Die Einkommen von Selbstständigen zählen größtenteils zum Kapital."
+    en: "\"Average tax rate\" is the European Commission's implicit tax rate: all taxes on labour divided by total income from labour, and likewise for consumption and capital. It is an average for the whole country, not a rate that one person pays. Income of the self-employed is mostly counted under capital."
+  ink_bron:
+    nl: "Europese Commissie, Data on Taxation Trends"
+    fr: "Commission européenne, Data on Taxation Trends"
+    de: "Europäische Kommission, Data on Taxation Trends"
+    en: "European Commission, Data on Taxation Trends"
+  ink_per_inwoner_noot:
+    nl: "Per inwoner: het bedrag in miljoen euro gedeeld door het aantal inwoners op 1 januari {jaar} (Eurostat)."
+    fr: "Par habitant : le montant en millions d'euros divisé par le nombre d'habitants au 1er janvier {jaar} (Eurostat)."
+    de: "Pro Einwohner: der Betrag in Millionen Euro geteilt durch die Zahl der Einwohner am 1. Januar {jaar} (Eurostat)."
+    en: "Per inhabitant: the amount in millions of euros divided by the number of inhabitants on 1 January {jaar} (Eurostat)."
+  ink_toon_controle:
+    nl: "Zelf controleren bij de Europese Commissie"
+    fr: "Vérifier vous-même auprès de la Commission européenne"
+    de: "Selbst bei der Europäischen Kommission prüfen"
+    en: "Check it yourself at the European Commission"
+  zoek_index_inkomsten:
+    nl: "Waar komen onze belastingen vandaan?"
+    fr: "D'où viennent nos impôts ?"
+    de: "Woher kommen unsere Steuern?"
+    en: "Where do our taxes come from?"
 # Teksten die JavaScript gebruikt (grafieken, zoeken, delen, rekenmodule)
 js:
   lopend_jaar:

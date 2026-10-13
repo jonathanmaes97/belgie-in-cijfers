@@ -493,3 +493,4 @@ small.cofog a { color: inherit; }
 /* weekprijs als gewone kaart in het raster */
 .kaart-raster .week-kaart { align-self: start; }
 .controle-knop { width: fit-content; }
+.inkomsten td small { display: block; color: var(--gedempt); font-size: .78rem; font-weight: 400; }

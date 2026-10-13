@@ -38,14 +38,14 @@ class Resultaat:
     labels: dict = field(default_factory=dict)
 
 
-def bouw_url(dataset: str, filters: dict, landen: list[str], vanaf_jaar: int) -> str:
+def bouw_url(dataset: str, filters: dict, landen: list[str], vanaf_jaar: int, api: str = API) -> str:
     params: list[tuple[str, str]] = [("lang", "EN"), ("sinceTimePeriod", str(vanaf_jaar))]
     for sleutel, waarde in filters.items():
         for w in (waarde if isinstance(waarde, list) else [waarde]):
             params.append((sleutel, str(w)))
     for land in landen:
         params.append(("geo", land))
-    return API + dataset + "?" + urlencode(params)
+    return api + dataset + "?" + urlencode(params)
 
 
 def databrowser_url(dataset: str) -> str:
@@ -62,12 +62,15 @@ def ontleed(antwoord: dict) -> Resultaat:
     if "error" in antwoord:
         raise BronFout(f"Eurostat gaf een fout: {antwoord['error']}")
     ids: list[str] = antwoord["id"]
+    # dezelfde API bij DG TAXUD (REDISSTAT) noemt de dimensies GEO en TIME_PERIOD
+    GEO = next(d for d in ids if d.lower() == "geo")
+    TIJD = next(d for d in ids if d.lower() in ("time", "time_period"))
     groottes: list[int] = antwoord["size"]
     dims = antwoord["dimension"]
 
     te_veel = []
     for dim, grootte in zip(ids, groottes):
-        if dim in ("geo", "time"):
+        if dim in (GEO, TIJD):
             continue
         if grootte != 1:
             codes = list(dims[dim]["category"]["index"].keys())
@@ -82,9 +85,9 @@ def ontleed(antwoord: dict) -> Resultaat:
             lijst[i] = code
         return lijst
 
-    geo_codes = codes_per_index("geo")
-    tijd_codes = codes_per_index("time")
-    pos_geo, pos_tijd = ids.index("geo"), ids.index("time")
+    geo_codes = codes_per_index(GEO)
+    tijd_codes = codes_per_index(TIJD)
+    pos_geo, pos_tijd = ids.index(GEO), ids.index(TIJD)
 
     # stappen (strides) per dimensie in de platte waardenlijst
     stappen = [1] * len(groottes)
@@ -115,7 +118,7 @@ def ontleed(antwoord: dict) -> Resultaat:
     # officiële naam van de gekozen waarde per dimensie (bv. cofog99 → "Social protection"), om bij de bron terug te vinden
     labels = {}
     for dim in ids:
-        if dim in ("geo", "time"):
+        if dim in (GEO, TIJD):
             continue
         cat = dims[dim]["category"]
         code = next(iter(cat["index"]))
@@ -142,11 +145,12 @@ def _jaargemiddelde_van_semesters(uit: list[Waarneming]) -> list[Waarneming]:
     return nieuw
 
 
-def haal_op(dataset: str, filters: dict, landen: list[str], vanaf_jaar: int, sessie: requests.Session | None = None) -> Resultaat:
+def haal_op(dataset: str, filters: dict, landen: list[str], vanaf_jaar: int, sessie: requests.Session | None = None,
+            api: str = API) -> Resultaat:
     """Haalt één reeks op bij Eurostat, met wachttijd en beperkte herhaalpogingen."""
     global _laatste_aanvraag
     sessie = sessie or requests.Session()
-    url = bouw_url(dataset, filters, landen, vanaf_jaar)
+    url = bouw_url(dataset, filters, landen, vanaf_jaar, api)
     laatste_fout = ""
     for poging in range(4):
         wacht = WACHTTIJD_SEC - (time.monotonic() - _laatste_aanvraag)

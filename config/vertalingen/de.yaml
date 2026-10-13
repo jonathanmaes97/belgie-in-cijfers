@@ -709,3 +709,13 @@ niet_meegerekend:
 - Die steuerliche Situation eines Partners (bei gemeinsamer Erklärung)
 - Mahlzeitschecks, ein Firmenwagen und andere außergesetzliche Vorteile
 - 'Arbeiter: Ihr Urlaubsgeld und ihre LSS-Beiträge werden anders berechnet; diese Version rechnet für Angestellte'
+inkomsten:
+  LAB:
+    nl: Arbeit
+    uitleg: Einkommensteuer auf Löhne und Leistungen, Sozialbeiträge von Arbeitnehmern und Arbeitgebern
+  C:
+    nl: Konsum
+    uitleg: Mehrwertsteuer, Verbrauchsteuern auf Kraftstoff, Tabak und Alkohol, andere Steuern auf das, was wir kaufen
+  CAP:
+    nl: Kapital
+    uitleg: Körperschaftsteuer, Steuern auf Zinsen, Dividenden und Mieten, auf Gewinne von Selbstständigen, Immobiliensteuer und Erbschaftsteuer

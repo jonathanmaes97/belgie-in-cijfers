@@ -705,3 +705,13 @@ niet_meegerekend:
 - La situation fiscale d'un partenaire (en cas de déclaration commune)
 - Les chèques-repas, une voiture de société et d'autres avantages extralégaux
 - 'Les ouvriers : leur pécule de vacances et leurs cotisations ONSS sont calculés autrement ; cette version calcule pour les employés'
+inkomsten:
+  LAB:
+    nl: Travail
+    uitleg: impôt des personnes physiques sur les salaires et allocations, cotisations sociales des travailleurs et des employeurs
+  C:
+    nl: Consommation
+    uitleg: TVA, accises sur le carburant, le tabac et l'alcool, autres taxes sur ce que nous achetons
+  CAP:
+    nl: Capital
+    uitleg: impôt des sociétés, impôts sur les intérêts, dividendes et loyers, sur les bénéfices des indépendants, précompte immobilier et droits de succession

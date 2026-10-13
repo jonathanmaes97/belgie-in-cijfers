@@ -708,3 +708,13 @@ niet_meegerekend:
 - A partner's tax situation (in a joint tax return)
 - Meal vouchers, a company car and other fringe benefits
 - 'Blue-collar workers: their holiday pay and social security contributions are calculated differently; this version calculates for white-collar employees'
+inkomsten:
+  LAB:
+    nl: Labour
+    uitleg: personal income tax on wages and benefits, social contributions of employees and employers
+  C:
+    nl: Consumption
+    uitleg: VAT, excise duties on fuel, tobacco and alcohol, other taxes on what we buy
+  CAP:
+    nl: Capital
+    uitleg: corporate income tax, taxes on interest, dividends and rent, on profits of the self-employed, property tax and inheritance tax

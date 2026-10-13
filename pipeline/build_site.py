@@ -290,6 +290,9 @@ def vertaal(data: dict, taal: str) -> dict:
     if d.get("uitgaven"):
         for f in d["uitgaven"]["functies"] + d["uitgaven"]["details"]:
             f.update((v.get("uitgaven") or {}).get(f["code"]) or {})
+    if d.get("inkomsten"):
+        for f in d["inkomsten"]["functies"]:
+            f.update((v.get("inkomsten") or {}).get(f["code"]) or {})
     for blok in ("snel", "olie"):
         for r in (d.get(blok) or {}).get("reeksen", []):
             w = (v.get("snel") or {}).get(r["id"]) or {}
@@ -568,6 +571,9 @@ def startpagina(data: dict, per_id: dict) -> str:
     zoekindex.append({"v": T("zoek_index_uitgaven"), "t": T("uit_label"), "th": themanaam.get("overheidsfinancien", ""),
                       "z": "belastinggeld uitgaven pensioenen defensie onderwijs zorg begroting dépenses pensions défense "
                            "Ausgaben Renten Verteidigung spending pensions defence", "u": "thema/overheidsfinancien.html#belastinggeld"})
+    zoekindex.append({"v": T("zoek_index_inkomsten"), "t": T("ink_label"), "th": themanaam.get("overheidsfinancien", ""),
+                      "z": "belastingen arbeid consumptie kapitaal vermogen btw vennootschapsbelasting lasten op arbeid impliciete belastingvoet "
+                           "impôts travail capital consommation Steuern Arbeit Kapital Konsum taxes labour capital consumption", "u": "thema/overheidsfinancien.html#belastingen-per-soort"})
     zoekindex.append({"v": T("zoek_index_vz"), "t": T("vz_label"), "th": themanaam.get("economie", ""),
                       "z": "index indexering spilindex inflatie vooruitzicht planbureau loon uitkering indexation indice-pivot prévision "
                            "Indexierung Schwellenindex Prognose indexation pivot forecast", "u": "thema/economie.html#inflatie-en-index"})
@@ -714,6 +720,54 @@ def uitgavenblok(data: dict, per_id: dict) -> str:
 </section>'''
 
 
+def eu_voet(v) -> str:
+    return f'<small>{T("ink_voet_eu", waarde=pct(v, 1))}</small>' if v is not None else ""
+
+
+INKOMSTEN_KLEUREN = {"LAB": "#2a78d6", "C": "#eda100", "CAP": "#1baf7a"}
+
+
+def inkomstenblok(data: dict, per_id: dict) -> str:
+    """Waar komen onze belastingen vandaan? Arbeid, consumptie en kapitaal (Europese Commissie, Taxation Trends)."""
+    u = data.get("inkomsten")
+    if not u:
+        return ""
+    jaar = str(u["jaar"])
+    deel = lambda code, geo="BE": (u["aandelen"].get(code, {}).get(geo) or {}).get(jaar)
+    voet = lambda code, geo="BE": (u["impliciete_voet"].get(code, {}).get(geo) or {}).get(jaar)
+    bev = waarde_in(per_id["bevolking"], "BE", int(jaar)) if "bevolking" in per_id else None
+    balk = "".join(f'<i style="width:{deel(f["code"]) or 0:.2f}%;background:{INKOMSTEN_KLEUREN[f["code"]]}" title="{escape(f["nl"])}: {pct(deel(f["code"]) or 0, 1)}"></i>'
+                   for f in u["functies"])
+    rijen = []
+    for f in u["functies"]:
+        c = f["code"]
+        mio = (u["miljoen_euro"].get(c) or {}).get(jaar)
+        v, veu = voet(c), voet(c, "EU27_2020")
+        controle = (f'<small class="cofog">{escape(c)} “{escape(f.get("officieel", ""))}” · <a href="{escape(f["api_url"])}" rel="noopener">{T("uit_controleer")}</a>'
+                    f' · <a href="{escape(f["itr_url"])}" rel="noopener">{T("ink_voet").lower()}</a></small>')
+        rijen.append(
+            f'<tr><th scope="row"><span class="stip" style="background:{INKOMSTEN_KLEUREN[c]}"></span>{escape(f["nl"])}<small>{escape(f["uitleg"])}</small>{controle}</th>'
+            f'<td>{eur(deel(c), 1) if deel(c) is not None else "—"}</td>'
+            f'<td>{eur(mio * 1e6 / bev) if mio and bev else "—"}</td>'
+            f'<td>{pct(deel(c, "EU27_2020"), 1) if deel(c, "EU27_2020") is not None else "—"}</td>'
+            f'<td><b>{pct(v, 1) if v is not None else "—"}</b>{eu_voet(veu)}</td></tr>')
+    b = u["bron"]
+    return f'''
+<section class="vz kaart uitgaven inkomsten" id="belastingen-per-soort">
+  <header><p class="label">{T("ink_label")}</p><h3>{T("ink_titel")}</h3></header>
+  <p class="intro-klein">{T("ink_intro", jaar=jaar)}</p>
+  <button type="button" class="controle-knop js" aria-pressed="false" data-controle>{icoon("bron")}<span>{T("ink_toon_controle")}</span></button>
+  <div class="honderd" role="img" aria-label="{T("ink_aria")}">{balk}</div>
+  <div class="uitgaven-doos"><table>
+    <thead><tr><th scope="col">{T("ink_soort")}</th><th scope="col">{T("uit_per_100")}</th><th scope="col">{T("uit_per_inwoner")}</th><th scope="col">{escape(landnaam(data, "EU27_2020"))}</th><th scope="col">{T("ink_voet")}</th></tr></thead>
+    <tbody>{"".join(rijen)}</tbody>
+  </table></div>
+  <p class="uitleg">{icoon("info")}<span>{T("ink_uitleg")}</span></p>
+  <p class="bron-klein">{T("ink_per_inwoner_noot", jaar=jaar)}</p>
+  <footer class="bron">{icoon("bron")}<span>{T("bron")}: <a href="{escape(b["pagina"])}" rel="noopener">{T("ink_bron")}</a> · <a href="{escape(b["url"])}" rel="noopener">REDISSTAT</a> · {T("opgehaald")} {datum(u.get("opgehaald"))}</span></footer>
+</section>'''
+
+
 def officieel(f: dict) -> str:
     """Code en officiële Eurostat-naam van een uitgavenfunctie, met een link naar de exacte bevraging."""
     if not f.get("officieel"):
@@ -817,6 +871,7 @@ def themapagina(data: dict, thema: dict, vorige: dict, volgende: dict) -> str:
 <div class="binnen" style="--t:{THEMA_KLEUR.get(thema["id"])}">
   {schakelaar}
   {vooruitzichtenblok(data) if thema["id"] == "economie" else ""}
+  {inkomstenblok(data, per_id) if thema["id"] == "overheidsfinancien" else ""}
   {uitgavenblok(data, per_id) if thema["id"] == "overheidsfinancien" else ""}
   <div class="kaart-raster">{"".join(kaart(i, bpad) for i in inds)}{mazoutkaarten(data) if thema["id"] == "klimaat_energie" else ""}</div>
   {f'<section class="begrippen"><h2>{T("begrippen_titel")}</h2><dl>{begrippen}</dl></section>' if begrippen else ""}
