@@ -74,7 +74,7 @@ h1.groot {{ font-size: 104px; margin-top: 110px; }}
 </div></body></html>"""
 
 
-TOTAAL = 9
+TOTAAL = 10
 
 
 def rekenvoorbeeld(maandloon: float) -> dict:
@@ -201,7 +201,19 @@ def dias(d: dict) -> list[tuple[str, str]]:
         f'<h1 style="font-size:58px">daarvan leven we zonder beperkingen door onze gezondheid.</h1>',
         f'Eurostat, {p["levensverwachting"]["bron"]["dataset"]} en {p["gezonde_levensjaren"]["bron"]["dataset"]} ({hly[0]})', volgende(), TOTAAL, THEMA_KLEUR["gezondheid"])))
 
-    # 8. afsluiter
+    # 8. rente: wat kostte de schuld terwijl je deze carrousel bekeek?
+    rj, rente_jaar, rvl = p["rentelasten_eur"]["reeksen"]["BE"][-1]  # miljoen euro per jaar
+    per_minuut = rente_jaar * 1e6 / (365 * 24 * 60)
+    uit.append(("rente", dia(
+        '<p class="label">Schuld</p><h1 style="font-size:60px">Sinds je deze carrousel opende, betaalde de Belgische overheid al ongeveer</h1>'
+        f'<div class="getal">{eur(round(per_minuut, -2))}</div>'
+        '<h1 style="font-size:60px">aan rente op haar schuld.</h1>'
+        f'<p class="sub" style="font-size:32px">Dat is {getal(rente_jaar / 365, 1)} miljoen euro per dag.</p>',
+        f"Aannames: je bekijkt de carrousel in één minuut; de rentelasten van {rj}{' (voorlopig)' if 'p' in rvl else ''}, "
+        f"{getal(rente_jaar / 1000, 1)} miljard euro, gelijk gespreid over het jaar. Alle overheden samen. Bron: Eurostat, gov_10a_main (D41PAY).",
+        volgende(), TOTAAL, THEMA_KLEUR["overheidsfinancien"])))
+
+    # 9. afsluiter
     uit.append(("08-afsluiter", dia(
         '<h1 class="groot" style="font-size:88px">Zoek het zelf op.</h1>'
         '<p class="sub">Elk cijfer met een link naar de bron. Een rekenmodule voor je eigen belastingen. Vlaanderen, Wallonië en Brussel naast elkaar. Geen mening, geen reclame, geen cookies.</p>'
