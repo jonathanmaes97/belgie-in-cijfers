@@ -1,0 +1,4 @@
+{
+  "laatste_poging": "2026-10-13T14:52:35+00:00",
+  "melding": "HTTP 400: [{'status': 400, 'id': 150, 'label': 'INVALID_QUERY_DIMENSION: Query is invalid as per its structure\\'s definition. Dimension \"ECASE\" is not defined'}]"
+}
