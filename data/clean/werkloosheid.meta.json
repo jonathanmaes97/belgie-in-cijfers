@@ -3,7 +3,7 @@
     "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/une_rt_a?lang=EN&sinceTimePeriod=2005&age=Y15-74&unit=PC_ACT&sex=T&geo=BE&geo=EU27_2020&geo=NL&geo=DE&geo=FR&geo=LU"
   ],
   "bijgewerkt_bron": "2026-09-10T23:00:00+0200",
-  "opgehaald": "2026-10-13T13:18:48+00:00",
-  "laatste_poging": "2026-10-13T13:18:48+00:00",
+  "opgehaald": "2026-10-13T13:33:01+00:00",
+  "laatste_poging": "2026-10-13T13:33:01+00:00",
   "melding": ""
 }
