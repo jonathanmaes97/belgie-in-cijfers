@@ -1052,10 +1052,10 @@ t:
     de: "Über den Macher"
     en: "About the maker"
   over_mij:
-    nl: "Ik ben Jonathan Maes. Ik maakte deze site als persoonlijk en onafhankelijk project, omdat ik vind dat iedereen de cijfers achter het beleid moet kunnen vinden en begrijpen. Geen partij, organisatie of overheid betaalt of stuurt dit project."
-    fr: "Je suis Jonathan Maes. J'ai créé ce site comme projet personnel et indépendant, parce que je pense que chacun doit pouvoir trouver et comprendre les chiffres derrière les politiques publiques. Aucun parti, aucune organisation ni aucun pouvoir public ne finance ou ne dirige ce projet."
-    de: "Ich bin Jonathan Maes. Ich habe diese Website als persönliches und unabhängiges Projekt erstellt, weil ich finde, dass jeder die Zahlen hinter der Politik finden und verstehen können sollte. Keine Partei, Organisation oder Behörde bezahlt oder steuert dieses Projekt."
-    en: "I'm Jonathan Maes. I made this site as a personal, independent project, because I believe everyone should be able to find and understand the figures behind policy. No party, organisation or government pays for or steers this project."
+    nl: "Jonathan Maes maakte deze site als persoonlijk en onafhankelijk project. Hij vindt dat iedereen de cijfers achter het beleid moet kunnen vinden en begrijpen. Geen partij, organisatie of overheid betaalt of stuurt dit project."
+    fr: "Jonathan Maes a créé ce site comme projet personnel et indépendant. Il estime que chacun doit pouvoir trouver et comprendre les chiffres derrière les politiques publiques. Aucun parti, aucune organisation ni aucun pouvoir public ne finance ou ne dirige ce projet."
+    de: "Jonathan Maes hat diese Website als persönliches und unabhängiges Projekt erstellt. Er findet, dass jeder die Zahlen hinter der Politik finden und verstehen können sollte. Keine Partei, Organisation oder Behörde bezahlt oder steuert dieses Projekt."
+    en: "Jonathan Maes made this site as a personal, independent project. He believes everyone should be able to find and understand the figures behind policy. No party, organisation or government pays for or steers this project."
   over_fout_titel:
     nl: "Fout gezien?"
     fr: "Vous avez repéré une erreur ?"
@@ -1131,6 +1131,21 @@ t:
     fr: "D'où viennent nos impôts ?"
     de: "Woher kommen unsere Steuern?"
     en: "Where do our taxes come from?"
+  gw_tegel_titel:
+    nl: "Hoe verschillen Vlaanderen, Wallonië en Brussel?"
+    fr: "En quoi la Flandre, la Wallonie et Bruxelles diffèrent-elles ?"
+    de: "Wie unterscheiden sich Flandern, die Wallonie und Brüssel?"
+    en: "How do Flanders, Wallonia and Brussels differ?"
+  gw_tegel_tekst:
+    nl: "Werk, armoede, gezondheid, onderwijs en meer, per gewest naast elkaar."
+    fr: "Emploi, pauvreté, santé, enseignement et plus, région par région."
+    de: "Arbeit, Armut, Gesundheit, Bildung und mehr, Region für Region."
+    en: "Jobs, poverty, health, education and more, region by region."
+  gw_tegel_voorbeeld:
+    nl: "{titel}, {jaar}"
+    fr: "{titel}, {jaar}"
+    de: "{titel}, {jaar}"
+    en: "{titel}, {jaar}"
 # Teksten die JavaScript gebruikt (grafieken, zoeken, delen, rekenmodule)
 js:
   lopend_jaar:

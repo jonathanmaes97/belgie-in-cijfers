@@ -494,3 +494,14 @@ small.cofog a { color: inherit; }
 .kaart-raster .week-kaart { align-self: start; }
 .controle-knop { width: fit-content; }
 .inkomsten td small { display: block; color: var(--gedempt); font-size: .78rem; font-weight: 400; }
+
+/* twee opvallende tegels: gewesten en rekenmodule */
+.tegels { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 36px; }
+.tegels .reken-tegel { margin-top: 0; align-items: flex-start; }
+@media (max-width: 760px) { .tegels { grid-template-columns: 1fr; } }
+.gt-voorbeeld { display: grid; gap: 5px; margin-top: 12px; }
+.gt-voorbeeld small { color: var(--gedempt); font-size: .78rem; }
+.gt-rij { display: grid; grid-template-columns: 90px 1fr auto; align-items: center; gap: 10px; font-size: .85rem; color: var(--tekst) !important; }
+.gt-rij i { display: block; height: 8px; border-radius: 4px; background: var(--t-licht, var(--t)); opacity: .75; }
+.gt-rij b { font-size: .85rem !important; font-variant-numeric: tabular-nums; }
+.themabalk a.gewesten-link { border-left: 0; border-right: 1px solid var(--lijn); border-radius: 6px 0 0 6px; padding-left: 7px; padding-right: 12px; margin-left: 0; margin-right: 4px; }
