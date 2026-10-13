@@ -316,3 +316,23 @@ code { font-size: .82rem; background: var(--achter); padding: 1px 5px; border-ra
   .wafel svg { width: 88px; height: 88px; }
   .held { padding-top: 36px; }
 }
+
+/* ---------- vooruitzichten Planbureau ---------- */
+.vz { margin-top: 28px; }
+.vz header h3 { font-size: 1.3rem; }
+.vz-kern { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px; }
+.vz-kern > div { display: flex; flex-direction: column; gap: 2px; padding: 14px 16px; background: var(--achter); border-radius: var(--r); }
+.vz-label { font-size: .86rem; color: var(--gedempt); font-weight: 500; }
+.vz-waarde { font-size: clamp(1.6rem, 4vw, 2.1rem); font-weight: 650; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.vz-sub { font-size: .8rem; color: var(--zacht); }
+.consensus summary { cursor: pointer; font-weight: 600; }
+.consensus p { font-size: .9rem; color: var(--gedempt); max-width: 760px; }
+.consensus-doos { overflow-x: auto; }
+.consensus table { border-collapse: collapse; width: 100%; min-width: 640px; font-variant-numeric: tabular-nums; font-size: .9rem; }
+.consensus th, .consensus td { padding: 7px 10px; text-align: right; border-bottom: 1px solid var(--raster); }
+.consensus th[scope=row], .consensus thead th:first-child { text-align: left; font-weight: 500; }
+.consensus thead th { font-weight: 600; color: var(--gedempt); font-size: .82rem; }
+.consensus tr.sub th { font-weight: 500; }
+.consensus tr.eigen { background: color-mix(in srgb, var(--t) 8%, transparent); font-weight: 600; }
+.consensus td.upd { color: var(--zacht); font-size: .8rem; white-space: nowrap; }
+.bron-klein { font-size: .78rem !important; }

@@ -248,6 +248,56 @@
     legende(doos, items);
   }
 
+
+  // ---------- inflatie per maand: gemeten en verwacht (Planbureau) ----------
+  function vzGrafiek(doos, data) {
+    doos.textContent = "";
+    const inf = data.vooruitzichten && data.vooruitzichten.inflatie;
+    if (!inf || !doos.clientWidth) return;
+    const kaart = doos.closest(".kaart"), kl = kleuren(kaart);
+    const m = inf.maanden.filter((r) => r.inflatie !== null);
+    const B = doos.clientWidth, H = 220, mt = 16, mb = 22;
+    const tk = ticks(Math.min(0, ...m.map((r) => r.inflatie)), Math.max(...m.map((r) => r.inflatie)), 4);
+    const svg = maak("svg", { viewBox: `0 0 ${B} ${H}` }, doos);
+    const ml = meetTekst(svg, tk.map((t) => kort(t) + "%")) + 10, mr = 10;
+    const x = (i) => ml + (i / Math.max(1, m.length - 1)) * (B - ml - mr);
+    const y = (v) => mt + (1 - (v - tk[0]) / (tk[tk.length - 1] - tk[0])) * (H - mt - mb);
+    tk.forEach((t) => {
+      maak("line", { x1: ml, x2: B - mr, y1: y(t), y2: y(t), stroke: t === 0 ? kl.eu : kl.raster }, svg);
+      maak("text", { x: ml - 8, y: y(t), "text-anchor": "end", "dominant-baseline": "middle" }, svg, kort(t) + "%");
+    });
+    const eersteVz = m.findIndex((r) => r.vooruitzicht);
+    if (eersteVz > 0) {
+      const xv = (x(eersteVz - 1) + x(eersteVz)) / 2;
+      maak("rect", { x: xv, y: mt, width: B - mr - xv, height: H - mt - mb, class: "regering-band" }, svg);
+      maak("text", { x: xv + 6, y: mt + 10, class: "regering" }, svg, "verwachting");
+    }
+    const mnd = ["jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"];
+    const label = (s) => mnd[+s.slice(5, 7) - 1] + " " + s.slice(0, 4);
+    m.forEach((r, i) => { if (+r.maand.slice(5, 7) === 1 || i === 0) maak("text", { x: x(i), y: H - 4, "text-anchor": i === 0 ? "start" : "middle" }, svg, label(r.maand)); });
+    const pad = (rijen) => rijen.map((r, j) => (j ? "L" : "M") + x(m.indexOf(r)).toFixed(1) + "," + y(r.inflatie).toFixed(1)).join("");
+    const gemeten = m.filter((r) => !r.vooruitzicht), verwacht = m.filter((r, i) => r.vooruitzicht || i === eersteVz - 1);
+    maak("path", { d: pad(gemeten), fill: "none", stroke: kl.thema, "stroke-width": 3, "stroke-linejoin": "round", "stroke-linecap": "round" }, svg);
+    if (eersteVz > 0) maak("path", { d: pad(verwacht), fill: "none", stroke: kl.thema, "stroke-width": 2.5, "stroke-dasharray": "5 5", "stroke-linecap": "round" }, svg);
+    inf.overschrijdingen.forEach((o) => {
+      const i = m.findIndex((r) => r.maand === o.maand); if (i < 0) return;
+      maak("line", { x1: x(i), x2: x(i), y1: mt + 14, y2: y(m[i].inflatie) - 6, stroke: kl.norm, "stroke-dasharray": "2 3" }, svg);
+      maak("circle", { cx: x(i), cy: y(m[i].inflatie), r: 5, fill: kl.norm }, svg);
+    });
+    legende(doos, [{ naam: "Inflatie per maand (gemeten)", kleur: kl.thema }, { naam: "verwachting Planbureau", kleur: kl.thema, vorm: "stip" }, { naam: "overschrijding spilindex", kleur: kl.norm, vorm: "vierkant" }]);
+    const tip = maakTip(doos);
+    const vang = maak("rect", { x: ml, y: 0, width: B - ml - mr, height: H - mb, fill: "transparent" }, svg);
+    vang.addEventListener("pointermove", (ev) => {
+      const rr = svg.getBoundingClientRect(), s = rr.width / B;
+      const i = Math.max(0, Math.min(m.length - 1, Math.round((((ev.clientX - rr.left) / s) - ml) / (B - ml - mr) * (m.length - 1))));
+      const r = m[i], o = inf.overschrijdingen.find((q) => q.maand === r.maand);
+      const regels = [{ kleur: kl.thema, tekst: "Inflatie: " + nf(1).format(r.inflatie) + "%" + (r.vooruitzicht ? " (verwachting)" : "") }];
+      if (o) regels.push({ kleur: kl.norm, tekst: "Spilindex overschreden" + (o.vooruitzicht ? " (verwachting)" : "") });
+      tip.toon(x(i) * s, y(r.inflatie) * s, label(r.maand), regels);
+    });
+    vang.addEventListener("pointerleave", () => tip.verberg());
+  }
+
   // ---------- kaarten tekenen ----------
   // Zet CSS-kleuren (ook color-mix) om naar een gewone rgb-waarde die SVG begrijpt.
   function kleuren(kaart) {
@@ -278,7 +328,8 @@
   function grafieken(data) {
     const per = Object.fromEntries(data.indicatoren.map((i) => [i.id, i]));
     const dozen = [...document.querySelectorAll("[data-grafiek]")];
-    const alles = () => dozen.forEach((d) => per[d.dataset.grafiek] && teken(d, per[d.dataset.grafiek], data));
+    const vzDozen = [...document.querySelectorAll("[data-vz]")];
+    const alles = () => { dozen.forEach((d) => per[d.dataset.grafiek] && teken(d, per[d.dataset.grafiek], data)); vzDozen.forEach((d) => vzGrafiek(d, data)); };
     alles();
     document.querySelectorAll(".tabs").forEach((tabs) => {
       tabs.addEventListener("click", (ev) => {
@@ -302,7 +353,7 @@
     matchMedia("(prefers-color-scheme: dark)").addEventListener("change", alles);
   }
 
-  if (document.querySelector("[data-grafiek]")) {
+  if (document.querySelector("[data-grafiek], [data-vz]")) {
     fetch(BASIS + "data/dashboard.json").then((r) => r.json()).then(grafieken).catch(() => {
       document.querySelectorAll("[data-grafiek]").forEach((d) => { d.textContent = "De grafiek kon niet geladen worden."; d.style.minHeight = "0"; });
     });

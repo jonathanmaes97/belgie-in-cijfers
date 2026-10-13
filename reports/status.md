@@ -1,6 +1,6 @@
 # Status van de datapipeline
 
-Laatste run: 2026-10-13T14:39:35+00:00
+Laatste run: 2026-10-13T14:44:44+00:00
 
 | Indicator | Status | Opgehaald | Melding |
 |---|---|---|---|
@@ -38,3 +38,4 @@ Laatste run: 2026-10-13T14:39:35+00:00
 | bevolking_buitenland_geboren | ✅ | 2026-10-13T14:39:35+00:00 |  |
 | bevolking_naar_geboorteland | ✅ | 2026-10-13T14:39:35+00:00 |  |
 | asielaanvragen | ✅ | 2026-10-13T14:39:35+00:00 |  |
+| vooruitzichten Planbureau | ❌ | — |  |

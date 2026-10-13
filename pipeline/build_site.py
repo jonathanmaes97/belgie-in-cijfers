@@ -354,6 +354,8 @@ def startpagina(data: dict, per_id: dict) -> str:
                   "z": " ".join(i.get("zoekwoorden", [])), "u": f'thema/{i["thema"]}.html#{i["id"]}'}
                  for i in data["indicatoren"] if not i["verborgen"]]
     zoekindex += [{"v": t["vraag"], "t": t["nl"], "th": "Thema", "z": "", "u": f'thema/{t["id"]}.html'} for t in data["themas"]]
+    zoekindex.append({"v": "Wanneer volgt de volgende indexering?", "t": "Inflatie en index", "th": "Economie",
+                      "z": "index indexering spilindex inflatie vooruitzicht planbureau loon uitkering", "u": "thema/economie.html#inflatie-en-index"})
     zoekindex.append({"v": "Hoe verschillen Vlaanderen, Wallonië en Brussel?", "t": "Per gewest", "th": "Gewesten",
                       "z": "vlaanderen wallonie brussel gewest regio deelstaat", "u": "gewesten.html"})
     inhoud = f'''
@@ -392,6 +394,57 @@ def startpagina(data: dict, per_id: dict) -> str:
                   inhoud, pad, data["themas"], None, datum(data["gegenereerd"]), "index", "")
 
 
+def vooruitzichtenblok(data: dict) -> str:
+    """Inflatievooruitzichten, spilindex en consensus van instellingen (Federaal Planbureau)."""
+    vz = data.get("vooruitzichten")
+    if not vz or not vz.get("inflatie"):
+        return ""
+    inf, con = vz["inflatie"], vz.get("consensus")
+    nu = data["gegenereerd"][:7]
+    jaren = "".join(
+        f'<div><span class="vz-label">Inflatie {j["jaar"]}</span><span class="vz-waarde">{getal(j["inflatie"], 1)}%</span>'
+        f'<span class="vz-sub">{"verwacht jaargemiddelde" if j["jaar"] >= int(nu[:4]) else "jaargemiddelde"}</span></div>'
+        for j in inf["jaren"] if j.get("inflatie") is not None)
+    komend = [o for o in inf["overschrijdingen"] if o["maand"] >= nu]
+    voorbij = [o for o in inf["overschrijdingen"] if o["maand"] < nu and not o["vooruitzicht"]]
+    spil = ""
+    if komend:
+        o = komend[0]
+        spil = (f'<div><span class="vz-label">Volgende overschrijding van de spilindex</span>'
+                f'<span class="vz-waarde">{maand_tekst(o["maand"])}</span>'
+                f'<span class="vz-sub">{"verwachting" if o["vooruitzicht"] else "gemeten"}'
+                f'{"; daarna " + ", ".join(maand_tekst(x["maand"]) for x in komend[1:]) if len(komend) > 1 else ""}</span></div>')
+    elif voorbij:
+        spil = (f'<div><span class="vz-label">Laatste overschrijding van de spilindex</span>'
+                f'<span class="vz-waarde">{maand_tekst(voorbij[-1]["maand"])}</span><span class="vz-sub">gemeten</span></div>')
+    tabel = ""
+    if con and con.get("instellingen"):
+        j1, j2 = con["jaren"]
+        cel = lambda v: "—" if v is None else getal(v, 1)
+        rijen = "".join(
+            f'<tr{" class=eigen" if i["naam"].startswith("Federaal Planbureau") else ""}><th scope="row">{escape(i["naam"])}</th>'
+            f'<td>{cel(i["groei"][0])}</td><td>{cel(i["groei"][1])}</td><td>{cel(i["inflatie"][0])}</td><td>{cel(i["inflatie"][1])}</td>'
+            f'<td>{cel(i["saldo"][0])}</td><td>{cel(i["saldo"][1])}</td><td class="upd">{maand_tekst(i["update"]) if i.get("update") else ""}</td></tr>'
+            for i in con["instellingen"])
+        tabel = (f'<details class="consensus"><summary>Wat verwachten andere instellingen?</summary>'
+                 f'<p>Het Planbureau verzamelt de vooruitzichten van verschillende instellingen voor België. Ze verschillen omdat ze op een ander moment zijn gemaakt en van andere veronderstellingen uitgaan.</p>'
+                 f'<div class="consensus-doos"><table><thead><tr><th scope="col">Instelling</th><th scope="col" colspan="2">Economische groei (%)</th>'
+                 f'<th scope="col" colspan="2">Inflatie (%)</th><th scope="col" colspan="2">Begrotingssaldo (% bbp)</th><th scope="col">Bijgewerkt</th></tr>'
+                 f'<tr class="sub"><th></th><th>{j1}</th><th>{j2}</th><th>{j1}</th><th>{j2}</th><th>{j1}</th><th>{j2}</th><th></th></tr></thead>'
+                 f'<tbody>{rijen}</tbody></table></div>'
+                 f'<p class="bron-klein">Bron: <a href="{escape(con["pagina"])}" rel="noopener">Federaal Planbureau, vooruitzichten van verschillende instellingen</a> · '
+                 f'<a href="{escape(con["bron"])}">Excel</a> · versie van {datum(con["gepubliceerd"])}</p></details>')
+    return f'''
+<section class="vz kaart" id="inflatie-en-index">
+  <header><p class="label">Vooruitzichten van het Federaal Planbureau</p><h3>Hoeveel duurder wordt het leven, en wanneer volgt de index?</h3></header>
+  <div class="vz-kern">{jaren}{spil}</div>
+  <p class="uitleg">{icoon("info")}<span>Wanneer de spilindex wordt overschreden, stijgen de sociale uitkeringen en de wedden van ambtenaren met 2%. Lonen in de privésector worden geïndexeerd volgens de regels van elke sector. De afgevlakte gezondheidsindex beslist wanneer dat gebeurt: zonder tabak, alcohol en brandstof, en uitgemiddeld over vier maanden.</span></p>
+  <div class="grafiek vz-grafiek" data-vz="inflatie" role="img" aria-label="Inflatie per maand, gemeten en verwacht"></div>
+  {tabel}
+  <footer class="bron">{icoon("bron")}<span>Bron: <a href="{escape(inf["pagina"])}" rel="noopener">Federaal Planbureau, inflatievooruitzichten</a> · versie van {datum(inf["gepubliceerd"])} · laatste gemeten maand: {maand_tekst(inf.get("laatste_gemeten"))} · <a href="{escape(inf["bron"])}">Excel</a></span></footer>
+</section>'''
+
+
 def regeringschakelaar() -> str:
     return ('<div class="regeringen js"><label class="schakelaar"><input type="checkbox" id="toon-regeringen">'
             '<span class="schuif" aria-hidden="true"></span>Toon de federale regeringen op de grafieken</label>'
@@ -420,6 +473,7 @@ def themapagina(data: dict, thema: dict, vorige: dict, volgende: dict) -> str:
 </section>
 <div class="binnen" style="--t:{THEMA_KLEUR.get(thema["id"])}">
   {schakelaar}
+  {vooruitzichtenblok(data) if thema["id"] == "economie" else ""}
   <div class="kaart-raster">{"".join(kaart(i, pad) for i in inds)}</div>
   {f'<section class="begrippen"><h2>Moeilijke woorden uitgelegd</h2><dl>{begrippen}</dl></section>' if begrippen else ""}
   <nav class="buren-nav" aria-label="Andere thema's">

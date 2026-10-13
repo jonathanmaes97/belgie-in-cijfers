@@ -24,7 +24,7 @@ from pathlib import Path
 
 import yaml
 
-from . import eurostat, infrabel
+from . import eurostat, infrabel, planbureau
 from .eurostat import BronFout
 
 WORTEL = Path(__file__).resolve().parent.parent
@@ -221,6 +221,21 @@ def main(argv=None) -> int:
             data[id_] = lees_csv(SCHOON / f"{id_}.csv")
             status[id_] = {"ok": False, **lees_meta(id_), "melding": str(e)}
 
+    # vooruitzichten van het Planbureau (geen jaarreeks per land, dus apart bewaard)
+    vz_pad = SCHOON / "vooruitzichten.json"
+    if args.offline:
+        status["_vooruitzichten"] = {"ok": vz_pad.exists(), "melding": ""}
+    else:
+        print("→ vooruitzichten Planbureau")
+        try:
+            vz = planbureau.haal_op()
+            vz["opgehaald"] = tijd
+            vz_pad.write_text(json.dumps(vz, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+            status["_vooruitzichten"] = {"ok": True, "opgehaald": tijd, "melding": ""}
+        except (BronFout, KeyError, ValueError) as e:
+            print(f"  ✗ {e}", file=sys.stderr)
+            status["_vooruitzichten"] = {"ok": False, "melding": str(e)}
+
     if nieuwe_herzieningen:
         log = json.loads(CHANGELOG.read_text(encoding="utf-8")) if CHANGELOG.exists() else []
         log.insert(0, {"datum": tijd, "herzieningen": nieuwe_herzieningen})
@@ -233,7 +248,7 @@ def main(argv=None) -> int:
     from .build_site import bouw
     bouw()
 
-    mislukt = [i for i, s in status.items() if not s["ok"]]
+    mislukt = [i for i, s in status.items() if not s["ok"] and not i.startswith("_")]
     print(f"\nKlaar: {len(status) - len(mislukt)} gelukt, {len(mislukt)} mislukt.")
     return 0
 
@@ -266,10 +281,12 @@ def schrijf_site_data(cat: dict, data: dict, status: dict, tijd: str) -> None:
             "norm": ind.get("norm"), "bron": bron, "opgehaald": st.get("opgehaald"),
             "ok": st.get("ok", False), "melding": st.get("melding", ""), "reeksen": reeksen,
         })
+    vz_pad = SCHOON / "vooruitzichten.json"
+    vooruitzichten = json.loads(vz_pad.read_text(encoding="utf-8")) if vz_pad.exists() else None
     reg = yaml.safe_load((WORTEL / "config" / "regeringen.yaml").read_text(encoding="utf-8"))
     regeringen = {"bron": reg["bron"], "federaal": [{**r, "van": str(r["van"]), "tot": str(r["tot"]) if r["tot"] else None} for r in reg["federaal"]]}
     uit = {"gegenereerd": tijd, "themas": cat["themas"], "begrippen": cat.get("begrippen", {}),
-           "landnamen": cat["landnamen"], "regeringen": regeringen, "indicatoren": indicatoren}
+           "landnamen": cat["landnamen"], "regeringen": regeringen, "vooruitzichten": vooruitzichten, "indicatoren": indicatoren}
     SITE_DATA.parent.mkdir(parents=True, exist_ok=True)
     SITE_DATA.write_text(json.dumps(uit, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
@@ -279,6 +296,8 @@ def schrijf_status(cat: dict, status: dict, tijd: str) -> None:
     for ind in cat["indicatoren"]:
         s = status.get(ind["id"], {})
         regels.append(f"| {ind['id']} | {'✅' if s.get('ok') else '❌'} | {s.get('opgehaald') or '—'} | {(s.get('melding', '') + ' ' + s.get('melding_regio', '')).strip().replace('|', '/')} |")
+    v = status.get("_vooruitzichten", {})
+    regels.append(f"| vooruitzichten Planbureau | {'✅' if v.get('ok') else '❌'} | {v.get('opgehaald') or '—'} | {v.get('melding', '')} |")
     STATUS.parent.mkdir(parents=True, exist_ok=True)
     STATUS.write_text("\n".join(regels) + "\n", encoding="utf-8")
 

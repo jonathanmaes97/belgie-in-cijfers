@@ -121,3 +121,35 @@ def test_catalogus_is_consistent():
         if "afgeleid" in ind:
             for bron_id in ind["afgeleid"]["invoer"].values():
                 assert bron_id in ids, f"{ind['id']} verwijst naar onbekende {bron_id}"
+
+
+def _maak_inflatie_xlsx():
+    import io
+    from datetime import datetime
+    import openpyxl
+    wb = openpyxl.Workbook()
+    ws = wb.active
+    ws.title = "NL"
+    ws.append(["Indexcijfer der consumptieprijzen"])
+    ws.append([None, "Nationale consumptieprijsindex", None, "Gezondheidsindex", None, "Afgevlakte gezondheidsindex", "Spilindex"])
+    ws.append([None, "Index (2025=100)", "Groeivoet (%)", "Index (2025=100)", "Groeivoet (%)"])
+    ws.append(["Jaarcijfers"])
+    ws.append([2026, 103.69, 3.69, 103.31, 3.30])
+    ws.append(["Maandcijfers"])
+    rijen = [("2026-05", 103.26, 4.08, 100.19, 100.28), ("2026-06", 102.95, 3.4, 100.37, 100.28),
+             ("2026-07", 103.6, 3.56, 100.77, 102.29), ("2026-11", 106.1, 5.39, 102.35, 102.29)]
+    for m, cpi, gr, afg, spil in rijen:
+        ws.append([datetime.strptime(m, "%Y-%m"), cpi, gr, None, None, afg, spil])
+    buf = io.BytesIO()
+    wb.save(buf)
+    return buf.getvalue()
+
+
+def test_planbureau_inflatie_en_spilindex():
+    from datetime import date
+    from pipeline.planbureau import lees_inflatie
+    uit = lees_inflatie(_maak_inflatie_xlsx(), date(2026, 10, 6))
+    assert uit["jaren"][0]["inflatie"] == 3.69
+    assert [m["vooruitzicht"] for m in uit["maanden"]] == [False, False, False, True]
+    assert [o["maand"] for o in uit["overschrijdingen"]] == ["2026-06", "2026-11"]
+    assert uit["laatste_gemeten"] == "2026-07"
