@@ -482,7 +482,7 @@ def taalkeuze(url: str, bpad: str) -> str:
     for t in TALEN:
         info = UI["talen"][t]
         huidig = ' aria-current="true"' if t == TAAL else ""
-        links.append(f'<a href="{bpad}{map_van(t)}{url}" hreflang="{t}" lang="{t}" title="{escape(info["naam"])}"{huidig}>{info["kort"]}</a>')
+        links.append(f'<a href="{(bpad + map_van(t) + url) or "./"}" hreflang="{t}" lang="{t}" title="{escape(info["naam"])}"{huidig}>{info["kort"]}</a>')
     return f'<nav class="talen" aria-label="{T("taal_aria")}">{"".join(links)}</nav>'
 
 
@@ -510,7 +510,7 @@ def pagina(titel: str, beschrijving: str, inhoud: str, pad: str, data: dict, act
     alternatieven += f'<link rel="alternate" hreflang="x-default" href="{SITE_URL}{url}">'
     linkedin = f' <a class="li-knop" href="{LINKEDIN_URL}" rel="noopener" aria-label="{MAKER} op LinkedIn">{icoon("profiel")}<span>LinkedIn</span></a>' if LINKEDIN_URL else ""
     return SJABLOON.format(
-        taal=TAAL, titel=escape(titel), beschrijving=escape(beschrijving), inhoud=inhoud, pad=pad, bpad=bpad,
+        thuis=pad or "./", taal=TAAL, titel=escape(titel), beschrijving=escape(beschrijving), inhoud=inhoud, pad=pad, bpad=bpad,
         themabalk=themabalk(data["themas"], actief, pad), zoek=icoon("zoek"), reken=icoon("reken"),
         og=f"{SITE_URL}og/{og_naam}.png", url=SITE_URL + map_van(TAAL) + url, merk=MERK, ondertitel=ondertitel(),
         alternatieven=alternatieven, taalkeuze=taalkeuze(url, bpad), og_locale=UI["talen"][TAAL]["locale"].replace("-", "_"),
@@ -644,22 +644,26 @@ def vooruitzichtenblok(data: dict) -> str:
         return ""
     inf, con = vz["inflatie"], vz.get("consensus")
     nu = data["gegenereerd"][:7]
-    jaren = "".join(
-        f'<div><span class="vz-label">{T("vz_inflatie", jaar=j["jaar"])}</span><span class="vz-waarde">{pct(j["inflatie"], 1)}</span>'
-        f'<span class="vz-sub">{T("vz_verwacht") if j["jaar"] >= int(nu[:4]) else T("vz_gemiddelde")}</span></div>'
-        for j in inf["jaren"] if j.get("inflatie") is not None)
+    gemeten_of_verwacht = lambda j: T("vz_verwacht") if j["jaar"] >= int(nu[:4]) else T("vz_gemiddelde")
+    jaren = [j for j in inf["jaren"] if j.get("inflatie") is not None]
+    hoofd = next((j for j in jaren if j["jaar"] == int(nu[:4])), jaren[-1] if jaren else None)
+    zinnen_vz = [T("vz_zin_jaar", jaar=j["jaar"], waarde=pct(j["inflatie"], 1), soort=gemeten_of_verwacht(j))
+                 for j in jaren if j is not hoofd]
     komend = [o for o in inf["overschrijdingen"] if o["maand"] >= nu]
     voorbij = [o for o in inf["overschrijdingen"] if o["maand"] < nu and not o["vooruitzicht"]]
-    spil = ""
     if komend:
         o = komend[0]
         daarna = T("vz_daarna", lijst=", ".join(maand_tekst(x["maand"]) for x in komend[1:])) if len(komend) > 1 else ""
-        spil = (f'<div><span class="vz-label">{T("vz_volgende")}</span>'
-                f'<span class="vz-waarde">{maand_tekst(o["maand"])}</span>'
-                f'<span class="vz-sub">{T("vz_verwachting") if o["vooruitzicht"] else T("vz_gemeten")}{daarna}</span></div>')
+        if o["vooruitzicht"]:
+            zinnen_vz.insert(0, T("vz_zin_spil", maand=f"<b>{maand_tekst(o['maand'])}</b>", soort=T("vz_bron_kort")) + daarna + ".")
+        else:
+            zinnen_vz.insert(0, T("vz_zin_spil_laatst", maand=f"<b>{maand_tekst(o['maand'])}</b>"))
     elif voorbij:
-        spil = (f'<div><span class="vz-label">{T("vz_laatste")}</span>'
-                f'<span class="vz-waarde">{maand_tekst(voorbij[-1]["maand"])}</span><span class="vz-sub">{T("vz_gemeten")}</span></div>')
+        zinnen_vz.insert(0, T("vz_zin_spil_laatst", maand=f"<b>{maand_tekst(voorbij[-1]['maand'])}</b>"))
+    kern = (f'<div class="kern"><p class="waarde">{pct(hoofd["inflatie"], 1)}</p><p class="meta">{T("vz_inflatie", jaar=hoofd["jaar"])}, '
+            f'{gemeten_of_verwacht(hoofd)}</p></div>') if hoofd else ""
+    jaren = kern + f'<ul class="zinnen">{"".join(f"<li>{z}</li>" for z in zinnen_vz)}</ul>'
+    spil = ""
     tabel = ""
     if con and con.get("instellingen"):
         j1, j2 = con["jaren"]
@@ -681,7 +685,7 @@ def vooruitzichtenblok(data: dict) -> str:
     return f'''
 <section class="vz kaart" id="inflatie-en-index">
   <header><p class="label">{T("vz_label")}</p><h3>{T("vz_titel")}</h3></header>
-  <div class="vz-kern">{jaren}{spil}</div>
+  {jaren}{spil}
   <p class="uitleg">{icoon("info")}<span>{T("vz_uitleg")}</span></p>
   <div class="grafiek vz-grafiek" data-vz="inflatie" role="img" aria-label="{T("vz_grafiek_aria")}"></div>
   {tabel}
@@ -1176,8 +1180,8 @@ SJABLOON = """<!doctype html>
 <a class="overslaan" href="#inhoud">{naar_inhoud}</a>
 <header class="kop">
   <div class="binnen">
-    <a class="merk" href="{pad}"><span class="merk-blok" aria-hidden="true"><i></i><i></i><i></i></span><span class="merk-tekst"><b>{merk}</b><span>{ondertitel}</span></span></a>
-    <nav class="kop-links"><a class="kop-zoek" href="{pad}rekenmodule.html">{reken}<span>{kop_reken}</span></a><a class="kop-zoek" href="{pad}#zoek" aria-label="{zoek_aria}">{zoek}<span>{zoek_tekst}</span></a>{taalkeuze}</nav>
+    <a class="merk" href="{thuis}"><span class="merk-blok" aria-hidden="true"><i></i><i></i><i></i></span><span class="merk-tekst"><b>{merk}</b><span>{ondertitel}</span></span></a>
+    <nav class="kop-links"><a class="kop-zoek" href="{pad}rekenmodule.html">{reken}<span>{kop_reken}</span></a><a class="kop-zoek" href="{thuis}#zoek" aria-label="{zoek_aria}">{zoek}<span>{zoek_tekst}</span></a>{taalkeuze}</nav>
   </div>
 </header>
 {themabalk}

@@ -1146,6 +1146,26 @@ t:
     fr: "{titel}, {jaar}"
     de: "{titel}, {jaar}"
     en: "{titel}, {jaar}"
+  vz_zin_jaar:
+    nl: "Inflatie {jaar}: {waarde} ({soort})."
+    fr: "Inflation {jaar} : {waarde} ({soort})."
+    de: "Inflation {jaar}: {waarde} ({soort})."
+    en: "Inflation {jaar}: {waarde} ({soort})."
+  vz_zin_spil:
+    nl: "De spilindex wordt naar verwachting overschreden in {maand} ({soort})"
+    fr: "L'indice-pivot devrait être dépassé en {maand} ({soort})"
+    de: "Der Schwellenindex wird voraussichtlich im {maand} überschritten ({soort})"
+    en: "The pivot index is expected to be exceeded in {maand} ({soort})"
+  vz_zin_spil_laatst:
+    nl: "De spilindex werd het laatst overschreden in {maand}."
+    fr: "L'indice-pivot a été dépassé pour la dernière fois en {maand}."
+    de: "Der Schwellenindex wurde zuletzt im {maand} überschritten."
+    en: "The pivot index was last exceeded in {maand}."
+  vz_bron_kort:
+    nl: "Planbureau"
+    fr: "Bureau du Plan"
+    de: "Planbüro"
+    en: "Planning Bureau"
 # Teksten die JavaScript gebruikt (grafieken, zoeken, delen, rekenmodule)
 js:
   lopend_jaar:

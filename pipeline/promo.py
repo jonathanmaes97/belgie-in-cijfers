@@ -61,8 +61,9 @@ h1.groot {{ font-size: 104px; margin-top: 110px; }}
 .rij.klein {{ font-size: 32px; padding: 11px 0; }}
 .invoer {{ display: flex; justify-content: space-between; align-items: center; margin-top: 32px; padding: 30px 36px; border: 3px solid #1a1f24; border-radius: 22px; background: #fff; font-size: 34px; color: #5b636b; }}
 .invoer b {{ font-size: 60px; color: #1a1f24; letter-spacing: -.02em; }}
-.maker {{ display: inline-flex; align-items: center; gap: 12px; }}
-.maker img {{ width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }}
+.maker {{ display: inline-flex; align-items: center; gap: 18px; font-size: 25px; line-height: 1.3; }}
+.maker b {{ color: #1a1f24; font-size: 29px; }}
+.maker img {{ width: 84px; height: 84px; border-radius: 50%; object-fit: cover; }}
 .cta {{ display: inline-block; margin-top: 70px; padding: 28px 44px; border-radius: 18px; background: #1a1f24; color: #fff; font-size: 40px; font-weight: 600; }}
 </style></head><body style="--k:{kleur}"><div class="raster"></div><div class="gloed"></div><div class="gloed2"></div>
 <div class="binnen">
@@ -203,7 +204,7 @@ def dias(d: dict) -> list[tuple[str, str]]:
         '<h1 class="groot" style="font-size:88px">Zoek het zelf op.</h1>'
         '<p class="sub">Elk cijfer met een link naar de bron. Een rekenmodule voor je eigen belastingen. Vlaanderen, Wallonië en Brussel naast elkaar. Geen mening, geen reclame, geen cookies.</p>'
         f'<span class="cta">{DOMEIN}</span>',
-        f'<span class="maker"><img src="{(SITE / "img" / "jonathan-maes@2x.jpg").resolve().as_uri()}" alt="">Een onafhankelijk project van Jonathan Maes</span>',
+        f'<span class="maker"><img src="{(SITE / "img" / "jonathan-maes@2x.jpg").resolve().as_uri()}" alt=""><span>Een onafhankelijk project van<br><b>Jonathan Maes</b></span></span>',
         volgende(), TOTAAL)))
     return uit
 

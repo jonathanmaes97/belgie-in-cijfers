@@ -290,51 +290,64 @@
 
   // ---------- inflatie per maand: gemeten en verwacht (Planbureau) ----------
   function vzGrafiek(doos, data) {
+    // zelfde stijl als de andere lijngrafieken: dikke lijn in de themakleur, gestippeld voor de verwachting,
+    // de spilindex als stippen in de kleur voor normen, en het laatste cijfer als label aan het einde
     doos.textContent = "";
     const inf = data.vooruitzichten && data.vooruitzichten.inflatie;
     if (!inf || !doos.clientWidth) return;
     const kaart = doos.closest(".kaart"), kl = kleuren(kaart);
     const m = inf.maanden.filter((r) => r.inflatie !== null);
+    const mnd = UI.maanden || ["jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"];
+    const label = (s) => mnd[+s.slice(5, 7) - 1] + " " + s.slice(0, 4);
     const B = doos.clientWidth, H = 220, mt = 16, mb = 22;
     const tk = ticks(Math.min(0, ...m.map((r) => r.inflatie)), Math.max(...m.map((r) => r.inflatie)), 4);
     const svg = maak("svg", { viewBox: `0 0 ${B} ${H}` }, doos);
-    const ml = meetTekst(svg, tk.map((v) => kort(v) + pctTeken)) + 10, mr = 10;
+    const ml = meetTekst(svg, tk.map((v) => kort(v) + pctTeken)) + 10;
+    const laatst = m[m.length - 1];
+    const eindTekst = nf(1).format(laatst.inflatie) + pctTeken;
+    const mr = meetTekst(svg, [eindTekst], "sterk") + 14;
     const x = (i) => ml + (i / Math.max(1, m.length - 1)) * (B - ml - mr);
     const y = (v) => mt + (1 - (v - tk[0]) / (tk[tk.length - 1] - tk[0])) * (H - mt - mb);
-    tk.forEach((t) => {
-      maak("line", { x1: ml, x2: B - mr, y1: y(t), y2: y(t), stroke: t === 0 ? kl.eu : kl.raster }, svg);
-      maak("text", { x: ml - 8, y: y(t), "text-anchor": "end", "dominant-baseline": "middle" }, svg, kort(t) + pctTeken);
+    tk.forEach((v) => {
+      maak("line", { x1: ml, x2: B - mr, y1: y(v), y2: y(v), stroke: v === 0 ? kl.eu : kl.raster }, svg);
+      maak("text", { x: ml - 8, y: y(v), "text-anchor": "end", "dominant-baseline": "middle" }, svg, kort(v) + pctTeken);
     });
+    // x-as: januari van elk jaar
+    m.forEach((r, i) => { if (+r.maand.slice(5, 7) === 1 || i === 0) maak("text", { x: x(i), y: H - 4, "text-anchor": i === 0 ? "start" : "middle" }, svg, i === 0 ? label(r.maand) : r.maand.slice(0, 4)); });
     const eersteVz = m.findIndex((r) => r.vooruitzicht);
     if (eersteVz > 0) {
-      const xv = (x(eersteVz - 1) + x(eersteVz)) / 2;
-      maak("rect", { x: xv, y: mt, width: B - mr - xv, height: H - mt - mb, class: "regering-band" }, svg);
-      maak("text", { x: xv + 6, y: mt + 10, class: "regering" }, svg, t("verwachting", "verwachting"));
+      const xv = x(eersteVz - 1);
+      maak("line", { x1: xv, x2: xv, y1: mt, y2: H - mb, stroke: kl.eu, opacity: 0.35, "stroke-dasharray": "2 3" }, svg);
+      maak("text", { x: xv + 6, y: mt + 4, class: "regering", "dominant-baseline": "hanging" }, svg, t("verwachting", "verwachting") + " →");
     }
-    const mnd = UI.maanden || ["jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"];
-    const label = (s) => mnd[+s.slice(5, 7) - 1] + " " + s.slice(0, 4);
-    m.forEach((r, i) => { if (+r.maand.slice(5, 7) === 1 || i === 0) maak("text", { x: x(i), y: H - 4, "text-anchor": i === 0 ? "start" : "middle" }, svg, label(r.maand)); });
     const pad = (rijen) => rijen.map((r, j) => (j ? "L" : "M") + x(m.indexOf(r)).toFixed(1) + "," + y(r.inflatie).toFixed(1)).join("");
     const gemeten = m.filter((r) => !r.vooruitzicht), verwacht = m.filter((r, i) => r.vooruitzicht || i === eersteVz - 1);
     maak("path", { d: pad(gemeten), fill: "none", stroke: kl.thema, "stroke-width": 3, "stroke-linejoin": "round", "stroke-linecap": "round" }, svg);
-    if (eersteVz > 0) maak("path", { d: pad(verwacht), fill: "none", stroke: kl.thema, "stroke-width": 2.5, "stroke-dasharray": "5 5", "stroke-linecap": "round" }, svg);
+    if (eersteVz > 0) maak("path", { d: pad(verwacht), fill: "none", stroke: kl.thema, "stroke-width": 2.5, "stroke-dasharray": "5 5", "stroke-linecap": "round", opacity: 0.8 }, svg);
+    // laatste gemeten maand als stip
+    if (eersteVz > 0) maak("circle", { cx: x(eersteVz - 1), cy: y(m[eersteVz - 1].inflatie), r: 4, fill: kl.thema }, svg);
     inf.overschrijdingen.forEach((o) => {
       const i = m.findIndex((r) => r.maand === o.maand); if (i < 0) return;
-      maak("line", { x1: x(i), x2: x(i), y1: mt + 14, y2: y(m[i].inflatie) - 6, stroke: kl.norm, "stroke-dasharray": "2 3" }, svg);
-      maak("circle", { cx: x(i), cy: y(m[i].inflatie), r: 5, fill: kl.norm }, svg);
+      maak("circle", { cx: x(i), cy: y(m[i].inflatie), r: 5.5, fill: kl.norm, stroke: css(document.body, "--vlak") || "#fff", "stroke-width": 2 }, svg);
     });
-    legende(doos, [{ naam: t("inflatie_gemeten", "Inflatie per maand (gemeten)"), kleur: kl.thema }, { naam: t("verwachting_planbureau", "verwachting Planbureau"), kleur: kl.thema, vorm: "stip" }, { naam: t("overschrijding", "overschrijding spilindex"), kleur: kl.norm, vorm: "vierkant" }]);
+    maak("circle", { cx: x(m.length - 1), cy: y(laatst.inflatie), r: 3.5, fill: kl.thema, opacity: 0.8 }, svg);
+    maak("text", { x: x(m.length - 1) + 8, y: y(laatst.inflatie), "dominant-baseline": "middle", class: "sterk" }, svg, eindTekst);
+    legende(doos, [{ naam: t("inflatie_gemeten", "Inflatie per maand (gemeten)"), kleur: kl.thema },
+                   { naam: t("verwachting_planbureau", "verwachting Planbureau"), kleur: kl.thema, vorm: "stip" },
+                   { naam: t("overschrijding", "overschrijding spilindex"), kleur: kl.norm, vorm: "vierkant" }]);
     const tip = maakTip(doos);
+    const regel = maak("line", { y1: mt, y2: H - mb, stroke: kl.eu, opacity: 0 }, svg);
     const vang = maak("rect", { x: ml, y: 0, width: B - ml - mr, height: H - mb, fill: "transparent" }, svg);
     vang.addEventListener("pointermove", (ev) => {
       const rr = svg.getBoundingClientRect(), s = rr.width / B;
       const i = Math.max(0, Math.min(m.length - 1, Math.round((((ev.clientX - rr.left) / s) - ml) / (B - ml - mr) * (m.length - 1))));
       const r = m[i], o = inf.overschrijdingen.find((q) => q.maand === r.maand);
+      regel.setAttribute("x1", x(i)); regel.setAttribute("x2", x(i)); regel.setAttribute("opacity", .5);
       const regels = [{ kleur: kl.thema, tekst: t("inflatie", "Inflatie") + ": " + nf(1).format(r.inflatie) + pctTeken + (r.vooruitzicht ? t("verwachting_haakjes", " (verwachting)") : "") }];
       if (o) regels.push({ kleur: kl.norm, tekst: t("spil_overschreden", "Spilindex overschreden") + (o.vooruitzicht ? t("verwachting_haakjes", " (verwachting)") : "") });
       tip.toon(x(i) * s, y(r.inflatie) * s, label(r.maand), regels);
     });
-    vang.addEventListener("pointerleave", () => tip.verberg());
+    vang.addEventListener("pointerleave", () => { tip.verberg(); regel.setAttribute("opacity", 0); });
   }
 
   // ---------- kaarten tekenen ----------
