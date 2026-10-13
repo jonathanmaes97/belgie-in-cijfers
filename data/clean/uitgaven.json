@@ -4,64 +4,88 @@
   {
    "code": "GF10",
    "nl": "Sociale bescherming",
-   "uitleg": "pensioenen, uitkeringen, kinderbijslag, steun bij ziekte en werkloosheid"
+   "uitleg": "pensioenen, uitkeringen, kinderbijslag, steun bij ziekte en werkloosheid",
+   "officieel": "Social protection",
+   "api_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_exp?lang=EN&sinceTimePeriod=2015&unit=PC_TOT&sector=S13&na_item=TE&cofog99=GF10&geo=BE&geo=EU27_2020&geo=NL&geo=DE&geo=FR&geo=LU"
   },
   {
    "code": "GF07",
    "nl": "Gezondheidszorg",
-   "uitleg": "ziekenhuizen, terugbetaling van dokters en geneesmiddelen"
+   "uitleg": "ziekenhuizen, terugbetaling van dokters en geneesmiddelen",
+   "officieel": "Health",
+   "api_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_exp?lang=EN&sinceTimePeriod=2015&unit=PC_TOT&sector=S13&na_item=TE&cofog99=GF07&geo=BE&geo=EU27_2020&geo=NL&geo=DE&geo=FR&geo=LU"
   },
   {
    "code": "GF04",
    "nl": "Economische zaken",
-   "uitleg": "verkeer en vervoer, energie, landbouw, steun aan bedrijven"
+   "uitleg": "verkeer en vervoer, energie, landbouw, steun aan bedrijven",
+   "officieel": "Economic affairs",
+   "api_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_exp?lang=EN&sinceTimePeriod=2015&unit=PC_TOT&sector=S13&na_item=TE&cofog99=GF04&geo=BE&geo=EU27_2020&geo=NL&geo=DE&geo=FR&geo=LU"
   },
   {
    "code": "GF01",
    "nl": "Algemeen bestuur",
-   "uitleg": "werking van de overheid, rente op de staatsschuld, ontwikkelingshulp"
+   "uitleg": "werking van de overheid, rente op de staatsschuld, ontwikkelingshulp",
+   "officieel": "General public services",
+   "api_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_exp?lang=EN&sinceTimePeriod=2015&unit=PC_TOT&sector=S13&na_item=TE&cofog99=GF01&geo=BE&geo=EU27_2020&geo=NL&geo=DE&geo=FR&geo=LU"
   },
   {
    "code": "GF09",
    "nl": "Onderwijs",
-   "uitleg": "scholen, hogescholen en universiteiten"
+   "uitleg": "scholen, hogescholen en universiteiten",
+   "officieel": "Education",
+   "api_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_exp?lang=EN&sinceTimePeriod=2015&unit=PC_TOT&sector=S13&na_item=TE&cofog99=GF09&geo=BE&geo=EU27_2020&geo=NL&geo=DE&geo=FR&geo=LU"
   },
   {
    "code": "GF03",
    "nl": "Veiligheid en justitie",
-   "uitleg": "politie, brandweer, rechtbanken, gevangenissen"
+   "uitleg": "politie, brandweer, rechtbanken, gevangenissen",
+   "officieel": "Public order and safety",
+   "api_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_exp?lang=EN&sinceTimePeriod=2015&unit=PC_TOT&sector=S13&na_item=TE&cofog99=GF03&geo=BE&geo=EU27_2020&geo=NL&geo=DE&geo=FR&geo=LU"
   },
   {
    "code": "GF08",
    "nl": "Cultuur, sport en religie",
-   "uitleg": "cultuur, sport, media, erediensten"
+   "uitleg": "cultuur, sport, media, erediensten",
+   "officieel": "Recreation, culture and religion",
+   "api_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_exp?lang=EN&sinceTimePeriod=2015&unit=PC_TOT&sector=S13&na_item=TE&cofog99=GF08&geo=BE&geo=EU27_2020&geo=NL&geo=DE&geo=FR&geo=LU"
   },
   {
    "code": "GF06",
    "nl": "Huisvesting en voorzieningen",
-   "uitleg": "sociale huisvesting, water, straatverlichting"
+   "uitleg": "sociale huisvesting, water, straatverlichting",
+   "officieel": "Housing and community amenities",
+   "api_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_exp?lang=EN&sinceTimePeriod=2015&unit=PC_TOT&sector=S13&na_item=TE&cofog99=GF06&geo=BE&geo=EU27_2020&geo=NL&geo=DE&geo=FR&geo=LU"
   },
   {
    "code": "GF05",
    "nl": "Milieu",
-   "uitleg": "afval, waterzuivering, natuurbehoud"
+   "uitleg": "afval, waterzuivering, natuurbehoud",
+   "officieel": "Environmental protection",
+   "api_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_exp?lang=EN&sinceTimePeriod=2015&unit=PC_TOT&sector=S13&na_item=TE&cofog99=GF05&geo=BE&geo=EU27_2020&geo=NL&geo=DE&geo=FR&geo=LU"
   },
   {
    "code": "GF02",
    "nl": "Defensie",
-   "uitleg": "leger en militaire uitgaven"
+   "uitleg": "leger en militaire uitgaven",
+   "officieel": "Defence",
+   "api_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_exp?lang=EN&sinceTimePeriod=2015&unit=PC_TOT&sector=S13&na_item=TE&cofog99=GF02&geo=BE&geo=EU27_2020&geo=NL&geo=DE&geo=FR&geo=LU"
   }
  ],
  "details": [
   {
    "code": "GF1002",
    "nl": "waarvan pensioenen en ouderenzorg",
-   "deel_van": "GF10"
+   "deel_van": "GF10",
+   "officieel": "Old age",
+   "api_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_exp?lang=EN&sinceTimePeriod=2015&unit=PC_TOT&sector=S13&na_item=TE&cofog99=GF1002&geo=BE&geo=EU27_2020&geo=NL&geo=DE&geo=FR&geo=LU"
   },
   {
    "code": "GF0107",
    "nl": "waarvan rente op de staatsschuld",
-   "deel_van": "GF01"
+   "deel_van": "GF01",
+   "officieel": "Public debt transactions",
+   "api_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_exp?lang=EN&sinceTimePeriod=2015&unit=PC_TOT&sector=S13&na_item=TE&cofog99=GF0107&geo=BE&geo=EU27_2020&geo=NL&geo=DE&geo=FR&geo=LU"
   }
  ],
  "aandelen": {
@@ -1118,8 +1142,23 @@
   "url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table?lang=en",
   "api_urls": [
    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_exp?lang=EN&sinceTimePeriod=2015&unit=PC_TOT&sector=S13&na_item=TE&cofog99=GF10&geo=BE&geo=EU27_2020&geo=NL&geo=DE&geo=FR&geo=LU",
-   "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_exp?lang=EN&sinceTimePeriod=2015&unit=PC_TOT&sector=S13&na_item=TE&cofog99=GF07&geo=BE&geo=EU27_2020&geo=NL&geo=DE&geo=FR&geo=LU"
-  ]
+   "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_exp?lang=EN&sinceTimePeriod=2015&unit=PC_TOT&sector=S13&na_item=TE&cofog99=GF07&geo=BE&geo=EU27_2020&geo=NL&geo=DE&geo=FR&geo=LU",
+   "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_exp?lang=EN&sinceTimePeriod=2015&unit=PC_TOT&sector=S13&na_item=TE&cofog99=GF04&geo=BE&geo=EU27_2020&geo=NL&geo=DE&geo=FR&geo=LU",
+   "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_exp?lang=EN&sinceTimePeriod=2015&unit=PC_TOT&sector=S13&na_item=TE&cofog99=GF01&geo=BE&geo=EU27_2020&geo=NL&geo=DE&geo=FR&geo=LU",
+   "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_exp?lang=EN&sinceTimePeriod=2015&unit=PC_TOT&sector=S13&na_item=TE&cofog99=GF09&geo=BE&geo=EU27_2020&geo=NL&geo=DE&geo=FR&geo=LU",
+   "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_exp?lang=EN&sinceTimePeriod=2015&unit=PC_TOT&sector=S13&na_item=TE&cofog99=GF03&geo=BE&geo=EU27_2020&geo=NL&geo=DE&geo=FR&geo=LU",
+   "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_exp?lang=EN&sinceTimePeriod=2015&unit=PC_TOT&sector=S13&na_item=TE&cofog99=GF08&geo=BE&geo=EU27_2020&geo=NL&geo=DE&geo=FR&geo=LU",
+   "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_exp?lang=EN&sinceTimePeriod=2015&unit=PC_TOT&sector=S13&na_item=TE&cofog99=GF06&geo=BE&geo=EU27_2020&geo=NL&geo=DE&geo=FR&geo=LU",
+   "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_exp?lang=EN&sinceTimePeriod=2015&unit=PC_TOT&sector=S13&na_item=TE&cofog99=GF05&geo=BE&geo=EU27_2020&geo=NL&geo=DE&geo=FR&geo=LU",
+   "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_exp?lang=EN&sinceTimePeriod=2015&unit=PC_TOT&sector=S13&na_item=TE&cofog99=GF02&geo=BE&geo=EU27_2020&geo=NL&geo=DE&geo=FR&geo=LU",
+   "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_exp?lang=EN&sinceTimePeriod=2015&unit=PC_TOT&sector=S13&na_item=TE&cofog99=GF1002&geo=BE&geo=EU27_2020&geo=NL&geo=DE&geo=FR&geo=LU",
+   "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_exp?lang=EN&sinceTimePeriod=2015&unit=PC_TOT&sector=S13&na_item=TE&cofog99=GF0107&geo=BE&geo=EU27_2020&geo=NL&geo=DE&geo=FR&geo=LU"
+  ],
+  "filters": {
+   "unit": "PC_TOT (Percentage of total)",
+   "sector": "S13 (General government)",
+   "na_item": "TE (Total general government expenditure)"
+  }
  },
- "opgehaald": "2026-10-13T16:30:22+00:00"
+ "opgehaald": "2026-10-13T16:40:15+00:00"
 }
