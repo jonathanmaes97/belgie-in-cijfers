@@ -32,7 +32,7 @@ GEWESTEN = [("BE2", "Vlaanderen"), ("BE3", "Wallonië"), ("BE1", "Brussel")]
 # Thema's waar federale regeringen als laag zinvol zijn (onderwijs is volledig een bevoegdheid van de gemeenschappen).
 THEMAS_MET_REGERINGEN = {"economie", "overheidsfinancien", "werk", "gezondheid", "wonen_armoede", "klimaat_energie", "mobiliteit", "demografie"}
 
-KERNCIJFERS = ["schuld_per_inwoner", "rente_per_dag", "werkzaamheidsgraad", "treinstiptheid", "inflatie", "levensverwachting"]
+KERNCIJFERS = ["schuld_per_inwoner", "rente_per_dag", "belastingwig", "werkzaamheidsgraad", "inflatie", "bbp_groei"]
 MAANDEN = ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"]
 VLAGGEN = {"p": "voorlopig", "e": "geschat", "b": "breuk in reeks", "d": "definitie wijkt af", "u": "onbetrouwbaar", "j": "jaar nog bezig"}
 
