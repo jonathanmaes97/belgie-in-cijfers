@@ -1,9 +1,9 @@
 {
   "api_urls": [
-    "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/GOV_10DD_EDPT1/A.PC_GDP.S13.B9.BE+EU27_2020+NL+DE+FR/?startPeriod=2010"
+    "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10dd_edpt1?lang=EN&sinceTimePeriod=2005&unit=PC_GDP&sector=S13&na_item=B9&geo=BE&geo=EU27_2020&geo=NL&geo=DE&geo=FR&geo=LU"
   ],
-  "bijgewerkt_bron": null,
-  "opgehaald": "2026-10-13T12:45:00+00:00",
-  "laatste_poging": "2026-10-13T12:45:00+00:00",
+  "bijgewerkt_bron": "2026-04-22T11:00:00+0200",
+  "opgehaald": "2026-10-13T13:09:05+00:00",
+  "laatste_poging": "2026-10-13T13:09:05+00:00",
   "melding": ""
 }
