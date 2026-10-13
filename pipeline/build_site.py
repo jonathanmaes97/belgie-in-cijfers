@@ -465,11 +465,12 @@ def tick(ind: dict, pad: str) -> str:
 
 
 def themabalk(themas: list[dict], actief: str | None, pad: str) -> str:
-    huidig = ' aria-current="page"' if actief == "gewesten" else ""
-    links = [f'<a href="{pad}gewesten.html" class="gewesten-link" style="--t:#1a1f24"{huidig}>{icoon("kaart")}<span>{T("gewesten_kort")}</span></a>']
+    links = []
     for t in themas:
         huidig = ' aria-current="page"' if t["id"] == actief else ""
         links.append(f'<a href="{pad}thema/{t["id"]}.html" style="--t:{THEMA_KLEUR.get(t["id"])}"{huidig}>{icoon(t["icoon"])}<span>{escape(t["nl"])}</span></a>')
+    huidig = ' aria-current="page"' if actief == "gewesten" else ""
+    links.append(f'<a href="{pad}gewesten.html" class="gewesten-link" style="--t:#1a1f24"{huidig}>{icoon("kaart")}<span>{T("gewesten_kort")}</span></a>')
     knoppen = (f'<button type="button" class="schuif-knop links" aria-hidden="true" tabindex="-1">{icoon("terug")}</button>'
                f'<button type="button" class="schuif-knop rechts" aria-hidden="true" tabindex="-1">{icoon("pijl")}</button>')
     return f'<nav class="themabalk" aria-label="{escape(T("themas_aria"))}"><div class="binnen">{"".join(links)}</div>{knoppen}</nav>'

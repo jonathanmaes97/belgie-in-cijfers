@@ -58,11 +58,11 @@ h1.groot {{ font-size: 104px; margin-top: 110px; }}
 .kern div {{ padding: 30px 28px; border-right: 2px solid #e1e4e8; display: flex; flex-direction: column; gap: 8px; }}
 .kern div:last-child {{ border-right: 0; }}
 .kern b {{ font-size: 50px; letter-spacing: -.03em; }} .kern span {{ font-size: 24px; color: #6b737b; }}
-.invoer {{ display: flex; justify-content: space-between; align-items: center; margin-top: 40px; padding: 30px 36px; border: 3px solid #1a1f24; border-radius: 22px; background: #fff; font-size: 34px; color: #5b636b; }}
+.rij.klein {{ font-size: 32px; padding: 11px 0; }}
+.invoer {{ display: flex; justify-content: space-between; align-items: center; margin-top: 32px; padding: 30px 36px; border: 3px solid #1a1f24; border-radius: 22px; background: #fff; font-size: 34px; color: #5b636b; }}
 .invoer b {{ font-size: 60px; color: #1a1f24; letter-spacing: -.02em; }}
-.maker {{ display: flex; align-items: center; gap: 26px; font-size: 32px; line-height: 1.35; color: #4a525a; margin-top: 110px; }}
-.maker b {{ color: #1a1f24; font-size: 40px; }}
-.maker img {{ width: 150px; height: 150px; border-radius: 50%; object-fit: cover; }}
+.maker {{ display: inline-flex; align-items: center; gap: 12px; }}
+.maker img {{ width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }}
 .cta {{ display: inline-block; margin-top: 70px; padding: 28px 44px; border-radius: 18px; background: #1a1f24; color: #fff; font-size: 40px; font-weight: 600; }}
 </style></head><body style="--k:{kleur}"><div class="raster"></div><div class="gloed"></div><div class="gloed2"></div>
 <div class="binnen">
@@ -135,15 +135,19 @@ def dias(d: dict) -> list[tuple[str, str]]:
     # 3b. rekenmodule: vul je brutoloon in
     loon = 3500
     rk = rekenvoorbeeld(loon)
+    # concrete posten: pensioenen, zorg, onderwijs, rente, veiligheid, defensie (aandeel in alle overheidsuitgaven)
+    namen = {f["code"]: f["nl"] for f in u["functies"] + u["details"]}
+    posten = [("GF1002", "Pensioenen en ouderenzorg"), ("GF07", namen["GF07"]), ("GF09", namen["GF09"]),
+              ("GF0107", "Rente op de staatsschuld"), ("GF03", namen["GF03"]), ("GF02", namen["GF02"])]
     waarheen = "".join(
-        f'<div class="rij"><span class="stip" style="background:{kleuren[i]}"></span><span>{escape(f["nl"])}</span><b>{eur(rk["totaal"] * u["aandelen"][f["code"]]["BE"][ju] / 100)}</b></div>'
-        for i, f in enumerate(top[:3]))
+        f'<div class="rij klein"><span class="stip" style="background:{kleuren[i % len(kleuren)]}"></span><span>{escape(naam)}</span><b>{eur(rk["totaal"] * u["aandelen"][code]["BE"][ju] / 100)}</b></div>'
+        for i, (code, naam) in enumerate(posten))
     gem = json.loads((SITE / "data" / "fiscaal-2026.json").read_text(encoding="utf-8"))["gemeentebelasting"]["voorbeeld_percentage"]
     uit.append(("rekenmodule", dia(
-        f'<p class="label">Rekenmodule</p><h1 style="font-size:62px">Vul je brutoloon in en zie waar je bijdrage naartoe gaat.</h1>'
+        f'<p class="label">Rekenmodule</p><h1 style="font-size:56px">Vul je brutoloon in en zie waar je bijdrage naartoe gaat.</h1>'
         f'<div class="invoer"><span>Brutoloon per maand</span><b>{eur(loon)}</b></div>'
-        f'<p class="sub" style="font-size:34px;margin-top:34px">Je betaalt <b style="color:#1a1f24">{pct(rk["druk"] * 100, 1)}</b> aan sociale bijdragen en belastingen: '
-        f'{eur(rk["totaal"])} per jaar. Verdeeld zoals alle overheidsuitgaven:</p>'
+        f'<p class="sub" style="font-size:30px;margin-top:28px">Je betaalt <b style="color:#1a1f24">{pct(rk["druk"] * 100, 1)}</b> aan sociale bijdragen en belastingen: '
+        f'{eur(rk["totaal"])} per jaar. Daarvan gaat, verdeeld zoals alle overheidsuitgaven, naar:</p>'
         f'<div class="inhoud" style="margin-top:20px">{waarheen}</div>',
         f"Voorbeeld: bediende, alleenstaand, met vakantiegeld en eindejaarspremie, gemeentebelasting {pct(gem, 0)}. Tarieven 2026.",
         volgende(), TOTAAL, THEMA_KLEUR["overheidsfinancien"])))
@@ -198,9 +202,9 @@ def dias(d: dict) -> list[tuple[str, str]]:
     uit.append(("08-afsluiter", dia(
         '<h1 class="groot" style="font-size:88px">Zoek het zelf op.</h1>'
         '<p class="sub">Elk cijfer met een link naar de bron. Een rekenmodule voor je eigen belastingen. Vlaanderen, Wallonië en Brussel naast elkaar. Geen mening, geen reclame, geen cookies.</p>'
-        f'<span class="cta">{DOMEIN}</span>'
-        f'<div class="maker"><img src="{(SITE / "img" / "jonathan-maes@2x.jpg").resolve().as_uri()}" alt=""><span>Een onafhankelijk project van<br><b>Jonathan Maes</b></span></div>',
-        "", volgende(), TOTAAL)))
+        f'<span class="cta">{DOMEIN}</span>',
+        f'<span class="maker"><img src="{(SITE / "img" / "jonathan-maes@2x.jpg").resolve().as_uri()}" alt="">Een onafhankelijk project van Jonathan Maes</span>',
+        volgende(), TOTAAL)))
     return uit
 
 
