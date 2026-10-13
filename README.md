@@ -17,8 +17,9 @@ Een open, onafhankelijk dashboard met de officiële kerncijfers van België: eco
 ```
 config/indicatoren.yaml   catalogus: welke indicator, welke bron, welke filters
 pipeline/eurostat.py      ophalen en ontleden van Eurostat-data
+pipeline/infrabel.py      ophalen van Infrabel-data (treinstiptheid), jaarcijfers gecontroleerd tegen de jaartotalen van de bron
 pipeline/run.py           ophalen → valideren → herzieningen loggen → afgeleide cijfers → site-data
-pipeline/build_site.py    bouwt site/index.html (kerncijfers staan in de HTML, ook zonder JavaScript)
+pipeline/build_site.py    bouwt de startpagina en één pagina per thema (cijfers en vergelijkingszinnen staan in de HTML, ook zonder JavaScript)
 pipeline/probe_sources.py test andere bronnen (Statbel, NBB, Infrabel, iRail, ...) → reports/bronnen.md
 data/clean/               één CSV en metadata per indicator
 data/changelog.json       herzieningen van cijfers door de bronnen

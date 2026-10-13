@@ -5,7 +5,8 @@ import pytest
 import yaml
 
 from pipeline import eurostat
-from pipeline.build_site import getal, met_eenheid
+from pipeline.build_site import getal, kort_met_eenheid, met_eenheid, zinnen
+from pipeline.infrabel import jaar_uit_maanden
 from pipeline.eurostat import BronFout
 from pipeline.run import afleiden, bereken, herzieningen, valideer
 
@@ -85,7 +86,27 @@ def test_herzieningen_gedetecteerd():
 def test_belgische_getalnotatie():
     assert getal(58271.3, 0) == "58.271"
     assert getal(-5.2, 1) == "−5,2"
-    assert met_eenheid(39.1, {"eenheid": " mln €", "decimalen": 1}) == "€ 39,1 mln"
+    assert kort_met_eenheid(39.1, {"eenheid": " mln €", "decimalen": 1}) == "€ 39,1 mln"
+    assert met_eenheid(107.9, {"eenheid": "% bbp", "decimalen": 1}) == "107,9% van het bbp"
+
+
+def test_zinnen_vergelijken_neutraal():
+    ind = {"decimalen": 1, "eenheid": "%", "bron": {},
+           "reeksen": {"BE": [[2015, 67.2, ""], [2025, 72.8, ""]], "EU27_2020": [[2025, 76.1, ""]]}}
+    z = zinnen(ind)
+    assert z[0] == "Dat is lager dan het EU-gemiddelde (76,1%)."
+    assert z[1] == "In 2015 was dit 67,2%."
+
+
+def test_infrabel_jaarcijfer_uit_maanden_met_controle():
+    recs = [{"maand": f"2024-{m:02d}", "reg": 90, "tel": 100} for m in range(1, 13)]
+    recs[-1].update({"reg_ytd": 1080, "tel_ytd": 1200})
+    recs += [{"maand": "2025-01", "reg": 80, "tel": 100}]
+    w = jaar_uit_maanden(recs, "maand", "reg", "tel")
+    assert [(x.jaar, x.waarde, x.status) for x in w] == [(2024, 90.0, ""), (2025, 80.0, "j")]
+    recs[11]["reg_ytd"] = 1000
+    with pytest.raises(BronFout):
+        jaar_uit_maanden(recs, "maand", "reg", "tel")
 
 
 def test_catalogus_is_consistent():

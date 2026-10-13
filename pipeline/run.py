@@ -24,7 +24,7 @@ from pathlib import Path
 
 import yaml
 
-from . import eurostat
+from . import eurostat, infrabel
 from .eurostat import BronFout
 
 WORTEL = Path(__file__).resolve().parent.parent
@@ -134,9 +134,14 @@ def afleiden(ind: dict, data: dict[str, list[dict]]) -> list[dict]:
 
 def haal_indicator(ind: dict, cat: dict) -> tuple[list[dict], dict]:
     bron = ind["bron"]
+    landen = ind.get("landen", cat["standaard_landen"])
+    if bron["instelling"] == "Infrabel":
+        res = infrabel.haal_op(bron)
+        rijen = [{"geo": w.geo, "jaar": w.jaar, "waarde": w.waarde, "status": w.status} for w in res.waarnemingen]
+        valideer(rijen, ["BE"])
+        return rijen, {"api_urls": [res.url], "bijgewerkt_bron": None, "laatste_periode": res.labels.get("laatste_maand")}
     if bron["instelling"] != "Eurostat":
         raise BronFout(f"Bron {bron['instelling']} wordt nog niet ondersteund.")
-    landen = ind.get("landen", cat["standaard_landen"])
     res = eurostat.haal_op(bron["dataset"], bron["filters"], landen, cat["vanaf_jaar"])
     rijen = [{"geo": w.geo, "jaar": w.jaar, "waarde": w.waarde, "status": w.status} for w in res.waarnemingen]
     urls = [res.url]
@@ -240,19 +245,23 @@ def schrijf_site_data(cat: dict, data: dict, status: dict, tijd: str) -> None:
             bron = {"instelling": "Berekend", "formule": ind["afgeleid"]["formule"], "invoer": ind["afgeleid"]["invoer"]}
         else:
             b = ind["bron"]
-            bron = {"instelling": b["instelling"], "dataset": b["dataset"], "filters": b["filters"],
-                    "url": eurostat.databrowser_url(b["dataset"]), "api_urls": st.get("api_urls", []),
-                    "bijgewerkt_bron": st.get("bijgewerkt_bron")}
+            pagina = infrabel.pagina_url(b["dataset"]) if b["instelling"] == "Infrabel" else eurostat.databrowser_url(b["dataset"])
+            bron = {"instelling": b["instelling"], "dataset": b["dataset"], "filters": b.get("filters", {}),
+                    "url": pagina, "api_urls": st.get("api_urls", []),
+                    "bijgewerkt_bron": st.get("bijgewerkt_bron"), "laatste_periode": st.get("laatste_periode")}
             if ind.get("regionaal"):
                 bron["regionaal_dataset"] = ind["regionaal"]["dataset"]
                 bron["regionaal_url"] = eurostat.databrowser_url(ind["regionaal"]["dataset"])
         indicatoren.append({
-            "id": id_, "thema": ind["thema"], "titel": ind["titel"], "definitie": ind["definitie"],
+            "id": id_, "thema": ind["thema"], "titel": ind["titel"], "vraag": ind.get("vraag", ind["titel"]),
+            "definitie": ind["definitie"], "uitleg": ind.get("uitleg"), "weergave": ind.get("weergave", "lijn"),
+            "beeld": ind.get("beeld"), "wafel_tekst": ind.get("wafel_tekst"), "zoekwoorden": ind.get("zoekwoorden", []),
             "eenheid": ind["eenheid"], "decimalen": ind["decimalen"], "verborgen": ind.get("verborgen", False),
             "norm": ind.get("norm"), "bron": bron, "opgehaald": st.get("opgehaald"),
             "ok": st.get("ok", False), "melding": st.get("melding", ""), "reeksen": reeksen,
         })
-    uit = {"gegenereerd": tijd, "themas": cat["themas"], "landnamen": cat["landnamen"], "indicatoren": indicatoren}
+    uit = {"gegenereerd": tijd, "themas": cat["themas"], "begrippen": cat.get("begrippen", {}),
+           "landnamen": cat["landnamen"], "indicatoren": indicatoren}
     SITE_DATA.parent.mkdir(parents=True, exist_ok=True)
     SITE_DATA.write_text(json.dumps(uit, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
