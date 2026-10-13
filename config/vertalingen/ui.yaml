@@ -129,10 +129,10 @@ t:
     de: "Erstellt von <b>{maker}</b>{linkedin}."
     en: "Made by <b>{maker}</b>{linkedin}."
   voet_contact:
-    nl: "Vraag, idee of fout gezien? Mail naar <a href=\"mailto:{mail}\">{mail}</a> of <a href=\"{repo}/issues/new\">meld het op GitHub</a>."
-    fr: "Une question, une idée ou une erreur ? Écrivez à <a href=\"mailto:{mail}\">{mail}</a> ou <a href=\"{repo}/issues/new\">signalez-la sur GitHub</a>."
-    de: "Frage, Idee oder Fehler entdeckt? Schreiben Sie an <a href=\"mailto:{mail}\">{mail}</a> oder <a href=\"{repo}/issues/new\">melden Sie es auf GitHub</a>."
-    en: "Question, idea or spotted a mistake? Email <a href=\"mailto:{mail}\">{mail}</a> or <a href=\"{repo}/issues/new\">report it on GitHub</a>."
+    nl: "Vraag, idee of fout gezien? Mail naar <a href=\"mailto:{mail}\">{mail}</a>."
+    fr: "Une question, une idée ou une erreur ? Écrivez à <a href=\"mailto:{mail}\">{mail}</a>."
+    de: "Frage, Idee oder Fehler entdeckt? Schreiben Sie an <a href=\"mailto:{mail}\">{mail}</a>."
+    en: "Question, idea or spotted a mistake? Email <a href=\"mailto:{mail}\">{mail}</a>."
   voet_onafhankelijk:
     nl: "Deze site is onafhankelijk en niet verbonden aan de instellingen die de cijfers publiceren. De uitleg, de vertalingen en de afgeleide cijfers (zoals schuld per inwoner) zijn van deze site; zij zijn niet verantwoordelijk voor hoe hun cijfers hier worden voorgesteld."
     fr: "Ce site est indépendant et n'est pas lié aux institutions qui publient les chiffres. Les explications, les traductions et les chiffres dérivés (comme la dette par habitant) sont de ce site ; ces institutions ne sont pas responsables de la manière dont leurs chiffres sont présentés ici."
