@@ -1,6 +1,6 @@
 # Status van de datapipeline
 
-Laatste run: 2026-10-13T17:44:16+00:00
+Laatste run: 2026-10-13T17:49:40+00:00
 
 | Indicator | Status | Opgehaald | Melding |
 |---|---|---|---|
@@ -23,11 +23,11 @@ Laatste run: 2026-10-13T17:44:16+00:00
 | langdurige_werkloosheid | ✅ | 2026-10-13T17:44:16+00:00 |  |
 | werkzaamheid_55_64 | ✅ | 2026-10-13T17:44:16+00:00 |  |
 | levensverwachting | ✅ | 2026-10-13T17:44:16+00:00 |  |
-| zorguitgaven | ✅ | 2026-10-13T17:44:16+00:00 |  |
 | gezonde_levensjaren | ✅ | 2026-10-13T17:44:16+00:00 |  |
-| vermijdbare_sterfte | ✅ | 2026-10-13T17:44:16+00:00 |  |
-| onvervulde_zorg | ✅ | 2026-10-13T17:44:16+00:00 |  |
+| zorguitgaven | ✅ | 2026-10-13T17:44:16+00:00 |  |
 | verpleegkundigen | ✅ | 2026-10-13T17:44:16+00:00 |  |
+| onvervulde_zorg | ✅ | 2026-10-13T17:44:16+00:00 |  |
+| vermijdbare_sterfte | ✅ | 2026-10-13T17:44:16+00:00 |  |
 | diploma_hoger_onderwijs | ✅ | 2026-10-13T17:44:16+00:00 |  |
 | vroegtijdige_schoolverlaters | ✅ | 2026-10-13T17:44:16+00:00 |  |
 | pisa_wiskunde | ✅ | 2026-10-13T17:44:16+00:00 |  |
@@ -46,10 +46,10 @@ Laatste run: 2026-10-13T17:44:16+00:00
 | gasprijs | ✅ | 2026-10-13T17:44:16+00:00 |  |
 | gasprijs_eur | ✅ | 2026-10-13T17:44:16+00:00 |  |
 | treinstiptheid | ✅ | 2026-10-13T17:44:16+00:00 |  |
-| verkeersdoden | ✅ | 2026-10-13T17:44:16+00:00 |  |
-| auto_aandeel | ✅ | 2026-10-13T17:44:16+00:00 |  |
 | trein_aandeel | ✅ | 2026-10-13T17:44:16+00:00 |  |
+| auto_aandeel | ✅ | 2026-10-13T17:44:16+00:00 |  |
 | autos_per_1000 | ✅ | 2026-10-13T17:44:16+00:00 |  |
+| verkeersdoden | ✅ | 2026-10-13T17:44:16+00:00 |  |
 | gevangenis_bezetting | ✅ | 2026-10-13T17:44:16+00:00 |  |
 | gevangenen_per_100000 | ✅ | 2026-10-13T17:44:16+00:00 |  |
 | gevangenen_aantal | ✅ | 2026-10-13T17:44:16+00:00 |  |
@@ -62,7 +62,7 @@ Laatste run: 2026-10-13T17:44:16+00:00
 | bevolking_buitenland_geboren | ✅ | 2026-10-13T17:44:16+00:00 |  |
 | bevolking_naar_geboorteland | ✅ | 2026-10-13T17:44:16+00:00 |  |
 | asielaanvragen | ✅ | 2026-10-13T17:44:16+00:00 |  |
-| vooruitzichten | ✅ | 2026-10-13T17:44:16+00:00 |  |
-| uitgaven | ✅ | 2026-10-13T17:44:16+00:00 |  |
-| snel | ✅ | 2026-10-13T17:44:16+00:00 |  |
-| olie | ✅ | 2026-10-13T17:44:16+00:00 |  |
+| vooruitzichten | ✅ | — |  |
+| uitgaven | ✅ | — |  |
+| snel | ✅ | — |  |
+| olie | ✅ | — |  |

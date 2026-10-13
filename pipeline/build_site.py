@@ -42,7 +42,8 @@ VOORWAARDEN = {
 }
 MERK = "State of the Union"
 MAKER = "Jonathan Maes"
-CONTACT = "sotu@jonathanmaes.be"
+CONTACT = "sotu@jonathanmaes.be"            # voor vragen over de site
+CONTACT_PERSOONLIJK = "hallo@jonathanmaes.be"  # algemeen adres van de maker
 LINKEDIN_URL = "https://www.linkedin.com/in/maesjonathan/"
 GEWEST_CODES = ["BE2", "BE3", "BE1"]
 # Thema's waar federale regeringen als laag zinvol zijn (onderwijs is volledig een bevoegdheid van de gemeenschappen).
@@ -117,6 +118,8 @@ ICONEN = {
     "kaart": '<path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/>',
     "reken": '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8"/><path d="M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01M8 18h.01M12 18h4"/>',
     "justitie": '<path d="M12 4v16M7 20h10"/><path d="M5 8h14"/><path d="M5 8l-3 6a3 3 0 0 0 6 0z"/><path d="M19 8l-3 6a3 3 0 0 0 6 0z"/><circle cx="12" cy="4" r="1"/>',
+    "profiel": '<rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10.5" r="2.2"/><path d="M5.8 16.5c.6-1.8 1.8-2.7 3.2-2.7s2.6.9 3.2 2.7"/><path d="M14.5 9.5h3.5M14.5 13h3.5"/>',
+    "mail": '<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/>',
     "taal": '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/>',
 }
 
@@ -345,7 +348,7 @@ def bronnen_van(ind: dict) -> list[dict]:
     uit = []
     for i in b["invoer"].values():
         for x in bronnen_van(PER_ID[i]) if i in PER_ID else []:
-            if x not in uit:
+            if all((x["instelling"], x.get("dataset")) != (y["instelling"], y.get("dataset")) for y in uit):
                 uit.append(x)
     return uit
 
@@ -369,7 +372,7 @@ def technisch(ind: dict, bpad: str = "") -> str:
     rijen = [f'<dt>{T("definitie")}</dt><dd>{escape(tx(ind["definitie"]))}</dd>']
     if b["instelling"] == "Berekend":
         rijen.append(f'<dt>{T("berekening")}</dt><dd><code>{escape(b["formule"])}</code> {T("met")} {", ".join(escape(v) for v in b["invoer"].values())}</dd>')
-        for x in bronnen_van(ind):
+        for x in [PER_ID[i]["bron"] for i in b["invoer"].values() if i in PER_ID and PER_ID[i]["bron"]["instelling"] != "Berekend"]:
             for u in x.get("api_urls", []):
                 rijen.append(f'<dt>{T("exacte_bevraging")}</dt><dd>{escape(x["dataset"])}: <a href="{escape(u)}" rel="noopener">{T("open_ruwe_data")}</a></dd>')
     else:
@@ -500,7 +503,7 @@ def pagina(titel: str, beschrijving: str, inhoud: str, pad: str, data: dict, act
     og_naam = og if TAAL == "nl" else f"{og}-{TAAL}"
     alternatieven = "".join(f'<link rel="alternate" hreflang="{t}" href="{SITE_URL}{map_van(t)}{url}">' for t in TALEN)
     alternatieven += f'<link rel="alternate" hreflang="x-default" href="{SITE_URL}{url}">'
-    linkedin = f' (<a href="{LINKEDIN_URL}" rel="noopener">LinkedIn</a>)' if LINKEDIN_URL else ""
+    linkedin = f' <a class="li-knop" href="{LINKEDIN_URL}" rel="noopener" aria-label="{MAKER} op LinkedIn">{icoon("profiel")}<span>LinkedIn</span></a>' if LINKEDIN_URL else ""
     return SJABLOON.format(
         taal=TAAL, titel=escape(titel), beschrijving=escape(beschrijving), inhoud=inhoud, pad=pad, bpad=bpad,
         themabalk=themabalk(data["themas"], actief, pad), zoek=icoon("zoek"), reken=icoon("reken"),
@@ -688,7 +691,7 @@ def uitgavenblok(data: dict, per_id: dict) -> str:
         rijen.append(f'<tr><th scope="row"><span class="stip" style="background:{kleur[f["code"]]}"></span>{escape(f["nl"])}<small>{escape(f["uitleg"])}</small>{officieel(f)}</th>'
                      f'<td>{eur(a, 1) if a is not None else "—"}</td><td>{per_inw}</td><td>{pct(eu, 1) if eu is not None else "—"}</td></tr>{detail}')
     filters = "; ".join(f'{k} = {v}' for k, v in (u["bron"].get("filters") or {}).items())
-    zo_vind = f'<p class="bron-klein">{T("uit_zo_vind", ds=f"<a href={chr(34)}{escape(u["bron"]["url"])}{chr(34)} rel=noopener><code>{escape(u["bron"]["dataset"])}</code></a>", filters=escape(filters))}</p>' if filters else ""
+    zo_vind = f'<p class="bron-klein zo-vind">{T("uit_zo_vind", ds=f"<a href={chr(34)}{escape(u["bron"]["url"])}{chr(34)} rel=noopener><code>{escape(u["bron"]["dataset"])}</code></a>", filters=escape(filters))}</p>' if filters else ""
     totaal_mio = sum(((u["miljoen_euro"].get(f["code"]) or {}).get(jaar) or 0) for f in u["functies"])
     totaal_zin = T("uit_totaal", bedrag=eur(totaal_mio * 1e6 / bev)) if bev and totaal_mio else ""
     b = u["bron"]
@@ -696,6 +699,7 @@ def uitgavenblok(data: dict, per_id: dict) -> str:
 <section class="vz kaart uitgaven" id="belastinggeld">
   <header><p class="label">{T("uit_label")}</p><h3>{T("uit_titel")}</h3></header>
   <p class="intro-klein">{T("uit_intro", jaar=jaar)}{totaal_zin}</p>
+  <button type="button" class="controle-knop js" aria-pressed="false" data-controle>{icoon("bron")}<span>{T("uit_toon_controle")}</span></button>
   <div class="honderd" role="img" aria-label="{T("uit_aria")}">{balk}</div>
   <div class="uitgaven-doos"><table>
     <thead><tr><th scope="col">{T("uit_domein")}</th><th scope="col">{T("uit_per_100")}</th><th scope="col">{T("uit_per_inwoner")}</th><th scope="col">{escape(landnaam(data, "EU27_2020"))}</th></tr></thead>
@@ -764,12 +768,10 @@ def snelkaart(r: dict) -> str:
         f'<p class="sk-bron">{T("bron")}: <a href="{escape(r["bron"]["url"])}" rel="noopener">{escape(tx(r["bron"].get("naam")) or T("nationale_bank"))}</a> · <a href="{escape(r["api_url"])}" rel="noopener">{T("ruwe_data")}</a></p></article>')
 
 
-def mazoutblok(data: dict) -> str:
-    """Weekprijs van mazout (Europese Commissie), op de pagina Klimaat en energie."""
+def mazoutkaarten(data: dict) -> str:
+    """Weekprijs van mazout (Europese Commissie): als laatste kaart op de pagina Klimaat en energie."""
     reeksen = (data.get("olie") or {}).get("reeksen") or []
-    if not reeksen:
-        return ""
-    return f'<section class="blok snel"><div class="snel-raster">{"".join(snelkaart(r) for r in reeksen)}</div></section>'
+    return "".join(snelkaart(r).replace('class="snel-kaart"', 'class="kaart snel-kaart week-kaart"', 1) for r in reeksen)
 
 
 def snelblok(data: dict) -> str:
@@ -814,8 +816,7 @@ def themapagina(data: dict, thema: dict, vorige: dict, volgende: dict) -> str:
   {schakelaar}
   {vooruitzichtenblok(data) if thema["id"] == "economie" else ""}
   {uitgavenblok(data, per_id) if thema["id"] == "overheidsfinancien" else ""}
-  {mazoutblok(data) if thema["id"] == "klimaat_energie" else ""}
-  <div class="kaart-raster">{"".join(kaart(i, bpad) for i in inds)}</div>
+  <div class="kaart-raster">{"".join(kaart(i, bpad) for i in inds)}{mazoutkaarten(data) if thema["id"] == "klimaat_energie" else ""}</div>
   {f'<section class="begrippen"><h2>{T("begrippen_titel")}</h2><dl>{begrippen}</dl></section>' if begrippen else ""}
   <nav class="buren-nav" aria-label="{escape(T("andere_themas"))}">
     <a href="{vorige["id"]}.html">{icoon("terug")}<span><small>{T("vorig_thema")}</small>{escape(vorige["nl"])}</span></a>
@@ -965,7 +966,8 @@ def overpagina(data: dict) -> str:
         label = T("over_voorwaarden") if voorwaarden else "website"
         bronnen.append(f'<li><b>{escape(namen.get(naam, naam))}</b> · <a href="{escape(url)}" rel="noopener">{label}</a></li>')
     privacy = T("over_privacy") + (" " + T("over_statistiek") if GOATCOUNTER else "")
-    linkedin = f'<a href="{LINKEDIN_URL}" rel="noopener">LinkedIn</a> · ' if LINKEDIN_URL else ""
+    linkedin = f'<a class="li-knop" href="{LINKEDIN_URL}" rel="noopener">{icoon("profiel")}<span>LinkedIn</span></a>' if LINKEDIN_URL else ""
+    bpad = "" if TAAL == "nl" else "../"
     blok = lambda titel, tekst: f'<section class="over-blok"><h2>{titel}</h2><p>{tekst}</p></section>'
     inhoud = f'''
 <section class="themakop" style="--t:#3a434c">
@@ -981,7 +983,11 @@ def overpagina(data: dict) -> str:
   <section class="over-blok"><h2>{T("over_bronnen_titel")}</h2><p>{T("over_bronnen")}</p><ul class="lijst">{"".join(bronnen)}</ul></section>
   {blok(T("over_privacy_titel"), privacy)}
   {blok(T("over_ai_titel"), T("over_ai"))}
-  <section class="over-blok over-mij"><h2>{T("over_mij_titel")}</h2><p>{T("over_mij")}</p><p>{linkedin}<a href="mailto:{CONTACT}">{CONTACT}</a></p></section>
+  <section class="over-blok over-mij">
+    <img src="{bpad}img/jonathan-maes.jpg" srcset="{bpad}img/jonathan-maes.jpg 1x, {bpad}img/jonathan-maes@2x.jpg 2x" width="120" height="120" alt="{MAKER}" loading="lazy">
+    <div><h2>{T("over_mij_titel")}</h2><p>{T("over_mij")}</p>
+    <p class="knoppen">{linkedin}<a class="li-knop" href="mailto:{CONTACT_PERSOONLIJK}">{icoon("mail")}<span>{CONTACT_PERSOONLIJK}</span></a></p></div>
+  </section>
   <section class="over-blok"><h2>{T("over_fout_titel")}</h2><p>{T("voet_contact", mail=CONTACT, repo=REPO_URL)}</p></section>
 </div>
 '''

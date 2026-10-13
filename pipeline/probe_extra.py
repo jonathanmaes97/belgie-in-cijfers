@@ -127,8 +127,8 @@ def bbsz(s: requests.Session, uit: list[str]) -> None:
 def riziv(s: requests.Session, uit: list[str]) -> None:
     """Jaarlijkse statistiek invaliditeit (PDF) van het RIZIV: is de opbouw stabiel genoeg om automatisch te lezen?"""
     from pypdf import PdfReader
-    for jaar in range(2015, 2027):
-        for semester in (2, 1):
+    for jaar in (2015, 2019, 2025):
+        for semester in (1,):
             url = f"https://www.inami.fgov.be/SiteCollectionDocuments/stat_du{jaar}_{semester}_invaliditeit.pdf"
             try:
                 r = s.get(url, timeout=90)
@@ -140,9 +140,8 @@ def riziv(s: requests.Session, uit: list[str]) -> None:
                 continue
             pdf = PdfReader(io.BytesIO(r.content))
             uit.append(f"- {len(pdf.pages)} pagina's")
-            for i, pg in enumerate(pdf.pages[:6]):
+            for i, pg in enumerate(pdf.pages[:8]):
                 uit.append(f"### pagina {i + 1}\n```\n{(pg.extract_text() or '')[:3500]}\n```")
-            break
 
 
 def main() -> None:
@@ -154,7 +153,7 @@ def main() -> None:
             stap(s, uit)
         except Exception as e:  # een verkenning mag nooit de publicatie tegenhouden
             uit.append(f"## {stap.__name__}: FOUT {type(e).__name__}: {e}\n")
-    (WORTEL / "reports" / "riziv.md").write_text("\n".join(uit) + "\n", encoding="utf-8")
+    (WORTEL / "reports" / "riziv1.md").write_text("\n".join(uit) + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":

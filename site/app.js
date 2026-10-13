@@ -447,6 +447,14 @@
       rij.scrollBy({ left: (k.classList.contains("rechts") ? 1 : -1) * rij.clientWidth * 0.7, behavior: "smooth" })));
   }
 
+  // ---------- uitgaven: controle-informatie tonen of verbergen ----------
+  document.addEventListener("click", (ev) => {
+    const knop = ev.target.closest("[data-controle]"); if (!knop) return;
+    const aan = knop.getAttribute("aria-pressed") !== "true";
+    knop.setAttribute("aria-pressed", aan ? "true" : "false");
+    knop.closest(".uitgaven").classList.toggle("toon-controle", aan);
+  });
+
   // ---------- easter egg: klik op het hartje in de footer ----------
   let klikken = 0;
   document.addEventListener("click", (ev) => {

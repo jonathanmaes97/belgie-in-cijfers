@@ -1066,6 +1066,11 @@ t:
     fr: "Pourquoi ce site existe, comment les chiffres sont récupérés, quelles sources nous utilisons et qui le réalise."
     de: "Warum es diese Website gibt, wie die Zahlen abgerufen werden, welche Quellen wir nutzen und wer sie macht."
     en: "Why this site exists, how the figures are fetched, which sources we use and who makes it."
+  uit_toon_controle:
+    nl: "Zelf controleren bij Eurostat"
+    fr: "Vérifier vous-même chez Eurostat"
+    de: "Selbst bei Eurostat prüfen"
+    en: "Check it yourself at Eurostat"
 # Teksten die JavaScript gebruikt (grafieken, zoeken, delen, rekenmodule)
 js:
   lopend_jaar:

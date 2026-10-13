@@ -425,18 +425,6 @@ indicatoren:
     bron: {instelling: Eurostat, dataset: demo_mlexpec, filters: {sex: T, age: Y_LT1, unit: YR}}
     regionaal: {instelling: Eurostat, dataset: demo_r_mlifexp, filters: {sex: T, age: Y_LT1, unit: YR}, landen: [BE1, BE2, BE3]}
 
-  - id: zorguitgaven
-    thema: gezondheid
-    titel: {nl: Uitgaven aan gezondheidszorg}
-    vraag: {nl: "Hoeveel geven we uit aan zorg?"}
-    definitie: {nl: "Totale uitgaven aan gezondheidszorg, publiek en privé, in procent van het bbp."}
-    uitleg: {nl: "Wat de overheid, de ziekenfondsen, verzekeraars en patiënten zelf samen aan zorg uitgeven."}
-    eenheid: "% bbp"
-    decimalen: 1
-    weergave: lijn
-    zoekwoorden: [zorg, ziekenhuis, riziv, ziekenfonds]
-    bron: {instelling: Eurostat, dataset: hlth_sha11_hf, filters: {unit: PC_GDP, icha11_hf: TOT_HF}}
-
   - id: gezonde_levensjaren
     thema: gezondheid
     titel: {nl: "Gezonde levensjaren"}
@@ -449,17 +437,29 @@ indicatoren:
     zoekwoorden: ["gezond", "levensjaren", "gezondheid", "beperking", "ouder worden"]
     bron: {instelling: Eurostat, dataset: hlth_hlye, filters: {unit: YR, sex: T, hlth_hle: HLY_Y0}}
 
-  - id: vermijdbare_sterfte
+  - id: zorguitgaven
     thema: gezondheid
-    titel: {nl: "Vermijdbare sterfte"}
-    vraag: {nl: "Hoeveel mensen sterven vroeg aan iets wat te vermijden was?"}
-    definitie: {nl: "Overlijdens vóór 75 jaar die vermeden hadden kunnen worden door preventie of door tijdige en goede zorg, per 100.000 inwoners (gestandaardiseerd naar leeftijd)."}
-    uitleg: {nl: "Denk aan longkanker door roken, verkeersongevallen of een behandelbare infectie. Het cijfer zegt iets over preventie en over de kwaliteit van de zorg samen."}
+    titel: {nl: Uitgaven aan gezondheidszorg}
+    vraag: {nl: "Hoeveel geven we uit aan zorg?"}
+    definitie: {nl: "Totale uitgaven aan gezondheidszorg, publiek en privé, in procent van het bbp."}
+    uitleg: {nl: "Wat de overheid, de ziekenfondsen, verzekeraars en patiënten zelf samen aan zorg uitgeven."}
+    eenheid: "% bbp"
+    decimalen: 1
+    weergave: lijn
+    zoekwoorden: [zorg, ziekenhuis, riziv, ziekenfonds]
+    bron: {instelling: Eurostat, dataset: hlth_sha11_hf, filters: {unit: PC_GDP, icha11_hf: TOT_HF}}
+
+  - id: verpleegkundigen
+    thema: gezondheid
+    titel: {nl: "Verpleegkundigen"}
+    vraag: {nl: "Hoeveel verpleegkundigen zijn er aan het werk?"}
+    definitie: {nl: "Aantal praktiserende verpleegkundigen met een Europees erkende opleiding, per 100.000 inwoners."}
+    uitleg: {nl: "Praktiserend wil zeggen: ze zorgen echt voor patiënten. Landen tellen verpleegkundigen niet allemaal op dezelfde manier, dus vergelijk met voorzichtigheid."}
     eenheid: "per 100.000"
     decimalen: 0
     weergave: lijn
-    zoekwoorden: ["sterfte", "preventie", "vermijdbaar", "kwaliteit zorg", "vroegtijdig overlijden"]
-    bron: {instelling: Eurostat, dataset: hlth_cd_apr, filters: {mortalit: TOTAL, sex: T, icd10: TOTAL, unit: RT}}
+    zoekwoorden: ["verpleging", "verpleegkundigen", "zorgpersoneel", "tekort", "ziekenhuis"]
+    bron: {instelling: Eurostat, dataset: hlth_rs_prs2, filters: {unit: P_HTHAB, wstatus: PRACT, med_spec: NRS}}
 
   - id: onvervulde_zorg
     thema: gezondheid
@@ -473,17 +473,17 @@ indicatoren:
     zoekwoorden: ["toegang zorg", "wachtlijst", "te duur", "dokter", "betaalbaarheid zorg"]
     bron: {instelling: Eurostat, dataset: sdg_03_60, filters: {age: Y_GE16, sex: T, reason: TXP_TFAR_WLIST, unit: PC, quant_inc: TOTAL}}
 
-  - id: verpleegkundigen
+  - id: vermijdbare_sterfte
     thema: gezondheid
-    titel: {nl: "Verpleegkundigen"}
-    vraag: {nl: "Hoeveel verpleegkundigen zijn er aan het werk?"}
-    definitie: {nl: "Aantal praktiserende verpleegkundigen met een Europees erkende opleiding, per 100.000 inwoners."}
-    uitleg: {nl: "Praktiserend wil zeggen: ze zorgen echt voor patiënten. Landen tellen verpleegkundigen niet allemaal op dezelfde manier, dus vergelijk met voorzichtigheid."}
+    titel: {nl: "Vermijdbare sterfte"}
+    vraag: {nl: "Hoeveel mensen sterven vroeg aan iets wat te vermijden was?"}
+    definitie: {nl: "Overlijdens vóór 75 jaar die vermeden hadden kunnen worden door preventie of door tijdige en goede zorg, per 100.000 inwoners (gestandaardiseerd naar leeftijd)."}
+    uitleg: {nl: "Denk aan longkanker door roken, verkeersongevallen of een behandelbare infectie. Het cijfer zegt iets over preventie en over de kwaliteit van de zorg samen."}
     eenheid: "per 100.000"
     decimalen: 0
     weergave: lijn
-    zoekwoorden: ["verpleging", "verpleegkundigen", "zorgpersoneel", "tekort", "ziekenhuis"]
-    bron: {instelling: Eurostat, dataset: hlth_rs_prs2, filters: {unit: P_HTHAB, wstatus: PRACT, med_spec: NRS}}
+    zoekwoorden: ["sterfte", "preventie", "vermijdbaar", "kwaliteit zorg", "vroegtijdig overlijden"]
+    bron: {instelling: Eurostat, dataset: hlth_cd_apr, filters: {mortalit: TOTAL, sex: T, icd10: TOTAL, unit: RT}}
 
   # ---------- Onderwijs ----------
   - id: diploma_hoger_onderwijs
@@ -723,17 +723,17 @@ indicatoren:
       teller: reg
       noemer: tel
 
-  - id: verkeersdoden
+  - id: trein_aandeel
     thema: mobiliteit
-    titel: {nl: Verkeersdoden}
-    vraag: {nl: "Hoeveel mensen sterven er in het verkeer?"}
-    definitie: {nl: "Aantal mensen dat binnen 30 dagen na een verkeersongeval overlijdt, per miljoen inwoners."}
-    uitleg: {nl: "Per miljoen inwoners, zodat je landen van verschillende grootte kunt vergelijken."}
-    eenheid: " per miljoen"
-    decimalen: 0
+    titel: {nl: "Aandeel van de trein"}
+    vraag: {nl: "Hoeveel van onze verplaatsingen doen we met de trein?"}
+    definitie: {nl: "Aandeel van de trein in alle reizigerskilometers over land met auto, bus, autocar en trein."}
+    uitleg: {nl: "Samen met het aandeel van de auto en van bus en autocar is dit honderd procent van de reizigerskilometers in deze statistiek."}
+    eenheid: "%"
+    decimalen: 1
     weergave: lijn
-    zoekwoorden: [ongevallen, verkeersveiligheid, auto, fiets]
-    bron: {instelling: Eurostat, dataset: sdg_11_40, filters: {unit: RT, tra_infr: TOTAL}}
+    zoekwoorden: ["trein", "nmbs", "openbaar vervoer", "modal split", "spoor"]
+    bron: {instelling: Eurostat, dataset: tran_hv_psmod, filters: {unit: PC, vehicle: TRN}}
 
   - id: auto_aandeel
     thema: mobiliteit
@@ -749,18 +749,6 @@ indicatoren:
     zoekwoorden: ["auto", "file", "modal split", "openbaar vervoer", "verkeer"]
     bron: {instelling: Eurostat, dataset: tran_hv_psmod, filters: {unit: PC, vehicle: CAR}}
 
-  - id: trein_aandeel
-    thema: mobiliteit
-    titel: {nl: "Aandeel van de trein"}
-    vraag: {nl: "Hoeveel van onze verplaatsingen doen we met de trein?"}
-    definitie: {nl: "Aandeel van de trein in alle reizigerskilometers over land met auto, bus, autocar en trein."}
-    uitleg: {nl: "Samen met het aandeel van de auto en van bus en autocar is dit honderd procent van de reizigerskilometers in deze statistiek."}
-    eenheid: "%"
-    decimalen: 1
-    weergave: lijn
-    zoekwoorden: ["trein", "nmbs", "openbaar vervoer", "modal split", "spoor"]
-    bron: {instelling: Eurostat, dataset: tran_hv_psmod, filters: {unit: PC, vehicle: TRN}}
-
   - id: autos_per_1000
     thema: mobiliteit
     titel: {nl: "Auto's per inwoner"}
@@ -772,6 +760,18 @@ indicatoren:
     weergave: lijn
     zoekwoorden: ["auto", "wagenpark", "bedrijfswagens", "autobezit"]
     bron: {instelling: Eurostat, dataset: road_eqs_carhab, filters: {unit: NR}}
+
+  - id: verkeersdoden
+    thema: mobiliteit
+    titel: {nl: Verkeersdoden}
+    vraag: {nl: "Hoeveel mensen sterven er in het verkeer?"}
+    definitie: {nl: "Aantal mensen dat binnen 30 dagen na een verkeersongeval overlijdt, per miljoen inwoners."}
+    uitleg: {nl: "Per miljoen inwoners, zodat je landen van verschillende grootte kunt vergelijken."}
+    eenheid: " per miljoen"
+    decimalen: 0
+    weergave: lijn
+    zoekwoorden: [ongevallen, verkeersveiligheid, auto, fiets]
+    bron: {instelling: Eurostat, dataset: sdg_11_40, filters: {unit: RT, tra_infr: TOTAL}}
 
   # ---------- Veiligheid en justitie ----------
   - id: gevangenis_bezetting
