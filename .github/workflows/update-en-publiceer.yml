@@ -11,6 +11,7 @@ permissions:
   contents: write
   pages: write
   id-token: write
+  issues: write
 
 concurrency:
   group: update-en-publiceer
@@ -36,11 +37,19 @@ jobs:
       - name: Data ophalen en site opbouwen
         run: python -m pipeline.run
 
-      - name: Bronnen verkennen (fase 0)
+      - name: Mail bij een mislukte bron (via een GitHub-issue)
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python -m pipeline.melding
+
+      - name: Bronnen verkennen (enkel bij handmatig starten)
+        if: github.event_name == 'workflow_dispatch'
         continue-on-error: true
         run: |
           python -m pipeline.probe_sources
           python -m pipeline.probe_planbureau
+          python -m pipeline.probe_nbb
 
       - name: Wijzigingen bewaren
         run: |
@@ -66,6 +75,15 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
+
+      - name: Mail als de hele update mislukt
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create bronfout --color D93F0B --force
+          gh issue create --label bronfout --title "De dagelijkse update is mislukt" \
+            --body "@jonathanmaes97 De dagelijkse update is volledig mislukt; de site toont de vorige versie. Bekijk de run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
   publiceren:
     needs: bijwerken
