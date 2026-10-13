@@ -1,4 +1,4 @@
 {
-  "laatste_poging": "2026-10-13T14:15:06+00:00",
-  "melding": "Dimensie 'plants' heeft 6 waarden ['TOTAL', 'ELC', 'CHP', 'CHP_FUL', 'HEAT', 'HEAT_AC']; voeg een filter toe in de catalogus."
+  "laatste_poging": "2026-10-13T14:18:19+00:00",
+  "melding": "Dimensie 'operator' heeft 3 waarden ['TOTAL', 'PRR_MAIN', 'PRR_AUTO']; voeg een filter toe in de catalogus."
 }
