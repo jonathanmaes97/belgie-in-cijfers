@@ -170,16 +170,61 @@ def belastingen(s: requests.Session, uit: list[str]) -> None:
         uit.append(f"- eerste waarden: {list(j.get('value', {}).items())[:8]}")
 
 
+BESTAT = "https://bestat.statbel.fgov.be/bestat/api/views/3a4cfb82-0c67-4f97-94f3-58b2509763ab"
+FOD = [
+    "https://economie.fgov.be/nl/themas/energie/energieprijzen/maximumprijzen",
+    "https://economie.fgov.be/nl/themas/energie/energieprijzen",
+    "https://economie.fgov.be/nl/zoeken?search_api_fulltext=maximumprijzen+petroleumproducten",
+]
+
+
+def brandstof(s: requests.Session, uit: list[str]) -> None:
+    """Maximumprijzen benzine en diesel: be.STAT (Statbel, bron FOD Economie) en de pagina's van FOD Economie."""
+    for pad in ("", "/result/JSON", "/result/CSV", "/result/XLSX"):
+        try:
+            r = s.get(BESTAT + pad, timeout=60)
+            uit.append(f"## be.STAT {pad or '(metadata)'}\n- HTTP {r.status_code}, {r.headers.get('content-type')}\n```\n{r.text[:2500]}\n```")
+        except requests.RequestException as e:
+            uit.append(f"## be.STAT {pad}: {e}")
+    gezien = set()
+    for url in FOD:
+        try:
+            r = s.get(url, timeout=60)
+        except requests.RequestException as e:
+            uit.append(f"## {url}: {e}")
+            continue
+        links = sorted(set(re.findall(r'href="([^"]+)"', r.text)))
+        relevant = [l for l in links if re.search(r"maximum|petrol|aardolie|brandstof|carbur|\.xlsx|\.csv|\.pdf|officiele-prijs|tarief", l, re.I)]
+        uit.append(f"## {url}\n- HTTP {r.status_code}\n" + "\n".join(f"- {l}" for l in relevant[:80]))
+        for l in relevant:
+            if l.startswith("/"):
+                l = "https://economie.fgov.be" + l
+            if l in gezien or not l.startswith("https://economie.fgov.be") or len(gezien) > 12:
+                continue
+            gezien.add(l)
+            try:
+                q = s.get(l, timeout=60)
+            except requests.RequestException:
+                continue
+            if "html" in (q.headers.get("content-type") or ""):
+                t = re.sub(r"<script.*?</script>|<style.*?</style>", "", q.text, flags=re.S)
+                tabel = re.findall(r"<table.*?</table>", t, flags=re.S)
+                sub = sorted(set(x for x in re.findall(r'href="([^"]+)"', t) if re.search(r"\.xlsx|\.csv|\.pdf|\.xls", x, re.I)))
+                uit.append(f"### {l}\n- HTTP {q.status_code}\n- bestanden: {sub[:30]}\n```\n{re.sub(r'<[^>]+>', ' ', tabel[0])[:2000] if tabel else re.sub(r'<[^>]+>', ' ', t)[:1500]}\n```")
+            else:
+                uit.append(f"### {l}\n- HTTP {q.status_code}, {q.headers.get('content-type')}, {len(q.content)} bytes")
+
+
 def main() -> None:
     s = requests.Session()
     s.headers["User-Agent"] = "belgie-in-cijfers (bronverkenning; github.com/jonathanmaes97/belgie-in-cijfers)"
     uit = ["# Verkenning: PISA, energieprijzen, mazout, BBSZ\n"]
-    for stap in (belastingen,):
+    for stap in (brandstof,):
         try:
             stap(s, uit)
         except Exception as e:  # een verkenning mag nooit de publicatie tegenhouden
             uit.append(f"## {stap.__name__}: FOUT {type(e).__name__}: {e}\n")
-    (WORTEL / "reports" / "belastingen.md").write_text("\n".join(uit) + "\n", encoding="utf-8")
+    (WORTEL / "reports" / "brandstof.md").write_text("\n".join(uit) + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":
