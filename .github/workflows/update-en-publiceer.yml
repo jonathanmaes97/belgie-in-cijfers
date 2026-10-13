@@ -55,6 +55,13 @@ jobs:
             git push
           fi
 
+      - name: Preview-afbeeldingen voor LinkedIn en sociale media
+        continue-on-error: true
+        run: |
+          pip install playwright
+          python -m playwright install --with-deps chromium
+          python -m pipeline.og
+
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

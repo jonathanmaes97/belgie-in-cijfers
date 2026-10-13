@@ -509,4 +509,4 @@ indicatoren:
     wafel_tekst: {nl: "inwoners is 65 jaar of ouder"}
     zoekwoorden: [ouderen, vergrijzing, pensioen, senioren]
     bron: {instelling: Eurostat, dataset: demo_pjanind, filters: {indic_de: PC_Y65_MAX}}
-    regionaal: {instelling: Eurostat, dataset: demo_r_pjanind2, filters: {indic_de: PC_Y65_MAX}, landen: [BE1, BE2, BE3]}
+    regionaal: {instelling: Eurostat, dataset: demo_r_pjanind2, filters: {indic_de: PC_Y65_MAX, unit: PC}, landen: [BE1, BE2, BE3]}

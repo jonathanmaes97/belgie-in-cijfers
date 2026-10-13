@@ -87,6 +87,31 @@
   const naam = (data, g) => (data.landnamen[g] && data.landnamen[g].nl) || g;
   const kortNaam = (data, g) => (g === "EU27_2020" ? "EU" : naam(data, g));
 
+  // ---------- regeringen als achtergrondbanden ----------
+  let toonRegeringen = false;
+  try { toonRegeringen = localStorage.getItem("toonRegeringen") === "1"; } catch (e) {}
+  const alsJaar = (iso) => { const d = new Date(iso + "T12:00:00"); return d.getFullYear() + (d - new Date(d.getFullYear(), 0, 1)) / 31557600000; };
+  function banden(svg, data, xt, links, rechts, boven, onder) {
+    if (!toonRegeringen || !data.regeringen || !document.getElementById("toon-regeringen")) return;
+    // opeenvolgende regeringen van dezelfde premier samenvoegen
+    const lijst = [];
+    data.regeringen.federaal.forEach((r) => {
+      const van = alsJaar(r.van), tot = r.tot ? alsJaar(r.tot) : alsJaar(new Date().toISOString().slice(0, 10));
+      const vorige = lijst[lijst.length - 1];
+      if (vorige && vorige.kort === r.kort) { vorige.tot = tot; vorige.namen.push(r.naam); }
+      else lijst.push({ kort: r.kort, van, tot, namen: [r.naam] });
+    });
+    lijst.forEach((r, i) => {
+      const x0 = Math.max(links, xt(r.van)), x1 = Math.min(rechts, xt(r.tot));
+      if (x1 - x0 < 1) return;
+      if (i % 2 === 0) maak("rect", { x: x0, y: boven, width: x1 - x0, height: onder - boven, class: "regering-band" }, svg);
+      maak("line", { x1: x0, x2: x0, y1: boven, y2: onder, stroke: "currentColor", opacity: 0.12 }, svg);
+      const lab = maak("text", { x: x0 + 3, y: boven + 9, class: "regering" }, svg, r.kort);
+      lab.appendChild(document.createElementNS(NS, "title")).textContent = r.namen.join(", ");
+      if (lab.getComputedTextLength() > x1 - x0 - 4) lab.remove();
+    });
+  }
+
   // ---------- lijn: België, EU en buren door de jaren ----------
   function lijn(doos, ind, data, kl) {
     const B = doos.clientWidth, H = 220, mt = 12, mb = 22;
@@ -108,8 +133,9 @@
       maak("text", { x: ml - 8, y: y(t), "text-anchor": "end", "dominant-baseline": "middle" }, svg, kort(t));
     });
     const stap = Math.max(1, Math.ceil((j1 - j0) / Math.max(2, Math.floor((B - ml - mr) / 56))));
-    for (let j = j0; j <= j1; j += stap) if (j1 - j >= stap * 0.6 || j === j0) maak("text", { x: x(j), y: H - 4, "text-anchor": j === j0 ? "start" : "middle" }, svg, j);
+    for (let j = j0; j <= j1; j += stap) if (j1 - j >= stap * 0.8 || j === j0) maak("text", { x: x(j), y: H - 4, "text-anchor": j === j0 ? "start" : "middle" }, svg, j);
     maak("text", { x: x(j1), y: H - 4, "text-anchor": "end" }, svg, j1);
+    banden(svg, data, (t) => x(t - 0.5), ml, B - mr, mt, H - mb);
     if (ind.norm) {
       maak("line", { x1: ml, x2: B - mr, y1: y(ind.norm.waarde), y2: y(ind.norm.waarde), stroke: kl.norm, "stroke-dasharray": "3 4", "stroke-width": 1.5 }, svg);
     }
@@ -160,6 +186,7 @@
       maak("line", { x1: ml, x2: B - mr, y1: y(t), y2: y(t), stroke: t === 0 ? kl.eu : kl.raster }, svg);
       maak("text", { x: ml - 8, y: y(t), "text-anchor": "end", "dominant-baseline": "middle" }, svg, kort(t));
     });
+    banden(svg, data, (t) => ml + bw * (t - reeks[0][0]), ml, B - mr, mt - 14, H - mb);
     if (ind.norm) maak("line", { x1: ml, x2: B - mr, y1: y(ind.norm.waarde), y2: y(ind.norm.waarde), stroke: kl.norm, "stroke-dasharray": "3 4", "stroke-width": 1.5 }, svg);
     const elk = Math.max(1, Math.ceil(reeks.length / Math.floor((B - ml) / 44)));
     reeks.forEach((r, i) => {
@@ -173,10 +200,10 @@
     });
     const l = reeks[reeks.length - 1], lx = ml + bw * (reeks.length - 1) + bw / 2;
     maak("text", { x: Math.min(lx, B - 4), y: l[1] >= 0 ? y(l[1]) - 6 : y(l[1]) + 14, "text-anchor": lx > B - 40 ? "end" : "middle", class: "sterk" }, svg, fmt(l[1], ind));
-    const items = [{ naam: "België", kleur: kl.thema, vorm: "blok" }];
+    const items = [{ naam: "België", kleur: kl.thema, vorm: "vierkant" }];
     if (Object.keys(eu).length) items.push({ naam: "EU-gemiddelde", kleur: kl.eu });
     if (ind.norm) items.push({ naam: ind.norm.label.nl, kleur: kl.norm, vorm: "stip" });
-    if (reeks.some((r) => /j/.test(r[2]))) items.push({ naam: "lopend jaar (nog niet volledig)", kleur: kl.thema, vorm: "blok licht" });
+    if (reeks.some((r) => /j/.test(r[2]))) items.push({ naam: "lopend jaar (nog niet volledig)", kleur: kl.thema, vorm: "vierkant licht" });
     legende(doos, items);
     const tip = maakTip(doos);
     const vang = maak("rect", { x: ml, y: 0, width: B - ml - mr, height: H - mb, fill: "transparent" }, svg);
@@ -261,6 +288,15 @@
         teken(doos, per[doos.dataset.grafiek], data);
       });
     });
+    const schakel = document.getElementById("toon-regeringen");
+    if (schakel) {
+      schakel.checked = toonRegeringen;
+      schakel.addEventListener("change", () => {
+        toonRegeringen = schakel.checked;
+        try { localStorage.setItem("toonRegeringen", toonRegeringen ? "1" : "0"); } catch (e) {}
+        alles();
+      });
+    }
     let wacht, breedte = innerWidth;
     addEventListener("resize", () => { if (innerWidth === breedte) return; breedte = innerWidth; clearTimeout(wacht); wacht = setTimeout(alles, 150); });
     matchMedia("(prefers-color-scheme: dark)").addEventListener("change", alles);
@@ -270,6 +306,26 @@
     fetch(BASIS + "data/dashboard.json").then((r) => r.json()).then(grafieken).catch(() => {
       document.querySelectorAll("[data-grafiek]").forEach((d) => { d.textContent = "De grafiek kon niet geladen worden."; d.style.minHeight = "0"; });
     });
+  }
+
+  // ---------- optellende cijfers en renteteller op de startpagina ----------
+  const rustig = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll("[data-tel]").forEach((el, i) => {
+    if (rustig) return;
+    const doelW = parseFloat(el.dataset.tel), dec = +el.dataset.dec, voor = el.dataset.voor, na = el.dataset.na;
+    const f = nf(dec), duur = 1400, start = performance.now() + 150 + i * 60;
+    const stap = (nu) => {
+      const p = Math.min(1, Math.max(0, (nu - start) / duur)), e = 1 - Math.pow(1 - p, 4);
+      el.textContent = voor + f.format(doelW * e).replace(/^-/, "−") + na;
+      if (p < 1) requestAnimationFrame(stap);
+    };
+    requestAnimationFrame(stap);
+  });
+  const teller = document.getElementById("renteteller");
+  if (teller) {
+    const perSec = parseFloat(teller.dataset.perSeconde), begin = performance.now(), f0 = nf(0);
+    const loop = () => { teller.textContent = "€ " + f0.format(perSec * (performance.now() - begin) / 1000); };
+    loop(); setInterval(loop, 100);
   }
 
   // ---------- zoeken ----------

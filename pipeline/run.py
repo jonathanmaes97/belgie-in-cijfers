@@ -266,8 +266,10 @@ def schrijf_site_data(cat: dict, data: dict, status: dict, tijd: str) -> None:
             "norm": ind.get("norm"), "bron": bron, "opgehaald": st.get("opgehaald"),
             "ok": st.get("ok", False), "melding": st.get("melding", ""), "reeksen": reeksen,
         })
+    reg = yaml.safe_load((WORTEL / "config" / "regeringen.yaml").read_text(encoding="utf-8"))
+    regeringen = {"bron": reg["bron"], "federaal": [{**r, "van": str(r["van"]), "tot": str(r["tot"]) if r["tot"] else None} for r in reg["federaal"]]}
     uit = {"gegenereerd": tijd, "themas": cat["themas"], "begrippen": cat.get("begrippen", {}),
-           "landnamen": cat["landnamen"], "indicatoren": indicatoren}
+           "landnamen": cat["landnamen"], "regeringen": regeringen, "indicatoren": indicatoren}
     SITE_DATA.parent.mkdir(parents=True, exist_ok=True)
     SITE_DATA.write_text(json.dumps(uit, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 

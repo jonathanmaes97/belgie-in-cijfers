@@ -22,6 +22,12 @@ from pathlib import Path
 WORTEL = Path(__file__).resolve().parent.parent
 SITE = WORTEL / "site"
 REPO_URL = "https://github.com/jonathanmaes97/belgie-in-cijfers"
+SITE_URL = "https://jonathanmaes97.github.io/belgie-in-cijfers/"
+MERK = "State of the Union"
+ONDERTITEL = "België in cijfers"
+GEWESTEN = [("BE2", "Vlaanderen"), ("BE3", "Wallonië"), ("BE1", "Brussel")]
+# Thema's waar federale regeringen als laag zinvol zijn (onderwijs is volledig een bevoegdheid van de gemeenschappen).
+THEMAS_MET_REGERINGEN = {"economie", "overheidsfinancien", "werk", "gezondheid", "wonen_armoede", "klimaat_energie", "mobiliteit", "demografie"}
 
 KERNCIJFERS = ["schuld_per_inwoner", "rente_per_dag", "werkzaamheidsgraad", "treinstiptheid", "inflatie", "levensverwachting"]
 MAANDEN = ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"]
@@ -54,6 +60,7 @@ ICONEN = {
     "check": '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
     "klok": '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
     "code": '<path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/>',
+    "kaart": '<path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/>',
 }
 
 
@@ -245,18 +252,43 @@ def kaart(ind: dict, pad: str) -> str:
             f'<ul class="zinnen">{zin_html}</ul>{uitleg}{beeld}{tab_html}{grafiek}{technisch(ind)}{bronregel(ind, pad)}</article>')
 
 
-def kerntegel(ind: dict, pad: str) -> str:
+def sparkline(ind: dict, b: int = 120, h: int = 34) -> str:
+    """Kleine verloopgrafiek (laatste tien jaar België) als SVG, zonder JavaScript."""
+    reeks = (ind["reeksen"].get("BE") or [])[-11:]
+    if len(reeks) < 3:
+        return ""
+    xs = [r[0] for r in reeks]
+    ys = [r[1] for r in reeks]
+    lo, hi = min(ys), max(ys)
+    span = (hi - lo) or 1
+    pts = [((x - xs[0]) / (xs[-1] - xs[0]) * (b - 6) + 3, h - 4 - (y - lo) / span * (h - 8)) for x, y in zip(xs, ys)]
+    d = "M" + " L".join(f"{x:.1f},{y:.1f}" for x, y in pts)
+    lx, ly = pts[-1]
+    return (f'<svg class="spark" viewBox="0 0 {b} {h}" aria-hidden="true"><path d="{d}" pathLength="1"/>'
+            f'<circle cx="{lx:.1f}" cy="{ly:.1f}" r="3"/></svg>')
+
+
+def telwaarde(waarde: float, ind: dict) -> str:
+    """Attributen zodat JavaScript het getal kan laten optellen tot de echte waarde."""
+    e = ind["eenheid"].strip()
+    voor = "€ " if e in ("€", "mln €") else ""
+    na = " mln" if e == "mln €" else ("%" if e == "% bbp" else ind["eenheid"] if e not in ("€",) else "")
+    return f'data-tel="{waarde}" data-dec="{ind["decimalen"]}" data-voor="{escape(voor)}" data-na="{escape(na)}"'
+
+
+def tick(ind: dict, pad: str) -> str:
     be = laatste(ind, "BE")
     if not be:
         return ""
     jaar, waarde, status = be
     eu = waarde_in(ind, "EU27_2020", jaar)
-    sub = f"EU: {kort_met_eenheid(eu, ind)}" if eu is not None else ("lopend jaar" if "j" in status else ("voorlopig" if "p" in status else ""))
+    sub = f"EU {kort_met_eenheid(eu, ind)}" if eu is not None else ("jaar nog bezig" if "j" in status else ("voorlopig" if "p" in status else ""))
     thema = ind["thema"]
-    return (f'<a class="kerntegel" href="{pad}thema/{thema}.html#{ind["id"]}" style="--t:{THEMA_KLEUR.get(thema)}">'
-            f'<span class="kt-label">{escape(ind["titel"]["nl"])}</span>'
-            f'<span class="kt-waarde">{kort_met_eenheid(waarde, ind)}</span>'
-            f'<span class="kt-sub">België {jaar}{" · " + sub if sub else ""}</span></a>')
+    return (f'<a class="tick" href="{pad}thema/{thema}.html#{ind["id"]}" style="--t:{THEMA_KLEUR.get(thema)}">'
+            f'<span class="tick-label">{escape(ind["titel"]["nl"])}</span>'
+            f'<span class="tick-waarde" {telwaarde(waarde, ind)}>{kort_met_eenheid(waarde, ind)}</span>'
+            f'{sparkline(ind)}'
+            f'<span class="tick-sub">België {jaar}{" · " + sub if sub else ""}</span></a>')
 
 
 def themabalk(themas: list[dict], actief: str | None, pad: str) -> str:
@@ -264,13 +296,17 @@ def themabalk(themas: list[dict], actief: str | None, pad: str) -> str:
     for t in themas:
         huidig = ' aria-current="page"' if t["id"] == actief else ""
         links.append(f'<a href="{pad}thema/{t["id"]}.html" style="--t:{THEMA_KLEUR.get(t["id"])}"{huidig}>{icoon(t["icoon"])}<span>{escape(t["nl"])}</span></a>')
+    huidig = ' aria-current="page"' if actief == "gewesten" else ""
+    links.append(f'<a href="{pad}gewesten.html" class="gewesten-link" style="--t:#1a1f24"{huidig}>{icoon("kaart")}<span>Gewesten</span></a>')
     return f'<nav class="themabalk" aria-label="Thema\'s"><div class="binnen">{"".join(links)}</div></nav>'
 
 
-def pagina(titel: str, beschrijving: str, inhoud: str, pad: str, themas: list[dict], actief: str | None, bijgewerkt: str) -> str:
+def pagina(titel: str, beschrijving: str, inhoud: str, pad: str, themas: list[dict], actief: str | None,
+           bijgewerkt: str, og: str, url: str) -> str:
     return SJABLOON.format(
         titel=escape(titel), beschrijving=escape(beschrijving), inhoud=inhoud, pad=pad, repo=REPO_URL,
         themabalk=themabalk(themas, actief, pad), bijgewerkt=bijgewerkt, zoek=icoon("zoek"),
+        og=f"{SITE_URL}og/{og}.png", url=SITE_URL + url, merk=MERK, ondertitel=ONDERTITEL,
     )
 
 
@@ -278,7 +314,7 @@ def pagina(titel: str, beschrijving: str, inhoud: str, pad: str, themas: list[di
 
 def startpagina(data: dict, per_id: dict) -> str:
     pad = ""
-    kern = "".join(kerntegel(per_id[i], pad) for i in KERNCIJFERS if i in per_id)
+    ticks = "".join(tick(per_id[i], pad) for i in KERNCIJFERS if i in per_id)
     kaarten = []
     for t in data["themas"]:
         inds = [i for i in data["indicatoren"] if i["thema"] == t["id"] and not i["verborgen"]]
@@ -286,42 +322,60 @@ def startpagina(data: dict, per_id: dict) -> str:
         kop = ""
         if k and laatste(k, "BE"):
             j, w, _ = laatste(k, "BE")
-            kop = f'<span class="tk-cijfer"><b>{kort_met_eenheid(w, k)}</b> {escape(k["titel"]["nl"].lower())} ({j})</span>'
+            kop = f'<span class="tk-cijfer"><b>{kort_met_eenheid(w, k)}</b><span>{escape(k["titel"]["nl"].lower())}, {j}</span></span>'
         kaarten.append(
-            f'<a class="themakaart" href="thema/{t["id"]}.html" style="--t:{THEMA_KLEUR.get(t["id"])}">'
-            f'<span class="tk-icoon">{icoon(t["icoon"])}</span><span class="tk-naam">{escape(t["nl"])}</span>'
-            f'<span class="tk-vraag">{escape(t["vraag"])}</span>{kop}'
-            f'<span class="tk-meer">{len(inds)} cijfers {icoon("pijl")}</span></a>')
+            f'<a class="themavlak" href="thema/{t["id"]}.html" style="--t:{THEMA_KLEUR.get(t["id"])}">'
+            f'<span class="tv-kop">{icoon(t["icoon"])}<span class="tv-naam">{escape(t["nl"])}</span></span>'
+            f'<span class="tv-vraag">{escape(t["vraag"])}</span>{kop}'
+            f'<span class="tv-meer">{len(inds)} cijfers {icoon("pijl")}</span></a>')
+    kaarten.append(
+        f'<a class="themavlak gewestvlak" href="gewesten.html" style="--t:#3a434c">'
+        f'<span class="tv-kop">{icoon("kaart")}<span class="tv-naam">Vlaanderen, Wallonië, Brussel</span></span>'
+        f'<span class="tv-vraag">Hoe verschillen de gewesten? Werk, armoede, gezondheid en onderwijs naast elkaar.</span>'
+        f'<span class="tv-meer">Vergelijk de gewesten {icoon("pijl")}</span></a>')
+
+    # rekenvoorbeeld rente: jaarlijkse rentelasten gelijk verdeeld over het jaar
+    teller = ""
+    r = per_id.get("rentelasten_eur")
+    if r and laatste(r, "BE"):
+        rj, rw, rs = laatste(r, "BE")
+        per_sec = rw * 1_000_000 / (365 * 24 * 3600)
+        teller = (f'<div class="teller"><p>Sinds je deze pagina opende, betaalde de Belgische overheid al '
+                  f'<b id="renteteller" data-per-seconde="{per_sec:.4f}">€ 0</b> aan rente op haar schuld.</p>'
+                  f'<small>Rekenvoorbeeld: de rentelasten van {rj} ({"voorlopig, " if "p" in rs else ""}{getal(rw / 1000, 1)} miljard euro volgens Eurostat), '
+                  f'gelijk verdeeld over elke seconde van het jaar.</small></div>')
+
     zoekindex = [{"v": i["vraag"]["nl"], "t": i["titel"]["nl"], "th": next(t["nl"] for t in data["themas"] if t["id"] == i["thema"]),
                   "z": " ".join(i.get("zoekwoorden", [])), "u": f'thema/{i["thema"]}.html#{i["id"]}'}
                  for i in data["indicatoren"] if not i["verborgen"]]
     zoekindex += [{"v": t["vraag"], "t": t["nl"], "th": "Thema", "z": "", "u": f'thema/{t["id"]}.html'} for t in data["themas"]]
+    zoekindex.append({"v": "Hoe verschillen Vlaanderen, Wallonië en Brussel?", "t": "Per gewest", "th": "Gewesten",
+                      "z": "vlaanderen wallonie brussel gewest regio deelstaat", "u": "gewesten.html"})
     inhoud = f'''
 <section class="held">
+  <div class="held-achter" aria-hidden="true"><span></span><span></span><span></span></div>
   <div class="binnen">
-    <h1>Hoe gaat het met België?</h1>
-    <p class="held-sub">De belangrijkste cijfers over ons land, in gewone taal. Elk cijfer komt rechtstreeks van een officiële bron, staat er met bron bij en wordt elke dag automatisch bijgewerkt.</p>
+    <p class="bovenregel"><b>{MERK}</b><span>{ONDERTITEL}</span><span>Editie {datum(data["gegenereerd"])}</span></p>
+    <h1>Hoe gaat het<br>met België?</h1>
+    <p class="held-sub">De belangrijkste cijfers over ons land, in gewone taal. Rechtstreeks van officiële bronnen, elke dag automatisch bijgewerkt, en bij elk cijfer staat waar het vandaan komt.</p>
     <div class="zoek js" id="zoek">
       <label for="zoekveld" class="visueel-verborgen">Zoek een cijfer</label>
       {icoon("zoek")}
-      <input id="zoekveld" type="search" placeholder="Waar ben je benieuwd naar? Bv. treinen, schuld, armoede…" autocomplete="off">
+      <input id="zoekveld" type="search" placeholder="Waar ben je benieuwd naar? Bv. treinen, schuld, Wallonië…" autocomplete="off">
       <ul id="zoekresultaten" role="listbox" hidden></ul>
     </div>
   </div>
+  <div class="binnen"><div class="ticks">{ticks}</div>{teller}</div>
 </section>
 <div class="binnen">
-  <section aria-labelledby="kern-titel" class="blok">
-    <h2 id="kern-titel">In één oogopslag</h2>
-    <div class="kern-raster">{kern}</div>
-  </section>
   <section aria-labelledby="thema-titel" class="blok">
-    <h2 id="thema-titel">Kies een thema</h2>
+    <div class="blok-kop"><h2 id="thema-titel">Kies een thema</h2><a href="gewesten.html" class="blok-link">Of vergelijk de gewesten {icoon("pijl")}</a></div>
     <div class="thema-raster">{"".join(kaarten)}</div>
   </section>
   <section aria-labelledby="hoe-titel" class="blok hoe">
     <h2 id="hoe-titel">Waarom kun je deze cijfers vertrouwen?</h2>
     <ol>
-      <li>{icoon("bron")}<b>Officiële bronnen</b><span>Elk cijfer komt van een officiële instelling zoals Eurostat of Infrabel. Bij elk cijfer staat de bron, met een link.</span></li>
+      <li>{icoon("bron")}<b>Officiële bronnen</b><span>Elk cijfer komt van een officiële instelling, zoals Eurostat of Infrabel. Bij elk cijfer staat de bron, met een link.</span></li>
       <li>{icoon("klok")}<b>Elke dag bijgewerkt</b><span>Een programma haalt de cijfers elke dag automatisch op. Niemand tikt ze over, en er komt geen AI aan te pas.</span></li>
       <li>{icoon("code")}<b>Iedereen kan het narekenen</b><span>Alle data en berekeningen zijn openbaar. Je kunt elk cijfer downloaden en zelf controleren.</span></li>
     </ol>
@@ -329,8 +383,15 @@ def startpagina(data: dict, per_id: dict) -> str:
 </div>
 <script type="application/json" id="zoekindex">{json.dumps(zoekindex, ensure_ascii=False).replace("</", "<\\/")}</script>
 '''
-    return pagina("België in cijfers", "De belangrijkste cijfers over België, in gewone taal en met bron.", inhoud, pad,
-                  data["themas"], None, datum(data["gegenereerd"]))
+    return pagina(f"{MERK}: {ONDERTITEL}", "De belangrijkste cijfers over België, in gewone taal en met bron. Elke dag automatisch bijgewerkt.",
+                  inhoud, pad, data["themas"], None, datum(data["gegenereerd"]), "index", "")
+
+
+def regeringschakelaar() -> str:
+    return ('<div class="regeringen js"><label class="schakelaar"><input type="checkbox" id="toon-regeringen">'
+            '<span class="schuif" aria-hidden="true"></span>Toon de federale regeringen op de grafieken</label>'
+            '<p>Een regering is nooit de enige oorzaak van hoe een cijfer evolueert. Veel cijfers reageren pas jaren later op beleid, '
+            'en ze hangen ook af van de wereldeconomie, Europese regels en het beleid van de deelstaten.</p></div>')
 
 
 def themapagina(data: dict, thema: dict, vorige: dict, volgende: dict) -> str:
@@ -339,10 +400,11 @@ def themapagina(data: dict, thema: dict, vorige: dict, volgende: dict) -> str:
     snel = "".join(f'<li><a href="#{i["id"]}">{escape(i["vraag"]["nl"])}</a></li>' for i in inds)
     begrippen = "".join(f'<div><dt>{escape(data["begrippen"][b]["term"])}</dt><dd>{escape(data["begrippen"][b]["uitleg"])}</dd></div>'
                         for b in thema.get("begrippen", []) if b in data["begrippen"])
+    schakelaar = regeringschakelaar() if thema["id"] in THEMAS_MET_REGERINGEN else ""
     inhoud = f'''
 <section class="themakop" style="--t:{THEMA_KLEUR.get(thema["id"])}">
   <div class="binnen">
-    <p class="kruimel"><a href="../">Alle thema's</a> / {escape(thema["nl"])}</p>
+    <p class="kruimel"><a href="../">{MERK}</a> / {escape(thema["nl"])}</p>
     <div class="themakop-titel"><span class="tk-icoon groot">{icoon(thema["icoon"])}</span><h1>{escape(thema["vraag"])}</h1></div>
     <p class="intro">{escape(thema["intro"])}</p>
     <div class="themakop-onder">
@@ -352,6 +414,7 @@ def themapagina(data: dict, thema: dict, vorige: dict, volgende: dict) -> str:
   </div>
 </section>
 <div class="binnen" style="--t:{THEMA_KLEUR.get(thema["id"])}">
+  {schakelaar}
   <div class="kaart-raster">{"".join(kaart(i, pad) for i in inds)}</div>
   {f'<section class="begrippen"><h2>Moeilijke woorden uitgelegd</h2><dl>{begrippen}</dl></section>' if begrippen else ""}
   <nav class="buren-nav" aria-label="Andere thema's">
@@ -360,8 +423,57 @@ def themapagina(data: dict, thema: dict, vorige: dict, volgende: dict) -> str:
   </nav>
 </div>
 '''
-    return pagina(f'{thema["nl"]} · België in cijfers', thema["vraag"] + " " + thema["intro"][:120], inhoud, pad,
-                  data["themas"], thema["id"], datum(data["gegenereerd"]))
+    return pagina(f'{thema["nl"]} · {MERK}', thema["vraag"] + " " + thema["intro"][:140], inhoud, pad,
+                  data["themas"], thema["id"], datum(data["gegenereerd"]), f'thema-{thema["id"]}', f'thema/{thema["id"]}.html')
+
+
+def gewestenpagina(data: dict) -> str:
+    """Vergelijkt Vlaanderen, Wallonië en Brussel voor elk cijfer waarvoor gewestcijfers bestaan."""
+    pad = ""
+    rijen = []
+    for ind in data["indicatoren"]:
+        if ind["verborgen"] or not any(g in ind["reeksen"] for g, _ in GEWESTEN):
+            continue
+        # recentste jaar waarin alle drie de gewesten een cijfer hebben
+        jaren = set.intersection(*[{r[0] for r in ind["reeksen"].get(g, [])} for g, _ in GEWESTEN])
+        if not jaren:
+            continue
+        jaar = max(jaren)
+        waarden = [(naam, waarde_in(ind, g, jaar)) for g, naam in GEWESTEN]
+        be, eu = waarde_in(ind, "BE", jaar), waarde_in(ind, "EU27_2020", jaar)
+        alle = [w for _, w in waarden] + [v for v in (be, eu) if v is not None]
+        hi = max(alle) if max(alle) > 0 else 1
+        cellen = "".join(
+            f'<td><span class="gw-waarde">{kort_met_eenheid(w, ind)}</span><span class="gw-balk"><i style="width:{max(2, w / hi * 100):.1f}%"></i></span></td>'
+            for _, w in waarden)
+        thema = ind["thema"]
+        rijen.append(
+            f'<tr style="--t:{THEMA_KLEUR.get(thema)}"><th scope="row"><a href="thema/{thema}.html#{ind["id"]}">{escape(ind["vraag"]["nl"])}</a>'
+            f'<small>{escape(ind["titel"]["nl"])} · {jaar} · bron: {escape(ind["bron"].get("instelling", ""))}</small></th>{cellen}'
+            f'<td class="gw-be">{kort_met_eenheid(be, ind) if be is not None else "—"}</td>'
+            f'<td class="gw-be">{kort_met_eenheid(eu, ind) if eu is not None else "—"}</td></tr>')
+    inhoud = f'''
+<section class="themakop" style="--t:#1a1f24">
+  <div class="binnen">
+    <p class="kruimel"><a href="./">{MERK}</a> / Per gewest</p>
+    <div class="themakop-titel"><span class="tk-icoon groot">{icoon("kaart")}</span><h1>Hoe verschillen Vlaanderen, Wallonië en Brussel?</h1></div>
+    <p class="intro">België heeft drie gewesten: het Vlaams, het Waals en het Brussels Hoofdstedelijk Gewest. Ze zijn onder meer bevoegd voor economie, werkbegeleiding, wonen, mobiliteit en milieu. Daarnaast zijn er drie gemeenschappen (Vlaams, Frans en Duitstalig) voor onder meer onderwijs, cultuur en welzijn.</p>
+    <div class="themakop-onder">
+      <aside class="bevoegd"><h2>Goed om te weten</h2><p>De cijfers hieronder volgen het grondgebied van de gewesten. Wallonië omvat dus ook de Duitstalige Gemeenschap, en Brussel telt alle inwoners van de negentien Brusselse gemeenten, ook al vallen die onder twee gemeenschappen.</p></aside>
+      <aside class="bevoegd"><h2>Hoe lees je de tabel?</h2><p>Per cijfer zie je het recentste jaar waarvoor alle drie de gewesten een cijfer hebben. De balkjes maken het verschil zichtbaar; klik op een vraag voor het verloop door de jaren.</p></aside>
+    </div>
+  </div>
+</section>
+<div class="binnen">
+  <div class="gw-tabel-doos"><table class="gw-tabel">
+    <thead><tr><th scope="col">Cijfer</th><th scope="col">Vlaanderen</th><th scope="col">Wallonië</th><th scope="col">Brussel</th><th scope="col">België</th><th scope="col">EU</th></tr></thead>
+    <tbody>{"".join(rijen)}</tbody>
+  </table></div>
+  <p class="voetnoot">Enkel cijfers waarvoor Eurostat een officiële opsplitsing per gewest publiceert. Andere cijfers, zoals de overheidsschuld, bestaan niet op die manier per gewest; die voegen we toe zodra er een officiële bron is.</p>
+</div>
+'''
+    return pagina(f"Per gewest · {MERK}", "Vlaanderen, Wallonië en Brussel naast elkaar: werk, armoede, gezondheid, onderwijs en meer.",
+                  inhoud, pad, data["themas"], "gewesten", datum(data["gegenereerd"]), "gewesten", "gewesten.html")
 
 
 def bouw() -> None:
@@ -374,6 +486,7 @@ def bouw() -> None:
         shutil.copy(f, csv_map / f.name)
 
     (SITE / "index.html").write_text(startpagina(data, per_id), encoding="utf-8")
+    (SITE / "gewesten.html").write_text(gewestenpagina(data), encoding="utf-8")
     themamap = SITE / "thema"
     themamap.mkdir(exist_ok=True)
     themas = data["themas"]
@@ -389,9 +502,18 @@ SJABLOON = """<!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{titel}</title>
 <meta name="description" content="{beschrijving}">
+<link rel="canonical" href="{url}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{merk}: {ondertitel}">
 <meta property="og:title" content="{titel}">
 <meta property="og:description" content="{beschrijving}">
-<meta name="theme-color" content="#16202a">
+<meta property="og:url" content="{url}">
+<meta property="og:image" content="{og}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0f1317">
+<link rel="preload" href="{pad}fonts/plex-sans.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{pad}style.css">
 <script>document.documentElement.classList.add("met-js")</script>
 </head>
@@ -399,7 +521,7 @@ SJABLOON = """<!doctype html>
 <a class="overslaan" href="#inhoud">Naar de inhoud</a>
 <header class="kop">
   <div class="binnen">
-    <a class="merk" href="{pad}"><span class="merk-blok" aria-hidden="true"></span>België in cijfers</a>
+    <a class="merk" href="{pad}"><span class="merk-blok" aria-hidden="true"><i></i><i></i><i></i></span><span class="merk-tekst"><b>{merk}</b><span>{ondertitel}</span></span></a>
     <a class="kop-zoek" href="{pad}#zoek" aria-label="Zoek een cijfer">{zoek}<span>Zoek</span></a>
   </div>
 </header>
@@ -409,7 +531,7 @@ SJABLOON = """<!doctype html>
 </main>
 <footer class="voet">
   <div class="binnen">
-    <p><b>België in cijfers</b> is een onafhankelijk en open project. De cijfers worden elke dag automatisch bijgewerkt; laatste update op {bijgewerkt}.</p>
+    <p><b>{merk}: {ondertitel}</b> is een onafhankelijk en open project. De cijfers worden elke dag automatisch bijgewerkt; laatste update op {bijgewerkt}.</p>
     <p>Alle code en data staan openbaar op <a href="{repo}">GitHub</a>. Bronnen stellen cijfers soms bij: bekijk de <a href="{repo}/blob/main/data/changelog.json">herzieningen</a> en de <a href="{repo}/blob/main/reports/status.md">status van elke bron</a>.</p>
     <p>Fout gezien of een cijfer dat ontbreekt? <a href="{repo}/issues/new">Laat het weten</a>.</p>
   </div>

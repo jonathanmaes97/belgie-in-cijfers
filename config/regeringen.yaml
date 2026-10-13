@@ -1,0 +1,24 @@
+# Federale regeringen, voor de optionele laag op de grafieken.
+#
+# Bron: Koninklijke Commissie voor Geschiedenis, BelElite-databank,
+# overzicht van de nationale/federale regeringen:
+# https://www.commissionroyalehistoire.be/belelite/nl/gov/governmentsoverview/fed
+# (geraadpleegd op 13 oktober 2026). Data en partijen exact overgenomen.
+# Een regering zonder einddatum is de huidige.
+
+bron:
+  naam: Koninklijke Commissie voor Geschiedenis (BelElite)
+  url: https://www.commissionroyalehistoire.be/belelite/nl/gov/governmentsoverview/fed
+
+federaal:
+  - {naam: Verhofstadt II, kort: Verhofstadt, van: 2003-07-12, tot: 2007-12-21, partijen: [MR, PS, sp.a, Spirit, VLD]}
+  - {naam: Verhofstadt III, kort: Verhofstadt, van: 2007-12-21, tot: 2008-03-20, partijen: [cdH, CD&V, MR, Open VLD, PS]}
+  - {naam: Leterme I, kort: Leterme, van: 2008-03-20, tot: 2008-12-30, partijen: [cdH, CD&V, MR, Open VLD, PS]}
+  - {naam: Van Rompuy, kort: Van Rompuy, van: 2008-12-30, tot: 2009-11-25, partijen: [cdH, CD&V, MR, Open VLD, PS]}
+  - {naam: Leterme II, kort: Leterme, van: 2009-11-25, tot: 2011-12-05, partijen: [cdH, CD&V, MR, Open VLD, PS]}
+  - {naam: Di Rupo, kort: Di Rupo, van: 2011-12-05, tot: 2014-10-11, partijen: [cdH, CD&V, MR, Open VLD, PS, sp.a]}
+  - {naam: Michel I, kort: Michel, van: 2014-10-11, tot: 2018-12-09, partijen: [CD&V, MR, N-VA, Open VLD]}
+  - {naam: Michel II/Wilmès, kort: Michel, van: 2018-12-09, tot: 2020-03-17, partijen: [CD&V, MR, Open VLD]}
+  - {naam: Wilmès, kort: Wilmès, van: 2020-03-17, tot: 2020-10-01, partijen: [CD&V, MR, Open VLD]}
+  - {naam: De Croo, kort: De Croo, van: 2020-10-01, tot: 2025-02-03, partijen: [CD&V, Ecolo, Groen, MR, Open VLD, PS, sp.a]}
+  - {naam: De Wever, kort: De Wever, van: 2025-02-03, tot: null, partijen: [CD&V, Les Engagés, MR, N-VA, Vooruit]}

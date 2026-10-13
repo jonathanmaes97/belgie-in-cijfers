@@ -3,3 +3,5 @@ __pycache__/
 .pytest_cache/
 .venv/
 .DS_Store
+# preview-afbeeldingen worden bij elke run opnieuw gemaakt
+site/og/
