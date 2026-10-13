@@ -472,7 +472,7 @@ indicatoren:
     eenheid: " GWh"
     decimalen: 0
     verborgen: true
-    bron: {instelling: Eurostat, dataset: nrg_ind_peh, filters: {siec: N9000, unit: GWH, nrg_bal: GEP, plants: TOTAL}}
+    bron: {instelling: Eurostat, dataset: nrg_ind_peh, filters: {siec: N9000, unit: GWH, nrg_bal: GEP, plants: TOTAL, operator: TOTAL}}
 
   - id: elektriciteit_totaal
     thema: klimaat_energie
@@ -482,7 +482,7 @@ indicatoren:
     eenheid: " GWh"
     decimalen: 0
     verborgen: true
-    bron: {instelling: Eurostat, dataset: nrg_ind_peh, filters: {siec: TOTAL, unit: GWH, nrg_bal: GEP, plants: TOTAL}}
+    bron: {instelling: Eurostat, dataset: nrg_ind_peh, filters: {siec: TOTAL, unit: GWH, nrg_bal: GEP, plants: TOTAL, operator: TOTAL}}
 
   # ---------- Mobiliteit ----------
   - id: treinstiptheid
