@@ -1,0 +1,647 @@
+# Planbureau en Statbel: inflatie, spilindex, indexcijfers
+
+## https://www.plan.be/nl
+- HTTP 200, text/html; charset=UTF-8
+  - [pagina] Indexcijfer der consumptieprijzen - Inflatievooruitzichten [06/10/2026] → https://www.plan.be/nl/data/indexcijfer-der-consumptieprijzen
+  - [pagina] Inflatievooruitzichten → https://www.plan.be/nl/data/indexcijfer-der-consumptieprijzen
+  - [pagina] Vooruitzichten van verschillende instellingen voor België → https://www.plan.be/nl/data/vooruitzichten-van-verschillende-instellingen-voor
+  - [pagina] Inflatie → https://www.plan.be/nl/onze-themas/economie/inflatie
+  - [pagina] Vooruitzichten → https://www.plan.be/nl/onze-themas/economie/vooruitzichten
+
+## https://www.plan.be/nl/inflatievooruitzichten
+- HTTP 404, text/html; charset=UTF-8
+## https://www.plan.be/nl/publicaties
+- HTTP 200, text/html; charset=UTF-8
+  - [pagina] Inflatievooruitzichten → https://www.plan.be/nl/data/indexcijfer-der-consumptieprijzen
+  - [pagina] Vooruitzichten → https://www.plan.be/nl/onze-themas/economie/vooruitzichten
+  - [pagina] Regionale economische vooruitzichten 2026-2031 → https://www.plan.be/nl/publicaties/regionale-economische-vooruitzichten-2026-2031
+  - [pagina] Regionale economische vooruitzichten 2026-2031 → https://www.plan.be/nl/publicaties/regionale-economische-vooruitzichten-2026-2031-0
+  - [pagina] Vooruitzichten (192) → https://www.plan.be/nl/publicaties?f%5B0%5D=publicatietype%3A55
+  - [pagina] Vooruitzichten (395) → https://www.plan.be/nl/publicaties?f%5B0%5D=thema%3A17
+  - [pagina] Inflatie (4) → https://www.plan.be/nl/publicaties?f%5B0%5D=thema%3A19
+
+## https://www.plan.be/databases
+- HTTP 404, text/html; charset=UTF-8
+## https://statbel.fgov.be/nl/themas/consumptieprijsindex
+- HTTP 200, text/html; charset=UTF-8
+  - [pagina] Open Data → https://statbel.fgov.be/nl/open-data
+  - [pagina] Bevolkingsvooruitzichten → https://statbel.fgov.be/nl/themas/bevolking/bevolkingsvooruitzichten
+  - [pagina] Residentiële vastgoedprijsindex → https://statbel.fgov.be/nl/themas/bouwen-wonen/residentiele-vastgoedprijsindex
+  - [pagina] Afzetprijsindex in de bouwnijverheid → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindex-de-bouwnijverheid
+  - [pagina] Afzetprijsindexen (industrie) → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindexen-industrie
+  - [pagina] Prijsindexen voor diensten → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/prijsindexen-voor-diensten
+  - [pagina] (geen tekst) → https://statbel.fgov.be/nl/themas/consumptieprijsindex
+  - [pagina] Consumptieprijsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex
+  - [pagina] NL → https://statbel.fgov.be/nl/themas/consumptieprijsindex
+  - [pagina] Overslaan en naar de inhoud gaan → https://statbel.fgov.be/nl/themas/consumptieprijsindex#page
+  - [pagina] (geen tekst) → https://statbel.fgov.be/nl/themas/consumptieprijsindex#print
+  - [pagina] Consumptieprijsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex/consumptieprijsindex
+  - [pagina] Geharmoniseerde consumptieprijsindex (HICP) → https://statbel.fgov.be/nl/themas/consumptieprijsindex/geharmoniseerde-consumptieprijsindex-hicp
+  - [pagina] Gezondheidsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex/gezondheidsindex
+  - [pagina] Huurcalculator → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+  - [pagina] Huurindexatie → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+  - [pagina] Index search → https://statbel.fgov.be/nl/themas/consumptieprijsindex/index-search
+  - [pagina] Medische index → https://statbel.fgov.be/nl/themas/consumptieprijsindex/medische-index
+  - [pagina] (geen tekst) → https://www.facebook.com/sharer/sharer.php?u=https%3A//statbel.fgov.be/nl/themas/consumptieprijsindex
+  - [pagina] (geen tekst) → https://www.linkedin.com/shareArticle?url=https%3A//statbel.fgov.be/nl/themas/consumptieprijsindex&amp;title=Consumptieprijsindex
+  - [pagina] (geen tekst) → https://x.com/intent/tweet?text=Consumptieprijsindex&amp;url=https%3A//statbel.fgov.be/nl/themas/consumptieprijsindex
+  - [pagina] (geen tekst) → mailto:?subject=Consumptieprijsindex&amp;body=https%3A//statbel.fgov.be/nl/themas/consumptieprijsindex
+
+## https://statbel.fgov.be/nl/open-data?category=All&keys=consumptieprijsindex
+- HTTP 200, text/html; charset=UTF-8
+  - [pagina] DE → https://statbel.fgov.be/de/open-data?category=All&amp;keys=consumptieprijsindex
+  - [pagina] EN → https://statbel.fgov.be/en/open-data?category=All&amp;keys=consumptieprijsindex
+  - [pagina] FR → https://statbel.fgov.be/fr/open-data?category=All&amp;keys=consumptieprijsindex
+  - [pagina] Open Data → https://statbel.fgov.be/nl/open-data
+  - [pagina] (geen tekst) → https://statbel.fgov.be/nl/open-data#print
+  - [pagina] Bevolking naar woonplaats, nationaliteit, burgerlijke staat, leeftijd en geslacht → https://statbel.fgov.be/nl/open-data/bevolking-naar-woonplaats-nationaliteit-burgerlijke-staat-leeftijd-en-geslacht-14
+  - [pagina] Consumptieprijsindex en gezondheidsindex → https://statbel.fgov.be/nl/open-data/consumptieprijsindex-en-gezondheidsindex
+  - [pagina] Familienamen van de totale bevolking per gemeente → https://statbel.fgov.be/nl/open-data/familienamen-van-de-totale-bevolking-gemeente
+  - [pagina] Geolocalisatie van de verkeersongevallen 2017-2024 → https://statbel.fgov.be/nl/open-data/geolocalisatie-van-de-verkeersongevallen-2017-2024
+  - [pagina] Indexen per productgroep → https://statbel.fgov.be/nl/open-data/indexen-productgroep
+  - [pagina] Maandevolutie van de btw-plichtige ondernemingen volgens NACE 2025 → https://statbel.fgov.be/nl/open-data/maandevolutie-van-de-btw-plichtige-ondernemingen-volgens-nace-2025
+  - [pagina] Monitoring van levensomstandigheden → https://statbel.fgov.be/nl/open-data/monitoring-van-levensomstandigheden
+  - [pagina] Nuts-codes 2027 → https://statbel.fgov.be/nl/open-data/nuts-codes-2027
+  - [pagina] Linked Open Data (LOD) → https://statbel.fgov.be/nl/open-data/plus
+  - [pagina] Statistische sectoren 2026 → https://statbel.fgov.be/nl/open-data/statistische-sectoren-2026
+  - [pagina] Voornamen van de totale bevolking per gemeente → https://statbel.fgov.be/nl/open-data/voornamen-van-de-totale-bevolking-gemeente-16
+  - [pagina] NL → https://statbel.fgov.be/nl/open-data?category=All&amp;keys=consumptieprijsindex
+  - [pagina] Huidige pagina 1 → https://statbel.fgov.be/nl/open-data?category=All&amp;keys=consumptieprijsindex&amp;page=0
+  - [pagina] Pagina 2 → https://statbel.fgov.be/nl/open-data?category=All&amp;keys=consumptieprijsindex&amp;page=1
+  - [pagina] Volgende pagina › → https://statbel.fgov.be/nl/open-data?category=All&amp;keys=consumptieprijsindex&amp;page=1
+  - [pagina] Pagina 3 → https://statbel.fgov.be/nl/open-data?category=All&amp;keys=consumptieprijsindex&amp;page=2
+  - [pagina] Pagina 4 → https://statbel.fgov.be/nl/open-data?category=All&amp;keys=consumptieprijsindex&amp;page=3
+  - [pagina] Pagina 5 → https://statbel.fgov.be/nl/open-data?category=All&amp;keys=consumptieprijsindex&amp;page=4
+  - [pagina] Laatste pagina Laatste » → https://statbel.fgov.be/nl/open-data?category=All&amp;keys=consumptieprijsindex&amp;page=48
+  - [pagina] (geen tekst) → https://statbel.fgov.be/nl/open-data?category=All&keys=consumptieprijsindex
+  - [pagina] Wat zijn open data? → https://statbel.fgov.be/nl/open-data?category=All&keys=consumptieprijsindex#collapse-1
+  - [pagina] Open data en privacy! → https://statbel.fgov.be/nl/open-data?category=All&keys=consumptieprijsindex#collapse-2
+  - [pagina] Waarom open data? → https://statbel.fgov.be/nl/open-data?category=All&keys=consumptieprijsindex#collapse-3
+  - [pagina] Open data voor wie? → https://statbel.fgov.be/nl/open-data?category=All&keys=consumptieprijsindex#collapse-4
+  - [pagina] Hoe open data gebruiken? → https://statbel.fgov.be/nl/open-data?category=All&keys=consumptieprijsindex#collapse-5
+  - [pagina] Licentie → https://statbel.fgov.be/nl/open-data?category=All&keys=consumptieprijsindex#collapse-6
+  - [pagina] Op zoek naar meer? → https://statbel.fgov.be/nl/open-data?category=All&keys=consumptieprijsindex#collapse-7
+  - [pagina] Vragen, suggesties, ideeën? → https://statbel.fgov.be/nl/open-data?category=All&keys=consumptieprijsindex#collapse-8
+  - [pagina] Overslaan en naar de inhoud gaan → https://statbel.fgov.be/nl/open-data?category=All&keys=consumptieprijsindex#page
+  - [pagina] Bevolkingsvooruitzichten → https://statbel.fgov.be/nl/themas/bevolking/bevolkingsvooruitzichten
+  - [pagina] Residentiële vastgoedprijsindex → https://statbel.fgov.be/nl/themas/bouwen-wonen/residentiele-vastgoedprijsindex
+  - [pagina] Afzetprijsindex in de bouwnijverheid → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindex-de-bouwnijverheid
+  - [pagina] Afzetprijsindexen (industrie) → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindexen-industrie
+  - [pagina] Prijsindexen voor diensten → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/prijsindexen-voor-diensten
+  - [pagina] Consumptieprijsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex
+
+## https://www.plan.be/nl/data/indexcijfer-der-consumptieprijzen
+- HTTP 200, text/html; charset=UTF-8
+  - [pagina] Facebook → https://facebook.com/sharer.php?u=https://www.plan.be/nl/data/indexcijfer-der-consumptieprijzen
+  - [pagina] Statbel → https://statbel.fgov.be/nl/themas/consumptieprijsindex/consumptieprijsindex
+  - [pagina] Huurcalculator → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+  - [BESTAND] Historiek van de consumptieprijsindex en de gezondheidsindex → https://statbel.fgov.be/sites/default/files/files/documents/Consumptieprijzen/3.1 Consumptieprijsindex/Historiek-1920-conv-2025.xls
+  - [pagina] Twitter → https://twitter.com/intent/tweet?url=https://www.plan.be/nl/data/indexcijfer-der-consumptieprijzen
+  - [pagina] English → https://www.plan.be/en/data/consumer-price-index-inflation-forecasts
+  - [pagina] Dutch → https://www.plan.be/nl/data/indexcijfer-der-consumptieprijzen
+  - [pagina] Inflatievooruitzichten → https://www.plan.be/nl/data/indexcijfer-der-consumptieprijzen
+  - [pagina] Overslaan en naar de inhoud gaan → https://www.plan.be/nl/data/indexcijfer-der-consumptieprijzen#main-content
+  - [pagina] Inflatie → https://www.plan.be/nl/onze-themas/economie/inflatie
+  - [pagina] Vooruitzichten → https://www.plan.be/nl/onze-themas/economie/vooruitzichten
+  - [pagina] Economische begroting – Economische vooruitzichten 2024-2025 – september 2024 → https://www.plan.be/nl/publicaties/economische-begroting-economische-vooruitzichten-22
+  - [pagina] Economische vooruitzichten 2024-2025: een minder arbeidsintensieve economische groei → https://www.plan.be/nl/publicaties/economische-vooruitzichten-2024-2025-een-minder
+  - [pagina] Economische vooruitzichten 2024-2029 – Versie van juni 2024 → https://www.plan.be/nl/publicaties/economische-vooruitzichten-2024-2029-versie-van
+  - [BESTAND] Inflation Forecast - MULTI (xlsx) → https://www.plan.be/sites/default/files/documents/DATA_FOR_Inflation.xlsx
+  - [BESTAND] Inflation Forecast history - EN (xlsx) → https://www.plan.be/sites/default/files/documents/DATA_FOR_InflationHistory.xlsx
+
+## https://www.plan.be/nl/data/vooruitzichten-van-verschillende-instellingen-voor
+- HTTP 200, text/html; charset=UTF-8
+  - [pagina] Facebook → https://facebook.com/sharer.php?u=https://www.plan.be/nl/data/vooruitzichten-van-verschillende-instellingen-voor
+  - [pagina] Twitter → https://twitter.com/intent/tweet?url=https://www.plan.be/nl/data/vooruitzichten-van-verschillende-instellingen-voor
+  - [pagina] English → https://www.plan.be/en/data/economic-forecasts-different-institutions-belgium
+  - [pagina] Inflatievooruitzichten → https://www.plan.be/nl/data/indexcijfer-der-consumptieprijzen
+  - [pagina] Regionale economische vooruitzichten 2026-2031, juli 2026 - Statistische bijlage → https://www.plan.be/nl/data/regionale-economische-vooruitzichten-2026-2031
+  - [pagina] Dutch → https://www.plan.be/nl/data/vooruitzichten-van-verschillende-instellingen-voor
+  - [pagina] Overslaan en naar de inhoud gaan → https://www.plan.be/nl/data/vooruitzichten-van-verschillende-instellingen-voor#main-content
+  - [pagina] Vooruitzichten van verschillende instellingen voor de eurozone → https://www.plan.be/nl/data/vooruitzichten-van-verschillende-instellingen-voor-0
+  - [pagina] Vooruitzichten → https://www.plan.be/nl/onze-themas/economie/vooruitzichten
+  - [pagina] Regionale economische vooruitzichten 2026-2031 → https://www.plan.be/nl/publicaties/regionale-economische-vooruitzichten-2026-2031-0
+  - [BESTAND] FOR BE - EN (xlsx) → https://www.plan.be/sites/default/files/documents/FOR_BE_EN.xlsx
+  - [BESTAND] FOR BE - FR (xlsx) → https://www.plan.be/sites/default/files/documents/FOR_BE_FR.xlsx
+  - [BESTAND] FOR BE - NL (xlsx) → https://www.plan.be/sites/default/files/documents/FOR_BE_NL.xlsx
+
+## https://www.plan.be/nl/onze-themas/economie/inflatie
+- HTTP 200, text/html; charset=UTF-8
+  - [pagina] Statbel → https://statbel.fgov.be/nl/themas/consumptieprijsindex/consumptieprijsindex
+  - [pagina] de nationale consumptieprijsindex en de gezondheidsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex/consumptieprijsindex
+  - [pagina] English → https://www.plan.be/en/our-themes/economy/inflation
+  - [pagina] French → https://www.plan.be/fr/nos-themes/economie/inflation
+  - [pagina] Indexcijfer der consumptieprijzen - Inflatievooruitzichten [06/10/2026] → https://www.plan.be/nl/data/indexcijfer-der-consumptieprijzen
+  - [pagina] Inflatievooruitzichten → https://www.plan.be/nl/data/indexcijfer-der-consumptieprijzen
+  - [pagina] Dutch → https://www.plan.be/nl/onze-themas/economie/inflatie
+  - [pagina] Inflatie → https://www.plan.be/nl/onze-themas/economie/inflatie
+  - [pagina] Overslaan en naar de inhoud gaan → https://www.plan.be/nl/onze-themas/economie/inflatie#main-content
+  - [pagina] Vooruitzichten → https://www.plan.be/nl/onze-themas/economie/vooruitzichten
+  - [pagina] Economische begroting – Economische vooruitzichten 2024-2025 – september 2024 → https://www.plan.be/nl/publicaties/economische-begroting-economische-vooruitzichten-22
+  - [pagina] Economische vooruitzichten 2024-2025: een minder arbeidsintensieve economische groei → https://www.plan.be/nl/publicaties/economische-vooruitzichten-2024-2025-een-minder
+
+## https://www.plan.be/nl/onze-themas/economie/vooruitzichten
+- HTTP 200, text/html; charset=UTF-8
+  - [pagina] Inflatievooruitzichten → https://www.plan.be/nl/data/indexcijfer-der-consumptieprijzen
+  - [pagina] Regionale economische vooruitzichten 2026-2031, juli 2026 - Statistische bijlage → https://www.plan.be/nl/data/regionale-economische-vooruitzichten-2026-2031
+  - [pagina] Vooruitzichten van verschillende instellingen voor België → https://www.plan.be/nl/data/vooruitzichten-van-verschillende-instellingen-voor
+  - [pagina] Vooruitzichten van verschillende instellingen voor de eurozone → https://www.plan.be/nl/data/vooruitzichten-van-verschillende-instellingen-voor-0
+  - [pagina] Inflatie → https://www.plan.be/nl/onze-themas/economie/inflatie
+  - [pagina] Dutch → https://www.plan.be/nl/onze-themas/economie/vooruitzichten
+  - [pagina] Vooruitzichten → https://www.plan.be/nl/onze-themas/economie/vooruitzichten
+  - [pagina] Overslaan en naar de inhoud gaan → https://www.plan.be/nl/onze-themas/economie/vooruitzichten#main-content
+
+## https://www.plan.be/nl/publicaties/regionale-economische-vooruitzichten-2026-2031
+- HTTP 200, text/html; charset=UTF-8
+  - [pagina] Facebook → https://facebook.com/sharer.php?u=https://www.plan.be/nl/publicaties/regionale-economische-vooruitzichten-2026-2031
+  - [pagina] Twitter → https://twitter.com/intent/tweet?url=https://www.plan.be/nl/publicaties/regionale-economische-vooruitzichten-2026-2031
+  - [pagina] Whatsapp → https://wa.me/?text=https://www.plan.be/nl/publicaties/regionale-economische-vooruitzichten-2026-2031
+  - [pagina] Linkedin → https://www.linkedin.com/shareArticle?url=https://www.plan.be/nl/publicaties/regionale-economische-vooruitzichten-2026-2031
+  - [pagina] Inflatievooruitzichten → https://www.plan.be/nl/data/indexcijfer-der-consumptieprijzen
+  - [pagina] Vooruitzichten → https://www.plan.be/nl/onze-themas/economie/vooruitzichten
+  - [pagina] Economische begroting 2026-2027 – Economische vooruitzichten 2028-2031 – Juni 2026 → https://www.plan.be/nl/publicaties/economische-begroting-2026-2027-economische
+  - [pagina] Dutch → https://www.plan.be/nl/publicaties/regionale-economische-vooruitzichten-2026-2031
+  - [pagina] Overslaan en naar de inhoud gaan → https://www.plan.be/nl/publicaties/regionale-economische-vooruitzichten-2026-2031#main-content
+  - [pagina] Regionale economische vooruitzichten 2026-2031 → https://www.plan.be/nl/publicaties/regionale-economische-vooruitzichten-2026-2031-0
+  - [pagina] Vooruitzichten: Regionale economische vooruitzichten 2026-2031 → https://www.plan.be/nl/publicaties/regionale-economische-vooruitzichten-2026-2031-0
+  - [pagina] E-mail → mailto:?body=https://www.plan.be/nl/publicaties/regionale-economische-vooruitzichten-2026-2031
+
+## https://www.plan.be/nl/publicaties/regionale-economische-vooruitzichten-2026-2031-0
+- HTTP 200, text/html; charset=UTF-8
+  - [pagina] Facebook → https://facebook.com/sharer.php?u=https://www.plan.be/nl/publicaties/regionale-economische-vooruitzichten-2026-2031-0
+  - [pagina] Twitter → https://twitter.com/intent/tweet?url=https://www.plan.be/nl/publicaties/regionale-economische-vooruitzichten-2026-2031-0
+  - [pagina] Whatsapp → https://wa.me/?text=https://www.plan.be/nl/publicaties/regionale-economische-vooruitzichten-2026-2031-0
+  - [pagina] Linkedin → https://www.linkedin.com/shareArticle?url=https://www.plan.be/nl/publicaties/regionale-economische-vooruitzichten-2026-2031-0
+  - [pagina] Inflatievooruitzichten → https://www.plan.be/nl/data/indexcijfer-der-consumptieprijzen
+  - [pagina] Cijfer: Regionale economische vooruitzichten 2026-2031, juli 2026 - Statistische bijlage → https://www.plan.be/nl/data/regionale-economische-vooruitzichten-2026-2031
+  - [pagina] Vooruitzichten → https://www.plan.be/nl/onze-themas/economie/vooruitzichten
+  - [pagina] Perscommuniqué: Regionale economische vooruitzichten 2026-2031 → https://www.plan.be/nl/publicaties/regionale-economische-vooruitzichten-2026-2031
+  - [pagina] Regionale economische vooruitzichten 2026-2031 → https://www.plan.be/nl/publicaties/regionale-economische-vooruitzichten-2026-2031
+  - [pagina] Dutch → https://www.plan.be/nl/publicaties/regionale-economische-vooruitzichten-2026-2031-0
+  - [pagina] Overslaan en naar de inhoud gaan → https://www.plan.be/nl/publicaties/regionale-economische-vooruitzichten-2026-2031-0#main-content
+  - [pagina] (geen tekst) → https://www.plan.be/nl/publicaties/regionale-economische-vooruitzichten-2026-2031-0#ref-ftn1
+  - [pagina] 1 → https://www.plan.be/nl/publicaties/regionale-economische-vooruitzichten-2026-2031-0#ref-ftn1
+  - [pagina] 2 → https://www.plan.be/nl/publicaties/regionale-economische-vooruitzichten-2026-2031-0#ref-ftn2
+  - [pagina] 3 → https://www.plan.be/nl/publicaties/regionale-economische-vooruitzichten-2026-2031-0#ref-ftn3
+  - [pagina] Forecast HermReg 2631 - FR (pdf) → https://www.plan.be/sites/default/files/documents/FOR_HermReg_2631_13335_FR.pdf
+  - [pagina] Forecast HermReg 2631 - NL (pdf) → https://www.plan.be/sites/default/files/documents/FOR_HermReg_2631_13335_NL.pdf
+  - [pagina] E-mail → mailto:?body=https://www.plan.be/nl/publicaties/regionale-economische-vooruitzichten-2026-2031-0
+
+## https://statbel.fgov.be/nl/open-data
+- HTTP 200, text/html; charset=UTF-8
+  - [pagina] DE → https://statbel.fgov.be/de/open-data
+  - [pagina] EN → https://statbel.fgov.be/en/open-data
+  - [pagina] FR → https://statbel.fgov.be/fr/open-data
+  - [pagina] (geen tekst) → https://statbel.fgov.be/nl/open-data
+  - [pagina] NL → https://statbel.fgov.be/nl/open-data
+  - [pagina] Open Data → https://statbel.fgov.be/nl/open-data
+  - [pagina] Wat zijn open data? → https://statbel.fgov.be/nl/open-data#collapse-1
+  - [pagina] Open data en privacy! → https://statbel.fgov.be/nl/open-data#collapse-2
+  - [pagina] Waarom open data? → https://statbel.fgov.be/nl/open-data#collapse-3
+  - [pagina] Open data voor wie? → https://statbel.fgov.be/nl/open-data#collapse-4
+  - [pagina] Hoe open data gebruiken? → https://statbel.fgov.be/nl/open-data#collapse-5
+  - [pagina] Licentie → https://statbel.fgov.be/nl/open-data#collapse-6
+  - [pagina] Op zoek naar meer? → https://statbel.fgov.be/nl/open-data#collapse-7
+  - [pagina] Vragen, suggesties, ideeën? → https://statbel.fgov.be/nl/open-data#collapse-8
+  - [pagina] Overslaan en naar de inhoud gaan → https://statbel.fgov.be/nl/open-data#page
+  - [pagina] (geen tekst) → https://statbel.fgov.be/nl/open-data#print
+  - [pagina] Bevolking naar woonplaats, nationaliteit, burgerlijke staat, leeftijd en geslacht → https://statbel.fgov.be/nl/open-data/bevolking-naar-woonplaats-nationaliteit-burgerlijke-staat-leeftijd-en-geslacht-14
+  - [pagina] Consumptieprijsindex en gezondheidsindex → https://statbel.fgov.be/nl/open-data/consumptieprijsindex-en-gezondheidsindex
+  - [pagina] Familienamen van de totale bevolking per gemeente → https://statbel.fgov.be/nl/open-data/familienamen-van-de-totale-bevolking-gemeente
+  - [pagina] Geolocalisatie van de verkeersongevallen 2017-2024 → https://statbel.fgov.be/nl/open-data/geolocalisatie-van-de-verkeersongevallen-2017-2024
+  - [pagina] Indexen per productgroep → https://statbel.fgov.be/nl/open-data/indexen-productgroep
+  - [pagina] Maandevolutie van de btw-plichtige ondernemingen volgens NACE 2025 → https://statbel.fgov.be/nl/open-data/maandevolutie-van-de-btw-plichtige-ondernemingen-volgens-nace-2025
+  - [pagina] Monitoring van levensomstandigheden → https://statbel.fgov.be/nl/open-data/monitoring-van-levensomstandigheden
+  - [pagina] Nuts-codes 2027 → https://statbel.fgov.be/nl/open-data/nuts-codes-2027
+  - [pagina] Linked Open Data (LOD) → https://statbel.fgov.be/nl/open-data/plus
+  - [pagina] Statistische sectoren 2026 → https://statbel.fgov.be/nl/open-data/statistische-sectoren-2026
+  - [pagina] Voornamen van de totale bevolking per gemeente → https://statbel.fgov.be/nl/open-data/voornamen-van-de-totale-bevolking-gemeente-16
+  - [pagina] Huidige pagina 1 → https://statbel.fgov.be/nl/open-data?page=0
+  - [pagina] Pagina 2 → https://statbel.fgov.be/nl/open-data?page=1
+  - [pagina] Volgende pagina › → https://statbel.fgov.be/nl/open-data?page=1
+  - [pagina] Pagina 3 → https://statbel.fgov.be/nl/open-data?page=2
+  - [pagina] Pagina 4 → https://statbel.fgov.be/nl/open-data?page=3
+  - [pagina] Pagina 5 → https://statbel.fgov.be/nl/open-data?page=4
+  - [pagina] Laatste pagina Laatste » → https://statbel.fgov.be/nl/open-data?page=48
+  - [pagina] Bevolkingsvooruitzichten → https://statbel.fgov.be/nl/themas/bevolking/bevolkingsvooruitzichten
+  - [pagina] Residentiële vastgoedprijsindex → https://statbel.fgov.be/nl/themas/bouwen-wonen/residentiele-vastgoedprijsindex
+  - [pagina] Afzetprijsindex in de bouwnijverheid → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindex-de-bouwnijverheid
+  - [pagina] Afzetprijsindexen (industrie) → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindexen-industrie
+  - [pagina] Prijsindexen voor diensten → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/prijsindexen-voor-diensten
+  - [pagina] Consumptieprijsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex
+
+## https://statbel.fgov.be/nl/themas/bevolking/bevolkingsvooruitzichten
+- HTTP 200, text/html; charset=UTF-8
+  - [pagina] Open Data → https://statbel.fgov.be/nl/open-data
+  - [pagina] (geen tekst) → https://statbel.fgov.be/nl/themas/bevolking/bevolkingsvooruitzichten
+  - [pagina] Bevolkingsvooruitzichten → https://statbel.fgov.be/nl/themas/bevolking/bevolkingsvooruitzichten
+  - [pagina] NL → https://statbel.fgov.be/nl/themas/bevolking/bevolkingsvooruitzichten
+  - [pagina] Documentatie → https://statbel.fgov.be/nl/themas/bevolking/bevolkingsvooruitzichten#documents--content
+  - [pagina] Cijfers → https://statbel.fgov.be/nl/themas/bevolking/bevolkingsvooruitzichten#figures--content
+  - [pagina] Actueel → https://statbel.fgov.be/nl/themas/bevolking/bevolkingsvooruitzichten#news--content
+  - [pagina] Overslaan en naar de inhoud gaan → https://statbel.fgov.be/nl/themas/bevolking/bevolkingsvooruitzichten#page
+  - [pagina] (geen tekst) → https://statbel.fgov.be/nl/themas/bevolking/bevolkingsvooruitzichten#print
+  - [pagina] Residentiële vastgoedprijsindex → https://statbel.fgov.be/nl/themas/bouwen-wonen/residentiele-vastgoedprijsindex
+  - [pagina] Afzetprijsindex in de bouwnijverheid → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindex-de-bouwnijverheid
+  - [pagina] Afzetprijsindexen (industrie) → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindexen-industrie
+  - [pagina] Prijsindexen voor diensten → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/prijsindexen-voor-diensten
+  - [pagina] Consumptieprijsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex
+  - [pagina] Consumptieprijsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex/consumptieprijsindex
+  - [pagina] Geharmoniseerde consumptieprijsindex (HICP) → https://statbel.fgov.be/nl/themas/consumptieprijsindex/geharmoniseerde-consumptieprijsindex-hicp
+  - [pagina] Gezondheidsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex/gezondheidsindex
+  - [pagina] Huurcalculator → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+  - [pagina] Huurindexatie → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+  - [pagina] Index search → https://statbel.fgov.be/nl/themas/consumptieprijsindex/index-search
+  - [pagina] Medische index → https://statbel.fgov.be/nl/themas/consumptieprijsindex/medische-index
+  - [BESTAND] Demografische indicatoren per arrondissement 1992-2080 → https://statbel.fgov.be/sites/default/files/files/documents/bevolking/5.8%20Bevolkingsvooruitzichten/bestanden/2025/CoefArrNL.xlsx
+  - [BESTAND] Demografische indicatoren van België 1992-2080 → https://statbel.fgov.be/sites/default/files/files/documents/bevolking/5.8%20Bevolkingsvooruitzichten/bestanden/2025/CoefBelNL.xlsx
+  - [BESTAND] Demografische indicatoren van de Duitstalige Gemeenschap → https://statbel.fgov.be/sites/default/files/files/documents/bevolking/5.8%20Bevolkingsvooruitzichten/bestanden/2025/CoefComNL.xlsx
+  - [BESTAND] Demografische indicatoren per provincie 1992-2080 → https://statbel.fgov.be/sites/default/files/files/documents/bevolking/5.8%20Bevolkingsvooruitzichten/bestanden/2025/CoefProvNL.xlsx
+  - [BESTAND] Demografische indicatoren per gewest 1992-2080 → https://statbel.fgov.be/sites/default/files/files/documents/bevolking/5.8%20Bevolkingsvooruitzichten/bestanden/2025/CoefRegNL.xlsx
+  - [BESTAND] Particuliere huishoudens per arrondissement, op 1 januari 1992-2081 → https://statbel.fgov.be/sites/default/files/files/documents/bevolking/5.8%20Bevolkingsvooruitzichten/bestanden/2025/HHArrNL.xlsx
+  - [BESTAND] Particuliere huishoudens in België, op 1 januari 1992-2081 → https://statbel.fgov.be/sites/default/files/files/documents/bevolking/5.8%20Bevolkingsvooruitzichten/bestanden/2025/HHBelNL.xlsx
+  - [BESTAND] Particuliere huishoudens per provincie, op 1 januari 1992-2081 → https://statbel.fgov.be/sites/default/files/files/documents/bevolking/5.8%20Bevolkingsvooruitzichten/bestanden/2025/HHProvNL.xlsx
+  - [BESTAND] Particuliere huishoudens per gewest, op 1 januari 1992-2081 → https://statbel.fgov.be/sites/default/files/files/documents/bevolking/5.8%20Bevolkingsvooruitzichten/bestanden/2025/HHRegNL.xlsx
+  - [BESTAND] Loop van de bevolking per arrondissement 1992-2080 → https://statbel.fgov.be/sites/default/files/files/documents/bevolking/5.8%20Bevolkingsvooruitzichten/bestanden/2025/MvtArrNL.xlsx
+  - [BESTAND] Loop van de bevolking van België 1992-2080 → https://statbel.fgov.be/sites/default/files/files/documents/bevolking/5.8%20Bevolkingsvooruitzichten/bestanden/2025/MvtBelNL.xlsx
+  - [BESTAND] Loop van de bevolking van de Duitstalige Gemeenschap → https://statbel.fgov.be/sites/default/files/files/documents/bevolking/5.8%20Bevolkingsvooruitzichten/bestanden/2025/MvtComNL.xlsx
+  - [BESTAND] Loop van de bevolking per provincie 1992-2080 → https://statbel.fgov.be/sites/default/files/files/documents/bevolking/5.8%20Bevolkingsvooruitzichten/bestanden/2025/MvtProvNL.xlsx
+  - [BESTAND] Loop van de bevolking per gewest 1992-2080 → https://statbel.fgov.be/sites/default/files/files/documents/bevolking/5.8%20Bevolkingsvooruitzichten/bestanden/2025/MvtRegNL.xlsx
+  - [BESTAND] Bevolking per arrondissement en leeftijd, op 1 januari 1992-2081 → https://statbel.fgov.be/sites/default/files/files/documents/bevolking/5.8%20Bevolkingsvooruitzichten/bestanden/2025/PopArrNL.xlsx
+  - [BESTAND] Bevolking van België per leeftijd, op 1 januari 1992-2081 → https://statbel.fgov.be/sites/default/files/files/documents/bevolking/5.8%20Bevolkingsvooruitzichten/bestanden/2025/PopBelNL.xlsx
+  - [BESTAND] Bevolking van de Duitstalige Gemeenschap per leeftijd, op 1 januari 1992-2081 → https://statbel.fgov.be/sites/default/files/files/documents/bevolking/5.8%20Bevolkingsvooruitzichten/bestanden/2025/PopComNL.xlsx
+  - [BESTAND] Bevolking per provincie en leeftijd, op 1 januari 1992-2081 → https://statbel.fgov.be/sites/default/files/files/documents/bevolking/5.8%20Bevolkingsvooruitzichten/bestanden/2025/PopProvNL.xlsx
+  - [BESTAND] Bevolking per gewest en leeftijd, op 1 januari 1992-2081 → https://statbel.fgov.be/sites/default/files/files/documents/bevolking/5.8%20Bevolkingsvooruitzichten/bestanden/2025/PopRegNL.xlsx
+
+## https://statbel.fgov.be/nl/themas/bouwen-wonen/residentiele-vastgoedprijsindex
+- HTTP 200, text/html; charset=UTF-8
+  - [pagina] Indexcijfer van de huizenprijzen, index van de laatste 2 jaar → https://bestat.statbel.fgov.be/bestat/crosstable.xhtml?view=88ac6d63-9c4d-4973-8fdd-a908e05af0f3
+  - [pagina] Vastgoedprijsindex – 1ste kwartaal 2023 → https://statbel.fgov.be/nl/nieuws/vastgoedprijsindex-1ste-kwartaal-2023
+  - [pagina] Open Data → https://statbel.fgov.be/nl/open-data
+  - [pagina] Bevolkingsvooruitzichten → https://statbel.fgov.be/nl/themas/bevolking/bevolkingsvooruitzichten
+  - [pagina] (geen tekst) → https://statbel.fgov.be/nl/themas/bouwen-wonen/residentiele-vastgoedprijsindex
+  - [pagina] NL → https://statbel.fgov.be/nl/themas/bouwen-wonen/residentiele-vastgoedprijsindex
+  - [pagina] Residentiële vastgoedprijsindex → https://statbel.fgov.be/nl/themas/bouwen-wonen/residentiele-vastgoedprijsindex
+  - [pagina] Documentatie → https://statbel.fgov.be/nl/themas/bouwen-wonen/residentiele-vastgoedprijsindex#documents--content
+  - [pagina] Cijfers → https://statbel.fgov.be/nl/themas/bouwen-wonen/residentiele-vastgoedprijsindex#figures--content
+  - [pagina] [1] → https://statbel.fgov.be/nl/themas/bouwen-wonen/residentiele-vastgoedprijsindex#ftn1
+  - [pagina] Actueel → https://statbel.fgov.be/nl/themas/bouwen-wonen/residentiele-vastgoedprijsindex#news--content
+  - [pagina] Overslaan en naar de inhoud gaan → https://statbel.fgov.be/nl/themas/bouwen-wonen/residentiele-vastgoedprijsindex#page
+  - [pagina] (geen tekst) → https://statbel.fgov.be/nl/themas/bouwen-wonen/residentiele-vastgoedprijsindex#print
+  - [pagina] Afzetprijsindex in de bouwnijverheid → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindex-de-bouwnijverheid
+  - [pagina] Afzetprijsindexen (industrie) → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindexen-industrie
+  - [pagina] Prijsindexen voor diensten → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/prijsindexen-voor-diensten
+  - [pagina] Consumptieprijsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex
+  - [pagina] Consumptieprijsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex/consumptieprijsindex
+  - [pagina] Geharmoniseerde consumptieprijsindex (HICP) → https://statbel.fgov.be/nl/themas/consumptieprijsindex/geharmoniseerde-consumptieprijsindex-hicp
+  - [pagina] Gezondheidsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex/gezondheidsindex
+  - [pagina] Huurcalculator → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+  - [pagina] Huurindexatie → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+  - [pagina] Index search → https://statbel.fgov.be/nl/themas/consumptieprijsindex/index-search
+  - [pagina] Medische index → https://statbel.fgov.be/nl/themas/consumptieprijsindex/medische-index
+  - [BESTAND] Vastgoedprijsindex (Q2-2026) → https://statbel.fgov.be/sites/default/files/files/documents/Bouwen%20%26%20wonen/2.2%20Vastgoedprijsindex/HPI%20data%20NL.xlsx
+  - [pagina] Residentiële vastgoedprijsindex.pdf → https://statbel.fgov.be/sites/default/files/files/metadata/T8.STAT_DTST_922.CTAC_ORG_1.DIFF_LVL_1.NL.pdf
+  - [pagina] (geen tekst) → https://www.facebook.com/sharer/sharer.php?u=https%3A//statbel.fgov.be/nl/themas/bouwen-wonen/residentiele-vastgoedprijsindex
+  - [pagina] (geen tekst) → https://www.linkedin.com/shareArticle?url=https%3A//statbel.fgov.be/nl/themas/bouwen-wonen/residentiele-vastgoedprijsindex&amp;title=Residenti%C3%ABle%20vastgoedprijsindex
+  - [pagina] (geen tekst) → https://x.com/intent/tweet?text=Residenti%C3%ABle%20vastgoedprijsindex&amp;url=https%3A//statbel.fgov.be/nl/themas/bouwen-wonen/residentiele-vastgoedprijsindex
+  - [pagina] (geen tekst) → mailto:?subject=Residenti%C3%ABle%20vastgoedprijsindex&amp;body=https%3A//statbel.fgov.be/nl/themas/bouwen-wonen/residentiele-vastgoedprijsindex
+
+## https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindex-de-bouwnijverheid
+- HTTP 200, text/html; charset=UTF-8
+  - [pagina] Open Data → https://statbel.fgov.be/nl/open-data
+  - [pagina] Bevolkingsvooruitzichten → https://statbel.fgov.be/nl/themas/bevolking/bevolkingsvooruitzichten
+  - [pagina] Residentiële vastgoedprijsindex → https://statbel.fgov.be/nl/themas/bouwen-wonen/residentiele-vastgoedprijsindex
+  - [pagina] (geen tekst) → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindex-de-bouwnijverheid
+  - [pagina] Afzetprijsindex in de bouwnijverheid → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindex-de-bouwnijverheid
+  - [pagina] NL → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindex-de-bouwnijverheid
+  - [pagina] Documentatie → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindex-de-bouwnijverheid#documents--content
+  - [pagina] Cijfers → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindex-de-bouwnijverheid#figures--content
+  - [pagina] Actueel → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindex-de-bouwnijverheid#news--content
+  - [pagina] Overslaan en naar de inhoud gaan → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindex-de-bouwnijverheid#page
+  - [pagina] (geen tekst) → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindex-de-bouwnijverheid#print
+  - [pagina] Afzetprijsindexen (industrie) → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindexen-industrie
+  - [pagina] Prijsindexen voor diensten → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/prijsindexen-voor-diensten
+  - [pagina] Consumptieprijsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex
+  - [pagina] Consumptieprijsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex/consumptieprijsindex
+  - [pagina] Geharmoniseerde consumptieprijsindex (HICP) → https://statbel.fgov.be/nl/themas/consumptieprijsindex/geharmoniseerde-consumptieprijsindex-hicp
+  - [pagina] Gezondheidsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex/gezondheidsindex
+  - [pagina] Huurcalculator → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+  - [pagina] Huurindexatie → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+  - [pagina] Index search → https://statbel.fgov.be/nl/themas/consumptieprijsindex/index-search
+  - [pagina] Medische index → https://statbel.fgov.be/nl/themas/consumptieprijsindex/medische-index
+  - [pagina] Afzetprijsindex voor de bouwnijverheid.pdf → https://statbel.fgov.be/sites/default/files/files/metadata/T8.STAT_DTST_101.CTAC_ORG_1.DIFF_LVL_1.NL.pdf
+  - [pagina] (geen tekst) → https://www.facebook.com/sharer/sharer.php?u=https%3A//statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindex-de-bouwnijverheid
+  - [pagina] (geen tekst) → https://www.linkedin.com/shareArticle?url=https%3A//statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindex-de-bouwnijverheid&amp;title=Afzetprijsindex%20in%20de%20bouwnijverheid
+  - [pagina] (geen tekst) → https://x.com/intent/tweet?text=Afzetprijsindex%20in%20de%20bouwnijverheid&amp;url=https%3A//statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindex-de-bouwnijverheid
+  - [pagina] (geen tekst) → mailto:?subject=Afzetprijsindex%20in%20de%20bouwnijverheid&amp;body=https%3A//statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindex-de-bouwnijverheid
+
+## https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindexen-industrie
+- HTTP 200, text/html; charset=UTF-8
+  - [pagina] Afzetprijsindexen voor de industrie (zonder bouw) (2021=100) volgens bijzondere aggregatie → https://bestat.statbel.fgov.be/bestat/crosstable.xhtml?view=059740cf-8fc2-47dd-a642-46f63fc76b44
+  - [pagina] Afzetprijsindexen voor de industrie (zonder bouw) (2021=100) Index - Totale markt → https://bestat.statbel.fgov.be/bestat/crosstable.xhtml?view=4fe502d0-6cc8-4630-a643-1c18f9fdb054
+  - [pagina] Afzetprijsindexen voor de industrie (zonder bouw) (2021=100) Inflatie - Totale markt → https://bestat.statbel.fgov.be/bestat/crosstable.xhtml?view=89bc159c-e21c-42fe-9fd2-34d5a502e82e
+  - [pagina] Afzetprijsindexen voor de industrie (zonder bouw) (2021=100) Index - Binnenlandse markt → https://bestat.statbel.fgov.be/bestat/crosstable.xhtml?view=959f656c-e136-4ed1-80e3-183b45b6bff5
+  - [pagina] Afzetprijsindexen voor de industrie (zonder bouw) (2021=100) volgens bijzondere aggregatie → https://bestat.statbel.fgov.be/bestat/crosstable.xhtml?view=9f5a3448-6e73-45b2-b732-11867054bfb7
+  - [pagina] Afzetprijsindexen voor de industrie (zonder bouw) (2021=100) volgens bijzondere aggregatie → https://bestat.statbel.fgov.be/bestat/crosstable.xhtml?view=ab7142e9-aa7e-44e6-bed8-a9e903f87360
+  - [pagina] Open Data → https://statbel.fgov.be/nl/open-data
+  - [pagina] Bevolkingsvooruitzichten → https://statbel.fgov.be/nl/themas/bevolking/bevolkingsvooruitzichten
+  - [pagina] Residentiële vastgoedprijsindex → https://statbel.fgov.be/nl/themas/bouwen-wonen/residentiele-vastgoedprijsindex
+  - [pagina] Afzetprijsindex in de bouwnijverheid → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindex-de-bouwnijverheid
+  - [pagina] (geen tekst) → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindexen-industrie
+  - [pagina] Afzetprijsindexen (industrie) → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindexen-industrie
+  - [pagina] NL → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindexen-industrie
+  - [pagina] Documentatie → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindexen-industrie#documents--content
+  - [pagina] Cijfers → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindexen-industrie#figures--content
+  - [pagina] Actueel → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindexen-industrie#news--content
+  - [pagina] Overslaan en naar de inhoud gaan → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindexen-industrie#page
+  - [pagina] (geen tekst) → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindexen-industrie#print
+  - [pagina] Prijsindexen voor diensten → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/prijsindexen-voor-diensten
+  - [pagina] Consumptieprijsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex
+  - [pagina] Consumptieprijsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex/consumptieprijsindex
+  - [pagina] Geharmoniseerde consumptieprijsindex (HICP) → https://statbel.fgov.be/nl/themas/consumptieprijsindex/geharmoniseerde-consumptieprijsindex-hicp
+  - [pagina] Gezondheidsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex/gezondheidsindex
+  - [pagina] Huurcalculator → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+  - [pagina] Huurindexatie → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+  - [pagina] Index search → https://statbel.fgov.be/nl/themas/consumptieprijsindex/index-search
+  - [pagina] Medische index → https://statbel.fgov.be/nl/themas/consumptieprijsindex/medische-index
+  - [BESTAND] Berekeningstool indexatie → https://statbel.fgov.be/sites/default/files/files/documents/Conjunctuur/4.10%20Afzetprijzen/OPI_Indexation_tool_NL.xlsx
+  - [BESTAND] berekeningstool → https://statbel.fgov.be/sites/default/files/files/documents/Conjunctuur/4.10%20Afzetprijzen/OPI_Indexation_tool_NL.xlsx
+  - [BESTAND] Conversiecoëfficienten van basisjaar 2010 = 100 naar&nbsp;2021 = 100 → https://statbel.fgov.be/sites/default/files/files/documents/Conjunctuur/4.10%20Afzetprijzen/OPI_coeff_conv_NL.xlsx
+  - [BESTAND] Conversiecoëfficiënten van basisjaar 2010 = 100 naar 2021 = 100 → https://statbel.fgov.be/sites/default/files/files/documents/Conjunctuur/4.10%20Afzetprijzen/OPI_coeff_conv_NL.xlsx
+  - [BESTAND] conversiecoëfficiënten → https://statbel.fgov.be/sites/default/files/files/documents/Conjunctuur/4.10%20Afzetprijzen/OPI_coeff_conv_NL.xlsx
+  - [BESTAND] Globale indicatoren, binnen- en buitenlandse markt- Nace 2008, basis 2010=100 → https://statbel.fgov.be/sites/default/files/files/documents/Conjunctuur/4.10%20Afzetprijzen/PRESS_OPI08_WEB_NL.xlsx
+  - [BESTAND] Globale indicatoren, binnen- en buitenlandse markt- Nace 2008, basis 2021=100 → https://statbel.fgov.be/sites/default/files/files/documents/Conjunctuur/4.10%20Afzetprijzen/Statbel_PRESS_OPI_WEB_2021_NL.xlsx
+  - [BESTAND] Globale indicatoren, binnen- en buitenlandse markt: detailreeks - Nace 2008, basis 2021=10 → https://statbel.fgov.be/sites/default/files/files/documents/Conjunctuur/4.10%20Afzetprijzen/Statbel_TABEL_WEBSITE_AANGEVERS_2021_NL.xlsx
+  - [BESTAND] Globale indicatoren, binnen- en buitenlandse markt: detailreeks - Nace 2008, basis 2010=10 → https://statbel.fgov.be/sites/default/files/files/documents/Conjunctuur/4.10%20Afzetprijzen/TABEL_WEBSITE_AANGEVERS_NL.xlsx
+  - [BESTAND] overgang van basisjaar 2010 = 100 naar 2021 = 100 (excel voorbeeld) → https://statbel.fgov.be/sites/default/files/files/documents/Conjunctuur/4.10%20Afzetprijzen/voorbeeld%20hulp%20indexatie%202024.xlsx
+  - [pagina] overgang van nomenclatuur NACE03 naar NACE08 → https://statbel.fgov.be/sites/default/files/files/metadata/Conjunctuurindicatoren/4.7%20Omzet%20in%20de%20kleinhandel/Afzetprijsindex_nace03-08.pdf
+  - [pagina] Afzetprijsindexen in de industrie.pdf → https://statbel.fgov.be/sites/default/files/files/metadata/T8.STAT_DTST_29.CTAC_ORG_1.DIFF_LVL_1.NL.pdf
+  - [pagina] (geen tekst) → https://www.facebook.com/sharer/sharer.php?u=https%3A//statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindexen-industrie
+
+## https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/prijsindexen-voor-diensten
+- HTTP 200, text/html; charset=UTF-8
+  - [pagina] Open Data → https://statbel.fgov.be/nl/open-data
+  - [pagina] Bevolkingsvooruitzichten → https://statbel.fgov.be/nl/themas/bevolking/bevolkingsvooruitzichten
+  - [pagina] Residentiële vastgoedprijsindex → https://statbel.fgov.be/nl/themas/bouwen-wonen/residentiele-vastgoedprijsindex
+  - [pagina] Afzetprijsindex in de bouwnijverheid → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindex-de-bouwnijverheid
+  - [pagina] Afzetprijsindexen (industrie) → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindexen-industrie
+  - [pagina] (geen tekst) → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/prijsindexen-voor-diensten
+  - [pagina] NL → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/prijsindexen-voor-diensten
+  - [pagina] Prijsindexen voor diensten → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/prijsindexen-voor-diensten
+  - [pagina] Documentatie → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/prijsindexen-voor-diensten#documents--content
+  - [pagina] Cijfers → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/prijsindexen-voor-diensten#figures--content
+  - [pagina] Actueel → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/prijsindexen-voor-diensten#news--content
+  - [pagina] Overslaan en naar de inhoud gaan → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/prijsindexen-voor-diensten#page
+  - [pagina] (geen tekst) → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/prijsindexen-voor-diensten#print
+  - [pagina] Consumptieprijsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex
+  - [pagina] Consumptieprijsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex/consumptieprijsindex
+  - [pagina] Geharmoniseerde consumptieprijsindex (HICP) → https://statbel.fgov.be/nl/themas/consumptieprijsindex/geharmoniseerde-consumptieprijsindex-hicp
+  - [pagina] Gezondheidsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex/gezondheidsindex
+  - [pagina] Huurcalculator → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+  - [pagina] Huurindexatie → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+  - [pagina] Index search → https://statbel.fgov.be/nl/themas/consumptieprijsindex/index-search
+  - [pagina] Medische index → https://statbel.fgov.be/nl/themas/consumptieprijsindex/medische-index
+  - [BESTAND] Prijsindexen voor diensten 2006-2024 (2010 = 100) → https://statbel.fgov.be/sites/default/files/files/documents/Conjunctuur/4.12%20Prijsindexen%20voor%20diensten/Prijsindexen%20voor%20diensten%202006-2024%20%282010%20%3D%20100%29.xlsx
+  - [BESTAND] Berekeningstool indexatie → https://statbel.fgov.be/sites/default/files/files/documents/Conjunctuur/4.12%20Prijsindexen%20voor%20diensten/SPPI_Indexation_tool_NL.xlsx
+  - [BESTAND] Prijsindexen voor diensten (2021 = 100) → https://statbel.fgov.be/sites/default/files/files/documents/Conjunctuur/4.12%20Prijsindexen%20voor%20diensten/SPPI_STATBEL_NL.xlsx
+  - [BESTAND] Conversiecoëfficiënten van basisjaar 2010 = 100 naar 2021 = 100 → https://statbel.fgov.be/sites/default/files/files/documents/Conjunctuur/4.12%20Prijsindexen%20voor%20diensten/coefficients%20sppi.xlsx
+  - [pagina] Nota overgang van basisjaar 2010 = 100 naar 2021 = 100 → https://statbel.fgov.be/sites/default/files/files/documents/Conjunctuur/4.12%20Prijsindexen%20voor%20diensten/hulp%20indexatie%202024%20sppi.pdf
+  - [pagina] Afzetprijsindex voor de diensten.pdf → https://statbel.fgov.be/sites/default/files/files/metadata/T8.STAT_DTST_942.CTAC_ORG_1.DIFF_LVL_1.NL.pdf
+  - [pagina] (geen tekst) → https://www.facebook.com/sharer/sharer.php?u=https%3A//statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/prijsindexen-voor-diensten
+  - [pagina] (geen tekst) → https://www.linkedin.com/shareArticle?url=https%3A//statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/prijsindexen-voor-diensten&amp;title=Prijsindexen%20voor%20diensten
+  - [pagina] (geen tekst) → https://x.com/intent/tweet?text=Prijsindexen%20voor%20diensten&amp;url=https%3A//statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/prijsindexen-voor-diensten
+  - [pagina] (geen tekst) → mailto:?subject=Prijsindexen%20voor%20diensten&amp;body=https%3A//statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/prijsindexen-voor-diensten
+
+## https://statbel.fgov.be/nl/themas/consumptieprijsindex#page
+- HTTP 200, text/html; charset=UTF-8
+  - [pagina] Open Data → https://statbel.fgov.be/nl/open-data
+  - [pagina] Bevolkingsvooruitzichten → https://statbel.fgov.be/nl/themas/bevolking/bevolkingsvooruitzichten
+  - [pagina] Residentiële vastgoedprijsindex → https://statbel.fgov.be/nl/themas/bouwen-wonen/residentiele-vastgoedprijsindex
+  - [pagina] Afzetprijsindex in de bouwnijverheid → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindex-de-bouwnijverheid
+  - [pagina] Afzetprijsindexen (industrie) → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindexen-industrie
+  - [pagina] Prijsindexen voor diensten → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/prijsindexen-voor-diensten
+  - [pagina] (geen tekst) → https://statbel.fgov.be/nl/themas/consumptieprijsindex
+  - [pagina] Consumptieprijsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex
+  - [pagina] NL → https://statbel.fgov.be/nl/themas/consumptieprijsindex
+  - [pagina] Overslaan en naar de inhoud gaan → https://statbel.fgov.be/nl/themas/consumptieprijsindex#page
+  - [pagina] (geen tekst) → https://statbel.fgov.be/nl/themas/consumptieprijsindex#print
+  - [pagina] Consumptieprijsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex/consumptieprijsindex
+  - [pagina] Geharmoniseerde consumptieprijsindex (HICP) → https://statbel.fgov.be/nl/themas/consumptieprijsindex/geharmoniseerde-consumptieprijsindex-hicp
+  - [pagina] Gezondheidsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex/gezondheidsindex
+  - [pagina] Huurcalculator → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+  - [pagina] Huurindexatie → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+  - [pagina] Index search → https://statbel.fgov.be/nl/themas/consumptieprijsindex/index-search
+  - [pagina] Medische index → https://statbel.fgov.be/nl/themas/consumptieprijsindex/medische-index
+  - [pagina] (geen tekst) → https://www.facebook.com/sharer/sharer.php?u=https%3A//statbel.fgov.be/nl/themas/consumptieprijsindex
+  - [pagina] (geen tekst) → https://www.linkedin.com/shareArticle?url=https%3A//statbel.fgov.be/nl/themas/consumptieprijsindex&amp;title=Consumptieprijsindex
+  - [pagina] (geen tekst) → https://x.com/intent/tweet?text=Consumptieprijsindex&amp;url=https%3A//statbel.fgov.be/nl/themas/consumptieprijsindex
+  - [pagina] (geen tekst) → mailto:?subject=Consumptieprijsindex&amp;body=https%3A//statbel.fgov.be/nl/themas/consumptieprijsindex
+
+## https://statbel.fgov.be/nl/themas/consumptieprijsindex#print
+- HTTP 200, text/html; charset=UTF-8
+  - [pagina] Open Data → https://statbel.fgov.be/nl/open-data
+  - [pagina] Bevolkingsvooruitzichten → https://statbel.fgov.be/nl/themas/bevolking/bevolkingsvooruitzichten
+  - [pagina] Residentiële vastgoedprijsindex → https://statbel.fgov.be/nl/themas/bouwen-wonen/residentiele-vastgoedprijsindex
+  - [pagina] Afzetprijsindex in de bouwnijverheid → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindex-de-bouwnijverheid
+  - [pagina] Afzetprijsindexen (industrie) → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindexen-industrie
+  - [pagina] Prijsindexen voor diensten → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/prijsindexen-voor-diensten
+  - [pagina] (geen tekst) → https://statbel.fgov.be/nl/themas/consumptieprijsindex
+  - [pagina] Consumptieprijsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex
+  - [pagina] NL → https://statbel.fgov.be/nl/themas/consumptieprijsindex
+  - [pagina] Overslaan en naar de inhoud gaan → https://statbel.fgov.be/nl/themas/consumptieprijsindex#page
+  - [pagina] (geen tekst) → https://statbel.fgov.be/nl/themas/consumptieprijsindex#print
+  - [pagina] Consumptieprijsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex/consumptieprijsindex
+  - [pagina] Geharmoniseerde consumptieprijsindex (HICP) → https://statbel.fgov.be/nl/themas/consumptieprijsindex/geharmoniseerde-consumptieprijsindex-hicp
+  - [pagina] Gezondheidsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex/gezondheidsindex
+  - [pagina] Huurcalculator → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+  - [pagina] Huurindexatie → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+  - [pagina] Index search → https://statbel.fgov.be/nl/themas/consumptieprijsindex/index-search
+  - [pagina] Medische index → https://statbel.fgov.be/nl/themas/consumptieprijsindex/medische-index
+  - [pagina] (geen tekst) → https://www.facebook.com/sharer/sharer.php?u=https%3A//statbel.fgov.be/nl/themas/consumptieprijsindex
+  - [pagina] (geen tekst) → https://www.linkedin.com/shareArticle?url=https%3A//statbel.fgov.be/nl/themas/consumptieprijsindex&amp;title=Consumptieprijsindex
+  - [pagina] (geen tekst) → https://x.com/intent/tweet?text=Consumptieprijsindex&amp;url=https%3A//statbel.fgov.be/nl/themas/consumptieprijsindex
+  - [pagina] (geen tekst) → mailto:?subject=Consumptieprijsindex&amp;body=https%3A//statbel.fgov.be/nl/themas/consumptieprijsindex
+
+## https://statbel.fgov.be/nl/themas/consumptieprijsindex/consumptieprijsindex
+- HTTP 200, text/html; charset=UTF-8
+  - [pagina] Consumptieprijsindexen volgens 4 groepen , laatste 13 maanden → https://bestat.statbel.fgov.be/bestat/crosstable.xhtml?view=08687f48-5b8e-4935-b0b2-bb8f0f2dd42a
+  - [pagina] Consumptieprijsindex volgens 12 groepen (COICOP), laatste 13 maanden → https://bestat.statbel.fgov.be/bestat/crosstable.xhtml?view=1c87a26b-0465-4c90-ad9c-d7419d16e99f
+  - [pagina] De consumptieprijsindex volgens verschillende basisjaren, laatste 13 maanden → https://bestat.statbel.fgov.be/bestat/crosstable.xhtml?view=1e33c9bc-20f4-4699-adff-f800da946ed9
+  - [pagina] Consumptieprijsindex, inflatie, gezondheidsindex, afgevlakte index, indexen zonder petrole → https://bestat.statbel.fgov.be/bestat/crosstable.xhtml?view=876acb9d-4eae-408e-93d9-88eae4ad1eaf
+  - [pagina] Consumptieprijsindexen volgens 4 groepen, laatste 13 maanden → https://bestat.statbel.fgov.be/bestat/crosstable.xhtml?view=b66eacb2-d2ca-4265-a8d9-bdc44c30d413
+  - [pagina] Jaarljkse inflatie, kerninflatie en specifieke aggregaten , laatste 13 maanden → https://bestat.statbel.fgov.be/bestat/crosstable.xhtml?view=bee1820f-cbdb-4705-aac4-cfcf40680eb7
+  - [pagina] De gezondheidsindex sinds 1994, volgens basisjaar , laatste 13 maanden → https://bestat.statbel.fgov.be/bestat/crosstable.xhtml?view=d9a303dc-d393-4686-8fe2-234e03a857b8
+  - [pagina] De gezondheidsindex sinds 1994, volgens basisjaar, laatste 13 maanden → https://bestat.statbel.fgov.be/bestat/crosstable.xhtml?view=ea07572b-7fc4-40f7-af62-d20b70941e86
+  - [pagina] Jaarlijkse inflatie in % volgens 12 groepen (COICOP), laatste 11 maanden → https://bestat.statbel.fgov.be/bestat/crosstable.xhtml?view=f15a0714-ca56-4b38-99e0-bdc85895b39c
+  - [pagina] Consumptieprijsindex volgens 13 groepen (ECOICOP Ver. 2) , laatste 13 maanden → https://bestat.statbel.fgov.be/bestat/crosstable.xhtml?view=f4f36594-634f-4e2f-ab14-7b5aeb5570c3
+  - [pagina] Januari 2026: aanpassing van het referentiejaar van de consumptieprijsindex (CPI) naar 202 → https://statbel.fgov.be/nl/nieuws/januari-2026-aanpassing-van-het-referentiejaar-van-de-consumptieprijsindex-cpi-naar-2025-100
+  - [pagina] Nieuwe aanpassingen aan de consumptieprijsindex vanaf 2026 → https://statbel.fgov.be/nl/nieuws/nieuwe-aanpassingen-aan-de-consumptieprijsindex-vanaf-2026
+  - [pagina] Statbel Academy: De consumptieprijsindex uitgelegd: wat is inflatie en hoe wordt deze bere → https://statbel.fgov.be/nl/nieuws/statbel-academy-de-consumptieprijsindex-uitgelegd-wat-inflatie-en-hoe-wordt-deze-berekend
+  - [pagina] Open Data → https://statbel.fgov.be/nl/open-data
+  - [pagina] Consumptieprijsindex en gezondheidsindex → https://statbel.fgov.be/nl/open-data/consumptieprijsindex-en-gezondheidsindex
+  - [pagina] Indexen per productgroep → https://statbel.fgov.be/nl/open-data/indexen-productgroep
+  - [pagina] See more → https://statbel.fgov.be/nl/open-data?category=48
+  - [pagina] Pre-release beleid van Statbel inzake de consumptieprijsindex (CPI) → https://statbel.fgov.be/nl/over-statbel/kwaliteit/pre-release-beleid-van-statbel
+  - [pagina] Bevolkingsvooruitzichten → https://statbel.fgov.be/nl/themas/bevolking/bevolkingsvooruitzichten
+  - [pagina] Residentiële vastgoedprijsindex → https://statbel.fgov.be/nl/themas/bouwen-wonen/residentiele-vastgoedprijsindex
+  - [pagina] Afzetprijsindex in de bouwnijverheid → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindex-de-bouwnijverheid
+  - [pagina] Afzetprijsindexen (industrie) → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindexen-industrie
+  - [pagina] Prijsindexen voor diensten → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/prijsindexen-voor-diensten
+  - [pagina] Consumptieprijsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex
+  - [pagina] (geen tekst) → https://statbel.fgov.be/nl/themas/consumptieprijsindex/consumptieprijsindex
+  - [pagina] Consumptieprijsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex/consumptieprijsindex
+  - [pagina] NL → https://statbel.fgov.be/nl/themas/consumptieprijsindex/consumptieprijsindex
+  - [pagina] Documentatie → https://statbel.fgov.be/nl/themas/consumptieprijsindex/consumptieprijsindex#documents--content
+  - [pagina] Cijfers → https://statbel.fgov.be/nl/themas/consumptieprijsindex/consumptieprijsindex#figures--content
+  - [pagina] [i] → https://statbel.fgov.be/nl/themas/consumptieprijsindex/consumptieprijsindex#ftn1
+  - [pagina] [ii] → https://statbel.fgov.be/nl/themas/consumptieprijsindex/consumptieprijsindex#ftn1
+  - [pagina] Actueel → https://statbel.fgov.be/nl/themas/consumptieprijsindex/consumptieprijsindex#news--content
+  - [pagina] Overslaan en naar de inhoud gaan → https://statbel.fgov.be/nl/themas/consumptieprijsindex/consumptieprijsindex#page
+  - [pagina] (geen tekst) → https://statbel.fgov.be/nl/themas/consumptieprijsindex/consumptieprijsindex#print
+  - [pagina] Geharmoniseerde consumptieprijsindex (HICP) → https://statbel.fgov.be/nl/themas/consumptieprijsindex/geharmoniseerde-consumptieprijsindex-hicp
+  - [pagina] Gezondheidsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex/gezondheidsindex
+  - [pagina] Huurcalculator → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+  - [pagina] Huurindexatie → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+  - [pagina] Index search → https://statbel.fgov.be/nl/themas/consumptieprijsindex/index-search
+  - [pagina] Medische index → https://statbel.fgov.be/nl/themas/consumptieprijsindex/medische-index
+
+## https://statbel.fgov.be/nl/themas/consumptieprijsindex/geharmoniseerde-consumptieprijsindex-hicp
+- HTTP 200, text/html; charset=UTF-8
+  - [pagina] Geharmoniseerde index van de consumptieprijzen en inflatie, laatste twee jaren → https://bestat.statbel.fgov.be/bestat/crosstable.xhtml?view=0e6e9c4c-e762-4c43-ad39-8e729f235f08
+  - [pagina] Inflatie gemeten via de geharmoniseerde index van de consumptieprijzen volgens bijzondere  → https://bestat.statbel.fgov.be/bestat/crosstable.xhtml?view=45b3c671-5cce-477b-b34e-19143d2d357c
+  - [pagina] Inflatie berekend op de geharmoniseerde index van de consumptieprijzen volgens groep produ → https://bestat.statbel.fgov.be/bestat/crosstable.xhtml?view=61d97344-b057-4a04-8cae-768e70749615
+  - [pagina] Inflatie berekend op de geharmoniseerde index van de consumptieprijzen volgens groep produ → https://bestat.statbel.fgov.be/bestat/crosstable.xhtml?view=67a3b244-360e-4e48-b5b4-e7301a4bcfb9
+  - [pagina] Geharmoniseerde index van de consumptieprijzen en inflatie, laatste twee jaren → https://bestat.statbel.fgov.be/bestat/crosstable.xhtml?view=839318de-5efa-4d77-9e63-919f8e66d47f
+  - [pagina] Geharmoniseerde index van de consumptieprijzen en inflatie, laatste 12 maanden → https://bestat.statbel.fgov.be/bestat/crosstable.xhtml?view=c8db2209-a9c7-4b01-ae90-9628d71b8b3a
+  - [pagina] Inflatie gemeten via de geharmoniseerde index van de consumptieprijzen volgens bijzondere  → https://bestat.statbel.fgov.be/bestat/crosstable.xhtml?view=d9c5b356-6c10-4db4-8aa1-2548c5768f14
+  - [pagina] Impact van COVID-19 op de indexberekening en inflatiemeting → https://statbel.fgov.be/nl/nieuws/impact-van-covid-19-op-de-indexberekening-en-inflatiemeting-5
+  - [pagina] Open Data → https://statbel.fgov.be/nl/open-data
+  - [pagina] Geharmoniseerde consumptieprijsindex per productengroep → https://statbel.fgov.be/nl/open-data/geharmoniseerde-consumptieprijsindex-productengroep
+  - [pagina] Geharmoniseerde consumptieprijsindex volgens bijzondere aggregaties → https://statbel.fgov.be/nl/open-data/geharmoniseerde-consumptieprijsindex-volgens-bijzondere-aggregaties
+  - [pagina] HVD - Geharmoniseerde consumptieprijsindex (HICP) voor goederen en diensten gekocht door h → https://statbel.fgov.be/nl/open-data/hvd-geharmoniseerde-consumptieprijsindex-hicp-voor-goederen-en-diensten-gekocht-door
+  - [pagina] Bevolkingsvooruitzichten → https://statbel.fgov.be/nl/themas/bevolking/bevolkingsvooruitzichten
+  - [pagina] Residentiële vastgoedprijsindex → https://statbel.fgov.be/nl/themas/bouwen-wonen/residentiele-vastgoedprijsindex
+  - [pagina] Afzetprijsindex in de bouwnijverheid → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindex-de-bouwnijverheid
+  - [pagina] Afzetprijsindexen (industrie) → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindexen-industrie
+  - [pagina] Prijsindexen voor diensten → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/prijsindexen-voor-diensten
+  - [pagina] Consumptieprijsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex
+  - [pagina] Consumptieprijsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex/consumptieprijsindex
+  - [pagina] (geen tekst) → https://statbel.fgov.be/nl/themas/consumptieprijsindex/geharmoniseerde-consumptieprijsindex-hicp
+  - [pagina] Geharmoniseerde consumptieprijsindex (HICP) → https://statbel.fgov.be/nl/themas/consumptieprijsindex/geharmoniseerde-consumptieprijsindex-hicp
+  - [pagina] NL → https://statbel.fgov.be/nl/themas/consumptieprijsindex/geharmoniseerde-consumptieprijsindex-hicp
+  - [pagina] Documentatie → https://statbel.fgov.be/nl/themas/consumptieprijsindex/geharmoniseerde-consumptieprijsindex-hicp#documents--content
+  - [pagina] Cijfers → https://statbel.fgov.be/nl/themas/consumptieprijsindex/geharmoniseerde-consumptieprijsindex-hicp#figures--content
+  - [pagina] [1] → https://statbel.fgov.be/nl/themas/consumptieprijsindex/geharmoniseerde-consumptieprijsindex-hicp#ftn1
+  - [pagina] [2] → https://statbel.fgov.be/nl/themas/consumptieprijsindex/geharmoniseerde-consumptieprijsindex-hicp#ftn1
+  - [pagina] [3] → https://statbel.fgov.be/nl/themas/consumptieprijsindex/geharmoniseerde-consumptieprijsindex-hicp#ftn1
+  - [pagina] [4] → https://statbel.fgov.be/nl/themas/consumptieprijsindex/geharmoniseerde-consumptieprijsindex-hicp#ftn1
+  - [pagina] Actueel → https://statbel.fgov.be/nl/themas/consumptieprijsindex/geharmoniseerde-consumptieprijsindex-hicp#news--content
+  - [pagina] Overslaan en naar de inhoud gaan → https://statbel.fgov.be/nl/themas/consumptieprijsindex/geharmoniseerde-consumptieprijsindex-hicp#page
+  - [pagina] (geen tekst) → https://statbel.fgov.be/nl/themas/consumptieprijsindex/geharmoniseerde-consumptieprijsindex-hicp#print
+  - [pagina] Gezondheidsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex/gezondheidsindex
+  - [pagina] Huurcalculator → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+  - [pagina] Huurindexatie → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+  - [pagina] Index search → https://statbel.fgov.be/nl/themas/consumptieprijsindex/index-search
+  - [pagina] Medische index → https://statbel.fgov.be/nl/themas/consumptieprijsindex/medische-index
+  - [BESTAND] De evolutie van het algemene indexcijfer en de voornaamste deelindices van de Belgische HI → https://statbel.fgov.be/sites/default/files/files/documents/Consumptieprijzen/3.4%20Geharmoniseerde%20consumptieprijzen%20%28HICP%29/hicp_base2025_nl.xlsx
+  - [pagina] Geharmoniseerd indexcijfer van de consumptieprijzen.pdf → https://statbel.fgov.be/sites/default/files/files/metadata/T8.STAT_DTST_862.CTAC_ORG_1.DIFF_LVL_1.NL.pdf
+  - [pagina] (geen tekst) → https://www.facebook.com/sharer/sharer.php?u=https%3A//statbel.fgov.be/nl/themas/consumptieprijsindex/geharmoniseerde-consumptieprijsindex-hicp
+  - [pagina] (geen tekst) → https://www.linkedin.com/shareArticle?url=https%3A//statbel.fgov.be/nl/themas/consumptieprijsindex/geharmoniseerde-consumptieprijsindex-hicp&amp;title=Geharmoniseerde%20consumptieprijsindex%20%28HICP%29
+
+## https://statbel.fgov.be/nl/themas/consumptieprijsindex/gezondheidsindex
+- HTTP 200, text/html; charset=UTF-8
+  - [pagina] Open Data → https://statbel.fgov.be/nl/open-data
+  - [pagina] Consumptieprijsindex en gezondheidsindex → https://statbel.fgov.be/nl/open-data/consumptieprijsindex-en-gezondheidsindex
+  - [pagina] Indexen per productgroep → https://statbel.fgov.be/nl/open-data/indexen-productgroep
+  - [pagina] See more → https://statbel.fgov.be/nl/open-data?category=4871
+  - [pagina] Bevolkingsvooruitzichten → https://statbel.fgov.be/nl/themas/bevolking/bevolkingsvooruitzichten
+  - [pagina] Residentiële vastgoedprijsindex → https://statbel.fgov.be/nl/themas/bouwen-wonen/residentiele-vastgoedprijsindex
+  - [pagina] Afzetprijsindex in de bouwnijverheid → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindex-de-bouwnijverheid
+  - [pagina] Afzetprijsindexen (industrie) → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindexen-industrie
+  - [pagina] Prijsindexen voor diensten → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/prijsindexen-voor-diensten
+  - [pagina] Consumptieprijsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex
+  - [pagina] Consumptieprijsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex/consumptieprijsindex
+  - [pagina] Geharmoniseerde consumptieprijsindex (HICP) → https://statbel.fgov.be/nl/themas/consumptieprijsindex/geharmoniseerde-consumptieprijsindex-hicp
+  - [pagina] (geen tekst) → https://statbel.fgov.be/nl/themas/consumptieprijsindex/gezondheidsindex
+  - [pagina] Gezondheidsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex/gezondheidsindex
+  - [pagina] NL → https://statbel.fgov.be/nl/themas/consumptieprijsindex/gezondheidsindex
+  - [pagina] Documentatie → https://statbel.fgov.be/nl/themas/consumptieprijsindex/gezondheidsindex#documents--content
+  - [pagina] Cijfers → https://statbel.fgov.be/nl/themas/consumptieprijsindex/gezondheidsindex#figures--content
+  - [pagina] Overslaan en naar de inhoud gaan → https://statbel.fgov.be/nl/themas/consumptieprijsindex/gezondheidsindex#page
+  - [pagina] (geen tekst) → https://statbel.fgov.be/nl/themas/consumptieprijsindex/gezondheidsindex#print
+  - [pagina] Huurcalculator → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+  - [pagina] Huurindexatie → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+  - [pagina] Index search → https://statbel.fgov.be/nl/themas/consumptieprijsindex/index-search
+  - [pagina] index-search → https://statbel.fgov.be/nl/themas/consumptieprijsindex/index-search
+  - [pagina] Medische index → https://statbel.fgov.be/nl/themas/consumptieprijsindex/medische-index
+  - [BESTAND] Consumptieprijsindex vanaf 1920 en gezondheidsindex vanaf 1994 → https://statbel.fgov.be/sites/default/files/files/documents/Consumptieprijzen/3.1%20Consumptieprijsindex/Historiek-1920-conv-2025.xls
+  - [pagina] uitgesloten producten (PDF, 87.63 Kb) → https://statbel.fgov.be/sites/default/files/files/documents/Consumptieprijzen/3.2%20Gezondheidsindex/Gezondheidsindex_UitgeslotenProducten.pdf
+  - [pagina] Consumptieprijsindex - Gezondheidsindex.pdf → https://statbel.fgov.be/sites/default/files/files/metadata/T8.STAT_DTST_501.CTAC_ORG_1.DIFF_LVL_1.NL.pdf
+  - [pagina] (geen tekst) → https://www.facebook.com/sharer/sharer.php?u=https%3A//statbel.fgov.be/nl/themas/consumptieprijsindex/gezondheidsindex
+  - [pagina] (geen tekst) → https://www.linkedin.com/shareArticle?url=https%3A//statbel.fgov.be/nl/themas/consumptieprijsindex/gezondheidsindex&amp;title=Gezondheidsindex
+  - [pagina] (geen tekst) → https://x.com/intent/tweet?text=Gezondheidsindex&amp;url=https%3A//statbel.fgov.be/nl/themas/consumptieprijsindex/gezondheidsindex
+  - [pagina] (geen tekst) → mailto:?subject=Gezondheidsindex&amp;body=https%3A//statbel.fgov.be/nl/themas/consumptieprijsindex/gezondheidsindex
+
+## https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+- HTTP 200, text/html; charset=UTF-8
+  - [pagina] hier → https://be.brussels/nl/huisvesting/huren-en-verhuren/huurovereenkomst/huurprijsindexatie
+  - [pagina] Open Data → https://statbel.fgov.be/nl/open-data
+  - [pagina] Bevolkingsvooruitzichten → https://statbel.fgov.be/nl/themas/bevolking/bevolkingsvooruitzichten
+  - [pagina] Residentiële vastgoedprijsindex → https://statbel.fgov.be/nl/themas/bouwen-wonen/residentiele-vastgoedprijsindex
+  - [pagina] Afzetprijsindex in de bouwnijverheid → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindex-de-bouwnijverheid
+  - [pagina] Afzetprijsindexen (industrie) → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindexen-industrie
+  - [pagina] Prijsindexen voor diensten → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/prijsindexen-voor-diensten
+  - [pagina] Consumptieprijsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex
+  - [pagina] Consumptieprijsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex/consumptieprijsindex
+  - [pagina] Geharmoniseerde consumptieprijsindex (HICP) → https://statbel.fgov.be/nl/themas/consumptieprijsindex/geharmoniseerde-consumptieprijsindex-hicp
+  - [pagina] Gezondheidsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex/gezondheidsindex
+  - [pagina] gezondheidsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex/gezondheidsindex
+  - [pagina] (geen tekst) → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+  - [pagina] Huurcalculator → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+  - [pagina] Huurindexatie → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+  - [pagina] NL → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+  - [pagina] Documentatie → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator#documents--content
+  - [pagina] Cijfers → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator#figures--content
+  - [pagina] Overslaan en naar de inhoud gaan → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator#page
+  - [pagina] verschillen naargelang de regio → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator#panel-12
+  - [pagina] (geen tekst) → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator#print
+  - [pagina] Hoe de indexering berekenen → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurindexatie#documents
+  - [pagina] Bereken zelf uw huur → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurindexatie#figures
+  - [pagina] Index search → https://statbel.fgov.be/nl/themas/consumptieprijsindex/index-search
+  - [pagina] Medische index → https://statbel.fgov.be/nl/themas/consumptieprijsindex/medische-index
+  - [pagina] Huurindexering → https://statbel.fgov.be/sites/default/files/files/documents/Consumptieprijzen/3.1%20Consumptieprijsindex/Overzicht-indexen.pdf
+  - [pagina] (geen tekst) → https://www.facebook.com/sharer/sharer.php?u=https%3A//statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+  - [pagina] (geen tekst) → https://www.linkedin.com/shareArticle?url=https%3A//statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator&amp;title=Huurcalculator
+  - [pagina] hier → https://www.vlaanderen.be/huurprijs-en-huurwaarborg/huurprijsindexatie-sinds-1-oktober-2023-met-correctiefactoren
+  - [pagina] (geen tekst) → https://x.com/intent/tweet?text=Huurcalculator&amp;url=https%3A//statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+  - [pagina] (geen tekst) → mailto:?subject=Huurcalculator&amp;body=https%3A//statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+
+## https://statbel.fgov.be/nl/themas/consumptieprijsindex/index-search
+- HTTP 200, text/html; charset=UTF-8
+  - [pagina] Open Data → https://statbel.fgov.be/nl/open-data
+  - [pagina] Bevolkingsvooruitzichten → https://statbel.fgov.be/nl/themas/bevolking/bevolkingsvooruitzichten
+  - [pagina] Residentiële vastgoedprijsindex → https://statbel.fgov.be/nl/themas/bouwen-wonen/residentiele-vastgoedprijsindex
+  - [pagina] Afzetprijsindex in de bouwnijverheid → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindex-de-bouwnijverheid
+  - [pagina] Afzetprijsindexen (industrie) → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/afzetprijsindexen-industrie
+  - [pagina] Prijsindexen voor diensten → https://statbel.fgov.be/nl/themas/conjunctuurindicatoren/prijzen/prijsindexen-voor-diensten
+  - [pagina] Consumptieprijsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex
+  - [pagina] Consumptieprijsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex/consumptieprijsindex
+  - [pagina] Geharmoniseerde consumptieprijsindex (HICP) → https://statbel.fgov.be/nl/themas/consumptieprijsindex/geharmoniseerde-consumptieprijsindex-hicp
+  - [pagina] Gezondheidsindex → https://statbel.fgov.be/nl/themas/consumptieprijsindex/gezondheidsindex
+  - [pagina] Huurcalculator → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+  - [pagina] Huurindexatie → https://statbel.fgov.be/nl/themas/consumptieprijsindex/huurcalculator
+  - [pagina] (geen tekst) → https://statbel.fgov.be/nl/themas/consumptieprijsindex/index-search
+  - [pagina] Index search → https://statbel.fgov.be/nl/themas/consumptieprijsindex/index-search
+  - [pagina] NL → https://statbel.fgov.be/nl/themas/consumptieprijsindex/index-search
+  - [pagina] Documentatie → https://statbel.fgov.be/nl/themas/consumptieprijsindex/index-search#documents--content
+  - [pagina] Cijfers → https://statbel.fgov.be/nl/themas/consumptieprijsindex/index-search#figures--content
+  - [pagina] Overslaan en naar de inhoud gaan → https://statbel.fgov.be/nl/themas/consumptieprijsindex/index-search#page
+  - [pagina] (geen tekst) → https://statbel.fgov.be/nl/themas/consumptieprijsindex/index-search#print
+  - [pagina] Medische index → https://statbel.fgov.be/nl/themas/consumptieprijsindex/medische-index
+  - [BESTAND] Consumptieprijsindex vanaf 1920 en gezondheidsindex vanaf 1994 → https://statbel.fgov.be/sites/default/files/files/documents/Consumptieprijzen/3.1%20Consumptieprijsindex/Historiek-1920-conv-2025.xls
+  - [pagina] Consumptieprijsindexen.pdf → https://statbel.fgov.be/sites/default/files/files/metadata/T8.STAT_DTST_24.CTAC_ORG_1.DIFF_LVL_1.NL.pdf
+  - [pagina] (geen tekst) → https://www.facebook.com/sharer/sharer.php?u=https%3A//statbel.fgov.be/nl/themas/consumptieprijsindex/index-search
+  - [pagina] (geen tekst) → https://www.linkedin.com/shareArticle?url=https%3A//statbel.fgov.be/nl/themas/consumptieprijsindex/index-search&amp;title=Index%20search
+  - [pagina] (geen tekst) → https://x.com/intent/tweet?text=Index%20search&amp;url=https%3A//statbel.fgov.be/nl/themas/consumptieprijsindex/index-search
+  - [pagina] (geen tekst) → mailto:?subject=Index%20search&amp;body=https%3A//statbel.fgov.be/nl/themas/consumptieprijsindex/index-search
+
