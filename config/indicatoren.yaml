@@ -226,7 +226,8 @@ indicatoren:
     definitie: {nl: Netto uitstoot van broeikasgassen per inwoner, in ton CO₂-equivalent.}
     eenheid: " ton"
     decimalen: 1
-    bron: {instelling: Eurostat, dataset: sdg_13_10, filters: {unit: T_HAB}}
+    # TOTXMEMO = totaal inclusief landgebruik en bossen (LULUCF), dus de netto uitstoot
+    bron: {instelling: Eurostat, dataset: sdg_13_10, filters: {unit: T_HAB, src_crf: TOTXMEMO}}
 
   # ---------- Mobiliteit ----------
   - id: verkeersdoden
