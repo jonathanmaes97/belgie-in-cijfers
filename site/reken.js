@@ -52,6 +52,12 @@
     $("r-netto").textContent = eur(u.netto);
     $("r-nettomaand").textContent = eur(u.nettoPerMaand);
     $("r-marg").textContent = eur(marg);
+    // netto per maand is een gemiddelde: zeg wat erin zit, en toon ook de maand zonder extra's
+    const vg = i.vakantiegeld && u.vakantiegeld > 0, ejp = i.eindejaarspremie && u.eindejaarspremie > 0;
+    $("r-nettomaand-noot").textContent = T(vg && ejp ? "r_nm_beide" : vg ? "r_nm_vg" : ejp ? "r_nm_ejp" : "r_nm_geen");
+    const zonder = Rekenmodule.bereken({ ...i, vakantiegeld: false, eindejaarspremie: false }, P);
+    $("r-zonder").textContent = vg || ejp ? T("r_nm_zonder", { bedrag: eur(zonder.nettoPerMaand) }) : "";
+    $("r-zonder").hidden = !(vg || ejp);
 
     // balk: netto | RSZ | personenbelasting | gemeentebelasting
     const delen = [

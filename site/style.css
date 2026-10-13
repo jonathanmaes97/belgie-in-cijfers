@@ -436,3 +436,6 @@ code { font-size: .82rem; background: var(--achter); padding: 1px 5px; border-ra
   .kop .binnen { gap: 8px; }
 }
 @media (max-width: 400px) { .merk-tekst span { font-size: .92rem; } .talen a { font-size: .74rem; padding: 4px 3px; } }
+.reken-cijfers small { display: block; font-size: .78rem; color: var(--gedempt); margin-top: 4px; line-height: 1.35; }
+small.cofog { display: block; margin-top: 2px; font-size: .74rem; color: var(--gedempt); }
+small.cofog a { color: inherit; }

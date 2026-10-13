@@ -31,10 +31,13 @@ def haal_op(vanaf_jaar: int = 2015) -> dict:
     basis = {"unit": "PC_TOT", "sector": "S13", "na_item": "TE"}
     aandelen: dict[str, dict[str, dict[int, float]]] = {}
     euro: dict[str, dict[int, float]] = {}
-    urls = []
+    urls: dict[str, str] = {}
+    officieel: dict[str, str] = {}
     for code, _ in FUNCTIES + DETAILS:
         res = eurostat.haal_op("gov_10a_exp", {**basis, "cofog99": code}, LANDEN, vanaf_jaar)
-        urls.append(res.url)
+        urls[code] = res.url
+        officieel[code] = (res.labels.get("cofog99") or {}).get("label", "")
+        keuzes = {d: f'{l["code"]} ({l["label"]})' for d, l in res.labels.items() if d not in ("cofog99", "freq")}
         for w in res.waarnemingen:
             aandelen.setdefault(code, {}).setdefault(w.geo, {})[w.jaar] = w.waarde
         res2 = eurostat.haal_op("gov_10a_exp", {**basis, "unit": "MIO_EUR", "cofog99": code}, ["BE"], vanaf_jaar)
@@ -47,9 +50,11 @@ def haal_op(vanaf_jaar: int = 2015) -> dict:
     jaar = max(jaren)
     return {
         "jaar": jaar,
-        "functies": [{"code": c, **meta} for c, meta in FUNCTIES],
-        "details": [{"code": c, **meta} for c, meta in DETAILS],
+        # per functie: onze eenvoudige naam, de officiële Eurostat-naam (Engels) en de exacte bevraging
+        "functies": [{"code": c, **meta, "officieel": officieel.get(c, ""), "api_url": urls[c]} for c, meta in FUNCTIES],
+        "details": [{"code": c, **meta, "officieel": officieel.get(c, ""), "api_url": urls[c]} for c, meta in DETAILS],
         "aandelen": {c: {g: {str(j): v for j, v in r.items()} for g, r in per_geo.items()} for c, per_geo in aandelen.items()},
         "miljoen_euro": {c: {str(j): v for j, v in r.items()} for c, r in euro.items()},
-        "bron": {"instelling": "Eurostat", "dataset": "gov_10a_exp", "url": eurostat.databrowser_url("gov_10a_exp"), "api_urls": urls[:2]},
+        "bron": {"instelling": "Eurostat", "dataset": "gov_10a_exp", "url": eurostat.databrowser_url("gov_10a_exp"), "api_urls": list(urls.values()),
+                 "filters": keuzes},  # officiële namen van de gekozen filters, zoals Eurostat ze teruggeeft
     }

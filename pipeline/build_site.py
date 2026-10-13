@@ -41,6 +41,7 @@ KERNCIJFERS = ["schuld_per_inwoner", "rente_per_dag", "belastingwig", "werkzaamh
 UI = yaml.safe_load((WORTEL / "config" / "vertalingen" / "ui.yaml").read_text(encoding="utf-8"))
 TALEN = list(UI["talen"])  # nl eerst: dat is de brontaal
 TAAL = "nl"
+PER_ID: dict = {}  # alle indicatoren (ook verborgen), om bij afgeleide cijfers naar de echte bronnen te linken
 
 
 def zet_taal(taal: str) -> None:
@@ -314,22 +315,41 @@ def doel(ind: dict) -> str:
 
 # ---------------------------------------------------------------- onderdelen
 
+def bronnen_van(ind: dict) -> list[dict]:
+    """De echte bronnen achter een cijfer; bij een afgeleid cijfer die van de invoer."""
+    b = ind["bron"]
+    if b["instelling"] != "Berekend":
+        return [b]
+    uit = []
+    for i in b["invoer"].values():
+        for x in bronnen_van(PER_ID[i]) if i in PER_ID else []:
+            if x not in uit:
+                uit.append(x)
+    return uit
+
+
+def bronlink(b: dict) -> str:
+    return f'<a href="{escape(b["url"])}" rel="noopener">{escape(b["instelling"])} · {escape(b["dataset"])}</a>'
+
+
 def bronregel(ind: dict, bpad: str) -> str:
     b = ind["bron"]
-    csv = f'<a href="{bpad}data/csv/{ind["id"]}.csv" download>CSV</a>'
     if b["instelling"] == "Berekend":
-        bron = T("berekend_eurostat")
+        bron = T("berekend_uit") + " " + f' {T("en_woord")} '.join(bronlink(x) for x in bronnen_van(ind))
     else:
-        bron = f'<a href="{escape(b["url"])}" rel="noopener">{escape(b["instelling"])}</a>'
-    return (f'<footer class="bron">{icoon("bron")}<span>{T("bron")}: {bron} · {T("opgehaald")} {datum(ind.get("opgehaald"))} · {csv}</span>'
+        bron = bronlink(b)
+    return (f'<footer class="bron">{icoon("bron")}<span>{T("bron")}: {bron} · {T("opgehaald")} {datum(ind.get("opgehaald"))}</span>'
             f'<button type="button" class="deel js" data-deel="{ind["id"]}" aria-label="{T("deel_aria")}">{icoon("deel")}<span>{T("deel")}</span></button></footer>')
 
 
-def technisch(ind: dict) -> str:
+def technisch(ind: dict, bpad: str = "") -> str:
     b = ind["bron"]
     rijen = [f'<dt>{T("definitie")}</dt><dd>{escape(tx(ind["definitie"]))}</dd>']
     if b["instelling"] == "Berekend":
         rijen.append(f'<dt>{T("berekening")}</dt><dd><code>{escape(b["formule"])}</code> {T("met")} {", ".join(escape(v) for v in b["invoer"].values())}</dd>')
+        for x in bronnen_van(ind):
+            for u in x.get("api_urls", []):
+                rijen.append(f'<dt>{T("exacte_bevraging")}</dt><dd>{escape(x["dataset"])}: <a href="{escape(u)}" rel="noopener">{T("open_ruwe_data")}</a></dd>')
     else:
         rijen.append(f'<dt>{T("dataset")}</dt><dd>{escape(b["instelling"])} · <code>{escape(b["dataset"])}</code></dd>')
         for u in b.get("api_urls", []):
@@ -340,6 +360,7 @@ def technisch(ind: dict) -> str:
         rijen.append(f'<dt>{T("norm_of_doel")}</dt><dd>{escape(tx(ind["norm"]["label"]))} ({escape(ind["norm"]["bron"])})</dd>')
     if not ind["ok"] and ind.get("melding"):
         rijen.append(f'<dt>{T("laatste_update")}</dt><dd>{T("mislukt", melding=escape(ind["melding"]))}</dd>')
+    rijen.append(f'<dt>{T("csv_kopie")}</dt><dd><a href="{bpad}data/csv/{ind["id"]}.csv" download>{ind["id"]}.csv</a> ({T("csv_noot")})</dd>')
     return f'<details class="technisch"><summary>{T("definitie_en_bron")}</summary><dl>{"".join(rijen)}</dl></details>'
 
 
@@ -349,7 +370,7 @@ def kaart(ind: dict, bpad: str) -> str:
     kop = f'<header><p class="label">{escape(tx(ind["titel"]))}</p><h3>{escape(tx(ind["vraag"]))}</h3></header>'
     if not be:
         return (f'<article class="kaart leeg" id="{ind["id"]}">{kop}<p class="geen-data">{T("geen_cijfers")}</p>'
-                f'{technisch(ind)}{bronregel(ind, bpad)}</article>')
+                f'{technisch(ind, bpad)}{bronregel(ind, bpad)}</article>')
     jaar, waarde, status = be
     vlag = vlag_tekst(status)
     meta = f'{T("land")}, {jaar}' + (f' <span class="vlag">{escape(vlag)}</span>' if vlag else "")
@@ -372,7 +393,7 @@ def kaart(ind: dict, bpad: str) -> str:
                f'aria-label="{escape(T("grafiek_aria", titel=tx(ind["titel"])))}"></div>')
     return (f'<article class="kaart" id="{ind["id"]}">{kop}'
             f'<div class="kern"><p class="waarde">{kort_met_eenheid(waarde, ind)}</p><p class="meta">{meta}</p></div>'
-            f'<ul class="zinnen">{zin_html}</ul>{uitleg}{beeld}{tab_html}{grafiek}{technisch(ind)}{bronregel(ind, bpad)}</article>')
+            f'<ul class="zinnen">{zin_html}</ul>{uitleg}{beeld}{tab_html}{grafiek}{technisch(ind, bpad)}{bronregel(ind, bpad)}</article>')
 
 
 def sparkline(ind: dict, b: int = 120, h: int = 34) -> str:
@@ -543,11 +564,11 @@ def startpagina(data: dict, per_id: dict) -> str:
 </section>
 <div class="binnen">
   <a class="reken-tegel" href="rekenmodule.html" style="--t:{THEMA_KLEUR["overheidsfinancien"]}"><span class="tk-icoon">{icoon("reken")}</span><span><b>{T("reken_tegel_titel")}</b><span>{T("reken_tegel_tekst")}</span></span>{icoon("pijl")}</a>
-  {snelblok(data)}
   <section aria-labelledby="thema-titel" class="blok">
     <div class="blok-kop"><h2 id="thema-titel">{T("kies_thema")}</h2><a href="gewesten.html" class="blok-link">{T("vergelijk_link")} {icoon("pijl")}</a></div>
     <div class="thema-raster">{"".join(kaarten)}</div>
   </section>
+  {snelblok(data)}
   <section aria-labelledby="hoe-titel" class="blok hoe">
     <h2 id="hoe-titel">{T("vertrouwen_titel")}</h2>
     <ol>{vertrouwen}</ol>
@@ -634,10 +655,12 @@ def uitgavenblok(data: dict, per_id: dict) -> str:
             if d["deel_van"] == f["code"] and aandeel(d["code"]) is not None:
                 dm = (u["miljoen_euro"].get(d["code"]) or {}).get(jaar)
                 deu = aandeel(d["code"], "EU27_2020")
-                detail += (f'<tr class="detail"><th scope="row">{escape(d["nl"])}</th><td>{eur(aandeel(d["code"]), 1)}</td>'
+                detail += (f'<tr class="detail"><th scope="row">{escape(d["nl"])}{officieel(d)}</th><td>{eur(aandeel(d["code"]), 1)}</td>'
                            f'<td>{eur(dm * 1e6 / bev) if dm and bev else "—"}</td><td>{pct(deu, 1) if deu is not None else "—"}</td></tr>')
-        rijen.append(f'<tr><th scope="row"><span class="stip" style="background:{kleur[f["code"]]}"></span>{escape(f["nl"])}<small>{escape(f["uitleg"])}</small></th>'
+        rijen.append(f'<tr><th scope="row"><span class="stip" style="background:{kleur[f["code"]]}"></span>{escape(f["nl"])}<small>{escape(f["uitleg"])}</small>{officieel(f)}</th>'
                      f'<td>{eur(a, 1) if a is not None else "—"}</td><td>{per_inw}</td><td>{pct(eu, 1) if eu is not None else "—"}</td></tr>{detail}')
+    filters = "; ".join(f'{k} = {v}' for k, v in (u["bron"].get("filters") or {}).items())
+    zo_vind = f'<p class="bron-klein">{T("uit_zo_vind", ds=f"<a href={chr(34)}{escape(u["bron"]["url"])}{chr(34)} rel=noopener><code>{escape(u["bron"]["dataset"])}</code></a>", filters=escape(filters))}</p>' if filters else ""
     totaal_mio = sum(((u["miljoen_euro"].get(f["code"]) or {}).get(jaar) or 0) for f in u["functies"])
     totaal_zin = T("uit_totaal", bedrag=eur(totaal_mio * 1e6 / bev)) if bev and totaal_mio else ""
     b = u["bron"]
@@ -651,8 +674,18 @@ def uitgavenblok(data: dict, per_id: dict) -> str:
     <tbody>{"".join(rijen)}</tbody>
   </table></div>
   <p class="uitleg">{icoon("info")}<span>{T("uit_uitleg")}</span></p>
-  <footer class="bron">{icoon("bron")}<span>{T("bron")}: <a href="{escape(b["url"])}" rel="noopener">Eurostat · {escape(b["dataset"])}</a> {T("uit_bron_noot", jaar=jaar).replace(" · ", f" · {T('opgehaald')} {datum(u.get('opgehaald'))} · ", 1)}</span></footer>
+  {zo_vind}
+  <p class="bron-klein">{T("uit_per_inwoner_noot", jaar=jaar)}</p>
+  <footer class="bron">{icoon("bron")}<span>{T("bron")}: <a href="{escape(b["url"])}" rel="noopener">Eurostat · {escape(b["dataset"])}</a> (COFOG) · {T("opgehaald")} {datum(u.get("opgehaald"))}</span></footer>
 </section>'''
+
+
+def officieel(f: dict) -> str:
+    """Code en officiële Eurostat-naam van een uitgavenfunctie, met een link naar de exacte bevraging."""
+    if not f.get("officieel"):
+        return f'<small class="cofog">COFOG {escape(f["code"])}</small>'
+    link = f' · <a href="{escape(f["api_url"])}" rel="noopener">{T("uit_controleer")}</a>' if f.get("api_url") else ""
+    return f'<small class="cofog">COFOG {escape(f["code"])} “{escape(f["officieel"])}” {T("uit_officieel")}{link}</small>'
 
 
 def periode_tekst(p: str) -> str:
@@ -847,9 +880,11 @@ def rekenpagina(data: dict) -> str:
       <div class="reken-cijfers">
         <div><span>{T("rk_bruto_jaar")}</span><b id="r-bruto">…</b></div>
         <div><span>{T("rk_netto_jaar")}</span><b id="r-netto">…</b></div>
-        <div><span>{T("rk_netto_maand")}</span><b id="r-nettomaand">…</b></div>
+        <div><span>{T("rk_netto_maand")}</span><b id="r-nettomaand">…</b><small id="r-nettomaand-noot"></small></div>
         <div><span>{T("rk_marginaal")}</span><b id="r-marg">…</b></div>
       </div>
+      <p class="klein-grijs" id="r-zonder"></p>
+      <p class="klein-grijs">{T("rk_loonbrief")}</p>
     </section>
     <section class="kaart">
       <h2>{T("rk_berekend")}</h2>
@@ -883,6 +918,8 @@ def bouw_taal(basis: dict, taal: str) -> None:
     zet_taal(taal)
     data = vertaal(basis, taal)
     per_id = {i["id"]: i for i in data["indicatoren"]}
+    PER_ID.clear()
+    PER_ID.update(per_id)
     doel_map = SITE / map_van(taal)
     (doel_map / "thema").mkdir(parents=True, exist_ok=True)
     (doel_map / "index.html").write_text(startpagina(data, per_id), encoding="utf-8")

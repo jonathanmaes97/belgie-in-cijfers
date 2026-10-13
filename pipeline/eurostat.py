@@ -109,7 +109,15 @@ def ontleed(antwoord: dict) -> Resultaat:
         uit.append(Waarneming(geo_codes[i_geo], int(tijd[:4]), float(waarde), str(vlaggen.get(sleutel, ""))))
 
     uit.sort(key=lambda w: (w.geo, w.jaar))
-    return Resultaat(waarnemingen=uit, bijgewerkt_bron=antwoord.get("updated"), url="", labels={})
+    # officiële naam van de gekozen waarde per dimensie (bv. cofog99 → "Social protection"), om bij de bron terug te vinden
+    labels = {}
+    for dim in ids:
+        if dim in ("geo", "time"):
+            continue
+        cat = dims[dim]["category"]
+        code = next(iter(cat["index"]))
+        labels[dim] = {"code": code, "label": (cat.get("label") or {}).get(code, code), "dimensie": dims[dim].get("label", dim)}
+    return Resultaat(waarnemingen=uit, bijgewerkt_bron=antwoord.get("updated"), url="", labels=labels)
 
 
 def haal_op(dataset: str, filters: dict, landen: list[str], vanaf_jaar: int, sessie: requests.Session | None = None) -> Resultaat:

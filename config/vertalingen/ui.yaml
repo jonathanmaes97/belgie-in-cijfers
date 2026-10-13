@@ -850,10 +850,10 @@ t:
     de: "Netto pro Jahr"
     en: "Net per year"
   rk_netto_maand:
-    nl: "Netto gemiddeld per maand"
-    fr: "Net moyen par mois"
-    de: "Netto im Monatsdurchschnitt"
-    en: "Average net per month"
+    nl: "Netto per maand"
+    fr: "Net par mois"
+    de: "Netto pro Monat"
+    en: "Net per month"
   rk_marginaal:
     nl: "Van 100 euro opslag hou je"
     fr: "Sur 100 euros d'augmentation, il vous reste"
@@ -909,6 +909,52 @@ t:
     fr: "Du brut au net : combien va à la sécurité sociale et aux impôts, et où cela va-t-il ?"
     de: "Von brutto zu netto: Wie viel geht an die soziale Sicherheit und an Steuern, und wohin fließt es?"
     en: "From gross to net: how much goes to social security and taxes, and where does it go?"
+
+  csv_kopie:
+    nl: "Kopie als CSV"
+    fr: "Copie en CSV"
+    de: "Kopie als CSV"
+    en: "Copy as CSV"
+  csv_noot:
+    nl: "handig om te hergebruiken; de bron zelf blijft de referentie"
+    fr: "pratique pour la réutilisation ; la source elle-même reste la référence"
+    de: "praktisch zur Weiterverwendung; maßgeblich bleibt die Quelle selbst"
+    en: "handy for reuse; the source itself remains the reference"
+  berekend_uit:
+    nl: "Berekend uit"
+    fr: "Calculé à partir de"
+    de: "Berechnet aus"
+    en: "Calculated from"
+  en_woord:
+    nl: "en"
+    fr: "et"
+    de: "und"
+    en: "and"
+  uit_officieel:
+    nl: "bij Eurostat"
+    fr: "chez Eurostat"
+    de: "bei Eurostat"
+    en: "at Eurostat"
+  uit_controleer:
+    nl: "controleer"
+    fr: "vérifier"
+    de: "prüfen"
+    en: "check"
+  uit_zo_vind:
+    nl: "Zo vind je deze cijfers zelf bij Eurostat: open de dataset {ds}, kies België en daarna deze filters: {filters}. De functies (cofog99) staan onder hun Engelse naam, die je bij elk domein hierboven ziet. Of klik bij een domein op \"controleer\" voor de exacte bevraging."
+    fr: "Pour retrouver ces chiffres vous-même chez Eurostat : ouvrez le jeu de données {ds}, choisissez la Belgique puis ces filtres : {filters}. Les fonctions (cofog99) y figurent sous leur nom anglais, indiqué pour chaque domaine ci-dessus. Ou cliquez sur « vérifier » à côté d'un domaine pour la requête exacte."
+    de: "So finden Sie diese Zahlen selbst bei Eurostat: Öffnen Sie den Datensatz {ds}, wählen Sie Belgien und dann diese Filter: {filters}. Die Aufgabenbereiche (cofog99) stehen dort unter ihrem englischen Namen, den Sie oben bei jedem Bereich sehen. Oder klicken Sie bei einem Bereich auf „prüfen“ für die genaue Abfrage."
+    en: "To find these figures yourself at Eurostat: open the dataset {ds}, choose Belgium and then these filters: {filters}. The functions (cofog99) are listed under their English names, shown for each area above. Or click \"check\" next to an area for the exact query."
+  uit_per_inwoner_noot:
+    nl: "Per inwoner: het bedrag in miljoen euro (zelfde dataset, eenheid MIO_EUR) gedeeld door het aantal inwoners op 1 januari {jaar} (Eurostat)."
+    fr: "Par habitant : le montant en millions d'euros (même jeu de données, unité MIO_EUR) divisé par le nombre d'habitants au 1er janvier {jaar} (Eurostat)."
+    de: "Pro Einwohner: der Betrag in Millionen Euro (gleicher Datensatz, Einheit MIO_EUR) geteilt durch die Zahl der Einwohner am 1. Januar {jaar} (Eurostat)."
+    en: "Per inhabitant: the amount in millions of euros (same dataset, unit MIO_EUR) divided by the number of inhabitants on 1 January {jaar} (Eurostat)."
+  rk_loonbrief:
+    nl: "Op je loonbrief staat elke maand een ander bedrag. Je werkgever houdt bedrijfsvoorheffing in: een voorschot op je belasting, dat met je aanslagbiljet wordt verrekend. Deze rekenmodule toont de eindafrekening over het hele jaar."
+    fr: "Votre fiche de paie affiche un autre montant chaque mois. Votre employeur retient un précompte professionnel : une avance sur votre impôt, régularisée avec votre avertissement-extrait de rôle. Ce simulateur montre le décompte final sur toute l'année."
+    de: "Auf Ihrer Lohnabrechnung steht jeden Monat ein anderer Betrag. Ihr Arbeitgeber behält einen Berufssteuervorabzug ein: einen Vorschuss auf Ihre Steuer, der mit Ihrem Steuerbescheid verrechnet wird. Dieser Rechner zeigt die Endabrechnung für das ganze Jahr."
+    en: "Your payslip shows a different amount each month. Your employer withholds advance tax (bedrijfsvoorheffing): a prepayment on your tax that is settled with your tax assessment. This calculator shows the final settlement for the whole year."
 
 # Teksten die JavaScript gebruikt (grafieken, zoeken, delen, rekenmodule)
 js:
@@ -1067,3 +1113,28 @@ js:
     fr: "Total des cotisations sociales et impôts"
     de: "Summe der Sozialbeiträge und Steuern"
     en: "Total social contributions and taxes"
+  r_nm_beide:
+    nl: "incl. vakantiegeld en eindejaarspremie, gespreid over 12 maanden"
+    fr: "y compris pécule de vacances et prime de fin d'année, réparti sur 12 mois"
+    de: "inkl. Urlaubsgeld und Jahresendprämie, verteilt auf 12 Monate"
+    en: "incl. holiday pay and end-of-year bonus, spread over 12 months"
+  r_nm_vg:
+    nl: "incl. vakantiegeld, gespreid over 12 maanden"
+    fr: "y compris pécule de vacances, réparti sur 12 mois"
+    de: "inkl. Urlaubsgeld, verteilt auf 12 Monate"
+    en: "incl. holiday pay, spread over 12 months"
+  r_nm_ejp:
+    nl: "incl. eindejaarspremie, gespreid over 12 maanden"
+    fr: "y compris prime de fin d'année, répartie sur 12 mois"
+    de: "inkl. Jahresendprämie, verteilt auf 12 Monate"
+    en: "incl. end-of-year bonus, spread over 12 months"
+  r_nm_geen:
+    nl: "enkel je 12 maandlonen"
+    fr: "uniquement vos 12 salaires mensuels"
+    de: "nur Ihre 12 Monatsgehälter"
+    en: "your 12 monthly salaries only"
+  r_nm_zonder:
+    nl: "Zonder vakantiegeld en eindejaarspremie: {bedrag} per maand"
+    fr: "Sans pécule de vacances ni prime de fin d'année : {bedrag} par mois"
+    de: "Ohne Urlaubsgeld und Jahresendprämie: {bedrag} pro Monat"
+    en: "Without holiday pay and end-of-year bonus: {bedrag} per month"
