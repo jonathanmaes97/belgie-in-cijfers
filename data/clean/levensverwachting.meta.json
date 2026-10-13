@@ -4,8 +4,8 @@
     "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_r_mlifexp?lang=EN&sinceTimePeriod=2005&sex=T&age=Y_LT1&unit=YR&geo=BE1&geo=BE2&geo=BE3"
   ],
   "bijgewerkt_bron": "2026-09-25T23:00:00+0200",
-  "opgehaald": "2026-10-13T15:00:18+00:00",
-  "laatste_poging": "2026-10-13T15:00:18+00:00",
+  "opgehaald": "2026-10-13T15:05:52+00:00",
+  "laatste_poging": "2026-10-13T15:05:52+00:00",
   "melding": "",
   "melding_regio": ""
 }
