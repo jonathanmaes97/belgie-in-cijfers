@@ -402,7 +402,7 @@ code { font-size: .82rem; background: var(--achter); padding: 1px 5px; border-ra
 .reken-kop b { font-size: 2.2rem; font-weight: 650; letter-spacing: -.03em; display: block; }
 .reken-balk { display: flex; height: 34px; border-radius: var(--r); overflow: hidden; gap: 2px; background: var(--vlak); }
 .reken-balk i { display: block; height: 100%; transition: width .3s; }
-.deel-netto { background: #1baf7a; } .deel-rsz { background: #2a78d6; } .deel-pb { background: #6250d6; } .deel-gem { background: #eda100; }
+.deel-netto { background: #1baf7a; } .deel-rsz { background: #2a78d6; } .deel-bbsz { background: #7fb0ea; } .deel-pb { background: #6250d6; } .deel-gem { background: #eda100; }
 .reken-legende { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: .88rem; font-variant-numeric: tabular-nums; }
 .reken-legende .sw { display: inline-block; width: 11px; height: 11px; border-radius: 3px; margin-right: 7px; vertical-align: -1px; }
 .reken-cijfers { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
@@ -439,3 +439,4 @@ code { font-size: .82rem; background: var(--achter); padding: 1px 5px; border-ra
 .reken-cijfers small { display: block; font-size: .78rem; color: var(--gedempt); margin-top: 4px; line-height: 1.35; }
 small.cofog { display: block; margin-top: 2px; font-size: .74rem; color: var(--gedempt); }
 small.cofog a { color: inherit; }
+.voet .klein { font-size: .8rem; }

@@ -34,7 +34,21 @@ const belastbaar = bruto - rsz - kosten;
 const pb = R.schijfbelasting(belastbaar, P.schijven.lijst).totaal - R.schijfbelasting(11180, P.schijven.lijst).totaal;
 assert.ok(Math.abs(u.personenbelasting - pb) < 0.02);
 assert.ok(Math.abs(u.gemeentebelasting - pb * 0.07) < 0.02);
-assert.ok(Math.abs(u.netto - (bruto - rsz - pb * 1.07)) < 0.05);
+// BBSZ (alleenstaande): kwartaal 1-3 = 3 x 3.500 = 10.500 → 30,99 + 1,10% x (3.500 − 2.190,18) x 3
+const bbszK = 30.99 + 0.011 * (3500 - 2190.18) * 3;
+// kwartaal 4 = 10.500 + eindejaarspremie 3.500 = 14.000 → maandloon 4.666,67 → 118,83 + 1,10% x (4.666,67 − 4.100) x 3
+const bbszK4 = 118.83 + 0.011 * (14000 / 3 - 4100) * 3;
+assert.ok(Math.abs(u.bbsz - (3 * bbszK + bbszK4)) < 0.05, `bbsz ${u.bbsz}`);
+assert.ok(Math.abs(u.netto - (bruto - rsz - u.bbsz - pb * 1.07)) < 0.05);
+
+// BBSZ: niets onder de eerste schijf, maximum van 182,82 per kwartaal bij hoge lonen
+assert.strictEqual(R.bbszKwartaal(5000, P), 0);
+assert.strictEqual(R.bbszKwartaal(30000, P), 182.82);
+// de schaal sluit aan op de grenzen (controle op overschrijffouten, tot op enkele cent)
+for (const [van, tot] of P.bbsz.schijven_kwartaal) {
+  if (tot === null || van === 0) continue;
+  assert.ok(Math.abs(R.bbszKwartaal(tot - 0.001, P) - R.bbszKwartaal(tot, P)) < 0.05, `sprong bij ${tot}`);
+}
 
 // 4. Geen belasting onder de belastingvrije som; nooit negatief
 const laag = R.bereken({ maandloon: 600, vakantiegeld: false, eindejaarspremie: false, kinderen: 3, gemeentePct: 8 }, P);
@@ -43,7 +57,7 @@ assert.ok(laag.netto > 0);
 
 // 5. Marginaal: bij een hoog loon zit je in de schijf van 50%
 const m = R.marginaal({ maandloon: 8000, vakantiegeld: true, eindejaarspremie: true, kinderen: 0, gemeentePct: 7 }, P);
-const verwacht = (1 - 0.1307) * (1 - 0.5 * 1.07) * 100;  // beroepskosten zitten al aan hun maximum
+const verwacht = (1 - 0.1307) * (1 - 0.5 * 1.07) * 100;  // beroepskosten zitten al aan hun maximum, BBSZ aan haar maximum
 assert.ok(Math.abs(m - verwacht) < 0.05, `marginaal ${m} vs ${verwacht}`);
 
 console.log("rekenmodule: alle tests geslaagd");

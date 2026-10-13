@@ -120,16 +120,20 @@ NB = " "  # harde spatie: getal en eenheid blijven samen op één regel
 SCHEIDING = {"nl": (".", ","), "de": (".", ","), "fr": (" ", ","), "en": (",", ".")}
 # eenheid in de catalogus → (vóór het getal, erna voluit, erna kort)
 EENHEDEN = {
-    "nl": {"%": ("", "%", "%"), "% bbp": ("", "% van het bbp", "%"), "€": ("€ ", "", ""), "mln €": ("€ ", " miljoen", " mln"),
+    "nl": {"cent/kWh": ("", " cent per kWh", " cent/kWh"), "€/kWh": ("€ ", " per kWh", "/kWh"), "€/l": ("€ ", " per liter", "/l"),
+           "%": ("", "%", "%"), "% bbp": ("", "% van het bbp", "%"), "€": ("€ ", "", ""), "mln €": ("€ ", " miljoen", " mln"),
            "jaar": ("", " jaar", " jaar"), "ton": ("", " ton", " ton"), "per 1.000": ("", " per 1.000", " per 1.000"),
            "per miljoen": ("", " per miljoen", " per miljoen"), "GWh": ("", " GWh", " GWh")},
-    "fr": {"%": ("", " %", " %"), "% bbp": ("", " % du PIB", " %"), "€": ("", " €", " €"), "mln €": ("", " millions d'euros", " M€"),
+    "fr": {"cent/kWh": ("", " centimes par kWh", " c/kWh"), "€/kWh": ("", " € par kWh", " €/kWh"), "€/l": ("", " € par litre", " €/l"),
+           "%": ("", " %", " %"), "% bbp": ("", " % du PIB", " %"), "€": ("", " €", " €"), "mln €": ("", " millions d'euros", " M€"),
            "jaar": ("", " ans", " ans"), "ton": ("", " tonnes", " t"), "per 1.000": ("", " pour 1 000", " pour 1 000"),
            "per miljoen": ("", " par million", " par million"), "GWh": ("", " GWh", " GWh")},
-    "de": {"%": ("", " %", " %"), "% bbp": ("", " % des BIP", " %"), "€": ("", " €", " €"), "mln €": ("", " Mio. €", " Mio. €"),
+    "de": {"cent/kWh": ("", " Cent pro kWh", " ct/kWh"), "€/kWh": ("", " € pro kWh", " €/kWh"), "€/l": ("", " € pro Liter", " €/l"),
+           "%": ("", " %", " %"), "% bbp": ("", " % des BIP", " %"), "€": ("", " €", " €"), "mln €": ("", " Mio. €", " Mio. €"),
            "jaar": ("", " Jahre", " Jahre"), "ton": ("", " Tonnen", " t"), "per 1.000": ("", " je 1.000", " je 1.000"),
            "per miljoen": ("", " je Million", " je Million"), "GWh": ("", " GWh", " GWh")},
-    "en": {"%": ("", "%", "%"), "% bbp": ("", "% of GDP", "%"), "€": ("€", "", ""), "mln €": ("€", " million", "m"),
+    "en": {"cent/kWh": ("", " cents per kWh", "c/kWh"), "€/kWh": ("€", " per kWh", "/kWh"), "€/l": ("€", " per litre", "/l"),
+           "%": ("", "%", "%"), "% bbp": ("", "% of GDP", "%"), "€": ("€", "", ""), "mln €": ("€", " million", "m"),
            "jaar": ("", " years", " years"), "ton": ("", " tonnes", " t"), "per 1.000": ("", " per 1,000", " per 1,000"),
            "per miljoen": ("", " per million", " per million"), "GWh": ("", " GWh", " GWh")},
 }
@@ -242,6 +246,10 @@ def vertaal(data: dict, taal: str) -> dict:
     (thema's, begrippen, uitgaven) worden in de kopie vervangen. Getallen blijven onaangeroerd.
     """
     d = copy.deepcopy(data)
+    # mazout (Europese Commissie) staat bij de snelle cijfers van de Nationale Bank
+    if d.get("olie") and d["olie"].get("reeksen"):
+        d.setdefault("snel", {"reeksen": []})
+        d["snel"]["reeksen"] = (d["snel"].get("reeksen") or []) + d["olie"]["reeksen"]
     if taal == "nl":
         return d
     v = lees_vertaling(taal)
@@ -273,6 +281,8 @@ def vertaal(data: dict, taal: str) -> dict:
                     r[k][taal] = w[k]
             if w.get("vergelijk") and r.get("vergelijk"):
                 r["vergelijk"]["naam"][taal] = w["vergelijk"]
+            if w.get("bron") and r["bron"].get("naam"):
+                r["bron"]["naam"][taal] = w["bron"]
     d["_instellingen"] = v.get("instellingen") or {}
     d["_niet_meegerekend"] = v.get("niet_meegerekend")
     return d
@@ -485,7 +495,7 @@ def pagina(titel: str, beschrijving: str, inhoud: str, pad: str, data: dict, act
         naar_inhoud=T("naar_inhoud"), kop_reken=T("kop_reken"), zoek_aria=T("zoek_cijfer"), zoek_tekst=T("zoek"),
         voet_project=T("voet_project", datum=datum(data["gegenereerd"])), voet_code=T("voet_code", repo=REPO_URL),
         voet_maker=T("voet_maker", maker=MAKER, linkedin=linkedin), voet_contact=T("voet_contact", mail=CONTACT, repo=REPO_URL),
-        voet_vibe=T("voet_vibe"), ui=js_teksten(data),
+        voet_vibe=T("voet_vibe"), voet_onafhankelijk=T("voet_onafhankelijk"), ui=js_teksten(data),
     )
 
 
@@ -691,6 +701,8 @@ def officieel(f: dict) -> str:
 def periode_tekst(p: str) -> str:
     if "-Q" in p:
         return T("kwartaal", n=p[-1], jaar=p[:4])
+    if len(p) == 10:  # weekcijfer: volledige datum
+        return datum(p)
     return maand_tekst(p) if len(p) >= 7 else p
 
 
@@ -715,11 +727,12 @@ def snelblok(data: dict) -> str:
     for r in snel["reeksen"]:
         p = r["punten"]
         laatst, vorig = p[-1], p[-2] if len(p) > 1 else None
-        stap = 4 if "-Q" in laatst[0] else 12
+        stap = 4 if "-Q" in laatst[0] else 52 if len(laatst[0]) == 10 else 12
         jaar_eerder = p[-1 - stap] if len(p) > stap else None
         fmt = lambda v: kort_met_eenheid(v, r)
-        verschil = lambda a, b: (("+" if a - b > 0 else "−" if a - b < 0 else "±") + getal(abs(a - b), r["decimalen"])
-                                 + (T("procentpunt") if r["eenheid"] == "%" else ""))
+        verschil = lambda a, b: (("+" if a - b > 0 else "−" if a - b < 0 else "±")
+                                 + (getal(abs(a - b), r["decimalen"]) + T("procentpunt") if r["eenheid"] == "%"
+                                    else kort_met_eenheid(abs(a - b), r)))
         regels = []
         if vorig:
             regels.append(T("tegenover", verschil=verschil(laatst[1], vorig[1]), periode=periode_tekst(vorig[0])))
@@ -733,9 +746,9 @@ def snelblok(data: dict) -> str:
             f'<article class="snel-kaart"><p class="sk-vraag">{escape(tx(r["vraag"]))}</p>'
             f'<p class="sk-titel">{escape(tx(r["titel"]))}</p>'
             f'<p class="sk-waarde">{fmt(laatst[1])}</p><p class="sk-periode">{periode_tekst(laatst[0])}</p>'
-            f'{mini_spark(p[-24:])}<ul>{"".join(f"<li>{x}</li>" for x in regels)}</ul>'
+            f'{mini_spark(p[-2 * stap:])}<ul>{"".join(f"<li>{x}</li>" for x in regels)}</ul>'
             f'<details><summary>{T("wat_is_dit")}</summary><p>{escape(tx(r["uitleg"]))}</p></details>'
-            f'<p class="sk-bron">{T("bron")}: <a href="{escape(r["bron"]["url"])}" rel="noopener">{T("nationale_bank")}</a> · <a href="{escape(r["api_url"])}" rel="noopener">{T("ruwe_data")}</a></p></article>')
+            f'<p class="sk-bron">{T("bron")}: <a href="{escape(r["bron"]["url"])}" rel="noopener">{escape(tx(r["bron"].get("naam")) or T("nationale_bank"))}</a> · <a href="{escape(r["api_url"])}" rel="noopener">{T("ruwe_data")}</a></p></article>')
     return (f'<section class="blok snel" aria-labelledby="snel-titel"><div class="blok-kop"><h2 id="snel-titel">{T("snel_titel")}</h2>'
             f'<span class="blok-noot">{T("snel_noot", datum=datum(snel.get("opgehaald")))}</span></div>'
             f'<div class="snel-raster">{"".join(kaarten)}</div></section>')
@@ -994,6 +1007,7 @@ SJABLOON = """<!doctype html>
       <p class="voet-merk"><span class="merk-blok" aria-hidden="true"><i></i><i></i><i></i></span><b>{merk}: {ondertitel}</b></p>
       <p>{voet_project}</p>
       <p>{voet_code}</p>
+      <p class="klein">{voet_onafhankelijk}</p>
     </div>
     <div>
       <p>{voet_maker}</p>

@@ -4,64 +4,88 @@ themas:
   economie:
     nl: Économie
     vraag: Notre économie croît-elle ?
-    intro: "L'économie, c'est tout ce que nous produisons et gagnons ensemble. Quand elle croît, il y a généralement plus d'emplois et plus d'argent pour les salaires et les services publics. Vous voyez ici à quelle vitesse l'économie belge croît, combien nous produisons par personne et à quelle vitesse les prix augmentent."
-    bevoegd: "La Banque centrale européenne fixe les taux d'intérêt de la zone euro. En Belgique, la politique économique est partagée entre l'État fédéral (par exemple les impôts) et les régions (par exemple l'aide aux entreprises et les investissements)."
+    intro: L'économie, c'est tout ce que nous produisons et gagnons ensemble. Quand elle croît, il y a généralement plus d'emplois et plus d'argent pour les salaires et les services publics. Vous voyez ici à quelle vitesse l'économie belge croît, combien nous produisons par personne et à quelle vitesse les prix augmentent.
+    bevoegd: La Banque centrale européenne fixe les taux d'intérêt de la zone euro. En Belgique, la politique économique est partagée entre l'État fédéral (par exemple les impôts) et les régions (par exemple l'aide aux entreprises et les investissements).
   overheidsfinancien:
     nl: Finances publiques
     vraag: Comment se portent les caisses de l'État ?
-    intro: "Les pouvoirs publics perçoivent des impôts et des cotisations sociales et dépensent cet argent notamment pour les pensions, les soins de santé, l'enseignement et les routes. S'ils dépensent plus qu'ils ne reçoivent, il y a un déficit et la dette augmente. Sur cette dette, l'État paie des intérêts."
-    bevoegd: "Chaque niveau de pouvoir a son propre budget : l'État fédéral, les communautés, les régions et les pouvoirs locaux. Les chiffres présentés ici les additionnent tous, comme l'exige l'Europe."
+    intro: Les pouvoirs publics perçoivent des impôts et des cotisations sociales et dépensent cet argent notamment pour les pensions, les soins de santé, l'enseignement et les routes. S'ils dépensent plus qu'ils ne reçoivent, il y a un déficit et la dette augmente. Sur cette dette, l'État paie des intérêts.
+    bevoegd: 'Chaque niveau de pouvoir a son propre budget : l''État fédéral, les communautés, les régions et les pouvoirs locaux. Les chiffres présentés ici les additionnent tous, comme l''exige l''Europe.'
   werk:
     nl: Emploi
     vraag: Combien de personnes travaillent ?
-    intro: "Le nombre de personnes qui ont un emploi détermine en partie les impôts et cotisations qui rentrent pour payer, entre autres, les pensions et les soins de santé. Vous voyez ici combien d'adultes travaillent et combien de personnes cherchent un emploi, y compris par région."
-    bevoegd: "Le droit du travail et les allocations de chômage sont fédéraux. L'accompagnement des demandeurs d'emploi est une mission des régions et de la Communauté germanophone (VDAB, Le Forem, Actiris et ADG)."
+    intro: Le nombre de personnes qui ont un emploi détermine en partie les impôts et cotisations qui rentrent pour payer, entre autres, les pensions et les soins de santé. Vous voyez ici combien d'adultes travaillent et combien de personnes cherchent un emploi, y compris par région.
+    bevoegd: Le droit du travail et les allocations de chômage sont fédéraux. L'accompagnement des demandeurs d'emploi est une mission des régions et de la Communauté germanophone (VDAB, Le Forem, Actiris et ADG).
   gezondheid:
     nl: Santé
     vraag: Sommes-nous en bonne santé ?
-    intro: "Combien de temps et en quelle santé nous vivons dépend de nombreux facteurs : les soins, le mode de vie, le travail et les revenus. Vous voyez ici l'espérance de vie moyenne et combien nous dépensons ensemble pour les soins de santé."
-    bevoegd: "L'assurance maladie et le financement des hôpitaux sont en grande partie fédéraux. La prévention, les soins aux personnes âgées et la première ligne relèvent surtout des communautés."
+    intro: 'Combien de temps et en quelle santé nous vivons dépend de nombreux facteurs : les soins, le mode de vie, le travail et les revenus. Vous voyez ici l''espérance de vie moyenne et combien nous dépensons ensemble pour les soins de santé.'
+    bevoegd: L'assurance maladie et le financement des hôpitaux sont en grande partie fédéraux. La prévention, les soins aux personnes âgées et la première ligne relèvent surtout des communautés.
   onderwijs:
     nl: Enseignement
     vraag: Quel est notre niveau d'études ?
-    intro: "Un diplôme augmente les chances de trouver un emploi et d'avoir un bon revenu. Vous voyez ici combien de jeunes quittent l'école sans diplôme et combien de jeunes adultes ont un diplôme de l'enseignement supérieur."
-    bevoegd: "En Belgique, l'enseignement est une compétence des communautés : les Communautés flamande, française et germanophone ont chacune leur propre enseignement."
+    intro: Un diplôme augmente les chances de trouver un emploi et d'avoir un bon revenu. Vous voyez ici combien de jeunes quittent l'école sans diplôme, combien de jeunes adultes ont un diplôme de l'enseignement supérieur, et combien de jeunes de 15 ans n'atteignent pas le niveau de base en mathématiques et en lecture dans le test international PISA.
+    bevoegd: 'En Belgique, l''enseignement est une compétence des communautés : les Communautés flamande, française et germanophone ont chacune leur propre enseignement.'
   wonen_armoede:
     nl: Logement et pauvreté
     vraag: Tout le monde parvient-il à joindre les deux bouts ?
-    intro: "Un logement abordable et un revenu suffisant pour vivre sont des besoins de base. Vous voyez ici combien de personnes sont menacées de pauvreté ou d'exclusion sociale et à quelle vitesse les prix des logements augmentent."
-    bevoegd: "La politique du logement, comme le logement social et les règles de location, est une compétence des régions. Les allocations et les pensions sont fédérales ; les CPAS aident les personnes au niveau local."
+    intro: Un logement abordable et un revenu suffisant pour vivre sont des besoins de base. Vous voyez ici combien de personnes sont menacées de pauvreté ou d'exclusion sociale et à quelle vitesse les prix des logements augmentent.
+    bevoegd: La politique du logement, comme le logement social et les règles de location, est une compétence des régions. Les allocations et les pensions sont fédérales ; les CPAS aident les personnes au niveau local.
   klimaat_energie:
     nl: Climat et énergie
     vraag: Notre énergie est-elle verte ?
-    intro: "Les gaz à effet de serre réchauffent la planète. L'Europe veut que les émissions baissent et qu'une plus grande part de l'énergie provienne du soleil, du vent et d'autres sources renouvelables. Vous voyez ici où en est la Belgique : combien nous émettons, quelle part de l'énergie est renouvelable et quelle part de notre électricité provient des centrales nucléaires."
-    bevoegd: "Les compétences sont partagées : l'État fédéral est notamment compétent pour l'éolien en mer et l'énergie nucléaire, les régions pour les énergies renouvelables sur terre et les économies d'énergie."
+    intro: 'Les gaz à effet de serre réchauffent la planète. L''Europe veut que les émissions baissent et qu''une plus grande part de l''énergie provienne du soleil, du vent et d''autres sources renouvelables. Vous voyez ici où en est la Belgique : combien nous émettons, quelle part de l''énergie est renouvelable, quelle part de notre électricité provient des centrales nucléaires, et ce que coûtent l''électricité et le gaz pour un ménage.'
+    bevoegd: 'Les compétences sont partagées : l''État fédéral est notamment compétent pour l''éolien en mer et l''énergie nucléaire, les régions pour les énergies renouvelables sur terre et les économies d''énergie.'
   mobiliteit:
     nl: Mobilité
     vraag: Arrivons-nous à destination facilement et en sécurité ?
-    intro: "Notre façon de nous déplacer détermine le temps passé en route et notre sécurité. Vous voyez ici la ponctualité des trains et combien de personnes meurent sur les routes."
-    bevoegd: "Le rail (SNCB et Infrabel) est fédéral. Les routes, la sécurité routière sur les routes régionales ainsi que les bus et trams (De Lijn, TEC et STIB) sont des compétences des régions."
+    intro: Notre façon de nous déplacer détermine le temps passé en route et notre sécurité. Vous voyez ici la ponctualité des trains et combien de personnes meurent sur les routes.
+    bevoegd: Le rail (SNCB et Infrabel) est fédéral. Les routes, la sécurité routière sur les routes régionales ainsi que les bus et trams (De Lijn, TEC et STIB) sont des compétences des régions.
   demografie:
     nl: Population
     vraag: Combien sommes-nous, et qui nous rejoint ?
-    intro: "Le nombre d'habitants en Belgique et leur âge déterminent combien d'écoles, de logements, de soins et de pensions sont nécessaires. La population change par les naissances et les décès, et par les personnes qui s'installent en Belgique ou la quittent. Vous voyez ici les deux."
-    bevoegd: "Les chiffres de population proviennent du Registre national. La politique migratoire est fédérale ; l'intégration relève des communautés."
-
+    intro: Le nombre d'habitants en Belgique et leur âge déterminent combien d'écoles, de logements, de soins et de pensions sont nécessaires. La population change par les naissances et les décès, et par les personnes qui s'installent en Belgique ou la quittent. Vous voyez ici les deux.
+    bevoegd: Les chiffres de population proviennent du Registre national. La politique migratoire est fédérale ; l'intégration relève des communautés.
 begrippen:
-  bbp: {term: PIB, uitleg: "Le produit intérieur brut : la valeur de tout ce qu'un pays produit en un an. C'est la mesure habituelle de la taille d'une économie."}
-  reeel: {term: Croissance réelle, uitleg: "Une croissance dont on a retiré l'effet de la hausse des prix. On voit ainsi si nous produisons vraiment plus, et pas seulement plus cher."}
-  inflatie: {term: Inflation, uitleg: "La hausse moyenne, sur un an, des prix de ce que les ménages achètent."}
-  procent_bbp: {term: En pourcentage du PIB, uitleg: "Un montant comparé à la taille de l'économie. Cela permet de comparer équitablement des pays de tailles différentes."}
-  voorlopig: {term: Provisoire, uitleg: "Un premier chiffre que la source peut encore réviser. Nous montrons toujours la version la plus récente et gardons la trace des révisions."}
-  werkzaamheidsgraad: {term: Taux d'emploi, uitleg: "La part des personnes de 20 à 64 ans qui travaillent. Les personnes à temps partiel comptent aussi."}
-  werkloosheidsgraad: {term: Taux de chômage, uitleg: "La part des chômeurs parmi les personnes qui travaillent ou cherchent activement un emploi. Celles qui ne cherchent pas, comme les étudiants, ne comptent pas."}
-  hoger_onderwijs: {term: Enseignement supérieur, uitleg: "Un diplôme de bachelier ou de master, ou une formation équivalente après l'enseignement secondaire."}
-  arope: {term: Pauvreté ou exclusion sociale, uitleg: "Les personnes qui ont un faible revenu, qui ne peuvent pas se permettre des choses de base (comme allumer le chauffage), ou qui vivent dans un ménage où presque personne ne travaille."}
-  co2_equivalent: {term: Équivalent CO₂, uitleg: "Tous les gaz à effet de serre convertis en la quantité de CO₂ qui provoquerait le même réchauffement."}
-  gwh: {term: Gigawattheure (GWh), uitleg: "Une mesure d'une quantité d'électricité : un million de kilowattheures."}
-  stiptheid: {term: Ponctualité, uitleg: "Un train est ponctuel s'il arrive à sa destination finale avec moins de 6 minutes de retard. Les trains supprimés ne sont pas comptés dans ce chiffre."}
-  vergrijzing: {term: Vieillissement, uitleg: "La part des personnes âgées dans la population augmente, parce que nous vivons plus longtemps et que moins d'enfants naissent."}
-
+  bbp:
+    term: PIB
+    uitleg: 'Le produit intérieur brut : la valeur de tout ce qu''un pays produit en un an. C''est la mesure habituelle de la taille d''une économie.'
+  reeel:
+    term: Croissance réelle
+    uitleg: Une croissance dont on a retiré l'effet de la hausse des prix. On voit ainsi si nous produisons vraiment plus, et pas seulement plus cher.
+  inflatie:
+    term: Inflation
+    uitleg: La hausse moyenne, sur un an, des prix de ce que les ménages achètent.
+  procent_bbp:
+    term: En pourcentage du PIB
+    uitleg: Un montant comparé à la taille de l'économie. Cela permet de comparer équitablement des pays de tailles différentes.
+  voorlopig:
+    term: Provisoire
+    uitleg: Un premier chiffre que la source peut encore réviser. Nous montrons toujours la version la plus récente et gardons la trace des révisions.
+  werkzaamheidsgraad:
+    term: Taux d'emploi
+    uitleg: La part des personnes de 20 à 64 ans qui travaillent. Les personnes à temps partiel comptent aussi.
+  werkloosheidsgraad:
+    term: Taux de chômage
+    uitleg: La part des chômeurs parmi les personnes qui travaillent ou cherchent activement un emploi. Celles qui ne cherchent pas, comme les étudiants, ne comptent pas.
+  hoger_onderwijs:
+    term: Enseignement supérieur
+    uitleg: Un diplôme de bachelier ou de master, ou une formation équivalente après l'enseignement secondaire.
+  arope:
+    term: Pauvreté ou exclusion sociale
+    uitleg: Les personnes qui ont un faible revenu, qui ne peuvent pas se permettre des choses de base (comme allumer le chauffage), ou qui vivent dans un ménage où presque personne ne travaille.
+  co2_equivalent:
+    term: Équivalent CO₂
+    uitleg: Tous les gaz à effet de serre convertis en la quantité de CO₂ qui provoquerait le même réchauffement.
+  gwh:
+    term: Gigawattheure (GWh)
+    uitleg: 'Une mesure d''une quantité d''électricité : un million de kilowattheures.'
+  stiptheid:
+    term: Ponctualité
+    uitleg: Un train est ponctuel s'il arrive à sa destination finale avec moins de 6 minutes de retard. Les trains supprimés ne sont pas comptés dans ce chiffre.
+  vergrijzing:
+    term: Vieillissement
+    uitleg: La part des personnes âgées dans la population augmente, parce que nous vivons plus longtemps et que moins d'enfants naissent.
 landnamen:
   BE: Belgique
   EU27_2020: Moyenne de l'UE
@@ -72,238 +96,429 @@ landnamen:
   BE1: Bruxelles
   BE2: Flandre
   BE3: Wallonie
-
 indicatoren:
   bbp_groei:
     titel: Croissance économique
     vraag: De combien l'économie croît-elle chaque année ?
-    definitie: "Croissance annuelle du produit intérieur brut, après correction de l'inflation."
-    uitleg: "Un chiffre positif signifie que nous avons produit ensemble plus que l'année précédente. Un chiffre négatif, comme pendant l'année du coronavirus 2020, signifie une contraction."
-    zoekwoorden: [croissance, récession, économie, pib]
+    definitie: Croissance annuelle du produit intérieur brut, après correction de l'inflation.
+    uitleg: Un chiffre positif signifie que nous avons produit ensemble plus que l'année précédente. Un chiffre négatif, comme pendant l'année du coronavirus 2020, signifie une contraction.
+    zoekwoorden:
+    - croissance
+    - récession
+    - économie
+    - pib
   bbp_per_inwoner:
     titel: PIB par habitant
     vraag: Combien produisons-nous par personne ?
-    definitie: "Produit intérieur brut divisé par le nombre d'habitants, à prix courants."
-    uitleg: "Une mesure de la prospérité d'un pays. Ce n'est pas un revenu que chacun reçoit, mais la production totale divisée par le nombre d'habitants."
-    zoekwoorden: [prospérité, richesse, revenu]
+    definitie: Produit intérieur brut divisé par le nombre d'habitants, à prix courants.
+    uitleg: Une mesure de la prospérité d'un pays. Ce n'est pas un revenu que chacun reçoit, mais la production totale divisée par le nombre d'habitants.
+    zoekwoorden:
+    - prospérité
+    - richesse
+    - revenu
   inflatie:
     titel: Inflation
     vraag: De combien la vie devient-elle plus chère ?
-    definitie: "Hausse annuelle moyenne des prix à la consommation (indice harmonisé, IPCH)."
-    uitleg: "Avec une inflation de 3 %, ce qui coûtait 100 euros l'an dernier coûte maintenant en moyenne 103 euros. En Belgique, beaucoup de salaires et d'allocations suivent automatiquement (l'indexation)."
-    zoekwoorden: [prix, indice, indexation, vie chère, pouvoir d'achat]
+    definitie: Hausse annuelle moyenne des prix à la consommation (indice harmonisé, IPCH).
+    uitleg: Avec une inflation de 3 %, ce qui coûtait 100 euros l'an dernier coûte maintenant en moyenne 103 euros. En Belgique, beaucoup de salaires et d'allocations suivent automatiquement (l'indexation).
+    zoekwoorden:
+    - prix
+    - indice
+    - indexation
+    - vie chère
+    - pouvoir d'achat
   schuld_per_inwoner:
     titel: Dette par habitant
     vraag: Quelle est la dette publique par habitant ?
     definitie: Dette publique divisée par le nombre d'habitants au 1er janvier de la même année.
-    uitleg: "Ce n'est pas un montant que vous devez payer vous-même. Il montre l'ampleur de la dette publique totale si on la répartissait entre tous les habitants."
-    zoekwoorden: [dette publique, dette, emprunt]
+    uitleg: Ce n'est pas un montant que vous devez payer vous-même. Il montre l'ampleur de la dette publique totale si on la répartissait entre tous les habitants.
+    zoekwoorden:
+    - dette publique
+    - dette
+    - emprunt
   overheidsschuld:
     titel: Dette publique
     vraag: Quelle est la taille de la dette publique par rapport à l'économie ?
-    definitie: "Dette brute consolidée de l'ensemble des pouvoirs publics, en pourcentage du PIB."
-    uitleg: "À 100 %, la dette est aussi grande que tout ce que le pays produit en un an. Les règles européennes demandent une dette de 60 % au maximum."
+    definitie: Dette brute consolidée de l'ensemble des pouvoirs publics, en pourcentage du PIB.
+    uitleg: À 100 %, la dette est aussi grande que tout ce que le pays produit en un an. Les règles européennes demandent une dette de 60 % au maximum.
     norm: Norme européenne 60 %
-    zoekwoorden: [dette publique, taux d'endettement, maastricht]
+    zoekwoorden:
+    - dette publique
+    - taux d'endettement
+    - maastricht
   begrotingssaldo:
     titel: Solde budgétaire
     vraag: L'État dépense-t-il plus qu'il ne reçoit ?
-    definitie: "Excédent (+) ou déficit (−) de l'ensemble des pouvoirs publics, en pourcentage du PIB."
-    uitleg: "Un chiffre négatif est un déficit : l'État a dépensé plus qu'il n'a reçu et a dû emprunter. Les règles européennes demandent un déficit de 3 % au maximum."
+    definitie: Excédent (+) ou déficit (−) de l'ensemble des pouvoirs publics, en pourcentage du PIB.
+    uitleg: 'Un chiffre négatif est un déficit : l''État a dépensé plus qu''il n''a reçu et a dû emprunter. Les règles européennes demandent un déficit de 3 % au maximum.'
     norm: Norme européenne −3 %
-    zoekwoorden: [déficit, budget, excédent]
+    zoekwoorden:
+    - déficit
+    - budget
+    - excédent
   rente_per_dag:
     titel: Intérêts par jour
     vraag: Combien d'intérêts l'État paie-t-il par jour ?
-    definitie: "Charges d'intérêts annuelles des pouvoirs publics divisées par 365, en millions d'euros."
-    uitleg: "Les intérêts sont le prix que l'État paie pour emprunter de l'argent. Cet argent ne peut pas servir à d'autres dépenses."
-    zoekwoorden: [intérêts, charges d'intérêts]
+    definitie: Charges d'intérêts annuelles des pouvoirs publics divisées par 365, en millions d'euros.
+    uitleg: Les intérêts sont le prix que l'État paie pour emprunter de l'argent. Cet argent ne peut pas servir à d'autres dépenses.
+    zoekwoorden:
+    - intérêts
+    - charges d'intérêts
   rentelasten:
     titel: Charges d'intérêts
     vraag: Combien d'intérêts payons-nous par rapport à l'économie ?
-    definitie: "Intérêts que les pouvoirs publics paient sur leur dette, en pourcentage du PIB."
-    uitleg: "Cela permet de comparer la charge d'intérêts de pays de tailles différentes."
-    zoekwoorden: [intérêts]
+    definitie: Intérêts que les pouvoirs publics paient sur leur dette, en pourcentage du PIB.
+    uitleg: Cela permet de comparer la charge d'intérêts de pays de tailles différentes.
+    zoekwoorden:
+    - intérêts
   belastingdruk:
     titel: Pression fiscale
     vraag: Combien d'impôts et de cotisations payons-nous ensemble ?
-    definitie: "Ensemble des impôts et cotisations sociales, en pourcentage du PIB."
-    uitleg: "Tous les impôts (sur les revenus, la consommation, le patrimoine) et les cotisations sociales réunis, comparés à la taille de l'économie. Cela ne dit rien de ce que paie une personne."
-    zoekwoorden: [impôts, taxes, fiscalité, onss]
+    definitie: Ensemble des impôts et cotisations sociales, en pourcentage du PIB.
+    uitleg: Tous les impôts (sur les revenus, la consommation, le patrimoine) et les cotisations sociales réunis, comparés à la taille de l'économie. Cela ne dit rien de ce que paie une personne.
+    zoekwoorden:
+    - impôts
+    - taxes
+    - fiscalité
+    - onss
   belastingwig:
     titel: Charge fiscale sur un salaire plus bas
     vraag: Quelle part de ce que paie un employeur va aux impôts et cotisations ?
-    definitie: "Coin fiscal : impôt des personnes physiques plus cotisations sociales du travailleur et de l'employeur, en pourcentage du coût salarial total. Pour une personne isolée sans enfants qui gagne 67 % du salaire moyen (c'est ainsi qu'Eurostat définit cette série)."
-    uitleg: "Supposons qu'un employeur dépense 100 euros pour votre salaire. Ce chiffre indique quelle part va à l'État et à la sécurité sociale, y compris votre propre impôt des personnes physiques. Le reste, vous le recevez en net. Il s'agit d'une personne type : isolée, sans enfants, avec un salaire égal aux deux tiers du salaire moyen. Pour des salaires plus élevés, la charge est plus haute ; pour les salaires les plus bas, plus faible."
+    definitie: 'Coin fiscal : impôt des personnes physiques plus cotisations sociales du travailleur et de l''employeur, en pourcentage du coût salarial total. Pour une personne isolée sans enfants qui gagne 67 % du salaire moyen (c''est ainsi qu''Eurostat définit cette série).'
+    uitleg: 'Supposons qu''un employeur dépense 100 euros pour votre salaire. Ce chiffre indique quelle part va à l''État et à la sécurité sociale, y compris votre propre impôt des personnes physiques. Le reste, vous le recevez en net. Il s''agit d''une personne type : isolée, sans enfants, avec un salaire égal aux deux tiers du salaire moyen. Pour des salaires plus élevés, la charge est plus haute ; pour les salaires les plus bas, plus faible.'
     wafel_tekst: euros de coût salarial vont aux impôts et cotisations sociales (isolé, salaire plus bas)
-    zoekwoorden: [impôts, salaire, net, brut, onss, coût salarial, coin fiscal, impôt des personnes physiques]
+    zoekwoorden:
+    - impôts
+    - salaire
+    - net
+    - brut
+    - onss
+    - coût salarial
+    - coin fiscal
+    - impôt des personnes physiques
   werkzaamheidsgraad:
     titel: Taux d'emploi
     vraag: Combien d'adultes ont un emploi ?
     definitie: Part des 20-64 ans qui ont un emploi.
-    uitleg: "Les étudiants, les retraités de moins de 65 ans, les malades de longue durée et les demandeurs d'emploi ne travaillent pas et font baisser ce chiffre. La Belgique vise 80 % d'ici 2030."
+    uitleg: Les étudiants, les retraités de moins de 65 ans, les malades de longue durée et les demandeurs d'emploi ne travaillent pas et font baisser ce chiffre. La Belgique vise 80 % d'ici 2030.
     norm: Objectif belge pour 2030 80 %
-    zoekwoorden: [emplois, emploi, mise à l'emploi, 80 pour cent]
+    zoekwoorden:
+    - emplois
+    - emploi
+    - mise à l'emploi
+    - 80 pour cent
   werkloosheid:
     titel: Chômage
     vraag: Combien de personnes cherchent un emploi ?
     definitie: Part des chômeurs dans la population active de 15 à 74 ans (définition internationale).
-    uitleg: "Selon la définition internationale : les personnes sans emploi qui cherchent activement et peuvent commencer rapidement. Ce n'est pas la même chose que le nombre de personnes qui touchent une allocation de chômage."
-    zoekwoorden: [chômeurs, demandeurs d'emploi, forem, actiris, vdab]
+    uitleg: 'Selon la définition internationale : les personnes sans emploi qui cherchent activement et peuvent commencer rapidement. Ce n''est pas la même chose que le nombre de personnes qui touchent une allocation de chômage.'
+    zoekwoorden:
+    - chômeurs
+    - demandeurs d'emploi
+    - forem
+    - actiris
+    - vdab
   levensverwachting:
     titel: Espérance de vie
     vraag: Jusqu'à quel âge vivons-nous en moyenne ?
     definitie: Nombre moyen d'années qu'un nouveau-né vivra selon les taux de mortalité de l'année.
-    uitleg: "Combien de temps un bébé né cette année vivra en moyenne, si la santé de la population reste comme aujourd'hui."
-    zoekwoorden: [âge, mortalité, santé]
+    uitleg: Combien de temps un bébé né cette année vivra en moyenne, si la santé de la population reste comme aujourd'hui.
+    zoekwoorden:
+    - âge
+    - mortalité
+    - santé
   zorguitgaven:
     titel: Dépenses de santé
     vraag: Combien dépensons-nous pour les soins de santé ?
-    definitie: "Dépenses totales de santé, publiques et privées, en pourcentage du PIB."
-    uitleg: "Ce que l'État, les mutualités, les assureurs et les patients eux-mêmes dépensent ensemble pour les soins."
-    zoekwoorden: [soins, hôpital, inami, mutualité]
+    definitie: Dépenses totales de santé, publiques et privées, en pourcentage du PIB.
+    uitleg: Ce que l'État, les mutualités, les assureurs et les patients eux-mêmes dépensent ensemble pour les soins.
+    zoekwoorden:
+    - soins
+    - hôpital
+    - inami
+    - mutualité
   diploma_hoger_onderwijs:
     titel: Diplôme de l'enseignement supérieur
     vraag: Combien de jeunes adultes ont un diplôme de l'enseignement supérieur ?
     definitie: Part des 25-34 ans titulaires d'un diplôme de l'enseignement supérieur.
-    uitleg: "Il s'agit des personnes de 25 à 34 ans titulaires d'un bachelier, d'un master ou d'un diplôme équivalent."
+    uitleg: Il s'agit des personnes de 25 à 34 ans titulaires d'un bachelier, d'un master ou d'un diplôme équivalent.
     wafel_tekst: personnes de 25 à 34 ans ont un diplôme de l'enseignement supérieur
-    zoekwoorden: [haute école, université, diplôme, études]
+    zoekwoorden:
+    - haute école
+    - université
+    - diplôme
+    - études
   vroegtijdige_schoolverlaters:
     titel: Décrochage scolaire
     vraag: Combien de jeunes quittent l'école sans diplôme ?
     definitie: Part des 18-24 ans sans diplôme de l'enseignement secondaire qui ne suivent plus de formation.
-    uitleg: "Les jeunes sans diplôme de l'enseignement secondaire ont souvent plus de difficultés sur le marché du travail."
+    uitleg: Les jeunes sans diplôme de l'enseignement secondaire ont souvent plus de difficultés sur le marché du travail.
     wafel_tekst: jeunes de 18 à 24 ans n'ont pas de diplôme du secondaire et ne suivent plus de formation
-    zoekwoorden: [décrochage, sans qualification, école, diplôme]
+    zoekwoorden:
+    - décrochage
+    - sans qualification
+    - école
+    - diplôme
   armoede_uitsluiting:
     titel: Risque de pauvreté
     vraag: Combien de personnes sont menacées de pauvreté ?
-    definitie: "Part de la population à faible revenu, en situation de privation matérielle grave ou à très faible intensité de travail (AROPE)."
-    uitleg: "C'est la mesure européenne. Vous êtes compté si vous avez un faible revenu, si vous ne pouvez pas vous permettre des choses de base, ou si vous vivez dans un ménage où presque personne ne travaille."
+    definitie: Part de la population à faible revenu, en situation de privation matérielle grave ou à très faible intensité de travail (AROPE).
+    uitleg: C'est la mesure européenne. Vous êtes compté si vous avez un faible revenu, si vous ne pouvez pas vous permettre des choses de base, ou si vous vivez dans un ménage où presque personne ne travaille.
     wafel_tekst: habitants sont menacés de pauvreté ou d'exclusion sociale
-    zoekwoorden: [pauvreté, pauvre, joindre les deux bouts, exclusion, arope]
+    zoekwoorden:
+    - pauvreté
+    - pauvre
+    - joindre les deux bouts
+    - exclusion
+    - arope
   woningprijzen:
     titel: Prix des logements
     vraag: De combien les logements deviennent-ils plus chers chaque année ?
     definitie: Hausse annuelle des prix des logements (indice des prix des logements).
-    uitleg: "De combien le prix d'un logement augmente ou baisse en moyenne par rapport à l'année précédente, logements neufs et existants confondus."
-    zoekwoorden: [maison, prix immobilier, immobilier, acheter]
+    uitleg: De combien le prix d'un logement augmente ou baisse en moyenne par rapport à l'année précédente, logements neufs et existants confondus.
+    zoekwoorden:
+    - maison
+    - prix immobilier
+    - immobilier
+    - acheter
   hernieuwbare_energie:
     titel: Énergie renouvelable
     vraag: Quelle part de notre énergie provient de sources renouvelables ?
     definitie: Part des sources renouvelables dans la consommation finale brute d'énergie.
-    uitleg: "Il s'agit de toute l'énergie : l'électricité, mais aussi le chauffage et le transport. Le soleil, le vent, la biomasse et l'hydraulique comptent comme renouvelables."
-    zoekwoorden: [panneaux solaires, éoliennes, électricité verte, énergie]
+    uitleg: 'Il s''agit de toute l''énergie : l''électricité, mais aussi le chauffage et le transport. Le soleil, le vent, la biomasse et l''hydraulique comptent comme renouvelables.'
+    zoekwoorden:
+    - panneaux solaires
+    - éoliennes
+    - électricité verte
+    - énergie
   uitstoot_per_inwoner:
     titel: Émissions par habitant
     vraag: Combien de gaz à effet de serre émettons-nous par personne ?
-    definitie: "Émissions nettes de gaz à effet de serre par habitant, en tonnes d'équivalent CO₂."
-    uitleg: "Les émissions de tout le pays (transport, industrie, chauffage, agriculture) divisées par le nombre d'habitants. Les forêts qui absorbent du CO₂ sont déduites."
-    zoekwoorden: [co2, climat, émissions, gaz à effet de serre]
+    definitie: Émissions nettes de gaz à effet de serre par habitant, en tonnes d'équivalent CO₂.
+    uitleg: Les émissions de tout le pays (transport, industrie, chauffage, agriculture) divisées par le nombre d'habitants. Les forêts qui absorbent du CO₂ sont déduites.
+    zoekwoorden:
+    - co2
+    - climat
+    - émissions
+    - gaz à effet de serre
   kernenergie_aandeel:
     titel: Le nucléaire dans notre électricité
     vraag: Quelle part de notre électricité provient des centrales nucléaires ?
     definitie: Part du nucléaire dans la production brute d'électricité du pays.
-    uitleg: "Il s'agit uniquement de l'électricité, pas de toute l'énergie. En fonctionnement, les centrales nucléaires n'émettent pratiquement pas de gaz à effet de serre, mais le nucléaire ne compte pas comme énergie renouvelable. L'électricité importée de l'étranger n'est pas incluse dans ce chiffre."
-    zoekwoorden: [nucléaire, centrale nucléaire, doel, tihange, électricité, courant]
+    uitleg: Il s'agit uniquement de l'électricité, pas de toute l'énergie. En fonctionnement, les centrales nucléaires n'émettent pratiquement pas de gaz à effet de serre, mais le nucléaire ne compte pas comme énergie renouvelable. L'électricité importée de l'étranger n'est pas incluse dans ce chiffre.
+    zoekwoorden:
+    - nucléaire
+    - centrale nucléaire
+    - doel
+    - tihange
+    - électricité
+    - courant
   treinstiptheid:
     titel: Ponctualité des trains
     vraag: Combien de trains arrivent à l'heure ?
     definitie: Part des trains de voyageurs intérieurs arrivant à destination finale avec moins de 6 minutes de retard, par an (tous les mois confondus).
-    uitleg: "Un train avec 6 minutes de retard ou plus compte comme en retard. Les trains supprimés ne sont pas comptés dans ce chiffre. Pour l'année en cours, il s'agit des mois écoulés jusqu'à présent."
+    uitleg: Un train avec 6 minutes de retard ou plus compte comme en retard. Les trains supprimés ne sont pas comptés dans ce chiffre. Pour l'année en cours, il s'agit des mois écoulés jusqu'à présent.
     wafel_tekst: trains sont arrivés à l'heure
-    zoekwoorden: [train, sncb, infrabel, retard, rail]
+    zoekwoorden:
+    - train
+    - sncb
+    - infrabel
+    - retard
+    - rail
   verkeersdoden:
     titel: Tués sur les routes
     vraag: Combien de personnes meurent sur les routes ?
-    definitie: "Nombre de personnes décédées dans les 30 jours suivant un accident de la route, par million d'habitants."
-    uitleg: "Par million d'habitants, pour pouvoir comparer des pays de tailles différentes."
-    zoekwoorden: [accidents, sécurité routière, voiture, vélo]
+    definitie: Nombre de personnes décédées dans les 30 jours suivant un accident de la route, par million d'habitants.
+    uitleg: Par million d'habitants, pour pouvoir comparer des pays de tailles différentes.
+    zoekwoorden:
+    - accidents
+    - sécurité routière
+    - voiture
+    - vélo
   bevolking:
     titel: Habitants
     vraag: Combien de personnes vivent en Belgique ?
     definitie: Nombre d'habitants au 1er janvier.
-    uitleg: "Toutes les personnes qui résident officiellement en Belgique, inscrites au Registre national."
-    zoekwoorden: [habitants, population, personnes]
+    uitleg: Toutes les personnes qui résident officiellement en Belgique, inscrites au Registre national.
+    zoekwoorden:
+    - habitants
+    - population
+    - personnes
   aandeel_65plus:
     titel: Les 65 ans et plus
     vraag: Combien d'habitants ont 65 ans ou plus ?
     definitie: Part de la population âgée de 65 ans ou plus.
-    uitleg: "Plus cette part est grande, plus il faut de moyens pour les pensions et les soins, et moins il y a de personnes en âge de travailler pour les financer."
+    uitleg: Plus cette part est grande, plus il faut de moyens pour les pensions et les soins, et moins il y a de personnes en âge de travailler pour les financer.
     wafel_tekst: habitants ont 65 ans ou plus
-    zoekwoorden: [personnes âgées, vieillissement, pension, seniors]
+    zoekwoorden:
+    - personnes âgées
+    - vieillissement
+    - pension
+    - seniors
   netto_migratie:
     titel: Migration nette
     vraag: Combien de personnes s'ajoutent en net par la migration ?
     definitie: Nombre de personnes qui s'installent dans le pays moins le nombre de celles qui le quittent, pour 1 000 habitants (y compris ajustement statistique).
-    uitleg: "Il s'agit de toutes les personnes qui déménagent, y compris les Belges qui partent à l'étranger ou qui reviennent. Un chiffre positif signifie que plus de personnes viennent s'installer qu'il n'en part."
-    zoekwoorden: [migration, immigration, émigration, migrants, déménager]
+    uitleg: Il s'agit de toutes les personnes qui déménagent, y compris les Belges qui partent à l'étranger ou qui reviennent. Un chiffre positif signifie que plus de personnes viennent s'installer qu'il n'en part.
+    zoekwoorden:
+    - migration
+    - immigration
+    - émigration
+    - migrants
+    - déménager
   natuurlijke_aangroei:
     titel: Accroissement naturel
     vraag: Naît-il plus de personnes qu'il n'en meurt ?
     definitie: Nombre de naissances moins le nombre de décès, pour 1 000 habitants.
-    uitleg: "Avec la migration nette, ce chiffre détermine si la population augmente. Un chiffre négatif signifie qu'il y a plus de décès que de naissances."
-    zoekwoorden: [naissances, décès, mortalité, bébés, accroissement]
+    uitleg: Avec la migration nette, ce chiffre détermine si la population augmente. Un chiffre négatif signifie qu'il y a plus de décès que de naissances.
+    zoekwoorden:
+    - naissances
+    - décès
+    - mortalité
+    - bébés
+    - accroissement
   geboren_buitenland:
     titel: Nés à l'étranger
     vraag: Combien d'habitants sont nés à l'étranger ?
     definitie: Part des habitants nés hors du pays, quelle que soit leur nationalité.
-    uitleg: "Le pays de naissance ne dit rien de la nationalité : les Belges nés à l'étranger sont aussi comptés, et les enfants de migrants nés ici ne le sont pas."
+    uitleg: 'Le pays de naissance ne dit rien de la nationalité : les Belges nés à l''étranger sont aussi comptés, et les enfants de migrants nés ici ne le sont pas.'
     wafel_tekst: habitants sont nés à l'étranger
-    zoekwoorden: [migration, migrants, étranger, origine, primo-arrivants]
+    zoekwoorden:
+    - migration
+    - migrants
+    - étranger
+    - origine
+    - primo-arrivants
   asielaanvragen:
     titel: Premières demandes d'asile
     vraag: Combien de personnes demandent l'asile pour la première fois ?
     definitie: Nombre de personnes qui introduisent pour la première fois cette année-là une demande de protection internationale.
-    uitleg: "Une demande d'asile n'est pas encore une reconnaissance : une partie des demandes est refusée. Seules les premières demandes sont comptées ici, pas les demandes répétées."
-    zoekwoorden: [asile, réfugiés, demandeurs d'asile, accueil, protection]
-
+    uitleg: 'Une demande d''asile n''est pas encore une reconnaissance : une partie des demandes est refusée. Seules les premières demandes sont comptées ici, pas les demandes répétées.'
+    zoekwoorden:
+    - asile
+    - réfugiés
+    - demandeurs d'asile
+    - accueil
+    - protection
+  pisa_wiskunde:
+    titel: Faibles en mathématiques (PISA)
+    vraag: Combien de jeunes de 15 ans n'atteignent pas le niveau de base en mathématiques ?
+    definitie: Part des jeunes de 15 ans qui obtiennent un score inférieur au niveau 2 en mathématiques dans le test PISA de l'OCDE.
+    uitleg: PISA est un test international passé régulièrement par les jeunes de 15 ans. Ceux qui restent sous le niveau 2 ont du mal avec des applications simples, comme comparer des prix ou lire un graphique simple. L'enseignement relève des communautés ; Eurostat ne publie que le chiffre pour l'ensemble de la Belgique.
+    wafel_tekst: jeunes de 15 ans n'atteignent pas le niveau de base en mathématiques
+    zoekwoorden:
+    - pisa
+    - mathématiques
+    - calcul
+    - élèves
+    - écoles
+    - ocde
+  pisa_lezen:
+    titel: Faibles en lecture (PISA)
+    vraag: Combien de jeunes de 15 ans n'atteignent pas le niveau de base en lecture ?
+    definitie: Part des jeunes de 15 ans qui obtiennent un score inférieur au niveau 2 en compréhension de l'écrit dans le test PISA de l'OCDE.
+    uitleg: Ceux qui restent sous le niveau 2 ont du mal à retrouver l'idée principale d'un texte ordinaire. Comme pour les mathématiques, il s'agit de l'ensemble de la Belgique ; les résultats par communauté paraissent dans des rapports nationaux distincts.
+    zoekwoorden:
+    - pisa
+    - lecture
+    - compréhension
+    - langue
+    - élèves
+    - ocde
+  stroomprijs:
+    titel: Prix de l'électricité
+    vraag: Combien coûte un kilowattheure d'électricité pour un ménage ?
+    definitie: Prix moyen pour les ménages consommant de 2 500 à 4 999 kWh par an, toutes taxes et prélèvements compris. Eurostat publie deux chiffres par an (par semestre) ; nous montrons la moyenne des deux.
+    uitleg: Un ménage moyen consomme quelques milliers de kilowattheures par an. Le prix comprend l'énergie elle-même, les coûts de réseau, les taxes et la TVA. Votre propre contrat peut être nettement plus cher ou moins cher.
+    zoekwoorden:
+    - électricité
+    - courant
+    - prix de l'énergie
+    - facture d'énergie
+    - kwh
+    - énergie
+  gasprijs:
+    titel: Prix du gaz naturel
+    vraag: Combien coûte un kilowattheure de gaz pour un ménage ?
+    definitie: Prix moyen pour les ménages consommant de 20 à 199 gigajoules par an, toutes taxes et prélèvements compris. Eurostat publie deux chiffres par an (par semestre) ; nous montrons la moyenne des deux.
+    uitleg: Cette consommation correspond à un ménage qui se chauffe au gaz. Le gaz est moins cher que l'électricité par kilowattheure, mais il en faut beaucoup plus pour le chauffage. Votre propre contrat peut nettement différer.
+    zoekwoorden:
+    - gaz
+    - gaz naturel
+    - chauffage
+    - prix de l'énergie
+    - facture d'énergie
+    - énergie
 uitgaven:
-  GF10: {nl: Protection sociale, uitleg: "pensions, allocations, allocations familiales, aide en cas de maladie et de chômage"}
-  GF07: {nl: Santé, uitleg: "hôpitaux, remboursement des médecins et des médicaments"}
-  GF04: {nl: Affaires économiques, uitleg: "circulation et transport, énergie, agriculture, aide aux entreprises"}
-  GF01: {nl: Services généraux, uitleg: "fonctionnement de l'État, intérêts de la dette publique, aide au développement"}
-  GF09: {nl: Enseignement, uitleg: "écoles, hautes écoles et universités"}
-  GF03: {nl: Sécurité et justice, uitleg: "police, pompiers, tribunaux, prisons"}
-  GF08: {nl: "Culture, sport et cultes", uitleg: "culture, sport, médias, cultes"}
-  GF06: {nl: Logement et équipements collectifs, uitleg: "logement social, eau, éclairage public"}
-  GF05: {nl: Environnement, uitleg: "déchets, épuration des eaux, protection de la nature"}
-  GF02: {nl: Défense, uitleg: "armée et dépenses militaires"}
-  GF1002: {nl: dont pensions et soins aux personnes âgées}
-  GF0107: {nl: dont intérêts de la dette publique}
-
+  GF10:
+    nl: Protection sociale
+    uitleg: pensions, allocations, allocations familiales, aide en cas de maladie et de chômage
+  GF07:
+    nl: Santé
+    uitleg: hôpitaux, remboursement des médecins et des médicaments
+  GF04:
+    nl: Affaires économiques
+    uitleg: circulation et transport, énergie, agriculture, aide aux entreprises
+  GF01:
+    nl: Services généraux
+    uitleg: fonctionnement de l'État, intérêts de la dette publique, aide au développement
+  GF09:
+    nl: Enseignement
+    uitleg: écoles, hautes écoles et universités
+  GF03:
+    nl: Sécurité et justice
+    uitleg: police, pompiers, tribunaux, prisons
+  GF08:
+    nl: Culture, sport et cultes
+    uitleg: culture, sport, médias, cultes
+  GF06:
+    nl: Logement et équipements collectifs
+    uitleg: logement social, eau, éclairage public
+  GF05:
+    nl: Environnement
+    uitleg: déchets, épuration des eaux, protection de la nature
+  GF02:
+    nl: Défense
+    uitleg: armée et dépenses militaires
+  GF1002:
+    nl: dont pensions et soins aux personnes âgées
+  GF0107:
+    nl: dont intérêts de la dette publique
 snel:
   consumentenvertrouwen:
     titel: Confiance des consommateurs
     vraag: Les ménages sont-ils optimistes ?
-    uitleg: "Une enquête mensuelle auprès des ménages sur l'économie, le chômage, leurs propres finances et l'épargne. Zéro est neutre : un chiffre négatif signifie plus de pessimistes que d'optimistes."
+    uitleg: 'Une enquête mensuelle auprès des ménages sur l''économie, le chômage, leurs propres finances et l''épargne. Zéro est neutre : un chiffre négatif signifie plus de pessimistes que d''optimistes.'
   conjunctuurbarometer:
     titel: Baromètre de conjoncture
     vraag: Comment les entreprises voient-elles la situation ?
-    uitleg: "Le baromètre de la Banque nationale résume les enquêtes mensuelles auprès des entreprises (industrie, construction, commerce et services). Il sert surtout à voir la direction : s'il monte, les entreprises sont plus positives."
+    uitleg: 'Le baromètre de la Banque nationale résume les enquêtes mensuelles auprès des entreprises (industrie, construction, commerce et services). Il sert surtout à voir la direction : s''il monte, les entreprises sont plus positives.'
   werkloosheid_maand:
     titel: Chômage ce mois-ci
     vraag: Combien de personnes cherchent un emploi en ce moment ?
-    uitleg: "Taux de chômage selon la définition internationale, corrigé des variations saisonnières, pour pouvoir comparer les mois entre eux."
+    uitleg: Taux de chômage selon la définition internationale, corrigé des variations saisonnières, pour pouvoir comparer les mois entre eux.
     vergelijk: UE
   bbp_kwartaal:
     titel: Croissance ce trimestre
     vraag: L'économie croît-elle en ce moment ?
-    uitleg: "Croissance du PIB (hors inflation) par rapport au trimestre précédent, corrigée des effets saisonniers et de calendrier. Deux trimestres de contraction consécutifs sont souvent appelés une récession."
-
+    uitleg: Croissance du PIB (hors inflation) par rapport au trimestre précédent, corrigée des effets saisonniers et de calendrier. Deux trimestres de contraction consécutifs sont souvent appelés une récession.
+  mazout:
+    titel: Prix du mazout
+    vraag: Combien coûte un litre de mazout ?
+    uitleg: Le prix moyen du gasoil de chauffage, toutes taxes comprises, tel que la Belgique le communique chaque semaine à la Commission européenne. La Commission donne le prix pour 1 000 litres ; nous divisons par 1 000. Ce que vous payez dépend aussi de la quantité et de votre fournisseur.
+    vergelijk: UE
+    bron: Commission européenne (Weekly Oil Bulletin)
 instellingen:
   Federaal Planbureau: Bureau fédéral du Plan
   Nationale Bank van België: Banque nationale de Belgique
   Europese Commissie: Commission européenne
   OESO: OCDE
   IMF: FMI
-
 niet_meegerekend:
-  - "Le bonus à l'emploi pour les bas salaires (une réduction de vos cotisations ONSS et de votre impôt)"
-  - "La cotisation spéciale pour la sécurité sociale (une petite cotisation annuelle qui dépend des revenus du ménage)"
-  - "Les cotisations de votre employeur en plus de votre salaire brut"
-  - "Les avantages fiscaux comme l'épargne-pension, les titres-services, la garde d'enfants, les dons et un bonus logement"
-  - "La situation fiscale d'un partenaire (en cas de déclaration commune)"
-  - "Les chèques-repas, une voiture de société et d'autres avantages extralégaux"
-  - "Les ouvriers : leur pécule de vacances et leurs cotisations ONSS sont calculés autrement ; cette version calcule pour les employés"
+- Le bonus à l'emploi pour les bas salaires (une réduction de vos cotisations ONSS et de votre impôt)
+- 'Le décompte définitif de la cotisation spéciale de sécurité sociale : nous montrons la retenue sur votre salaire, pour une personne isolée'
+- Les cotisations de votre employeur en plus de votre salaire brut
+- Les avantages fiscaux comme l'épargne-pension, les titres-services, la garde d'enfants, les dons et un bonus logement
+- La situation fiscale d'un partenaire (en cas de déclaration commune)
+- Les chèques-repas, une voiture de société et d'autres avantages extralégaux
+- 'Les ouvriers : leur pécule de vacances et leurs cotisations ONSS sont calculés autrement ; cette version calcule pour les employés'

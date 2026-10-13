@@ -61,7 +61,7 @@
 
     // balk: netto | RSZ | personenbelasting | gemeentebelasting
     const delen = [
-      ["netto", u.netto, T("r_netto")], ["rsz", u.rsz, T("r_rsz")],
+      ["netto", u.netto, T("r_netto")], ["rsz", u.rsz, T("r_rsz")], ["bbsz", u.bbsz, T("r_bbsz")],
       ["pb", u.personenbelasting, T("r_pb")], ["gem", u.gemeentebelasting, T("r_gem")],
     ];
     const balk = $("r-balk"); balk.textContent = "";
@@ -97,6 +97,8 @@
       rij(T("r_bvs", { bedrag: eur(u.belastingvrijeSom.totaal) }), "− " + eur(u.vrijstelling)),
       rij(T("r_pb_som"), eur(u.personenbelasting), "som"),
       rij(T("r_gem_rij", { pct: nf1.format(i.gemeentePct) }), eur(u.gemeentebelasting)),
+      rij(T("r_bbsz_rij"), eur(u.bbsz)),
+      rij(T("r_rsz_herhaal"), eur(u.rsz)),
       rij(T("r_totaal"), eur(u.totaal), "som totaal"),
     );
 

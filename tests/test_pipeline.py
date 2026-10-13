@@ -214,3 +214,13 @@ def test_getalnotatie_per_taal():
             assert gewoon(bs.pct(4.5)) == p, taal
     finally:
         bs.zet_taal("nl")
+
+
+def test_halfjaarcijfers_worden_jaargemiddelde():
+    from pipeline.eurostat import ontleed
+    antwoord = {"id": ["geo", "time"], "size": [1, 3],
+                "dimension": {"geo": {"category": {"index": {"BE": 0}}},
+                              "time": {"category": {"index": {"2025-S1": 0, "2025-S2": 1, "2026-S1": 2}}}},
+                "value": {"0": 0.30, "1": 0.40, "2": 0.38}}
+    w = ontleed(antwoord).waarnemingen
+    assert [(x.jaar, round(x.waarde, 4), x.status) for x in w] == [(2025, 0.35, ""), (2026, 0.38, "j")]

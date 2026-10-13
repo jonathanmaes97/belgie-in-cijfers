@@ -107,7 +107,10 @@ def ontleed(antwoord: dict) -> Resultaat:
         if not tijd[:4].isdigit():
             continue
         uit.append(Waarneming(geo_codes[i_geo], int(tijd[:4]), float(waarde), str(vlaggen.get(sleutel, ""))))
+        if "-S" in tijd:
+            uit[-1].status += "§"  # tijdelijk merkteken: halfjaarcijfer
 
+    uit = _jaargemiddelde_van_semesters(uit)
     uit.sort(key=lambda w: (w.geo, w.jaar))
     # officiële naam van de gekozen waarde per dimensie (bv. cofog99 → "Social protection"), om bij de bron terug te vinden
     labels = {}
@@ -118,6 +121,25 @@ def ontleed(antwoord: dict) -> Resultaat:
         code = next(iter(cat["index"]))
         labels[dim] = {"code": code, "label": (cat.get("label") or {}).get(code, code), "dimensie": dims[dim].get("label", dim)}
     return Resultaat(waarnemingen=uit, bijgewerkt_bron=antwoord.get("updated"), url="", labels=labels)
+
+
+def _jaargemiddelde_van_semesters(uit: list[Waarneming]) -> list[Waarneming]:
+    """Halfjaarcijfers (bv. 2025-S1 en 2025-S2) worden één jaarcijfer: het gewone gemiddelde van beide.
+
+    Is er pas één halfjaar bekend, dan tonen we dat ene cijfer met vlag "j" (jaar nog bezig).
+    """
+    if not any("§" in w.status for w in uit):
+        return uit
+    groepen: dict[tuple[str, int], list[Waarneming]] = {}
+    for w in uit:
+        groepen.setdefault((w.geo, w.jaar), []).append(w)
+    nieuw = []
+    for (geo, jaar), ws in groepen.items():
+        vlaggen = "".join(sorted({c for w in ws for c in w.status if c != "§"}))
+        if len(ws) < 2:
+            vlaggen += "j"
+        nieuw.append(Waarneming(geo, jaar, round(sum(w.waarde for w in ws) / len(ws), 6), vlaggen))
+    return nieuw
 
 
 def haal_op(dataset: str, filters: dict, landen: list[str], vanaf_jaar: int, sessie: requests.Session | None = None) -> Resultaat:

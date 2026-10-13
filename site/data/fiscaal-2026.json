@@ -71,6 +71,56 @@
    "url": "https://financien.belgium.be/nl/particulieren/belastingaangifte/persoonlijke-situatie/personen-ten-laste/kinderen"
   }
  },
+ "bbsz": {
+  "schijven_kwartaal": [
+   [
+    0,
+    5836.14,
+    0,
+    0,
+    0
+   ],
+   [
+    5836.14,
+    6570.54,
+    0,
+    4.22,
+    1945.38
+   ],
+   [
+    6570.54,
+    11211.0,
+    30.99,
+    1.1,
+    2190.18
+   ],
+   [
+    11211.0,
+    12300.0,
+    82.05,
+    3.38,
+    3737.0
+   ],
+   [
+    12300.0,
+    18116.46,
+    118.83,
+    1.1,
+    4100.0
+   ],
+   [
+    18116.46,
+    null,
+    182.82,
+    0,
+    0
+   ]
+  ],
+  "bron": {
+   "naam": "RSZ, administratieve instructies DmfA, Bijzondere bijdrage sociale zekerheid (schaal vanaf 1 april 2022, individuele aanslag)",
+   "url": "https://www.socialsecurity.be/employer/instructions/dmfa/nl/latest/instructions/special_contributions/other_specialcontributions/specialsocialsecuritycontribution.html"
+  }
+ },
  "gemeentebelasting": {
   "voorbeeld_percentage": 7,
   "bron": {
@@ -80,7 +130,7 @@
  },
  "niet_meegerekend": [
   "De werkbonus voor lage lonen (een korting op je RSZ-bijdrage en je belasting)",
-  "De bijzondere bijdrage voor de sociale zekerheid (een kleine jaarlijkse bijdrage die afhangt van het gezinsinkomen)",
+  "De definitieve afrekening van de bijzondere bijdrage voor de sociale zekerheid: hier staat de inhouding via je loon, voor een alleenstaande",
   "De bijdragen van je werkgever bovenop je brutoloon",
   "Fiscale voordelen zoals pensioensparen, dienstencheques, kinderopvang, giften en een woonbonus",
   "De belastingsituatie van een partner (bij een gezamenlijke aangifte)",

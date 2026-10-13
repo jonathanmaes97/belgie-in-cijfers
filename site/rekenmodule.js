@@ -32,6 +32,24 @@
     return { basis: b.basis, kinderen: kind, jongerDan3: jong, alleenstaandeOuder: alleen, totaal: b.basis + kind + jong + alleen };
   }
 
+  // Bijzondere bijdrage voor de sociale zekerheid, zoals ingehouden per kwartaal (schaal in P.bbsz).
+  // Kwartaal 1 tot 3: drie maandlonen. Kwartaal 4: drie maandlonen plus de eindejaarspremie.
+  // Het dubbel vakantiegeld telt niet mee.
+  function bbszKwartaal(kwartaalloon, P) {
+    if (!P.bbsz) return 0;
+    const m = kwartaalloon / 3;
+    for (const [van, tot, vast, pct, vanaf] of P.bbsz.schijven_kwartaal) {
+      if (kwartaalloon >= van && (tot === null || kwartaalloon < tot)) {
+        return pct ? vast + (pct / 100) * Math.max(0, m - vanaf) * 3 : vast;
+      }
+    }
+    return 0;
+  }
+  function bbsz(maandloon, eindejaarspremie, P) {
+    const k = [0, 0, 0, eindejaarspremie].map((extra) => bbszKwartaal(3 * maandloon + extra, P));
+    return { perKwartaal: k.map(r2), totaal: r2(k.reduce((a, b) => a + b, 0)) };
+  }
+
   // invoer: { maandloon, vakantiegeld (bool), eindejaarspremie (bool), eindejaarsMaanden, kinderen, jongerDan3,
   //           alleenstaandeOuder (bool), gemeentePct }
   function bereken(invoer, P) {
@@ -50,13 +68,14 @@
     const vrijstelling = schijfbelasting(bvs.totaal, schijven);
     const personenbelasting = Math.max(0, basisbelasting.totaal - vrijstelling.totaal);
     const gemeentebelasting = (personenbelasting * (+invoer.gemeentePct || 0)) / 100;
-    const totaal = rsz + personenbelasting + gemeentebelasting;
+    const bijzonder = bbsz(m, eindejaarspremie, P);
+    const totaal = rsz + bijzonder.totaal + personenbelasting + gemeentebelasting;
     const netto = bruto - totaal;
     return {
       loon: r2(loon), vakantiegeld: r2(vakantiegeld), eindejaarspremie: r2(eindejaarspremie), bruto: r2(bruto),
       rsz: r2(rsz), naRsz: r2(naRsz), beroepskosten: r2(kosten), belastbaar: r2(belastbaar),
       basisbelasting, belastingvrijeSom: bvs, vrijstelling: r2(Math.min(vrijstelling.totaal, basisbelasting.totaal)),
-      personenbelasting: r2(personenbelasting), gemeentebelasting: r2(gemeentebelasting),
+      personenbelasting: r2(personenbelasting), gemeentebelasting: r2(gemeentebelasting), bbsz: bijzonder.totaal, bbszPerKwartaal: bijzonder.perKwartaal,
       totaal: r2(totaal), netto: r2(netto), nettoPerMaand: r2(netto / 12),
       druk: bruto > 0 ? totaal / bruto : 0,
       drukZonderRsz: bruto > 0 ? (personenbelasting + gemeentebelasting) / bruto : 0,
@@ -71,5 +90,5 @@
     return extraBruto > 0 ? ((b.netto - a.netto) / extraBruto) * 100 : 0;
   }
 
-  return { bereken, marginaal, schijfbelasting, belastingvrijeSom };
+  return { bereken, marginaal, schijfbelasting, belastingvrijeSom, bbszKwartaal };
 });

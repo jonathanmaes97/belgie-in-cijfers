@@ -96,7 +96,8 @@ themas:
     kop: diploma_hoger_onderwijs
     intro: >-
       Een diploma vergroot de kans op werk en een goed inkomen. Hier zie je hoeveel jongeren zonder diploma
-      de school verlaten en hoeveel jonge volwassenen een diploma hoger onderwijs hebben.
+      de school verlaten, hoeveel jonge volwassenen een diploma hoger onderwijs hebben, en hoeveel 15-jarigen
+      in de internationale PISA-test het basisniveau voor wiskunde en lezen niet halen.
     bevoegd: >-
       Onderwijs is in België een bevoegdheid van de gemeenschappen: de Vlaamse, de Franse en de Duitstalige
       Gemeenschap hebben elk hun eigen onderwijs.
@@ -123,7 +124,8 @@ themas:
     intro: >-
       Broeikasgassen warmen de aarde op. Europa wil dat de uitstoot daalt en dat meer energie uit zon, wind
       en andere hernieuwbare bronnen komt. Hier zie je hoe België het doet: hoeveel we uitstoten, hoeveel
-      energie hernieuwbaar is en welk deel van onze elektriciteit uit kerncentrales komt.
+      energie hernieuwbaar is, welk deel van onze elektriciteit uit kerncentrales komt, en wat stroom en gas
+      kosten voor een gezin.
     bevoegd: >-
       Bevoegdheden zijn verdeeld: de federale overheid is onder meer bevoegd voor windmolens op zee en
       kernenergie, de gewesten voor hernieuwbare energie op land en energiebesparing.
@@ -412,6 +414,32 @@ indicatoren:
     bron: {instelling: Eurostat, dataset: edat_lfse_14, filters: {sex: T, wstatus: POP, age: Y18-24, unit: PC}}
     regionaal: {instelling: Eurostat, dataset: edat_lfse_16, filters: {sex: T, unit: PC}, landen: [BE1, BE2, BE3]}
 
+  - id: pisa_wiskunde
+    thema: onderwijs
+    titel: {nl: Zwak in wiskunde (PISA)}
+    vraag: {nl: "Hoeveel 15-jarigen halen het basisniveau voor wiskunde niet?"}
+    definitie: {nl: "Aandeel 15-jarigen dat in de PISA-test van de OESO onder niveau 2 scoort voor wiskunde."}
+    uitleg: {nl: "PISA is een internationale test die om de paar jaar bij 15-jarigen wordt afgenomen. Wie onder niveau 2 blijft, heeft moeite met eenvoudige toepassingen, zoals prijzen vergelijken of een eenvoudige grafiek lezen. Onderwijs is een zaak van de gemeenschappen; Eurostat publiceert enkel het cijfer voor heel België."}
+    eenheid: "%"
+    decimalen: 1
+    weergave: kolommen
+    beeld: wafel
+    wafel_tekst: {nl: "15-jarigen haalt het basisniveau voor wiskunde niet"}
+    zoekwoorden: [pisa, wiskunde, rekenen, leerlingen, scholen, oeso, onderwijsniveau]
+    bron: {instelling: Eurostat, dataset: sdg_04_40, filters: {field: EF461, sex: T, unit: PC}}
+
+  - id: pisa_lezen
+    thema: onderwijs
+    titel: {nl: Zwak in lezen (PISA)}
+    vraag: {nl: "Hoeveel 15-jarigen halen het basisniveau voor lezen niet?"}
+    definitie: {nl: "Aandeel 15-jarigen dat in de PISA-test van de OESO onder niveau 2 scoort voor begrijpend lezen."}
+    uitleg: {nl: "Wie onder niveau 2 blijft, kan de hoofdgedachte van een gewone tekst moeilijk terugvinden. Zoals bij wiskunde gaat het om heel België; de resultaten per gemeenschap verschijnen in aparte nationale rapporten."}
+    eenheid: "%"
+    decimalen: 1
+    weergave: kolommen
+    zoekwoorden: [pisa, lezen, begrijpend lezen, taal, leerlingen, oeso]
+    bron: {instelling: Eurostat, dataset: sdg_04_40, filters: {field: READ, sex: T, unit: PC}}
+
   # ---------- Wonen en armoede ----------
   - id: armoede_uitsluiting
     thema: wonen_armoede
@@ -499,6 +527,54 @@ indicatoren:
     decimalen: 0
     verborgen: true
     bron: {instelling: Eurostat, dataset: nrg_ind_peh, filters: {siec: TOTAL, unit: GWH, nrg_bal: GEP, plants: TOTAL, operator: TOTAL}}
+
+  - id: stroomprijs
+    thema: klimaat_energie
+    titel: {nl: Prijs van elektriciteit}
+    vraag: {nl: "Wat kost een kilowattuur stroom voor een gezin?"}
+    definitie: {nl: "Gemiddelde prijs voor gezinnen met een verbruik van 2.500 tot 4.999 kWh per jaar, alle belastingen en heffingen inbegrepen. Eurostat publiceert twee cijfers per jaar (per halfjaar); hier staat het gemiddelde van beide."}
+    uitleg: {nl: "Een gemiddeld gezin verbruikt enkele duizenden kilowattuur per jaar. De prijs omvat de energie zelf, de netkosten, belastingen en btw. Je eigen contract kan duidelijk duurder of goedkoper zijn."}
+    eenheid: "cent/kWh"
+    decimalen: 1
+    weergave: kolommen
+    zoekwoorden: [elektriciteit, stroom, energieprijs, energiefactuur, kwh, energie]
+    afgeleid:
+      formule: "prijs * 100"
+      invoer: {prijs: stroomprijs_eur}
+
+  - id: stroomprijs_eur
+    thema: klimaat_energie
+    titel: {nl: Prijs van elektriciteit in euro}
+    vraag: {nl: "Wat kost een kilowattuur stroom voor een gezin?"}
+    definitie: {nl: "Elektriciteitsprijs voor gezinnen (band DC), alle belastingen inbegrepen, in euro per kWh."}
+    eenheid: " €/kWh"
+    decimalen: 4
+    verborgen: true
+    bron: {instelling: Eurostat, dataset: nrg_pc_204, filters: {siec: E7000, nrg_cons: KWH2500-4999, unit: KWH, tax: I_TAX, currency: EUR}}
+
+  - id: gasprijs
+    thema: klimaat_energie
+    titel: {nl: Prijs van aardgas}
+    vraag: {nl: "Wat kost een kilowattuur gas voor een gezin?"}
+    definitie: {nl: "Gemiddelde prijs voor gezinnen met een verbruik van 20 tot 199 gigajoule per jaar, alle belastingen en heffingen inbegrepen. Eurostat publiceert twee cijfers per jaar (per halfjaar); hier staat het gemiddelde van beide."}
+    uitleg: {nl: "Dat verbruik past bij een gezin dat met gas verwarmt. Gas is per kilowattuur goedkoper dan stroom, maar je hebt er voor verwarming veel meer van nodig. Je eigen contract kan duidelijk afwijken."}
+    eenheid: "cent/kWh"
+    decimalen: 1
+    weergave: kolommen
+    zoekwoorden: [gas, aardgas, verwarming, energieprijs, energiefactuur, energie]
+    afgeleid:
+      formule: "prijs * 100"
+      invoer: {prijs: gasprijs_eur}
+
+  - id: gasprijs_eur
+    thema: klimaat_energie
+    titel: {nl: Prijs van aardgas in euro}
+    vraag: {nl: "Wat kost een kilowattuur gas voor een gezin?"}
+    definitie: {nl: "Aardgasprijs voor gezinnen (band D2), alle belastingen inbegrepen, in euro per kWh."}
+    eenheid: " €/kWh"
+    decimalen: 4
+    verborgen: true
+    bron: {instelling: Eurostat, dataset: nrg_pc_202, filters: {siec: G3000, nrg_cons: GJ20-199, unit: KWH, tax: I_TAX, currency: EUR}}
 
   # ---------- Mobiliteit ----------
   - id: treinstiptheid

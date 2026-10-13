@@ -51,6 +51,25 @@ belastingvrije_som:
     naam: FOD Financiën, Kinderen ten laste (verhoging van de belastingvrije som, inkomstenjaar 2026)
     url: https://financien.belgium.be/nl/particulieren/belastingaangifte/persoonlijke-situatie/personen-ten-laste/kinderen
 
+bbsz:
+  # Bijzondere bijdrage voor de sociale zekerheid, schaal "individuele aanslag" (alleenstaande), zoals de werkgever
+  # ze per kwartaal inhoudt. Dit is een voorschot: de belastingadministratie maakt de definitieve afrekening op het
+  # aanslagbiljet, op basis van het gezinsinkomen.
+  # Per schijf van het kwartaalloon: [ondergrens, bovengrens (null = geen), vast bedrag per kwartaal, percentage, vanaf maandloon]
+  # Bijdrage per kwartaal = vast bedrag + percentage x (maandloon - vanaf maandloon) x 3.
+  # De RSZ drukt het percentage uit op het maandloon; een kwartaal telt drie maanden (zo sluiten de vaste bedragen op elkaar aan).
+  # Het dubbel vakantiegeld telt niet mee voor de bijdrage.
+  schijven_kwartaal:
+    - [0, 5836.14, 0, 0, 0]
+    - [5836.14, 6570.54, 0, 4.22, 1945.38]
+    - [6570.54, 11211.00, 30.99, 1.10, 2190.18]
+    - [11211.00, 12300.00, 82.05, 3.38, 3737.00]
+    - [12300.00, 18116.46, 118.83, 1.10, 4100.00]
+    - [18116.46, null, 182.82, 0, 0]
+  bron:
+    naam: RSZ, administratieve instructies DmfA, Bijzondere bijdrage sociale zekerheid (schaal vanaf 1 april 2022, individuele aanslag)
+    url: https://www.socialsecurity.be/employer/instructions/dmfa/nl/latest/instructions/special_contributions/other_specialcontributions/specialsocialsecuritycontribution.html
+
 gemeentebelasting:
   # Elke gemeente kiest haar eigen percentage. Er is nog geen bruikbare officiële lijst; de gebruiker vult het zelf in.
   voorbeeld_percentage: 7
@@ -60,7 +79,7 @@ gemeentebelasting:
 
 niet_meegerekend:
   - De werkbonus voor lage lonen (een korting op je RSZ-bijdrage en je belasting)
-  - De bijzondere bijdrage voor de sociale zekerheid (een kleine jaarlijkse bijdrage die afhangt van het gezinsinkomen)
+  - "De definitieve afrekening van de bijzondere bijdrage voor de sociale zekerheid: hier staat de inhouding via je loon, voor een alleenstaande"
   - De bijdragen van je werkgever bovenop je brutoloon
   - Fiscale voordelen zoals pensioensparen, dienstencheques, kinderopvang, giften en een woonbonus
   - De belastingsituatie van een partner (bij een gezamenlijke aangifte)

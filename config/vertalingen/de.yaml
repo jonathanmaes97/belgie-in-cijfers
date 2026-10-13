@@ -4,64 +4,88 @@ themas:
   economie:
     nl: Wirtschaft
     vraag: Wächst unsere Wirtschaft?
-    intro: "Die Wirtschaft ist alles, was wir gemeinsam produzieren und verdienen. Wächst sie, gibt es meist mehr Arbeit und mehr Geld für Löhne und öffentliche Dienste. Hier sehen Sie, wie schnell die belgische Wirtschaft wächst, wie viel wir pro Person produzieren und wie schnell die Preise steigen."
-    bevoegd: "Die Europäische Zentralbank legt die Zinsen im Euroraum fest. In Belgien ist die Wirtschaftspolitik zwischen dem Föderalstaat (zum Beispiel Steuern) und den Regionen (zum Beispiel Unternehmensförderung und Investitionen) aufgeteilt."
+    intro: Die Wirtschaft ist alles, was wir gemeinsam produzieren und verdienen. Wächst sie, gibt es meist mehr Arbeit und mehr Geld für Löhne und öffentliche Dienste. Hier sehen Sie, wie schnell die belgische Wirtschaft wächst, wie viel wir pro Person produzieren und wie schnell die Preise steigen.
+    bevoegd: Die Europäische Zentralbank legt die Zinsen im Euroraum fest. In Belgien ist die Wirtschaftspolitik zwischen dem Föderalstaat (zum Beispiel Steuern) und den Regionen (zum Beispiel Unternehmensförderung und Investitionen) aufgeteilt.
   overheidsfinancien:
     nl: Staatsfinanzen
     vraag: Wie steht es um die Staatskasse?
-    intro: "Der Staat erhebt Steuern und Sozialbeiträge und gibt dieses Geld unter anderem für Renten, Gesundheit, Bildung und Straßen aus. Gibt er mehr aus, als er einnimmt, entsteht ein Defizit und die Schulden steigen. Auf diese Schulden zahlt der Staat Zinsen."
-    bevoegd: "Jede Behörde hat ihren eigenen Haushalt: der Föderalstaat, die Gemeinschaften, die Regionen und die lokalen Behörden. Die Zahlen hier fassen sie alle zusammen, wie es Europa vorschreibt."
+    intro: Der Staat erhebt Steuern und Sozialbeiträge und gibt dieses Geld unter anderem für Renten, Gesundheit, Bildung und Straßen aus. Gibt er mehr aus, als er einnimmt, entsteht ein Defizit und die Schulden steigen. Auf diese Schulden zahlt der Staat Zinsen.
+    bevoegd: 'Jede Behörde hat ihren eigenen Haushalt: der Föderalstaat, die Gemeinschaften, die Regionen und die lokalen Behörden. Die Zahlen hier fassen sie alle zusammen, wie es Europa vorschreibt.'
   werk:
     nl: Arbeit
     vraag: Wie viele Menschen arbeiten?
-    intro: "Wie viele Menschen eine Arbeit haben, bestimmt mit, wie viele Steuern und Beiträge eingehen, um unter anderem Renten und Gesundheitsversorgung zu bezahlen. Hier sehen Sie, wie viele Erwachsene arbeiten und wie viele Menschen Arbeit suchen, auch nach Region."
-    bevoegd: "Arbeitsrecht und Arbeitslosengeld sind föderal. Die Begleitung von Arbeitsuchenden ist Aufgabe der Regionen und der Deutschsprachigen Gemeinschaft (VDAB, Le Forem, Actiris und ADG)."
+    intro: Wie viele Menschen eine Arbeit haben, bestimmt mit, wie viele Steuern und Beiträge eingehen, um unter anderem Renten und Gesundheitsversorgung zu bezahlen. Hier sehen Sie, wie viele Erwachsene arbeiten und wie viele Menschen Arbeit suchen, auch nach Region.
+    bevoegd: Arbeitsrecht und Arbeitslosengeld sind föderal. Die Begleitung von Arbeitsuchenden ist Aufgabe der Regionen und der Deutschsprachigen Gemeinschaft (VDAB, Le Forem, Actiris und ADG).
   gezondheid:
     nl: Gesundheit
     vraag: Wie gesund sind wir?
-    intro: "Wie lange und wie gesund wir leben, hängt von vielen Dingen ab: Versorgung, Lebensstil, Arbeit und Einkommen. Hier sehen Sie, wie lange Menschen im Durchschnitt leben und wie viel wir gemeinsam für Gesundheit ausgeben."
-    bevoegd: "Die Krankenversicherung und die Finanzierung der Krankenhäuser sind größtenteils föderal. Prävention, Seniorenpflege und die Grundversorgung sind vor allem Sache der Gemeinschaften."
+    intro: 'Wie lange und wie gesund wir leben, hängt von vielen Dingen ab: Versorgung, Lebensstil, Arbeit und Einkommen. Hier sehen Sie, wie lange Menschen im Durchschnitt leben und wie viel wir gemeinsam für Gesundheit ausgeben.'
+    bevoegd: Die Krankenversicherung und die Finanzierung der Krankenhäuser sind größtenteils föderal. Prävention, Seniorenpflege und die Grundversorgung sind vor allem Sache der Gemeinschaften.
   onderwijs:
     nl: Bildung
     vraag: Wie gut sind wir ausgebildet?
-    intro: "Ein Abschluss erhöht die Chance auf Arbeit und ein gutes Einkommen. Hier sehen Sie, wie viele Jugendliche die Schule ohne Abschluss verlassen und wie viele junge Erwachsene einen Hochschulabschluss haben."
-    bevoegd: "Bildung ist in Belgien eine Zuständigkeit der Gemeinschaften: Die Flämische, die Französische und die Deutschsprachige Gemeinschaft haben jeweils ihr eigenes Bildungswesen."
+    intro: Ein Abschluss erhöht die Chance auf Arbeit und ein gutes Einkommen. Hier sehen Sie, wie viele Jugendliche die Schule ohne Abschluss verlassen, wie viele junge Erwachsene einen Hochschulabschluss haben und wie viele 15-Jährige im internationalen PISA-Test das Grundniveau in Mathematik und Lesen nicht erreichen.
+    bevoegd: 'Bildung ist in Belgien eine Zuständigkeit der Gemeinschaften: Die Flämische, die Französische und die Deutschsprachige Gemeinschaft haben jeweils ihr eigenes Bildungswesen.'
   wonen_armoede:
     nl: Wohnen und Armut
     vraag: Kommen alle über die Runden?
-    intro: "Eine bezahlbare Wohnung und genug Einkommen zum Leben sind Grundbedürfnisse. Hier sehen Sie, wie viele Menschen von Armut oder sozialer Ausgrenzung bedroht sind und wie schnell die Wohnungspreise steigen."
-    bevoegd: "Die Wohnungspolitik, etwa sozialer Wohnungsbau und Mietregeln, ist eine Zuständigkeit der Regionen. Sozialleistungen und Renten sind föderal; die ÖSHZ helfen den Menschen vor Ort."
+    intro: Eine bezahlbare Wohnung und genug Einkommen zum Leben sind Grundbedürfnisse. Hier sehen Sie, wie viele Menschen von Armut oder sozialer Ausgrenzung bedroht sind und wie schnell die Wohnungspreise steigen.
+    bevoegd: Die Wohnungspolitik, etwa sozialer Wohnungsbau und Mietregeln, ist eine Zuständigkeit der Regionen. Sozialleistungen und Renten sind föderal; die ÖSHZ helfen den Menschen vor Ort.
   klimaat_energie:
     nl: Klima und Energie
     vraag: Wie grün ist unsere Energie?
-    intro: "Treibhausgase erwärmen die Erde. Europa will, dass die Emissionen sinken und mehr Energie aus Sonne, Wind und anderen erneuerbaren Quellen kommt. Hier sehen Sie, wo Belgien steht: wie viel wir ausstoßen, wie viel Energie erneuerbar ist und welcher Teil unseres Stroms aus Kernkraftwerken kommt."
-    bevoegd: "Die Zuständigkeiten sind aufgeteilt: Der Föderalstaat ist unter anderem für Windparks auf See und Kernenergie zuständig, die Regionen für erneuerbare Energie an Land und Energiesparen."
+    intro: 'Treibhausgase erwärmen die Erde. Europa will, dass die Emissionen sinken und mehr Energie aus Sonne, Wind und anderen erneuerbaren Quellen kommt. Hier sehen Sie, wo Belgien steht: wie viel wir ausstoßen, wie viel Energie erneuerbar ist, welcher Teil unseres Stroms aus Kernkraftwerken kommt und was Strom und Gas für einen Haushalt kosten.'
+    bevoegd: 'Die Zuständigkeiten sind aufgeteilt: Der Föderalstaat ist unter anderem für Windparks auf See und Kernenergie zuständig, die Regionen für erneuerbare Energie an Land und Energiesparen.'
   mobiliteit:
     nl: Mobilität
     vraag: Kommen wir zügig und sicher an?
-    intro: "Wie wir uns fortbewegen, bestimmt, wie viel Zeit wir unterwegs sind und wie sicher das ist. Hier sehen Sie, wie pünktlich die Züge fahren und wie viele Menschen im Straßenverkehr sterben."
-    bevoegd: "Die Bahn (SNCB/NMBS und Infrabel) ist föderal. Straßen, Verkehrssicherheit auf regionalen Straßen sowie Bus und Straßenbahn (De Lijn, TEC und STIB/MIVB) sind Zuständigkeiten der Regionen."
+    intro: Wie wir uns fortbewegen, bestimmt, wie viel Zeit wir unterwegs sind und wie sicher das ist. Hier sehen Sie, wie pünktlich die Züge fahren und wie viele Menschen im Straßenverkehr sterben.
+    bevoegd: Die Bahn (SNCB/NMBS und Infrabel) ist föderal. Straßen, Verkehrssicherheit auf regionalen Straßen sowie Bus und Straßenbahn (De Lijn, TEC und STIB/MIVB) sind Zuständigkeiten der Regionen.
   demografie:
     nl: Bevölkerung
     vraag: Wie viele sind wir, und wer kommt hinzu?
-    intro: "Wie viele Menschen in Belgien leben und wie alt sie sind, bestimmt, wie viele Schulen, Wohnungen, Pflege und Renten nötig sind. Die Bevölkerung verändert sich durch Geburten und Sterbefälle und durch Menschen, die nach Belgien ziehen oder das Land verlassen. Hier sehen Sie beides."
-    bevoegd: "Die Bevölkerungszahlen stammen aus dem Nationalregister. Die Migrationspolitik ist föderal; die Integration ist Sache der Gemeinschaften."
-
+    intro: Wie viele Menschen in Belgien leben und wie alt sie sind, bestimmt, wie viele Schulen, Wohnungen, Pflege und Renten nötig sind. Die Bevölkerung verändert sich durch Geburten und Sterbefälle und durch Menschen, die nach Belgien ziehen oder das Land verlassen. Hier sehen Sie beides.
+    bevoegd: Die Bevölkerungszahlen stammen aus dem Nationalregister. Die Migrationspolitik ist föderal; die Integration ist Sache der Gemeinschaften.
 begrippen:
-  bbp: {term: BIP, uitleg: "Das Bruttoinlandsprodukt: der Wert von allem, was in einem Land in einem Jahr produziert wird. Es ist das übliche Maß für die Größe einer Wirtschaft."}
-  reeel: {term: Reales Wachstum, uitleg: "Wachstum, aus dem die Wirkung von Preissteigerungen herausgerechnet wurde. So sieht man, ob wir wirklich mehr produzieren und nicht nur teurer."}
-  inflatie: {term: Inflation, uitleg: "Wie stark die Preise dessen, was Haushalte kaufen, im Durchschnitt in einem Jahr steigen."}
-  procent_bbp: {term: In Prozent des BIP, uitleg: "Ein Betrag im Verhältnis zur Größe der Wirtschaft. So kann man Länder unterschiedlicher Größe fair vergleichen."}
-  voorlopig: {term: Vorläufig, uitleg: "Eine erste Zahl, die die Quelle später noch korrigieren kann. Wir zeigen immer die neueste Fassung und dokumentieren Revisionen."}
-  werkzaamheidsgraad: {term: Beschäftigungsquote, uitleg: "Der Anteil der Menschen zwischen 20 und 64 Jahren, die arbeiten. Auch Teilzeitbeschäftigte zählen mit."}
-  werkloosheidsgraad: {term: Arbeitslosenquote, uitleg: "Der Anteil der Arbeitslosen unter den Menschen, die arbeiten oder aktiv Arbeit suchen. Wer nicht sucht, etwa Studierende, zählt nicht mit."}
-  hoger_onderwijs: {term: Hochschulbildung, uitleg: "Ein Bachelor- oder Masterabschluss oder eine gleichwertige Ausbildung nach der Sekundarschule."}
-  arope: {term: Armut oder soziale Ausgrenzung, uitleg: "Wer ein niedriges Einkommen hat, sich grundlegende Dinge nicht leisten kann (etwa die Heizung einzuschalten) oder in einem Haushalt lebt, in dem fast niemand arbeitet."}
-  co2_equivalent: {term: CO₂-Äquivalent, uitleg: "Alle Treibhausgase umgerechnet in die Menge CO₂, die gleich viel Erwärmung verursacht."}
-  gwh: {term: Gigawattstunde (GWh), uitleg: "Ein Maß für eine Strommenge: eine Million Kilowattstunden."}
-  stiptheid: {term: Pünktlichkeit, uitleg: "Ein Zug ist pünktlich, wenn er mit weniger als 6 Minuten Verspätung am Zielbahnhof ankommt. Ausgefallene Züge zählen in dieser Zahl nicht mit."}
-  vergrijzing: {term: Alterung, uitleg: "Der Anteil älterer Menschen an der Bevölkerung nimmt zu, weil wir länger leben und weniger Kinder geboren werden."}
-
+  bbp:
+    term: BIP
+    uitleg: 'Das Bruttoinlandsprodukt: der Wert von allem, was in einem Land in einem Jahr produziert wird. Es ist das übliche Maß für die Größe einer Wirtschaft.'
+  reeel:
+    term: Reales Wachstum
+    uitleg: Wachstum, aus dem die Wirkung von Preissteigerungen herausgerechnet wurde. So sieht man, ob wir wirklich mehr produzieren und nicht nur teurer.
+  inflatie:
+    term: Inflation
+    uitleg: Wie stark die Preise dessen, was Haushalte kaufen, im Durchschnitt in einem Jahr steigen.
+  procent_bbp:
+    term: In Prozent des BIP
+    uitleg: Ein Betrag im Verhältnis zur Größe der Wirtschaft. So kann man Länder unterschiedlicher Größe fair vergleichen.
+  voorlopig:
+    term: Vorläufig
+    uitleg: Eine erste Zahl, die die Quelle später noch korrigieren kann. Wir zeigen immer die neueste Fassung und dokumentieren Revisionen.
+  werkzaamheidsgraad:
+    term: Beschäftigungsquote
+    uitleg: Der Anteil der Menschen zwischen 20 und 64 Jahren, die arbeiten. Auch Teilzeitbeschäftigte zählen mit.
+  werkloosheidsgraad:
+    term: Arbeitslosenquote
+    uitleg: Der Anteil der Arbeitslosen unter den Menschen, die arbeiten oder aktiv Arbeit suchen. Wer nicht sucht, etwa Studierende, zählt nicht mit.
+  hoger_onderwijs:
+    term: Hochschulbildung
+    uitleg: Ein Bachelor- oder Masterabschluss oder eine gleichwertige Ausbildung nach der Sekundarschule.
+  arope:
+    term: Armut oder soziale Ausgrenzung
+    uitleg: Wer ein niedriges Einkommen hat, sich grundlegende Dinge nicht leisten kann (etwa die Heizung einzuschalten) oder in einem Haushalt lebt, in dem fast niemand arbeitet.
+  co2_equivalent:
+    term: CO₂-Äquivalent
+    uitleg: Alle Treibhausgase umgerechnet in die Menge CO₂, die gleich viel Erwärmung verursacht.
+  gwh:
+    term: Gigawattstunde (GWh)
+    uitleg: 'Ein Maß für eine Strommenge: eine Million Kilowattstunden.'
+  stiptheid:
+    term: Pünktlichkeit
+    uitleg: Ein Zug ist pünktlich, wenn er mit weniger als 6 Minuten Verspätung am Zielbahnhof ankommt. Ausgefallene Züge zählen in dieser Zahl nicht mit.
+  vergrijzing:
+    term: Alterung
+    uitleg: Der Anteil älterer Menschen an der Bevölkerung nimmt zu, weil wir länger leben und weniger Kinder geboren werden.
 landnamen:
   BE: Belgien
   EU27_2020: EU-Durchschnitt
@@ -72,238 +96,432 @@ landnamen:
   BE1: Brüssel
   BE2: Flandern
   BE3: Wallonie
-
 indicatoren:
   bbp_groei:
     titel: Wirtschaftswachstum
     vraag: Wie stark wächst die Wirtschaft pro Jahr?
-    definitie: "Jährliches Wachstum des Bruttoinlandsprodukts, inflationsbereinigt."
-    uitleg: "Eine positive Zahl bedeutet, dass wir gemeinsam mehr produziert haben als im Vorjahr. Eine negative Zahl, wie im Corona-Jahr 2020, bedeutet einen Rückgang."
-    zoekwoorden: [Wachstum, Rezession, Wirtschaft, BIP]
+    definitie: Jährliches Wachstum des Bruttoinlandsprodukts, inflationsbereinigt.
+    uitleg: Eine positive Zahl bedeutet, dass wir gemeinsam mehr produziert haben als im Vorjahr. Eine negative Zahl, wie im Corona-Jahr 2020, bedeutet einen Rückgang.
+    zoekwoorden:
+    - Wachstum
+    - Rezession
+    - Wirtschaft
+    - BIP
   bbp_per_inwoner:
     titel: BIP pro Einwohner
     vraag: Wie viel produzieren wir pro Person?
-    definitie: "Bruttoinlandsprodukt geteilt durch die Zahl der Einwohner, zu jeweiligen Preisen."
-    uitleg: "Ein Maß für den Wohlstand eines Landes. Es ist kein Einkommen, das jeder erhält, sondern die gesamte Produktion geteilt durch die Zahl der Einwohner."
-    zoekwoorden: [Wohlstand, Reichtum, Einkommen]
+    definitie: Bruttoinlandsprodukt geteilt durch die Zahl der Einwohner, zu jeweiligen Preisen.
+    uitleg: Ein Maß für den Wohlstand eines Landes. Es ist kein Einkommen, das jeder erhält, sondern die gesamte Produktion geteilt durch die Zahl der Einwohner.
+    zoekwoorden:
+    - Wohlstand
+    - Reichtum
+    - Einkommen
   inflatie:
     titel: Inflation
     vraag: Wie viel teurer wird das Leben?
-    definitie: "Durchschnittlicher jährlicher Anstieg der Verbraucherpreise (harmonisierter Index, HVPI)."
-    uitleg: "Bei einer Inflation von 3 % kostet, was letztes Jahr 100 Euro kostete, jetzt im Durchschnitt 103 Euro. In Belgien steigen viele Löhne und Sozialleistungen automatisch mit (die Indexierung)."
-    zoekwoorden: [Preise, Index, Indexierung, Teuerung, Kaufkraft]
+    definitie: Durchschnittlicher jährlicher Anstieg der Verbraucherpreise (harmonisierter Index, HVPI).
+    uitleg: Bei einer Inflation von 3 % kostet, was letztes Jahr 100 Euro kostete, jetzt im Durchschnitt 103 Euro. In Belgien steigen viele Löhne und Sozialleistungen automatisch mit (die Indexierung).
+    zoekwoorden:
+    - Preise
+    - Index
+    - Indexierung
+    - Teuerung
+    - Kaufkraft
   schuld_per_inwoner:
     titel: Schulden pro Einwohner
     vraag: Wie hoch sind die Staatsschulden pro Einwohner?
     definitie: Staatsschulden geteilt durch die Zahl der Einwohner am 1. Januar desselben Jahres.
-    uitleg: "Das ist kein Betrag, den Sie selbst zahlen müssen. Er zeigt, wie groß die gesamten Staatsschulden sind, wenn man sie auf alle Einwohner verteilen würde."
-    zoekwoorden: [Staatsschulden, Schulden, Kredit]
+    uitleg: Das ist kein Betrag, den Sie selbst zahlen müssen. Er zeigt, wie groß die gesamten Staatsschulden sind, wenn man sie auf alle Einwohner verteilen würde.
+    zoekwoorden:
+    - Staatsschulden
+    - Schulden
+    - Kredit
   overheidsschuld:
     titel: Staatsschulden
     vraag: Wie groß sind die Staatsschulden im Vergleich zur Wirtschaft?
-    definitie: "Konsolidierter Bruttoschuldenstand aller Behörden zusammen, in Prozent des BIP."
-    uitleg: "Bei 100 % sind die Schulden so groß wie alles, was das Land in einem Jahr produziert. Europäische Regeln verlangen Schulden von höchstens 60 %."
+    definitie: Konsolidierter Bruttoschuldenstand aller Behörden zusammen, in Prozent des BIP.
+    uitleg: Bei 100 % sind die Schulden so groß wie alles, was das Land in einem Jahr produziert. Europäische Regeln verlangen Schulden von höchstens 60 %.
     norm: Europäische Norm 60 %
-    zoekwoorden: [Staatsschulden, Schuldenquote, Maastricht]
+    zoekwoorden:
+    - Staatsschulden
+    - Schuldenquote
+    - Maastricht
   begrotingssaldo:
     titel: Haushaltssaldo
     vraag: Gibt der Staat mehr aus, als er einnimmt?
-    definitie: "Überschuss (+) oder Defizit (−) aller Behörden zusammen, in Prozent des BIP."
-    uitleg: "Eine negative Zahl ist ein Defizit: Der Staat hat mehr ausgegeben als eingenommen und musste Kredite aufnehmen. Europäische Regeln verlangen ein Defizit von höchstens 3 %."
+    definitie: Überschuss (+) oder Defizit (−) aller Behörden zusammen, in Prozent des BIP.
+    uitleg: 'Eine negative Zahl ist ein Defizit: Der Staat hat mehr ausgegeben als eingenommen und musste Kredite aufnehmen. Europäische Regeln verlangen ein Defizit von höchstens 3 %.'
     norm: Europäische Norm −3 %
-    zoekwoorden: [Defizit, Haushalt, Überschuss]
+    zoekwoorden:
+    - Defizit
+    - Haushalt
+    - Überschuss
   rente_per_dag:
     titel: Zinsen pro Tag
     vraag: Wie viel Zinsen zahlt der Staat pro Tag?
-    definitie: "Jährliche Zinsausgaben des Staates geteilt durch 365, in Millionen Euro."
-    uitleg: "Zinsen sind der Preis, den der Staat zahlt, um sich Geld zu leihen. Dieses Geld steht nicht für andere Ausgaben zur Verfügung."
-    zoekwoorden: [Zinsen, Zinslast]
+    definitie: Jährliche Zinsausgaben des Staates geteilt durch 365, in Millionen Euro.
+    uitleg: Zinsen sind der Preis, den der Staat zahlt, um sich Geld zu leihen. Dieses Geld steht nicht für andere Ausgaben zur Verfügung.
+    zoekwoorden:
+    - Zinsen
+    - Zinslast
   rentelasten:
     titel: Zinslasten
     vraag: Wie viel Zinsen zahlen wir im Vergleich zur Wirtschaft?
-    definitie: "Zinsen, die der Staat auf seine Schulden zahlt, in Prozent des BIP."
-    uitleg: "So kann man die Zinslast von Ländern unterschiedlicher Größe vergleichen."
-    zoekwoorden: [Zinsen]
+    definitie: Zinsen, die der Staat auf seine Schulden zahlt, in Prozent des BIP.
+    uitleg: So kann man die Zinslast von Ländern unterschiedlicher Größe vergleichen.
+    zoekwoorden:
+    - Zinsen
   belastingdruk:
     titel: Abgabenquote
     vraag: Wie viel Steuern und Beiträge zahlen wir zusammen?
-    definitie: "Alle Steuern und Sozialbeiträge zusammen, in Prozent des BIP."
-    uitleg: "Alle Steuern (auf Einkommen, Konsum, Vermögen) und Sozialbeiträge zusammen, im Verhältnis zur Größe der Wirtschaft. Es sagt nichts darüber aus, was eine einzelne Person zahlt."
-    zoekwoorden: [Steuern, Abgaben, Fiskalität, LSS]
+    definitie: Alle Steuern und Sozialbeiträge zusammen, in Prozent des BIP.
+    uitleg: Alle Steuern (auf Einkommen, Konsum, Vermögen) und Sozialbeiträge zusammen, im Verhältnis zur Größe der Wirtschaft. Es sagt nichts darüber aus, was eine einzelne Person zahlt.
+    zoekwoorden:
+    - Steuern
+    - Abgaben
+    - Fiskalität
+    - LSS
   belastingwig:
     titel: Abgabenlast auf einen niedrigeren Lohn
     vraag: Welcher Teil dessen, was ein Arbeitgeber zahlt, geht an Steuern und Beiträge?
-    definitie: "Steuerkeil: Einkommensteuer plus Sozialbeiträge von Arbeitnehmer und Arbeitgeber, in Prozent der gesamten Arbeitskosten. Für eine alleinstehende Person ohne Kinder, die 67 % des Durchschnittslohns verdient (so definiert Eurostat diese Reihe)."
-    uitleg: "Angenommen, ein Arbeitgeber gibt 100 Euro für Ihren Lohn aus. Diese Zahl zeigt, wie viel davon an den Staat und die soziale Sicherheit geht, zusammen mit Ihrer eigenen Einkommensteuer. Den Rest erhalten Sie netto. Es geht um eine Beispielperson: alleinstehend, keine Kinder, mit einem Lohn von zwei Dritteln des Durchschnitts. Bei höheren Löhnen ist die Last höher, bei den niedrigsten Löhnen niedriger."
+    definitie: 'Steuerkeil: Einkommensteuer plus Sozialbeiträge von Arbeitnehmer und Arbeitgeber, in Prozent der gesamten Arbeitskosten. Für eine alleinstehende Person ohne Kinder, die 67 % des Durchschnittslohns verdient (so definiert Eurostat diese Reihe).'
+    uitleg: 'Angenommen, ein Arbeitgeber gibt 100 Euro für Ihren Lohn aus. Diese Zahl zeigt, wie viel davon an den Staat und die soziale Sicherheit geht, zusammen mit Ihrer eigenen Einkommensteuer. Den Rest erhalten Sie netto. Es geht um eine Beispielperson: alleinstehend, keine Kinder, mit einem Lohn von zwei Dritteln des Durchschnitts. Bei höheren Löhnen ist die Last höher, bei den niedrigsten Löhnen niedriger.'
     wafel_tekst: Euro Arbeitskosten gehen an Steuern und Sozialbeiträge (alleinstehend, niedrigerer Lohn)
-    zoekwoorden: [Steuern, Lohn, netto, brutto, LSS, Arbeitskosten, Steuerkeil, Einkommensteuer]
+    zoekwoorden:
+    - Steuern
+    - Lohn
+    - netto
+    - brutto
+    - LSS
+    - Arbeitskosten
+    - Steuerkeil
+    - Einkommensteuer
   werkzaamheidsgraad:
     titel: Beschäftigungsquote
     vraag: Wie viele Erwachsene haben eine Arbeit?
     definitie: Anteil der 20- bis 64-Jährigen, die eine Arbeit haben.
-    uitleg: "Studierende, Rentner unter 65, Langzeitkranke und Arbeitsuchende arbeiten nicht und senken diese Zahl. Belgien strebt bis zum Jahr 2030 eine Quote von 80 % an."
+    uitleg: Studierende, Rentner unter 65, Langzeitkranke und Arbeitsuchende arbeiten nicht und senken diese Zahl. Belgien strebt bis zum Jahr 2030 eine Quote von 80 % an.
     norm: Belgisches Ziel für 2030 80 %
-    zoekwoorden: [Jobs, Beschäftigung, Arbeitsplätze, 80 Prozent]
+    zoekwoorden:
+    - Jobs
+    - Beschäftigung
+    - Arbeitsplätze
+    - 80 Prozent
   werkloosheid:
     titel: Arbeitslosigkeit
     vraag: Wie viele Menschen suchen Arbeit?
     definitie: Anteil der Arbeitslosen an den Erwerbspersonen von 15 bis 74 Jahren (internationale Definition).
-    uitleg: "Nach der internationalen Definition: wer keine Arbeit hat, aktiv sucht und bald anfangen kann. Das ist nicht dasselbe wie die Zahl der Menschen mit Arbeitslosengeld."
-    zoekwoorden: [Arbeitslose, Arbeitsuchende, ADG, Forem, Actiris, VDAB]
+    uitleg: 'Nach der internationalen Definition: wer keine Arbeit hat, aktiv sucht und bald anfangen kann. Das ist nicht dasselbe wie die Zahl der Menschen mit Arbeitslosengeld.'
+    zoekwoorden:
+    - Arbeitslose
+    - Arbeitsuchende
+    - ADG
+    - Forem
+    - Actiris
+    - VDAB
   levensverwachting:
     titel: Lebenserwartung
     vraag: Wie alt werden wir im Durchschnitt?
     definitie: Durchschnittliche Zahl der Jahre, die ein Neugeborenes bei den Sterberaten dieses Jahres leben wird.
-    uitleg: "Wie lange ein in diesem Jahr geborenes Baby im Durchschnitt leben wird, wenn die Gesundheit der Bevölkerung so bleibt wie jetzt."
-    zoekwoorden: [Alter, Sterblichkeit, Gesundheit]
+    uitleg: Wie lange ein in diesem Jahr geborenes Baby im Durchschnitt leben wird, wenn die Gesundheit der Bevölkerung so bleibt wie jetzt.
+    zoekwoorden:
+    - Alter
+    - Sterblichkeit
+    - Gesundheit
   zorguitgaven:
     titel: Gesundheitsausgaben
     vraag: Wie viel geben wir für Gesundheit aus?
-    definitie: "Gesamte Gesundheitsausgaben, öffentlich und privat, in Prozent des BIP."
-    uitleg: "Was Staat, Krankenkassen, Versicherer und Patienten selbst zusammen für die Gesundheitsversorgung ausgeben."
-    zoekwoorden: [Pflege, Krankenhaus, LIKIV, Krankenkasse]
+    definitie: Gesamte Gesundheitsausgaben, öffentlich und privat, in Prozent des BIP.
+    uitleg: Was Staat, Krankenkassen, Versicherer und Patienten selbst zusammen für die Gesundheitsversorgung ausgeben.
+    zoekwoorden:
+    - Pflege
+    - Krankenhaus
+    - LIKIV
+    - Krankenkasse
   diploma_hoger_onderwijs:
     titel: Hochschulabschluss
     vraag: Wie viele junge Erwachsene haben einen Hochschulabschluss?
     definitie: Anteil der 25- bis 34-Jährigen mit einem Hochschulabschluss.
-    uitleg: "Es geht um Menschen zwischen 25 und 34 Jahren mit einem Bachelor, Master oder gleichwertigen Abschluss."
+    uitleg: Es geht um Menschen zwischen 25 und 34 Jahren mit einem Bachelor, Master oder gleichwertigen Abschluss.
     wafel_tekst: 25- bis 34-Jährige haben einen Hochschulabschluss
-    zoekwoorden: [Hochschule, Universität, Abschluss, Studium]
+    zoekwoorden:
+    - Hochschule
+    - Universität
+    - Abschluss
+    - Studium
   vroegtijdige_schoolverlaters:
     titel: Frühe Schulabgänger
     vraag: Wie viele Jugendliche verlassen die Schule ohne Abschluss?
     definitie: Anteil der 18- bis 24-Jährigen ohne Sekundarschulabschluss, die keine Ausbildung mehr machen.
-    uitleg: "Jugendliche ohne Sekundarschulabschluss haben es auf dem Arbeitsmarkt oft schwerer."
+    uitleg: Jugendliche ohne Sekundarschulabschluss haben es auf dem Arbeitsmarkt oft schwerer.
     wafel_tekst: Jugendliche von 18 bis 24 Jahren haben keinen Sekundarschulabschluss und machen keine Ausbildung mehr
-    zoekwoorden: [Schulabbrecher, ohne Abschluss, Schule, Abschluss]
+    zoekwoorden:
+    - Schulabbrecher
+    - ohne Abschluss
+    - Schule
+    - Abschluss
   armoede_uitsluiting:
     titel: Armutsrisiko
     vraag: Wie viele Menschen sind von Armut bedroht?
-    definitie: "Anteil der Bevölkerung mit niedrigem Einkommen, erheblicher materieller Entbehrung oder sehr geringer Erwerbsintensität (AROPE)."
-    uitleg: "Das ist der europäische Maßstab. Sie zählen mit, wenn Sie ein niedriges Einkommen haben, sich grundlegende Dinge nicht leisten können oder in einem Haushalt leben, in dem fast niemand arbeitet."
+    definitie: Anteil der Bevölkerung mit niedrigem Einkommen, erheblicher materieller Entbehrung oder sehr geringer Erwerbsintensität (AROPE).
+    uitleg: Das ist der europäische Maßstab. Sie zählen mit, wenn Sie ein niedriges Einkommen haben, sich grundlegende Dinge nicht leisten können oder in einem Haushalt leben, in dem fast niemand arbeitet.
     wafel_tekst: Einwohner sind von Armut oder sozialer Ausgrenzung bedroht
-    zoekwoorden: [Armut, arm, über die Runden kommen, Ausgrenzung, AROPE]
+    zoekwoorden:
+    - Armut
+    - arm
+    - über die Runden kommen
+    - Ausgrenzung
+    - AROPE
   woningprijzen:
     titel: Wohnungspreise
     vraag: Wie viel teurer werden Wohnungen pro Jahr?
     definitie: Jährlicher Anstieg der Wohnimmobilienpreise (Hauspreisindex).
-    uitleg: "Wie stark der Preis einer Wohnung im Durchschnitt gegenüber dem Vorjahr steigt oder sinkt, neue und bestehende Wohnungen zusammen."
-    zoekwoorden: [Haus, Hauspreise, Immobilien, kaufen]
+    uitleg: Wie stark der Preis einer Wohnung im Durchschnitt gegenüber dem Vorjahr steigt oder sinkt, neue und bestehende Wohnungen zusammen.
+    zoekwoorden:
+    - Haus
+    - Hauspreise
+    - Immobilien
+    - kaufen
   hernieuwbare_energie:
     titel: Erneuerbare Energie
     vraag: Wie viel unserer Energie stammt aus erneuerbaren Quellen?
     definitie: Anteil erneuerbarer Quellen am Bruttoendenergieverbrauch.
-    uitleg: "Es geht um die gesamte Energie: Strom, aber auch Heizung und Verkehr. Sonne, Wind, Biomasse und Wasserkraft zählen als erneuerbar."
-    zoekwoorden: [Solaranlagen, Windräder, Ökostrom, Energie]
+    uitleg: 'Es geht um die gesamte Energie: Strom, aber auch Heizung und Verkehr. Sonne, Wind, Biomasse und Wasserkraft zählen als erneuerbar.'
+    zoekwoorden:
+    - Solaranlagen
+    - Windräder
+    - Ökostrom
+    - Energie
   uitstoot_per_inwoner:
     titel: Emissionen pro Einwohner
     vraag: Wie viele Treibhausgase stoßen wir pro Person aus?
-    definitie: "Netto-Treibhausgasemissionen pro Einwohner, in Tonnen CO₂-Äquivalent."
-    uitleg: "Die Emissionen des ganzen Landes (Verkehr, Industrie, Heizung, Landwirtschaft) geteilt durch die Zahl der Einwohner. Wälder, die CO₂ aufnehmen, werden abgezogen."
-    zoekwoorden: [CO2, Klima, Emissionen, Treibhausgase]
+    definitie: Netto-Treibhausgasemissionen pro Einwohner, in Tonnen CO₂-Äquivalent.
+    uitleg: Die Emissionen des ganzen Landes (Verkehr, Industrie, Heizung, Landwirtschaft) geteilt durch die Zahl der Einwohner. Wälder, die CO₂ aufnehmen, werden abgezogen.
+    zoekwoorden:
+    - CO2
+    - Klima
+    - Emissionen
+    - Treibhausgase
   kernenergie_aandeel:
     titel: Kernenergie in unserem Strom
     vraag: Wie viel unseres Stroms kommt aus Kernkraftwerken?
     definitie: Anteil der Kernenergie an der Bruttostromerzeugung des Landes.
-    uitleg: "Es geht nur um Strom, nicht um die gesamte Energie. Kernkraftwerke stoßen im Betrieb praktisch keine Treibhausgase aus, aber Kernenergie zählt nicht als erneuerbare Energie. Aus dem Ausland importierter Strom ist in dieser Zahl nicht enthalten."
-    zoekwoorden: [Kernenergie, Kernkraftwerk, Atomkraft, Doel, Tihange, Strom]
+    uitleg: Es geht nur um Strom, nicht um die gesamte Energie. Kernkraftwerke stoßen im Betrieb praktisch keine Treibhausgase aus, aber Kernenergie zählt nicht als erneuerbare Energie. Aus dem Ausland importierter Strom ist in dieser Zahl nicht enthalten.
+    zoekwoorden:
+    - Kernenergie
+    - Kernkraftwerk
+    - Atomkraft
+    - Doel
+    - Tihange
+    - Strom
   treinstiptheid:
     titel: Pünktlichkeit der Züge
     vraag: Wie viele Züge kommen pünktlich an?
     definitie: Anteil der inländischen Personenzüge, die mit weniger als 6 Minuten Verspätung am Zielbahnhof ankommen, pro Jahr (alle Monate zusammen).
-    uitleg: "Ein Zug mit 6 Minuten Verspätung oder mehr gilt als verspätet. Ausgefallene Züge zählen in dieser Zahl nicht mit. Für das laufende Jahr geht es um die bisherigen Monate."
+    uitleg: Ein Zug mit 6 Minuten Verspätung oder mehr gilt als verspätet. Ausgefallene Züge zählen in dieser Zahl nicht mit. Für das laufende Jahr geht es um die bisherigen Monate.
     wafel_tekst: Züge kamen pünktlich an
-    zoekwoorden: [Zug, SNCB, NMBS, Infrabel, Verspätung, Bahn]
+    zoekwoorden:
+    - Zug
+    - SNCB
+    - NMBS
+    - Infrabel
+    - Verspätung
+    - Bahn
   verkeersdoden:
     titel: Verkehrstote
     vraag: Wie viele Menschen sterben im Straßenverkehr?
-    definitie: "Zahl der Menschen, die innerhalb von 30 Tagen nach einem Verkehrsunfall sterben, pro Million Einwohner."
-    uitleg: "Pro Million Einwohner, damit man Länder unterschiedlicher Größe vergleichen kann."
-    zoekwoorden: [Unfälle, Verkehrssicherheit, Auto, Fahrrad]
+    definitie: Zahl der Menschen, die innerhalb von 30 Tagen nach einem Verkehrsunfall sterben, pro Million Einwohner.
+    uitleg: Pro Million Einwohner, damit man Länder unterschiedlicher Größe vergleichen kann.
+    zoekwoorden:
+    - Unfälle
+    - Verkehrssicherheit
+    - Auto
+    - Fahrrad
   bevolking:
     titel: Einwohner
     vraag: Wie viele Menschen leben in Belgien?
     definitie: Zahl der Einwohner am 1. Januar.
-    uitleg: "Alle, die offiziell in Belgien wohnen und im Nationalregister eingetragen sind."
-    zoekwoorden: [Einwohner, Bevölkerung, Menschen]
+    uitleg: Alle, die offiziell in Belgien wohnen und im Nationalregister eingetragen sind.
+    zoekwoorden:
+    - Einwohner
+    - Bevölkerung
+    - Menschen
   aandeel_65plus:
     titel: Über 65-Jährige
     vraag: Wie viele Einwohner sind 65 Jahre oder älter?
     definitie: Anteil der Bevölkerung, der 65 Jahre oder älter ist.
-    uitleg: "Je größer dieser Anteil, desto mehr wird für Renten und Pflege benötigt und desto weniger Menschen im erwerbsfähigen Alter gibt es, um das zu bezahlen."
+    uitleg: Je größer dieser Anteil, desto mehr wird für Renten und Pflege benötigt und desto weniger Menschen im erwerbsfähigen Alter gibt es, um das zu bezahlen.
     wafel_tekst: Einwohner sind 65 Jahre oder älter
-    zoekwoorden: [Ältere, Alterung, Rente, Senioren]
+    zoekwoorden:
+    - Ältere
+    - Alterung
+    - Rente
+    - Senioren
   netto_migratie:
     titel: Nettomigration
     vraag: Wie viele Menschen kommen netto durch Migration hinzu?
     definitie: Zahl der Menschen, die ins Land ziehen, minus die Zahl derer, die es verlassen, pro 1.000 Einwohner (einschließlich statistischer Korrektur).
-    uitleg: "Es geht um alle, die umziehen, auch Belgier, die ins Ausland gehen oder zurückkehren. Eine positive Zahl bedeutet, dass mehr Menschen zuziehen als wegziehen."
-    zoekwoorden: [Migration, Einwanderung, Auswanderung, Migranten, Umzug, Zuwanderung]
+    uitleg: Es geht um alle, die umziehen, auch Belgier, die ins Ausland gehen oder zurückkehren. Eine positive Zahl bedeutet, dass mehr Menschen zuziehen als wegziehen.
+    zoekwoorden:
+    - Migration
+    - Einwanderung
+    - Auswanderung
+    - Migranten
+    - Umzug
+    - Zuwanderung
   natuurlijke_aangroei:
     titel: Natürliches Wachstum
     vraag: Werden mehr Menschen geboren als sterben?
     definitie: Zahl der Geburten minus Zahl der Sterbefälle, pro 1.000 Einwohner.
-    uitleg: "Zusammen mit der Nettomigration bestimmt dies, ob die Bevölkerung wächst. Eine negative Zahl bedeutet, dass mehr Menschen sterben als geboren werden."
-    zoekwoorden: [Geburten, Sterbefälle, Sterblichkeit, Babys, Wachstum]
+    uitleg: Zusammen mit der Nettomigration bestimmt dies, ob die Bevölkerung wächst. Eine negative Zahl bedeutet, dass mehr Menschen sterben als geboren werden.
+    zoekwoorden:
+    - Geburten
+    - Sterbefälle
+    - Sterblichkeit
+    - Babys
+    - Wachstum
   geboren_buitenland:
     titel: Im Ausland geboren
     vraag: Wie viele Einwohner sind im Ausland geboren?
     definitie: Anteil der Einwohner, die außerhalb des Landes geboren sind, unabhängig von ihrer Staatsangehörigkeit.
-    uitleg: "Das Geburtsland sagt nichts über die Staatsangehörigkeit: Auch im Ausland geborene Belgier zählen mit, hier geborene Kinder von Migranten dagegen nicht."
+    uitleg: 'Das Geburtsland sagt nichts über die Staatsangehörigkeit: Auch im Ausland geborene Belgier zählen mit, hier geborene Kinder von Migranten dagegen nicht.'
     wafel_tekst: Einwohner sind im Ausland geboren
-    zoekwoorden: [Migration, Migranten, Ausland, Herkunft, Neuankömmlinge]
+    zoekwoorden:
+    - Migration
+    - Migranten
+    - Ausland
+    - Herkunft
+    - Neuankömmlinge
   asielaanvragen:
     titel: Asylerstanträge
     vraag: Wie viele Menschen beantragen zum ersten Mal Asyl?
     definitie: Zahl der Personen, die in diesem Jahr erstmals einen Antrag auf internationalen Schutz stellen.
-    uitleg: "Ein Asylantrag ist noch keine Anerkennung: Ein Teil der Anträge wird abgelehnt. Hier zählen nur Erstanträge, keine wiederholten."
-    zoekwoorden: [Asyl, Flüchtlinge, Asylsuchende, Aufnahme, Schutz]
-
+    uitleg: 'Ein Asylantrag ist noch keine Anerkennung: Ein Teil der Anträge wird abgelehnt. Hier zählen nur Erstanträge, keine wiederholten.'
+    zoekwoorden:
+    - Asyl
+    - Flüchtlinge
+    - Asylsuchende
+    - Aufnahme
+    - Schutz
+  pisa_wiskunde:
+    titel: Schwach in Mathematik (PISA)
+    vraag: Wie viele 15-Jährige erreichen das Grundniveau in Mathematik nicht?
+    definitie: Anteil der 15-Jährigen, die im PISA-Test der OECD in Mathematik unter Stufe 2 bleiben.
+    uitleg: PISA ist ein internationaler Test, der regelmäßig bei 15-Jährigen durchgeführt wird. Wer unter Stufe 2 bleibt, hat Mühe mit einfachen Anwendungen, etwa Preise vergleichen oder ein einfaches Diagramm lesen. Bildung ist Sache der Gemeinschaften; Eurostat veröffentlicht nur die Zahl für ganz Belgien.
+    wafel_tekst: 15-Jährige erreichen das Grundniveau in Mathematik nicht
+    zoekwoorden:
+    - PISA
+    - Mathematik
+    - Rechnen
+    - Schüler
+    - Schulen
+    - OECD
+  pisa_lezen:
+    titel: Schwach im Lesen (PISA)
+    vraag: Wie viele 15-Jährige erreichen das Grundniveau im Lesen nicht?
+    definitie: Anteil der 15-Jährigen, die im PISA-Test der OECD im Leseverständnis unter Stufe 2 bleiben.
+    uitleg: Wer unter Stufe 2 bleibt, findet die Hauptaussage eines gewöhnlichen Textes nur schwer. Wie bei Mathematik geht es um ganz Belgien; die Ergebnisse pro Gemeinschaft erscheinen in eigenen nationalen Berichten.
+    zoekwoorden:
+    - PISA
+    - Lesen
+    - Leseverständnis
+    - Sprache
+    - Schüler
+    - OECD
+  stroomprijs:
+    titel: Strompreis
+    vraag: Was kostet eine Kilowattstunde Strom für einen Haushalt?
+    definitie: Durchschnittspreis für Haushalte mit einem Verbrauch von 2.500 bis 4.999 kWh pro Jahr, einschließlich aller Steuern und Abgaben. Eurostat veröffentlicht zwei Zahlen pro Jahr (pro Halbjahr); hier steht der Durchschnitt beider.
+    uitleg: Ein durchschnittlicher Haushalt verbraucht einige tausend Kilowattstunden pro Jahr. Der Preis umfasst die Energie selbst, die Netzkosten, Steuern und Mehrwertsteuer. Ihr eigener Vertrag kann deutlich teurer oder günstiger sein.
+    zoekwoorden:
+    - Strom
+    - Elektrizität
+    - Energiepreis
+    - Energierechnung
+    - kWh
+    - Energie
+  gasprijs:
+    titel: Erdgaspreis
+    vraag: Was kostet eine Kilowattstunde Gas für einen Haushalt?
+    definitie: Durchschnittspreis für Haushalte mit einem Verbrauch von 20 bis 199 Gigajoule pro Jahr, einschließlich aller Steuern und Abgaben. Eurostat veröffentlicht zwei Zahlen pro Jahr (pro Halbjahr); hier steht der Durchschnitt beider.
+    uitleg: Dieser Verbrauch passt zu einem Haushalt, der mit Gas heizt. Gas ist pro Kilowattstunde günstiger als Strom, aber zum Heizen braucht man viel mehr davon. Ihr eigener Vertrag kann deutlich abweichen.
+    zoekwoorden:
+    - Gas
+    - Erdgas
+    - Heizung
+    - Energiepreis
+    - Energierechnung
+    - Energie
 uitgaven:
-  GF10: {nl: Soziale Sicherung, uitleg: "Renten, Sozialleistungen, Kindergeld, Unterstützung bei Krankheit und Arbeitslosigkeit"}
-  GF07: {nl: Gesundheit, uitleg: "Krankenhäuser, Erstattung von Arztkosten und Medikamenten"}
-  GF04: {nl: Wirtschaftliche Angelegenheiten, uitleg: "Verkehr, Energie, Landwirtschaft, Unternehmensförderung"}
-  GF01: {nl: Allgemeine öffentliche Verwaltung, uitleg: "Arbeit der Verwaltung, Zinsen auf die Staatsschulden, Entwicklungshilfe"}
-  GF09: {nl: Bildung, uitleg: "Schulen, Hochschulen und Universitäten"}
-  GF03: {nl: Sicherheit und Justiz, uitleg: "Polizei, Feuerwehr, Gerichte, Gefängnisse"}
-  GF08: {nl: "Kultur, Sport und Religion", uitleg: "Kultur, Sport, Medien, Kultusgemeinschaften"}
-  GF06: {nl: Wohnungswesen und kommunale Einrichtungen, uitleg: "sozialer Wohnungsbau, Wasser, Straßenbeleuchtung"}
-  GF05: {nl: Umweltschutz, uitleg: "Abfall, Abwasserreinigung, Naturschutz"}
-  GF02: {nl: Verteidigung, uitleg: "Armee und Militärausgaben"}
-  GF1002: {nl: davon Renten und Altenpflege}
-  GF0107: {nl: davon Zinsen auf die Staatsschulden}
-
+  GF10:
+    nl: Soziale Sicherung
+    uitleg: Renten, Sozialleistungen, Kindergeld, Unterstützung bei Krankheit und Arbeitslosigkeit
+  GF07:
+    nl: Gesundheit
+    uitleg: Krankenhäuser, Erstattung von Arztkosten und Medikamenten
+  GF04:
+    nl: Wirtschaftliche Angelegenheiten
+    uitleg: Verkehr, Energie, Landwirtschaft, Unternehmensförderung
+  GF01:
+    nl: Allgemeine öffentliche Verwaltung
+    uitleg: Arbeit der Verwaltung, Zinsen auf die Staatsschulden, Entwicklungshilfe
+  GF09:
+    nl: Bildung
+    uitleg: Schulen, Hochschulen und Universitäten
+  GF03:
+    nl: Sicherheit und Justiz
+    uitleg: Polizei, Feuerwehr, Gerichte, Gefängnisse
+  GF08:
+    nl: Kultur, Sport und Religion
+    uitleg: Kultur, Sport, Medien, Kultusgemeinschaften
+  GF06:
+    nl: Wohnungswesen und kommunale Einrichtungen
+    uitleg: sozialer Wohnungsbau, Wasser, Straßenbeleuchtung
+  GF05:
+    nl: Umweltschutz
+    uitleg: Abfall, Abwasserreinigung, Naturschutz
+  GF02:
+    nl: Verteidigung
+    uitleg: Armee und Militärausgaben
+  GF1002:
+    nl: davon Renten und Altenpflege
+  GF0107:
+    nl: davon Zinsen auf die Staatsschulden
 snel:
   consumentenvertrouwen:
     titel: Verbrauchervertrauen
     vraag: Wie optimistisch sind die Haushalte?
-    uitleg: "Eine monatliche Umfrage bei Haushalten zu Wirtschaft, Arbeitslosigkeit, eigenen Finanzen und Sparen. Null ist neutral: Eine negative Zahl bedeutet mehr Pessimisten als Optimisten."
+    uitleg: 'Eine monatliche Umfrage bei Haushalten zu Wirtschaft, Arbeitslosigkeit, eigenen Finanzen und Sparen. Null ist neutral: Eine negative Zahl bedeutet mehr Pessimisten als Optimisten.'
   conjunctuurbarometer:
     titel: Konjunkturbarometer
     vraag: Wie sehen es die Unternehmen?
-    uitleg: "Das Barometer der Nationalbank fasst die monatlichen Umfragen bei Unternehmen zusammen (Industrie, Bau, Handel und Dienstleistungen). Es dient vor allem dazu, die Richtung zu erkennen: Steigt es, sind die Unternehmen positiver."
+    uitleg: 'Das Barometer der Nationalbank fasst die monatlichen Umfragen bei Unternehmen zusammen (Industrie, Bau, Handel und Dienstleistungen). Es dient vor allem dazu, die Richtung zu erkennen: Steigt es, sind die Unternehmen positiver.'
   werkloosheid_maand:
     titel: Arbeitslosigkeit diesen Monat
     vraag: Wie viele Menschen suchen jetzt Arbeit?
-    uitleg: "Arbeitslosenquote nach internationaler Definition, saisonbereinigt, damit man Monate miteinander vergleichen kann."
+    uitleg: Arbeitslosenquote nach internationaler Definition, saisonbereinigt, damit man Monate miteinander vergleichen kann.
     vergelijk: EU
   bbp_kwartaal:
     titel: Wachstum in diesem Quartal
     vraag: Wächst die Wirtschaft gerade?
-    uitleg: "Wachstum des BIP (nach Inflation) gegenüber dem Vorquartal, saison- und kalenderbereinigt. Zwei Quartale Rückgang hintereinander nennt man oft eine Rezession."
-
+    uitleg: Wachstum des BIP (nach Inflation) gegenüber dem Vorquartal, saison- und kalenderbereinigt. Zwei Quartale Rückgang hintereinander nennt man oft eine Rezession.
+  mazout:
+    titel: Heizölpreis
+    vraag: Was kostet ein Liter Heizöl?
+    uitleg: Der Durchschnittspreis für Heizöl, einschließlich aller Steuern, wie Belgien ihn jede Woche der Europäischen Kommission meldet. Die Kommission gibt den Preis pro 1.000 Liter an; wir teilen durch 1.000. Was Sie selbst zahlen, hängt auch von der Menge und Ihrem Lieferanten ab.
+    vergelijk: EU
+    bron: Europäische Kommission (Weekly Oil Bulletin)
 instellingen:
   Federaal Planbureau: Föderales Planbüro
   Nationale Bank van België: Belgische Nationalbank
   Europese Commissie: Europäische Kommission
   OESO: OECD
   IMF: IWF
-
 niet_meegerekend:
-  - "Der Beschäftigungsbonus für niedrige Löhne (eine Ermäßigung Ihres LSS-Beitrags und Ihrer Steuer)"
-  - "Der Sonderbeitrag zur sozialen Sicherheit (ein kleiner jährlicher Beitrag, der vom Haushaltseinkommen abhängt)"
-  - "Die Beiträge Ihres Arbeitgebers zusätzlich zu Ihrem Bruttogehalt"
-  - "Steuervorteile wie Rentensparen, Dienstleistungsschecks, Kinderbetreuung, Spenden und ein Wohnbonus"
-  - "Die steuerliche Situation eines Partners (bei gemeinsamer Erklärung)"
-  - "Mahlzeitschecks, ein Firmenwagen und andere außergesetzliche Vorteile"
-  - "Arbeiter: Ihr Urlaubsgeld und ihre LSS-Beiträge werden anders berechnet; diese Version rechnet für Angestellte"
+- Der Beschäftigungsbonus für niedrige Löhne (eine Ermäßigung Ihres LSS-Beitrags und Ihrer Steuer)
+- 'Die endgültige Abrechnung des Sonderbeitrags zur sozialen Sicherheit: hier steht der Einbehalt über Ihren Lohn, für eine alleinstehende Person'
+- Die Beiträge Ihres Arbeitgebers zusätzlich zu Ihrem Bruttogehalt
+- Steuervorteile wie Rentensparen, Dienstleistungsschecks, Kinderbetreuung, Spenden und ein Wohnbonus
+- Die steuerliche Situation eines Partners (bei gemeinsamer Erklärung)
+- Mahlzeitschecks, ein Firmenwagen und andere außergesetzliche Vorteile
+- 'Arbeiter: Ihr Urlaubsgeld und ihre LSS-Beiträge werden anders berechnet; diese Version rechnet für Angestellte'
