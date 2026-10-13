@@ -14,12 +14,12 @@ themas:
   werk:
     nl: Jobs
     vraag: How many people are working?
-    intro: How many people have a job helps determine how much tax and contributions come in to pay for pensions and healthcare, among other things. Here you can see how many adults work and how many people are looking for work, including by region.
+    intro: How many people have a job helps determine how much tax and contributions come in to pay for pensions and healthcare, among other things. Here you can see how many adults work, how many people are looking for work and for how long, how many older people are still working, and how many do not work because of illness.
     bevoegd: Labour law and unemployment benefits are federal. Supporting job seekers is a task for the regions and the German-speaking Community (VDAB, Le Forem, Actiris and ADG).
   gezondheid:
     nl: Health
     vraag: How healthy are we?
-    intro: 'How long and how healthily we live depends on many things: care, lifestyle, work and income. Here you can see how long people live on average and how much we spend together on healthcare.'
+    intro: 'How long and how healthily we live depends on many things: care, lifestyle, work and income. Here you can see how many years we live on average and how many of them in good health, how many deaths were avoidable, whether people get the care they need, and how much we spend on care.'
     bevoegd: Health insurance and hospital funding are largely federal. Prevention, elderly care and primary care are mainly the responsibility of the communities.
   onderwijs:
     nl: Education
@@ -29,7 +29,7 @@ themas:
   wonen_armoede:
     nl: Housing and poverty
     vraag: Can everyone make ends meet?
-    intro: Affordable housing and enough income to get by are basic needs. Here you can see how many people are at risk of poverty or social exclusion and how fast house prices are rising.
+    intro: Affordable housing and enough income to get by are basic needs. Here you can see how many people are at risk of poverty, how many go without basic things, who pays heavily for housing and how fast house prices are rising.
     bevoegd: Housing policy, such as social housing and rental rules, is the responsibility of the regions. Benefits and pensions are federal; the local public social welfare centres (OCMW/CPAS) help people locally.
   klimaat_energie:
     nl: Climate and energy
@@ -39,13 +39,18 @@ themas:
   mobiliteit:
     nl: Mobility
     vraag: Do we get where we're going smoothly and safely?
-    intro: How we travel determines how much time we spend on the road and how safe that is. Here you can see how punctual the trains are and how many people die on the roads.
+    intro: How we travel determines how much time we spend on the road and how safe that is. Here you can see how punctual the trains are, how much we use the car and the train, how many cars there are and how many people die on the roads.
     bevoegd: The railways (SNCB/NMBS and Infrabel) are federal. Roads, road safety on regional roads, and buses and trams (De Lijn, TEC and STIB/MIVB) are the responsibility of the regions.
   demografie:
     nl: Population
     vraag: How many of us are there, and who is joining us?
     intro: How many people live in Belgium and how old they are determines how many schools, homes, care services and pensions are needed. The population changes through births and deaths, and through people moving to or leaving Belgium. Here you can see both.
     bevoegd: Population figures come from the National Register. Migration policy is federal; integration is the responsibility of the communities.
+  veiligheid_justitie:
+    nl: Safety and justice
+    vraag: How is the justice system doing?
+    intro: The justice system has to deliver judgements and have sentences carried out. Here you can see how many people are in prison and how full the prisons are.
+    bevoegd: 'Justice, the courts and prisons are federal. The police work at two levels: the federal and the local police. Justice centres and support for prisoners are the responsibility of the communities.'
 begrippen:
   bbp:
     term: GDP
@@ -450,6 +455,181 @@ indicatoren:
     - energy price
     - energy bill
     - energy
+  pensioenuitgaven:
+    titel: Pension spending
+    vraag: How much do we spend on pensions?
+    definitie: All spending on pensions (old-age, early, disability and survivors' pensions), as a percentage of GDP (European ESSPROS classification).
+    uitleg: Pensions are the largest spending item of social security. Because we live longer and there are more older people, this figure rises if nothing changes. It says nothing about how high one pension is.
+    zoekwoorden:
+    - pension
+    - pensions
+    - ageing
+    - retirement
+    - social security
+  defensie_uitgaven:
+    titel: Defence spending
+    vraag: How much does the government spend on defence?
+    definitie: Government spending on defence (function GF02 in the European COFOG classification), as a percentage of GDP.
+    uitleg: Military spending, the army and military aid to other countries. NATO uses its own, somewhat broader definition, so its figures may be somewhat higher.
+    zoekwoorden:
+    - defence
+    - army
+    - nato
+    - military
+    - security
+  langdurige_werkloosheid:
+    titel: Long-term unemployment
+    vraag: How many job seekers have been looking for more than a year?
+    definitie: Share of unemployed people (aged 15 to 74, international definition) who have been looking for work for at least twelve months.
+    uitleg: The longer someone looks for work, the harder it usually becomes to get back into a job.
+    zoekwoorden:
+    - long-term unemployed
+    - unemployment
+    - job seekers
+    - activation
+    wafel_tekst: unemployed people have been looking for work for more than a year
+  werkzaamheid_55_64:
+    titel: Workers aged 55 and over
+    vraag: How many people aged 55 to 64 are still working?
+    definitie: Share of 55- to 64-year-olds who have a job.
+    uitleg: 'This figure plays a role in the debate about pensions and working longer: the more older people work, the more contributions come in.'
+    zoekwoorden:
+    - older workers
+    - working longer
+    - retirement age
+    - end of career
+  inactief_ziekte:
+    titel: Not working due to illness
+    vraag: How many people of working age do not work because of illness or disability?
+    definitie: Share of 20- to 64-year-olds who are not working and not looking for work, with their own illness or disability as the main reason (European Labour Force Survey).
+    uitleg: This is what people themselves answer in a survey, not the number of people receiving sickness benefit. It does give a picture of how many people are out of work because of their health.
+    zoekwoorden:
+    - long-term sick
+    - illness
+    - disability
+    - incapacity for work
+    - riziv
+  gezonde_levensjaren:
+    titel: Healthy life years
+    vraag: How many years do we live in good health?
+    definitie: Number of years a newborn can expect to live without limitations in daily life due to health problems.
+    uitleg: Living long is one thing, living healthily another. The difference with life expectancy is the years we live on average with limitations. The figure is based on what people themselves answer in a survey.
+    zoekwoorden:
+    - healthy
+    - life years
+    - health
+    - limitation
+    - ageing
+  vermijdbare_sterfte:
+    titel: Avoidable mortality
+    vraag: How many people die early from something avoidable?
+    definitie: Deaths before the age of 75 that could have been avoided through prevention or through timely, good-quality care, per 100,000 inhabitants (age-standardised).
+    uitleg: Think of lung cancer from smoking, road accidents or a treatable infection. The figure says something about prevention and the quality of care together.
+    zoekwoorden:
+    - mortality
+    - prevention
+    - avoidable
+    - quality of care
+    - premature death
+  onvervulde_zorg:
+    titel: Going without care
+    vraag: How many people do not get the care they need?
+    definitie: Share of inhabitants aged 16 and over who say they needed a medical examination or treatment but did not get it, because it was too expensive, too far away or the waiting list was too long.
+    uitleg: This is what people themselves answer in a European survey. Among people on low incomes this figure is usually higher than average.
+    zoekwoorden:
+    - access to care
+    - waiting list
+    - too expensive
+    - doctor
+    - affordability of care
+  verpleegkundigen:
+    titel: Nurses
+    vraag: How many nurses are working?
+    definitie: Number of practising nurses with an EU-recognised qualification, per 100,000 inhabitants.
+    uitleg: 'Practising means: they actually care for patients. Countries do not all count nurses the same way, so compare with caution.'
+    zoekwoorden:
+    - nursing
+    - nurses
+    - health workforce
+    - shortage
+    - hospital
+  woonkosten_zwaar:
+    titel: Heavy housing costs
+    vraag: How many people spend a large share of their income on housing?
+    definitie: Share of the population living in a household that spends more than 40% of its disposable income on housing (rent or mortgage interest, energy, water and maintenance).
+    uitleg: Those who spend that much on housing have little left for everything else. Tenants on low incomes are more often in this situation than owners.
+    zoekwoorden:
+    - rent
+    - housing costs
+    - affordable housing
+    - tenants
+    - housing
+  ernstige_ontbering:
+    titel: Severe deprivation
+    vraag: How many people go without basic things?
+    definitie: Share of the population who cannot afford at least 7 of 13 basic items, such as keeping the home adequately warm, paying an unexpected bill or taking a week's holiday.
+    uitleg: While the risk of poverty is mainly about income, this figure looks at what people really cannot afford in daily life.
+    zoekwoorden:
+    - poverty
+    - deprivation
+    - heating
+    - making ends meet
+    - material deprivation
+  auto_aandeel:
+    titel: Share of the car
+    vraag: How much of our travel do we do by car?
+    definitie: Share of the car in all inland passenger-kilometres by car, bus, coach and train (cycling and walking are not included).
+    uitleg: This is about kilometres travelled, not the number of trips. Cycling and walking are not part of this European statistic.
+    zoekwoorden:
+    - car
+    - traffic jams
+    - modal split
+    - public transport
+    - traffic
+    wafel_tekst: inland passenger-kilometres are travelled by car
+  trein_aandeel:
+    titel: Share of the train
+    vraag: How much of our travel do we do by train?
+    definitie: Share of the train in all inland passenger-kilometres by car, bus, coach and train.
+    uitleg: Together with the share of the car and of buses and coaches, this makes up one hundred percent of the passenger-kilometres in this statistic.
+    zoekwoorden:
+    - train
+    - sncb
+    - nmbs
+    - public transport
+    - modal split
+    - railway
+  autos_per_1000:
+    titel: Cars per inhabitant
+    vraag: How many passenger cars are there per 1,000 inhabitants?
+    definitie: Number of registered passenger cars per 1,000 inhabitants.
+    uitleg: Company cars registered in the name of a company are also counted.
+    zoekwoorden:
+    - car
+    - car fleet
+    - company cars
+    - car ownership
+  gevangenis_bezetting:
+    titel: Prison occupancy
+    vraag: How full are the prisons?
+    definitie: Number of people in prison divided by the official capacity, as a percentage. Above one hundred, there are more people than places.
+    uitleg: 'Overcrowding means more people per cell, less support and more tension for prisoners and staff. The figure is an average: some prisons are much fuller than others.'
+    zoekwoorden:
+    - prison
+    - overcrowding
+    - detention
+    - justice
+    - prisoners
+  gevangenen_per_100000:
+    titel: Prisoners per inhabitant
+    vraag: How many people are in prison?
+    definitie: Number of people in prison per 100,000 inhabitants.
+    uitleg: This also includes people in pre-trial detention, who have not yet been convicted.
+    zoekwoorden:
+    - prisoners
+    - inmates
+    - prison
+    - sentences
 uitgaven:
   GF10:
     nl: Social protection
@@ -515,6 +695,7 @@ instellingen:
   Europese Commissie: European Commission
   OESO: OECD
   IMF: IMF
+  Koninklijke Commissie voor Geschiedenis: Royal Historical Commission
 niet_meegerekend:
 - The work bonus for low wages (a reduction of your social security contribution and your tax)
 - 'The final settlement of the special social security contribution: this shows the amount withheld from your pay, for a single person'

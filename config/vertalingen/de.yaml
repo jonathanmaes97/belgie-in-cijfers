@@ -14,12 +14,12 @@ themas:
   werk:
     nl: Arbeit
     vraag: Wie viele Menschen arbeiten?
-    intro: Wie viele Menschen eine Arbeit haben, bestimmt mit, wie viele Steuern und Beiträge eingehen, um unter anderem Renten und Gesundheitsversorgung zu bezahlen. Hier sehen Sie, wie viele Erwachsene arbeiten und wie viele Menschen Arbeit suchen, auch nach Region.
+    intro: Wie viele Menschen eine Arbeit haben, bestimmt mit, wie viele Steuern und Beiträge eingehen, um unter anderem Renten und Gesundheitsversorgung zu bezahlen. Hier sehen Sie, wie viele Erwachsene arbeiten, wie viele Menschen Arbeit suchen und wie lange schon, wie viele Ältere noch arbeiten und wie viele wegen Krankheit nicht arbeiten.
     bevoegd: Arbeitsrecht und Arbeitslosengeld sind föderal. Die Begleitung von Arbeitsuchenden ist Aufgabe der Regionen und der Deutschsprachigen Gemeinschaft (VDAB, Le Forem, Actiris und ADG).
   gezondheid:
     nl: Gesundheit
     vraag: Wie gesund sind wir?
-    intro: 'Wie lange und wie gesund wir leben, hängt von vielen Dingen ab: Versorgung, Lebensstil, Arbeit und Einkommen. Hier sehen Sie, wie lange Menschen im Durchschnitt leben und wie viel wir gemeinsam für Gesundheit ausgeben.'
+    intro: 'Wie lange und wie gesund wir leben, hängt von vielen Dingen ab: Versorgung, Lebensstil, Arbeit und Einkommen. Hier sehen Sie, wie viele Jahre wir im Durchschnitt leben und wie viele davon gesund, wie viele Todesfälle vermeidbar waren, ob Menschen die Versorgung erhalten, die sie brauchen, und wie viel wir für Gesundheit ausgeben.'
     bevoegd: Die Krankenversicherung und die Finanzierung der Krankenhäuser sind größtenteils föderal. Prävention, Seniorenpflege und die Grundversorgung sind vor allem Sache der Gemeinschaften.
   onderwijs:
     nl: Bildung
@@ -29,7 +29,7 @@ themas:
   wonen_armoede:
     nl: Wohnen und Armut
     vraag: Kommen alle über die Runden?
-    intro: Eine bezahlbare Wohnung und genug Einkommen zum Leben sind Grundbedürfnisse. Hier sehen Sie, wie viele Menschen von Armut oder sozialer Ausgrenzung bedroht sind und wie schnell die Wohnungspreise steigen.
+    intro: Eine bezahlbare Wohnung und genug Einkommen zum Leben sind Grundbedürfnisse. Hier sehen Sie, wie viele Menschen von Armut bedroht sind, wie viele auf grundlegende Dinge verzichten müssen, wer viel fürs Wohnen zahlt und wie schnell die Wohnungspreise steigen.
     bevoegd: Die Wohnungspolitik, etwa sozialer Wohnungsbau und Mietregeln, ist eine Zuständigkeit der Regionen. Sozialleistungen und Renten sind föderal; die ÖSHZ helfen den Menschen vor Ort.
   klimaat_energie:
     nl: Klima und Energie
@@ -39,13 +39,18 @@ themas:
   mobiliteit:
     nl: Mobilität
     vraag: Kommen wir zügig und sicher an?
-    intro: Wie wir uns fortbewegen, bestimmt, wie viel Zeit wir unterwegs sind und wie sicher das ist. Hier sehen Sie, wie pünktlich die Züge fahren und wie viele Menschen im Straßenverkehr sterben.
+    intro: Wie wir uns fortbewegen, bestimmt, wie viel Zeit wir unterwegs sind und wie sicher das ist. Hier sehen Sie, wie pünktlich die Züge fahren, wie viel wir Auto und Zug nutzen, wie viele Autos es gibt und wie viele Menschen im Straßenverkehr sterben.
     bevoegd: Die Bahn (SNCB/NMBS und Infrabel) ist föderal. Straßen, Verkehrssicherheit auf regionalen Straßen sowie Bus und Straßenbahn (De Lijn, TEC und STIB/MIVB) sind Zuständigkeiten der Regionen.
   demografie:
     nl: Bevölkerung
     vraag: Wie viele sind wir, und wer kommt hinzu?
     intro: Wie viele Menschen in Belgien leben und wie alt sie sind, bestimmt, wie viele Schulen, Wohnungen, Pflege und Renten nötig sind. Die Bevölkerung verändert sich durch Geburten und Sterbefälle und durch Menschen, die nach Belgien ziehen oder das Land verlassen. Hier sehen Sie beides.
     bevoegd: Die Bevölkerungszahlen stammen aus dem Nationalregister. Die Migrationspolitik ist föderal; die Integration ist Sache der Gemeinschaften.
+  veiligheid_justitie:
+    nl: Sicherheit und Justiz
+    vraag: Wie steht es um die Justiz?
+    intro: Die Justiz soll Recht sprechen und Strafen vollstrecken lassen. Hier sehen Sie, wie viele Menschen im Gefängnis sitzen und wie voll die Gefängnisse sind.
+    bevoegd: 'Justiz, Gerichte und Gefängnisse sind föderal. Die Polizei arbeitet auf zwei Ebenen: der föderalen und der lokalen Polizei. Justizhäuser und Hilfe für Inhaftierte sind Sache der Gemeinschaften.'
 begrippen:
   bbp:
     term: BIP
@@ -452,6 +457,182 @@ indicatoren:
     - Energiepreis
     - Energierechnung
     - Energie
+  pensioenuitgaven:
+    titel: Rentenausgaben
+    vraag: Wie viel geben wir für Renten aus?
+    definitie: Alle Ausgaben für Renten (Alters-, vorgezogene, Invaliditäts- und Hinterbliebenenrenten), in Prozent des BIP (europäische Klassifikation ESSOSS).
+    uitleg: Renten sind der größte Ausgabenposten der sozialen Sicherheit. Weil wir länger leben und es mehr Ältere gibt, steigt diese Zahl, wenn sich nichts ändert. Sie sagt nichts darüber, wie hoch eine einzelne Rente ist.
+    zoekwoorden:
+    - Rente
+    - Renten
+    - Alterung
+    - Altersrente
+    - soziale Sicherheit
+  defensie_uitgaven:
+    titel: Verteidigungsausgaben
+    vraag: Wie viel gibt der Staat für Verteidigung aus?
+    definitie: Staatsausgaben für Verteidigung (Aufgabenbereich GF02 der europäischen Klassifikation COFOG), in Prozent des BIP.
+    uitleg: Militärausgaben, die Armee und Militärhilfe für andere Länder. Die NATO verwendet eine eigene, etwas weitere Definition; ihre Zahlen können also etwas höher liegen.
+    zoekwoorden:
+    - Verteidigung
+    - Armee
+    - NATO
+    - Militär
+    - Sicherheit
+  langdurige_werkloosheid:
+    titel: Langzeitarbeitslosigkeit
+    vraag: Wie viele Arbeitsuchende suchen schon länger als ein Jahr?
+    definitie: Anteil der Arbeitslosen (15 bis 74 Jahre, internationale Definition), die seit mindestens zwölf Monaten Arbeit suchen.
+    uitleg: Je länger jemand sucht, desto schwieriger wird es meist, wieder Arbeit zu finden.
+    zoekwoorden:
+    - Langzeitarbeitslose
+    - Arbeitslosigkeit
+    - Arbeitsuchende
+    - Aktivierung
+    wafel_tekst: Arbeitslose suchen schon länger als ein Jahr Arbeit
+  werkzaamheid_55_64:
+    titel: Erwerbstätige über 55
+    vraag: Wie viele Menschen zwischen 55 und 64 arbeiten noch?
+    definitie: Anteil der 55- bis 64-Jährigen, die eine Arbeit haben.
+    uitleg: 'Diese Zahl spielt in der Debatte über Renten und längeres Arbeiten eine Rolle: Je mehr Ältere arbeiten, desto mehr Beiträge gehen ein.'
+    zoekwoorden:
+    - ältere Arbeitnehmer
+    - länger arbeiten
+    - Rentenalter
+    - Laufbahnende
+  inactief_ziekte:
+    titel: Nicht erwerbstätig wegen Krankheit
+    vraag: Wie viele Menschen im erwerbsfähigen Alter arbeiten wegen Krankheit oder Behinderung nicht?
+    definitie: Anteil der 20- bis 64-Jährigen, die nicht arbeiten und keine Arbeit suchen, mit eigener Krankheit oder Behinderung als Hauptgrund (Europäische Arbeitskräfteerhebung).
+    uitleg: Es geht um das, was Menschen selbst in einer Umfrage antworten, nicht um die Zahl der Menschen mit Krankengeld. Es gibt aber ein Bild davon, wie viele Menschen wegen ihrer Gesundheit nicht arbeiten.
+    zoekwoorden:
+    - Langzeitkranke
+    - Krankheit
+    - Invalidität
+    - Arbeitsunfähigkeit
+    - Behinderung
+    - LIKIV
+  gezonde_levensjaren:
+    titel: Gesunde Lebensjahre
+    vraag: Wie viele Jahre leben wir in guter Gesundheit?
+    definitie: Zahl der Jahre, die ein Neugeborenes voraussichtlich ohne gesundheitsbedingte Einschränkungen im Alltag lebt.
+    uitleg: Lange leben ist das eine, gesund leben das andere. Der Unterschied zur Lebenserwartung sind die Jahre, die wir im Durchschnitt mit Einschränkungen leben. Die Zahl beruht auf dem, was Menschen selbst in einer Umfrage antworten.
+    zoekwoorden:
+    - gesund
+    - Lebensjahre
+    - Gesundheit
+    - Einschränkung
+    - älter werden
+  vermijdbare_sterfte:
+    titel: Vermeidbare Sterblichkeit
+    vraag: Wie viele Menschen sterben früh an etwas Vermeidbarem?
+    definitie: Todesfälle vor dem 75. Lebensjahr, die durch Vorbeugung oder rechtzeitige und gute Versorgung hätten vermieden werden können, je 100.000 Einwohner (altersstandardisiert).
+    uitleg: Denken Sie an Lungenkrebs durch Rauchen, Verkehrsunfälle oder eine behandelbare Infektion. Die Zahl sagt etwas über Vorbeugung und über die Qualität der Versorgung zugleich.
+    zoekwoorden:
+    - Sterblichkeit
+    - Vorbeugung
+    - vermeidbar
+    - Versorgungsqualität
+    - vorzeitiger Tod
+  onvervulde_zorg:
+    titel: Verzicht auf Versorgung
+    vraag: Wie viele Menschen erhalten nicht die Versorgung, die sie brauchen?
+    definitie: Anteil der Einwohner ab 16 Jahren, die angeben, eine ärztliche Untersuchung oder Behandlung gebraucht, aber nicht erhalten zu haben, weil sie zu teuer oder zu weit weg war oder die Warteliste zu lang war.
+    uitleg: Es geht um das, was Menschen selbst in einer europäischen Umfrage antworten. Bei Menschen mit niedrigem Einkommen liegt die Zahl meist höher als im Durchschnitt.
+    zoekwoorden:
+    - Zugang zur Versorgung
+    - Warteliste
+    - zu teuer
+    - Arzt
+    - Bezahlbarkeit
+  verpleegkundigen:
+    titel: Pflegekräfte
+    vraag: Wie viele Pflegekräfte arbeiten?
+    definitie: Zahl der praktizierenden Pflegekräfte mit europäisch anerkannter Ausbildung, je 100.000 Einwohner.
+    uitleg: 'Praktizierend heißt: Sie versorgen tatsächlich Patienten. Nicht alle Länder zählen Pflegekräfte auf dieselbe Weise; vergleichen Sie also mit Vorsicht.'
+    zoekwoorden:
+    - Pflege
+    - Pflegekräfte
+    - Gesundheitspersonal
+    - Mangel
+    - Krankenhaus
+  woonkosten_zwaar:
+    titel: Hohe Wohnkosten
+    vraag: Wie viele Menschen geben einen großen Teil ihres Einkommens fürs Wohnen aus?
+    definitie: Anteil der Bevölkerung in einem Haushalt, der mehr als 40 % seines verfügbaren Einkommens fürs Wohnen ausgibt (Miete oder Kreditzinsen, Energie, Wasser und Instandhaltung).
+    uitleg: Wer so viel fürs Wohnen ausgibt, hat wenig für den Rest übrig. Mieter mit niedrigem Einkommen sind häufiger in dieser Lage als Eigentümer.
+    zoekwoorden:
+    - Miete
+    - Wohnkosten
+    - bezahlbares Wohnen
+    - Mieter
+    - Wohnen
+  ernstige_ontbering:
+    titel: Erhebliche Entbehrung
+    vraag: Wie viele Menschen müssen auf grundlegende Dinge verzichten?
+    definitie: Anteil der Bevölkerung, der sich mindestens 7 von 13 grundlegenden Dingen nicht leisten kann, etwa die Wohnung ausreichend zu heizen, eine unerwartete Rechnung zu bezahlen oder eine Woche Urlaub zu machen.
+    uitleg: Während das Armutsrisiko vor allem das Einkommen betrifft, schaut diese Zahl darauf, was sich Menschen im Alltag wirklich nicht leisten können.
+    zoekwoorden:
+    - Armut
+    - Entbehrung
+    - Heizung
+    - über die Runden kommen
+    - materielle Deprivation
+  auto_aandeel:
+    titel: Anteil des Autos
+    vraag: Wie viel unserer Wege legen wir mit dem Auto zurück?
+    definitie: Anteil des Autos an allen Personenkilometern zu Lande mit Auto, Bus, Reisebus und Zug (Fahrrad und Fußwege zählen nicht mit).
+    uitleg: Es geht um zurückgelegte Kilometer, nicht um die Zahl der Fahrten. Fahrrad und Fußwege sind in dieser europäischen Statistik nicht enthalten.
+    zoekwoorden:
+    - Auto
+    - Stau
+    - Modal Split
+    - öffentlicher Verkehr
+    - Verkehr
+    wafel_tekst: Personenkilometer zu Lande werden mit dem Auto zurückgelegt
+  trein_aandeel:
+    titel: Anteil des Zuges
+    vraag: Wie viel unserer Wege legen wir mit dem Zug zurück?
+    definitie: Anteil des Zuges an allen Personenkilometern zu Lande mit Auto, Bus, Reisebus und Zug.
+    uitleg: Zusammen mit dem Anteil des Autos und von Bus und Reisebus ergibt das hundert Prozent der Personenkilometer in dieser Statistik.
+    zoekwoorden:
+    - Zug
+    - SNCB
+    - NMBS
+    - öffentlicher Verkehr
+    - Modal Split
+    - Bahn
+  autos_per_1000:
+    titel: Autos pro Einwohner
+    vraag: Wie viele Pkw gibt es pro 1.000 Einwohner?
+    definitie: Zahl der zugelassenen Personenkraftwagen je 1.000 Einwohner.
+    uitleg: Firmenwagen, die auf ein Unternehmen zugelassen sind, zählen ebenfalls mit.
+    zoekwoorden:
+    - Auto
+    - Fahrzeugbestand
+    - Firmenwagen
+    - Autobesitz
+  gevangenis_bezetting:
+    titel: Belegung der Gefängnisse
+    vraag: Wie voll sind die Gefängnisse?
+    definitie: Zahl der Menschen im Gefängnis geteilt durch die offizielle Kapazität, in Prozent. Über hundert sitzen mehr Menschen ein, als es Plätze gibt.
+    uitleg: 'Überbelegung bedeutet mehr Menschen pro Zelle, weniger Betreuung und mehr Spannungen für Inhaftierte und Personal. Die Zahl ist ein Durchschnitt: Manche Gefängnisse sind viel voller als andere.'
+    zoekwoorden:
+    - Gefängnis
+    - Überbelegung
+    - Haft
+    - Justiz
+    - Inhaftierte
+  gevangenen_per_100000:
+    titel: Inhaftierte pro Einwohner
+    vraag: Wie viele Menschen sitzen im Gefängnis?
+    definitie: Zahl der Menschen im Gefängnis je 100.000 Einwohner.
+    uitleg: Dazu gehören auch Menschen in Untersuchungshaft, die noch nicht verurteilt sind.
+    zoekwoorden:
+    - Gefangene
+    - Inhaftierte
+    - Gefängnis
+    - Strafen
 uitgaven:
   GF10:
     nl: Soziale Sicherung
@@ -517,6 +698,7 @@ instellingen:
   Europese Commissie: Europäische Kommission
   OESO: OECD
   IMF: IWF
+  Koninklijke Commissie voor Geschiedenis: Königliche Kommission für Geschichte
 niet_meegerekend:
 - Der Beschäftigungsbonus für niedrige Löhne (eine Ermäßigung Ihres LSS-Beitrags und Ihrer Steuer)
 - 'Die endgültige Abrechnung des Sonderbeitrags zur sozialen Sicherheit: hier steht der Einbehalt über Ihren Lohn, für eine alleinstehende Person'

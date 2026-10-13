@@ -431,6 +431,46 @@
     if (location.hash === "#zoek") veld.focus();
   }
 
+  // ---------- themabalk: scrollhint op smalle schermen ----------
+  const balk = document.querySelector(".themabalk"), rij = balk && balk.querySelector(".binnen");
+  if (rij) {
+    const actief = rij.querySelector("[aria-current]");
+    if (actief) rij.scrollLeft = Math.max(0, actief.offsetLeft - rij.clientWidth / 2 + actief.offsetWidth / 2);
+    const kijk = () => {
+      balk.classList.toggle("meer-links", rij.scrollLeft > 4);
+      balk.classList.toggle("meer-rechts", rij.scrollLeft + rij.clientWidth < rij.scrollWidth - 4);
+    };
+    rij.addEventListener("scroll", kijk, { passive: true });
+    addEventListener("resize", kijk);
+    kijk();
+    balk.querySelectorAll(".schuif-knop").forEach((k) => k.addEventListener("click", () =>
+      rij.scrollBy({ left: (k.classList.contains("rechts") ? 1 : -1) * rij.clientWidth * 0.7, behavior: "smooth" })));
+  }
+
+  // ---------- easter egg: klik op het hartje in de footer ----------
+  let klikken = 0;
+  document.addEventListener("click", (ev) => {
+    const hart = ev.target.closest(".hartje"); if (!hart) return;
+    klikken++;
+    const tekst = klikken % 3 === 0 ? "Dank je · Merci · Danke · Thank you" : t("ei", "Merci om mee te kijken!");
+    melding(tekst);
+    if (rustig) return;
+    const r = hart.getBoundingClientRect(), kleuren = ["#1f1f1f", "#fdda24", "#ef3340"];
+    for (let i = 0; i < 27; i++) {
+      const h = document.createElement("span");
+      h.className = "hartje-vlieg"; h.textContent = "♥"; h.style.color = kleuren[i % 3];
+      h.style.left = r.left + r.width / 2 + "px"; h.style.top = r.top + "px";
+      document.body.appendChild(h);
+      const hoek = -Math.PI / 2 + (Math.random() - 0.5) * 1.6, kracht = 160 + Math.random() * 220;
+      const dx = Math.cos(hoek) * kracht, dy = Math.sin(hoek) * kracht;
+      h.animate([
+        { transform: "translate(-50%, 0) scale(.4) rotate(0deg)", opacity: 1 },
+        { transform: `translate(calc(-50% + ${dx}px), ${dy}px) scale(${0.8 + Math.random()}) rotate(${(Math.random() - 0.5) * 90}deg)`, opacity: 1, offset: 0.6 },
+        { transform: `translate(calc(-50% + ${dx * 1.2}px), ${dy + 140}px) scale(.6)`, opacity: 0 },
+      ], { duration: 1300 + Math.random() * 600, easing: "cubic-bezier(.2,.7,.3,1)" }).onfinish = () => h.remove();
+    }
+  });
+
   // ---------- delen ----------
   function melding(tekst) {
     const m = document.createElement("div"); m.className = "melding"; m.textContent = tekst; m.setAttribute("role", "status");

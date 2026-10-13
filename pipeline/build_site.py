@@ -30,13 +30,23 @@ SITE = WORTEL / "site"
 REPO_URL = "https://github.com/jonathanmaes97/belgie-in-cijfers"
 _SITE = yaml.safe_load((WORTEL / "config" / "site.yaml").read_text(encoding="utf-8"))
 SITE_URL = (_SITE.get("domein") or _SITE["github_pages"]).rstrip("/") + "/"
+GOATCOUNTER = _SITE.get("goatcounter")  # None = geen bezoekersstatistieken
+# voorwaarden voor hergebruik per instelling (None = enkel de website, voorwaarden niet automatisch nagekeken)
+VOORWAARDEN = {
+    "Eurostat": ("https://ec.europa.eu/eurostat/help/copyright-notice", True),
+    "Nationale Bank van België": ("https://www.nbb.be/en/disclaimer-and-legal-information/copyright-and-use-information", True),
+    "Infrabel": ("https://opendata.infrabel.be/pages/license/", True),
+    "Federaal Planbureau": ("https://www.plan.be", False),
+    "Europese Commissie": ("https://commission.europa.eu/legal-notice_en", True),
+    "Koninklijke Commissie voor Geschiedenis": ("https://www.commissionroyalehistoire.be/belelite/nl/gov/governmentsoverview/fed", False),
+}
 MERK = "State of the Union"
 MAKER = "Jonathan Maes"
 CONTACT = "sotu@jonathanmaes.be"
 LINKEDIN_URL = "https://www.linkedin.com/in/maesjonathan/"
 GEWEST_CODES = ["BE2", "BE3", "BE1"]
 # Thema's waar federale regeringen als laag zinvol zijn (onderwijs is volledig een bevoegdheid van de gemeenschappen).
-THEMAS_MET_REGERINGEN = {"economie", "overheidsfinancien", "werk", "gezondheid", "wonen_armoede", "klimaat_energie", "mobiliteit", "demografie"}
+THEMAS_MET_REGERINGEN = {"veiligheid_justitie", "economie", "overheidsfinancien", "werk", "gezondheid", "wonen_armoede", "klimaat_energie", "mobiliteit", "demografie"}
 KERNCIJFERS = ["schuld_per_inwoner", "rente_per_dag", "belastingwig", "werkzaamheidsgraad", "inflatie", "bbp_groei"]
 
 UI = yaml.safe_load((WORTEL / "config" / "vertalingen" / "ui.yaml").read_text(encoding="utf-8"))
@@ -81,7 +91,7 @@ def landnaam(data: dict, geo: str) -> str:
 THEMA_KLEUR = {
     "economie": "#2357a6", "overheidsfinancien": "#6b3fa0", "werk": "#0b7a6e", "gezondheid": "#b03a5e",
     "onderwijs": "#8f5f00", "wonen_armoede": "#9a4a24", "klimaat_energie": "#2e7d32", "mobiliteit": "#c0461a",
-    "demografie": "#4f5f70",
+    "veiligheid_justitie": "#7a3e65", "demografie": "#4f5f70",
 }
 
 _I = '<svg class="icoon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{}</svg>'
@@ -106,6 +116,7 @@ ICONEN = {
     "code": '<path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/>',
     "kaart": '<path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/>',
     "reken": '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8"/><path d="M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01M8 18h.01M12 18h4"/>',
+    "justitie": '<path d="M12 4v16M7 20h10"/><path d="M5 8h14"/><path d="M5 8l-3 6a3 3 0 0 0 6 0z"/><path d="M19 8l-3 6a3 3 0 0 0 6 0z"/><circle cx="12" cy="4" r="1"/>',
     "taal": '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/>',
 }
 
@@ -121,19 +132,23 @@ NB = " "  # harde spatie: getal en eenheid blijven samen op één regel
 SCHEIDING = {"nl": (".", ","), "de": (".", ","), "fr": (" ", ","), "en": (",", ".")}
 # eenheid in de catalogus → (vóór het getal, erna voluit, erna kort)
 EENHEDEN = {
-    "nl": {"cent/kWh": ("", " cent per kWh", " cent/kWh"), "€/kWh": ("€ ", " per kWh", "/kWh"), "€/l": ("€ ", " per liter", "/l"),
+    "nl": {"per 100.000": ("", " per 100.000", " per 100.000"),
+           "cent/kWh": ("", " cent per kWh", " cent/kWh"), "€/kWh": ("€ ", " per kWh", "/kWh"), "€/l": ("€ ", " per liter", "/l"),
            "%": ("", "%", "%"), "% bbp": ("", "% van het bbp", "%"), "€": ("€ ", "", ""), "mln €": ("€ ", " miljoen", " mln"),
            "jaar": ("", " jaar", " jaar"), "ton": ("", " ton", " ton"), "per 1.000": ("", " per 1.000", " per 1.000"),
            "per miljoen": ("", " per miljoen", " per miljoen"), "GWh": ("", " GWh", " GWh")},
-    "fr": {"cent/kWh": ("", " centimes par kWh", " c/kWh"), "€/kWh": ("", " € par kWh", " €/kWh"), "€/l": ("", " € par litre", " €/l"),
+    "fr": {"per 100.000": ("", " pour 100\u202f000", " pour 100\u202f000"),
+           "cent/kWh": ("", " centimes par kWh", " c/kWh"), "€/kWh": ("", " € par kWh", " €/kWh"), "€/l": ("", " € par litre", " €/l"),
            "%": ("", " %", " %"), "% bbp": ("", " % du PIB", " %"), "€": ("", " €", " €"), "mln €": ("", " millions d'euros", " M€"),
            "jaar": ("", " ans", " ans"), "ton": ("", " tonnes", " t"), "per 1.000": ("", " pour 1 000", " pour 1 000"),
            "per miljoen": ("", " par million", " par million"), "GWh": ("", " GWh", " GWh")},
-    "de": {"cent/kWh": ("", " Cent pro kWh", " ct/kWh"), "€/kWh": ("", " € pro kWh", " €/kWh"), "€/l": ("", " € pro Liter", " €/l"),
+    "de": {"per 100.000": ("", " je 100.000", " je 100.000"),
+           "cent/kWh": ("", " Cent pro kWh", " ct/kWh"), "€/kWh": ("", " € pro kWh", " €/kWh"), "€/l": ("", " € pro Liter", " €/l"),
            "%": ("", " %", " %"), "% bbp": ("", " % des BIP", " %"), "€": ("", " €", " €"), "mln €": ("", " Mio. €", " Mio. €"),
            "jaar": ("", " Jahre", " Jahre"), "ton": ("", " Tonnen", " t"), "per 1.000": ("", " je 1.000", " je 1.000"),
            "per miljoen": ("", " je Million", " je Million"), "GWh": ("", " GWh", " GWh")},
-    "en": {"cent/kWh": ("", " cents per kWh", "c/kWh"), "€/kWh": ("€", " per kWh", "/kWh"), "€/l": ("€", " per litre", "/l"),
+    "en": {"per 100.000": ("", " per 100,000", " per 100,000"),
+           "cent/kWh": ("", " cents per kWh", "c/kWh"), "€/kWh": ("€", " per kWh", "/kWh"), "€/l": ("€", " per litre", "/l"),
            "%": ("", "%", "%"), "% bbp": ("", "% of GDP", "%"), "€": ("€", "", ""), "mln €": ("€", " million", "m"),
            "jaar": ("", " years", " years"), "ton": ("", " tonnes", " t"), "per 1.000": ("", " per 1,000", " per 1,000"),
            "per miljoen": ("", " per million", " per million"), "GWh": ("", " GWh", " GWh")},
@@ -247,10 +262,6 @@ def vertaal(data: dict, taal: str) -> dict:
     (thema's, begrippen, uitgaven) worden in de kopie vervangen. Getallen blijven onaangeroerd.
     """
     d = copy.deepcopy(data)
-    # mazout (Europese Commissie) staat bij de snelle cijfers van de Nationale Bank
-    if d.get("olie") and d["olie"].get("reeksen"):
-        d.setdefault("snel", {"reeksen": []})
-        d["snel"]["reeksen"] = (d["snel"].get("reeksen") or []) + d["olie"]["reeksen"]
     if taal == "nl":
         return d
     v = lees_vertaling(taal)
@@ -274,8 +285,8 @@ def vertaal(data: dict, taal: str) -> dict:
     if d.get("uitgaven"):
         for f in d["uitgaven"]["functies"] + d["uitgaven"]["details"]:
             f.update((v.get("uitgaven") or {}).get(f["code"]) or {})
-    if d.get("snel"):
-        for r in d["snel"]["reeksen"]:
+    for blok in ("snel", "olie"):
+        for r in (d.get(blok) or {}).get("reeksen", []):
             w = (v.get("snel") or {}).get(r["id"]) or {}
             for k in ("titel", "vraag", "uitleg"):
                 if w.get(k):
@@ -452,7 +463,9 @@ def themabalk(themas: list[dict], actief: str | None, pad: str) -> str:
         links.append(f'<a href="{pad}thema/{t["id"]}.html" style="--t:{THEMA_KLEUR.get(t["id"])}"{huidig}>{icoon(t["icoon"])}<span>{escape(t["nl"])}</span></a>')
     huidig = ' aria-current="page"' if actief == "gewesten" else ""
     links.append(f'<a href="{pad}gewesten.html" class="gewesten-link" style="--t:#1a1f24"{huidig}>{icoon("kaart")}<span>{T("gewesten_kort")}</span></a>')
-    return f'<nav class="themabalk" aria-label="{escape(T("themas_aria"))}"><div class="binnen">{"".join(links)}</div></nav>'
+    knoppen = (f'<button type="button" class="schuif-knop links" aria-hidden="true" tabindex="-1">{icoon("terug")}</button>'
+               f'<button type="button" class="schuif-knop rechts" aria-hidden="true" tabindex="-1">{icoon("pijl")}</button>')
+    return f'<nav class="themabalk" aria-label="{escape(T("themas_aria"))}"><div class="binnen">{"".join(links)}</div>{knoppen}</nav>'
 
 
 def taalkeuze(url: str, bpad: str) -> str:
@@ -496,7 +509,8 @@ def pagina(titel: str, beschrijving: str, inhoud: str, pad: str, data: dict, act
         naar_inhoud=T("naar_inhoud"), kop_reken=T("kop_reken"), zoek_aria=T("zoek_cijfer"), zoek_tekst=T("zoek"),
         voet_project=T("voet_project", datum=datum(data["gegenereerd"])), voet_code=T("voet_code", repo=REPO_URL),
         voet_maker=T("voet_maker", maker=MAKER, linkedin=linkedin), voet_contact=T("voet_contact", mail=CONTACT, repo=REPO_URL),
-        voet_vibe=T("voet_vibe"), voet_onafhankelijk=T("voet_onafhankelijk"), ui=js_teksten(data),
+        voet_vibe=T("voet_vibe"), over_link=T("over_link"),
+        statistiek=(f'<script data-goatcounter="{escape(GOATCOUNTER)}" async src="https://gc.zgo.at/count.js"></script>' if GOATCOUNTER else ""), voet_onafhankelijk=T("voet_onafhankelijk"), ui=js_teksten(data),
     )
 
 
@@ -552,6 +566,9 @@ def startpagina(data: dict, per_id: dict) -> str:
     zoekindex.append({"v": T("zoek_index_vz"), "t": T("vz_label"), "th": themanaam.get("economie", ""),
                       "z": "index indexering spilindex inflatie vooruitzicht planbureau loon uitkering indexation indice-pivot prévision "
                            "Indexierung Schwellenindex Prognose indexation pivot forecast", "u": "thema/economie.html#inflatie-en-index"})
+    for o in (data.get("olie") or {}).get("reeksen", []):
+        zoekindex.append({"v": tx(o["vraag"]), "t": tx(o["titel"]), "th": themanaam.get("klimaat_energie", ""),
+                          "z": "mazout stookolie gasolie verwarming fioul mazout de chauffage Heizöl heating oil", "u": f'thema/klimaat_energie.html#{o["id"]}'})
     zoekindex.append({"v": T("zoek_index_gewesten"), "t": T("gw_kruimel"), "th": T("gewesten_kort"),
                       "z": "vlaanderen wallonie brussel gewest regio deelstaat flandre bruxelles région Flandern Brüssel Region "
                            "flanders wallonia brussels region", "u": "gewesten.html"})
@@ -561,7 +578,7 @@ def startpagina(data: dict, per_id: dict) -> str:
 <section class="held">
   <div class="held-achter" aria-hidden="true"><span></span><span></span><span></span></div>
   <div class="binnen">
-    <p class="bovenregel"><b>{MERK}</b><span>{ondertitel()}</span><span>{T("editie", datum=datum(data["gegenereerd"]))}</span></p>
+    <p class="bovenregel"><b>{MERK}</b><span>{ondertitel()}</span><span class="editie">{T("editie", datum=datum(data["gegenereerd"]))}</span></p>
     <h1>{T("held_titel")}</h1>
     <p class="held-sub">{T("held_sub")}</p>
     <div class="zoek js" id="zoek">
@@ -719,37 +736,48 @@ def mini_spark(punten: list, b: int = 160, h: int = 40) -> str:
     return f'<svg class="spark" viewBox="0 0 {b} {h}" aria-hidden="true">{nul}<path d="{d}" pathLength="1"/><circle cx="{pts[-1][0]:.1f}" cy="{pts[-1][1]:.1f}" r="3"/></svg>'
 
 
+def snelkaart(r: dict) -> str:
+    """Eén kaartje met een maand-, kwartaal- of weekcijfer."""
+    p = r["punten"]
+    laatst, vorig = p[-1], p[-2] if len(p) > 1 else None
+    stap = 4 if "-Q" in laatst[0] else 52 if len(laatst[0]) == 10 else 12
+    jaar_eerder = p[-1 - stap] if len(p) > stap else None
+    fmt = lambda v: kort_met_eenheid(v, r)
+    verschil = lambda a, b: (("+" if a - b > 0 else "−" if a - b < 0 else "±")
+                             + (getal(abs(a - b), r["decimalen"]) + T("procentpunt") if r["eenheid"] == "%"
+                                else kort_met_eenheid(abs(a - b), r)))
+    regels = []
+    if vorig:
+        regels.append(T("tegenover", verschil=verschil(laatst[1], vorig[1]), periode=periode_tekst(vorig[0])))
+    if jaar_eerder:
+        regels.append(T("jaar_eerder", waarde=fmt(jaar_eerder[1])))
+    if r.get("vergelijk"):
+        v = {x[0]: x[1] for x in r["vergelijk"]["punten"]}
+        if laatst[0] in v:
+            regels.append(f'{escape(tx(r["vergelijk"]["naam"]))}: {fmt(v[laatst[0]])}')
+    return (
+        f'<article class="snel-kaart" id="{escape(r["id"])}"><p class="sk-vraag">{escape(tx(r["vraag"]))}</p>'
+        f'<p class="sk-titel">{escape(tx(r["titel"]))}</p>'
+        f'<p class="sk-waarde">{fmt(laatst[1])}</p><p class="sk-periode">{periode_tekst(laatst[0])}</p>'
+        f'{mini_spark(p[-2 * stap:])}<ul>{"".join(f"<li>{x}</li>" for x in regels)}</ul>'
+        f'<details><summary>{T("wat_is_dit")}</summary><p>{escape(tx(r["uitleg"]))}</p></details>'
+        f'<p class="sk-bron">{T("bron")}: <a href="{escape(r["bron"]["url"])}" rel="noopener">{escape(tx(r["bron"].get("naam")) or T("nationale_bank"))}</a> · <a href="{escape(r["api_url"])}" rel="noopener">{T("ruwe_data")}</a></p></article>')
+
+
+def mazoutblok(data: dict) -> str:
+    """Weekprijs van mazout (Europese Commissie), op de pagina Klimaat en energie."""
+    reeksen = (data.get("olie") or {}).get("reeksen") or []
+    if not reeksen:
+        return ""
+    return f'<section class="blok snel"><div class="snel-raster">{"".join(snelkaart(r) for r in reeksen)}</div></section>'
+
+
 def snelblok(data: dict) -> str:
     """De laatste maanden: maand- en kwartaalcijfers van de Nationale Bank."""
     snel = data.get("snel")
     if not snel:
         return ""
-    kaarten = []
-    for r in snel["reeksen"]:
-        p = r["punten"]
-        laatst, vorig = p[-1], p[-2] if len(p) > 1 else None
-        stap = 4 if "-Q" in laatst[0] else 52 if len(laatst[0]) == 10 else 12
-        jaar_eerder = p[-1 - stap] if len(p) > stap else None
-        fmt = lambda v: kort_met_eenheid(v, r)
-        verschil = lambda a, b: (("+" if a - b > 0 else "−" if a - b < 0 else "±")
-                                 + (getal(abs(a - b), r["decimalen"]) + T("procentpunt") if r["eenheid"] == "%"
-                                    else kort_met_eenheid(abs(a - b), r)))
-        regels = []
-        if vorig:
-            regels.append(T("tegenover", verschil=verschil(laatst[1], vorig[1]), periode=periode_tekst(vorig[0])))
-        if jaar_eerder:
-            regels.append(T("jaar_eerder", waarde=fmt(jaar_eerder[1])))
-        if r.get("vergelijk"):
-            v = {x[0]: x[1] for x in r["vergelijk"]["punten"]}
-            if laatst[0] in v:
-                regels.append(f'{escape(tx(r["vergelijk"]["naam"]))}: {fmt(v[laatst[0]])}')
-        kaarten.append(
-            f'<article class="snel-kaart"><p class="sk-vraag">{escape(tx(r["vraag"]))}</p>'
-            f'<p class="sk-titel">{escape(tx(r["titel"]))}</p>'
-            f'<p class="sk-waarde">{fmt(laatst[1])}</p><p class="sk-periode">{periode_tekst(laatst[0])}</p>'
-            f'{mini_spark(p[-2 * stap:])}<ul>{"".join(f"<li>{x}</li>" for x in regels)}</ul>'
-            f'<details><summary>{T("wat_is_dit")}</summary><p>{escape(tx(r["uitleg"]))}</p></details>'
-            f'<p class="sk-bron">{T("bron")}: <a href="{escape(r["bron"]["url"])}" rel="noopener">{escape(tx(r["bron"].get("naam")) or T("nationale_bank"))}</a> · <a href="{escape(r["api_url"])}" rel="noopener">{T("ruwe_data")}</a></p></article>')
+    kaarten = [snelkaart(r) for r in snel["reeksen"]]
     return (f'<section class="blok snel" aria-labelledby="snel-titel"><div class="blok-kop"><h2 id="snel-titel">{T("snel_titel")}</h2>'
             f'<span class="blok-noot">{T("snel_noot", datum=datum(snel.get("opgehaald")))}</span></div>'
             f'<div class="snel-raster">{"".join(kaarten)}</div></section>')
@@ -786,6 +814,7 @@ def themapagina(data: dict, thema: dict, vorige: dict, volgende: dict) -> str:
   {schakelaar}
   {vooruitzichtenblok(data) if thema["id"] == "economie" else ""}
   {uitgavenblok(data, per_id) if thema["id"] == "overheidsfinancien" else ""}
+  {mazoutblok(data) if thema["id"] == "klimaat_energie" else ""}
   <div class="kaart-raster">{"".join(kaart(i, bpad) for i in inds)}</div>
   {f'<section class="begrippen"><h2>{T("begrippen_titel")}</h2><dl>{begrippen}</dl></section>' if begrippen else ""}
   <nav class="buren-nav" aria-label="{escape(T("andere_themas"))}">
@@ -928,6 +957,37 @@ def rekenpagina(data: dict) -> str:
     return pagina(f'{T("rk_titel")} · {MERK}', T("rk_beschrijving"), inhoud, "", data, "reken", "thema-overheidsfinancien", "rekenmodule.html")
 
 
+def overpagina(data: dict) -> str:
+    """Over deze site: waarom, hoe, neutraliteit, bronnen, privacy, AI en de maker."""
+    namen = data.get("_instellingen") or {}
+    bronnen = []
+    for naam, (url, voorwaarden) in VOORWAARDEN.items():
+        label = T("over_voorwaarden") if voorwaarden else "website"
+        bronnen.append(f'<li><b>{escape(namen.get(naam, naam))}</b> · <a href="{escape(url)}" rel="noopener">{label}</a></li>')
+    privacy = T("over_privacy") + (" " + T("over_statistiek") if GOATCOUNTER else "")
+    linkedin = f'<a href="{LINKEDIN_URL}" rel="noopener">LinkedIn</a> · ' if LINKEDIN_URL else ""
+    blok = lambda titel, tekst: f'<section class="over-blok"><h2>{titel}</h2><p>{tekst}</p></section>'
+    inhoud = f'''
+<section class="themakop" style="--t:#3a434c">
+  <div class="binnen">
+    <p class="kruimel"><a href="./">{MERK}</a> / {T("over_titel")}</p>
+    <div class="themakop-titel"><span class="tk-icoon groot">{icoon("info")}</span><h1>{T("over_titel")}</h1></div>
+    <p class="intro">{T("over_intro")}</p>
+  </div>
+</section>
+<div class="binnen over">
+  {blok(T("over_hoe_titel"), T("over_hoe"))}
+  {blok(T("over_neutraal_titel"), T("over_neutraal"))}
+  <section class="over-blok"><h2>{T("over_bronnen_titel")}</h2><p>{T("over_bronnen")}</p><ul class="lijst">{"".join(bronnen)}</ul></section>
+  {blok(T("over_privacy_titel"), privacy)}
+  {blok(T("over_ai_titel"), T("over_ai"))}
+  <section class="over-blok over-mij"><h2>{T("over_mij_titel")}</h2><p>{T("over_mij")}</p><p>{linkedin}<a href="mailto:{CONTACT}">{CONTACT}</a></p></section>
+  <section class="over-blok"><h2>{T("over_fout_titel")}</h2><p>{T("voet_contact", mail=CONTACT, repo=REPO_URL)}</p></section>
+</div>
+'''
+    return pagina(f'{T("over_titel")} · {MERK}', T("over_beschrijving"), inhoud, "", data, None, "index", "over.html")
+
+
 def bouw_taal(basis: dict, taal: str) -> None:
     zet_taal(taal)
     data = vertaal(basis, taal)
@@ -939,6 +999,7 @@ def bouw_taal(basis: dict, taal: str) -> None:
     (doel_map / "index.html").write_text(startpagina(data, per_id), encoding="utf-8")
     (doel_map / "gewesten.html").write_text(gewestenpagina(data), encoding="utf-8")
     (doel_map / "rekenmodule.html").write_text(rekenpagina(data), encoding="utf-8")
+    (doel_map / "over.html").write_text(overpagina(data), encoding="utf-8")
     themas = data["themas"]
     for n, t in enumerate(themas):
         html = themapagina(data, t, themas[n - 1], themas[(n + 1) % len(themas)])
@@ -968,7 +1029,7 @@ def bouw() -> None:
 
 def bouw_extra(basis: dict) -> None:
     """robots.txt, sitemap.xml, 404-pagina en webmanifest."""
-    paginas = ["", "gewesten.html", "rekenmodule.html"] + [f'thema/{t["id"]}.html' for t in basis["themas"]]
+    paginas = ["", "gewesten.html", "rekenmodule.html", "over.html"] + [f'thema/{t["id"]}.html' for t in basis["themas"]]
     dag = basis["gegenereerd"][:10]
     regels = []
     for url in paginas:
@@ -1050,11 +1111,13 @@ SJABLOON = """<!doctype html>
     <div>
       <p>{voet_maker}</p>
       <p>{voet_contact}</p>
+      <p><a href="{pad}over.html">{over_link}</a></p>
       <p class="vibe">{voet_vibe}</p>
     </div>
   </div>
 </footer>
 <script src="{bpad}app.js" defer></script>
+{statistiek}
 </body>
 </html>
 """

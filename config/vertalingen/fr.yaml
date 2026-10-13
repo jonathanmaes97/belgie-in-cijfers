@@ -14,12 +14,12 @@ themas:
   werk:
     nl: Emploi
     vraag: Combien de personnes travaillent ?
-    intro: Le nombre de personnes qui ont un emploi détermine en partie les impôts et cotisations qui rentrent pour payer, entre autres, les pensions et les soins de santé. Vous voyez ici combien d'adultes travaillent et combien de personnes cherchent un emploi, y compris par région.
+    intro: Le nombre de personnes qui ont un emploi détermine en partie les impôts et cotisations qui rentrent pour payer, entre autres, les pensions et les soins de santé. Vous voyez ici combien d'adultes travaillent, combien de personnes cherchent un emploi et depuis combien de temps, combien de personnes plus âgées travaillent encore, et combien ne travaillent pas pour cause de maladie.
     bevoegd: Le droit du travail et les allocations de chômage sont fédéraux. L'accompagnement des demandeurs d'emploi est une mission des régions et de la Communauté germanophone (VDAB, Le Forem, Actiris et ADG).
   gezondheid:
     nl: Santé
     vraag: Sommes-nous en bonne santé ?
-    intro: 'Combien de temps et en quelle santé nous vivons dépend de nombreux facteurs : les soins, le mode de vie, le travail et les revenus. Vous voyez ici l''espérance de vie moyenne et combien nous dépensons ensemble pour les soins de santé.'
+    intro: 'Combien de temps et en quelle santé nous vivons dépend de nombreux facteurs : les soins, le mode de vie, le travail et les revenus. Vous voyez ici combien d''années nous vivons en moyenne, et combien en bonne santé, combien de décès étaient évitables, si les gens reçoivent les soins dont ils ont besoin, et combien nous dépensons pour les soins.'
     bevoegd: L'assurance maladie et le financement des hôpitaux sont en grande partie fédéraux. La prévention, les soins aux personnes âgées et la première ligne relèvent surtout des communautés.
   onderwijs:
     nl: Enseignement
@@ -29,7 +29,7 @@ themas:
   wonen_armoede:
     nl: Logement et pauvreté
     vraag: Tout le monde parvient-il à joindre les deux bouts ?
-    intro: Un logement abordable et un revenu suffisant pour vivre sont des besoins de base. Vous voyez ici combien de personnes sont menacées de pauvreté ou d'exclusion sociale et à quelle vitesse les prix des logements augmentent.
+    intro: Un logement abordable et un revenu suffisant pour vivre sont des besoins de base. Vous voyez ici combien de personnes sont menacées de pauvreté, combien doivent se passer de choses de base, qui paie lourdement pour se loger et à quelle vitesse les prix des logements augmentent.
     bevoegd: La politique du logement, comme le logement social et les règles de location, est une compétence des régions. Les allocations et les pensions sont fédérales ; les CPAS aident les personnes au niveau local.
   klimaat_energie:
     nl: Climat et énergie
@@ -39,13 +39,18 @@ themas:
   mobiliteit:
     nl: Mobilité
     vraag: Arrivons-nous à destination facilement et en sécurité ?
-    intro: Notre façon de nous déplacer détermine le temps passé en route et notre sécurité. Vous voyez ici la ponctualité des trains et combien de personnes meurent sur les routes.
+    intro: Notre façon de nous déplacer détermine le temps passé en route et notre sécurité. Vous voyez ici la ponctualité des trains, la part de la voiture et du train, le nombre de voitures et combien de personnes meurent sur les routes.
     bevoegd: Le rail (SNCB et Infrabel) est fédéral. Les routes, la sécurité routière sur les routes régionales ainsi que les bus et trams (De Lijn, TEC et STIB) sont des compétences des régions.
   demografie:
     nl: Population
     vraag: Combien sommes-nous, et qui nous rejoint ?
     intro: Le nombre d'habitants en Belgique et leur âge déterminent combien d'écoles, de logements, de soins et de pensions sont nécessaires. La population change par les naissances et les décès, et par les personnes qui s'installent en Belgique ou la quittent. Vous voyez ici les deux.
     bevoegd: Les chiffres de population proviennent du Registre national. La politique migratoire est fédérale ; l'intégration relève des communautés.
+  veiligheid_justitie:
+    nl: Sécurité et justice
+    vraag: Où en est la justice ?
+    intro: La justice doit rendre des jugements et faire exécuter les peines. Vous voyez ici combien de personnes sont en prison et à quel point les prisons sont pleines.
+    bevoegd: 'La justice, les tribunaux et les prisons sont fédéraux. La police travaille à deux niveaux : la police fédérale et la police locale. Les maisons de justice et l''aide aux détenus relèvent des communautés.'
 begrippen:
   bbp:
     term: PIB
@@ -449,6 +454,181 @@ indicatoren:
     - prix de l'énergie
     - facture d'énergie
     - énergie
+  pensioenuitgaven:
+    titel: Dépenses de pensions
+    vraag: Combien dépensons-nous pour les pensions ?
+    definitie: Toutes les dépenses de pensions (pensions de retraite, anticipées, d'invalidité et de survie), en pourcentage du PIB (classification européenne SESPROS).
+    uitleg: Les pensions sont le premier poste de dépenses de la sécurité sociale. Comme nous vivons plus longtemps et qu'il y a plus de personnes âgées, ce chiffre augmente si rien ne change. Il ne dit rien du montant d'une pension individuelle.
+    zoekwoorden:
+    - pension
+    - pensions
+    - vieillissement
+    - pension de retraite
+    - sécurité sociale
+  defensie_uitgaven:
+    titel: Dépenses de défense
+    vraag: Combien l'État dépense-t-il pour la défense ?
+    definitie: Dépenses publiques de défense (fonction GF02 de la classification européenne COFOG), en pourcentage du PIB.
+    uitleg: Les dépenses militaires, l'armée et l'aide militaire à d'autres pays. L'OTAN utilise sa propre définition, un peu plus large ; ses chiffres peuvent donc être un peu plus élevés.
+    zoekwoorden:
+    - défense
+    - armée
+    - otan
+    - militaire
+    - sécurité
+  langdurige_werkloosheid:
+    titel: Chômage de longue durée
+    vraag: Combien de demandeurs d'emploi cherchent depuis plus d'un an ?
+    definitie: Part des chômeurs (15 à 74 ans, définition internationale) qui cherchent un emploi depuis au moins douze mois.
+    uitleg: Plus quelqu'un cherche longtemps, plus il devient généralement difficile de retrouver un emploi.
+    zoekwoorden:
+    - chômage de longue durée
+    - chômage
+    - demandeurs d'emploi
+    - activation
+    wafel_tekst: chômeurs cherchent un emploi depuis plus d'un an
+  werkzaamheid_55_64:
+    titel: Les 55 ans et plus au travail
+    vraag: Combien de personnes de 55 à 64 ans travaillent encore ?
+    definitie: Part des 55-64 ans qui ont un emploi.
+    uitleg: 'Ce chiffre compte dans le débat sur les pensions et le travail plus long : plus les personnes âgées travaillent, plus les cotisations rentrent.'
+    zoekwoorden:
+    - travailleurs âgés
+    - travailler plus longtemps
+    - âge de la pension
+    - fin de carrière
+  inactief_ziekte:
+    titel: Sans emploi pour cause de maladie
+    vraag: Combien de personnes en âge de travailler ne travaillent pas en raison d'une maladie ou d'un handicap ?
+    definitie: Part des 20-64 ans qui ne travaillent pas et ne cherchent pas d'emploi, avec leur propre maladie ou handicap comme raison principale (enquête européenne sur les forces de travail).
+    uitleg: Il s'agit de ce que les personnes répondent elles-mêmes dans une enquête, pas du nombre de personnes qui touchent une indemnité de la mutualité. Cela donne toutefois une idée du nombre de personnes qui ne travaillent pas à cause de leur santé.
+    zoekwoorden:
+    - malades de longue durée
+    - maladie
+    - invalidité
+    - incapacité de travail
+    - handicap
+    - inami
+  gezonde_levensjaren:
+    titel: Années de vie en bonne santé
+    vraag: Combien d'années vivons-nous en bonne santé ?
+    definitie: Nombre d'années qu'un nouveau-né peut espérer vivre sans limitation dans la vie quotidienne due à des problèmes de santé.
+    uitleg: Vivre longtemps est une chose, vivre en bonne santé en est une autre. La différence avec l'espérance de vie, ce sont les années que nous vivons en moyenne avec des limitations. Le chiffre repose sur ce que les personnes répondent elles-mêmes dans une enquête.
+    zoekwoorden:
+    - bonne santé
+    - années de vie
+    - santé
+    - limitation
+    - vieillir
+  vermijdbare_sterfte:
+    titel: Mortalité évitable
+    vraag: Combien de personnes meurent tôt de causes évitables ?
+    definitie: Décès avant 75 ans qui auraient pu être évités par la prévention ou par des soins rapides et de qualité, pour 100 000 habitants (standardisé selon l'âge).
+    uitleg: Pensez au cancer du poumon dû au tabac, aux accidents de la route ou à une infection traitable. Ce chiffre dit quelque chose de la prévention et de la qualité des soins à la fois.
+    zoekwoorden:
+    - mortalité
+    - prévention
+    - évitable
+    - qualité des soins
+    - décès prématuré
+  onvervulde_zorg:
+    titel: Renoncement aux soins
+    vraag: Combien de personnes ne reçoivent pas les soins dont elles ont besoin ?
+    definitie: Part des habitants de 16 ans et plus qui déclarent avoir eu besoin d'un examen médical ou d'un traitement sans l'avoir reçu, parce que c'était trop cher, trop loin ou parce que la liste d'attente était trop longue.
+    uitleg: Il s'agit de ce que les personnes répondent elles-mêmes dans une enquête européenne. Chez les personnes à faible revenu, ce chiffre est généralement plus élevé que la moyenne.
+    zoekwoorden:
+    - accès aux soins
+    - liste d'attente
+    - trop cher
+    - médecin
+    - accessibilité des soins
+  verpleegkundigen:
+    titel: Infirmiers et infirmières
+    vraag: Combien d'infirmiers et d'infirmières sont au travail ?
+    definitie: Nombre d'infirmiers et d'infirmières en exercice ayant une formation reconnue au niveau européen, pour 100 000 habitants.
+    uitleg: 'En exercice signifie : ils soignent réellement des patients. Les pays ne comptent pas tous le personnel infirmier de la même manière ; comparez donc avec prudence.'
+    zoekwoorden:
+    - soins infirmiers
+    - infirmiers
+    - personnel soignant
+    - pénurie
+    - hôpital
+  woonkosten_zwaar:
+    titel: Coûts du logement lourds
+    vraag: Combien de personnes consacrent une grande part de leur revenu au logement ?
+    definitie: Part de la population vivant dans un ménage qui consacre plus de 40 % de son revenu disponible au logement (loyer ou intérêts de l'emprunt, énergie, eau et entretien).
+    uitleg: Ceux qui dépensent autant pour se loger ont peu pour le reste. Les locataires à faible revenu sont plus souvent dans cette situation que les propriétaires.
+    zoekwoorden:
+    - loyer
+    - coût du logement
+    - logement abordable
+    - locataires
+    - logement
+  ernstige_ontbering:
+    titel: Privation grave
+    vraag: Combien de personnes doivent se passer de choses de base ?
+    definitie: Part de la population qui ne peut pas se permettre au moins 7 des 13 éléments de base, comme bien chauffer son logement, payer une facture imprévue ou partir une semaine en vacances.
+    uitleg: Alors que le risque de pauvreté porte surtout sur le revenu, ce chiffre regarde ce que les gens ne peuvent vraiment pas se permettre au quotidien.
+    zoekwoorden:
+    - pauvreté
+    - privation
+    - chauffage
+    - joindre les deux bouts
+    - privation matérielle
+  auto_aandeel:
+    titel: Part de la voiture
+    vraag: Quelle part de nos déplacements faisons-nous en voiture ?
+    definitie: Part de la voiture dans l'ensemble des voyageurs-kilomètres terrestres en voiture, bus, autocar et train (le vélo et la marche ne sont pas comptés).
+    uitleg: Il s'agit des kilomètres parcourus, pas du nombre de trajets. Le vélo et la marche ne figurent pas dans cette statistique européenne.
+    zoekwoorden:
+    - voiture
+    - embouteillages
+    - répartition modale
+    - transports en commun
+    - circulation
+    wafel_tekst: voyageurs-kilomètres terrestres sont parcourus en voiture
+  trein_aandeel:
+    titel: Part du train
+    vraag: Quelle part de nos déplacements faisons-nous en train ?
+    definitie: Part du train dans l'ensemble des voyageurs-kilomètres terrestres en voiture, bus, autocar et train.
+    uitleg: Avec la part de la voiture et celle du bus et de l'autocar, cela fait cent pour cent des voyageurs-kilomètres de cette statistique.
+    zoekwoorden:
+    - train
+    - sncb
+    - transports en commun
+    - répartition modale
+    - rail
+  autos_per_1000:
+    titel: Voitures par habitant
+    vraag: Combien de voitures particulières y a-t-il pour 1 000 habitants ?
+    definitie: Nombre de voitures particulières immatriculées pour 1 000 habitants.
+    uitleg: Les voitures de société immatriculées au nom d'une entreprise sont également comptées.
+    zoekwoorden:
+    - voiture
+    - parc automobile
+    - voitures de société
+    - possession d'une voiture
+  gevangenis_bezetting:
+    titel: Occupation des prisons
+    vraag: À quel point les prisons sont-elles pleines ?
+    definitie: Nombre de personnes en prison divisé par la capacité officielle, en pourcentage. Au-delà de cent, il y a plus de personnes que de places.
+    uitleg: 'La surpopulation signifie plus de personnes par cellule, moins d''accompagnement et plus de tensions pour les détenus et le personnel. Le chiffre est une moyenne : certaines prisons sont beaucoup plus pleines que d''autres.'
+    zoekwoorden:
+    - prison
+    - surpopulation
+    - détention
+    - justice
+    - détenus
+  gevangenen_per_100000:
+    titel: Détenus par habitant
+    vraag: Combien de personnes sont en prison ?
+    definitie: Nombre de personnes en prison pour 100 000 habitants.
+    uitleg: Cela comprend aussi les personnes en détention préventive, qui ne sont pas encore condamnées.
+    zoekwoorden:
+    - prisonniers
+    - détenus
+    - prison
+    - peines
 uitgaven:
   GF10:
     nl: Protection sociale
@@ -514,6 +694,7 @@ instellingen:
   Europese Commissie: Commission européenne
   OESO: OCDE
   IMF: FMI
+  Koninklijke Commissie voor Geschiedenis: Commission royale d'histoire
 niet_meegerekend:
 - Le bonus à l'emploi pour les bas salaires (une réduction de vos cotisations ONSS et de votre impôt)
 - 'Le décompte définitif de la cotisation spéciale de sécurité sociale : nous montrons la retenue sur votre salaire, pour une personne isolée'

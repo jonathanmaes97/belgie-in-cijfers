@@ -68,9 +68,7 @@ themas:
     vraag: Hoeveel mensen werken er?
     kop: werkzaamheidsgraad
     intro: >-
-      Hoeveel mensen een job hebben, bepaalt mee hoeveel belastingen en bijdragen er binnenkomen om onder
-      meer pensioenen en zorg te betalen. Hier zie je hoeveel volwassenen werken en hoeveel mensen werk zoeken,
-      ook per gewest.
+      Hoeveel mensen een job hebben, bepaalt mee hoeveel belastingen en bijdragen er binnenkomen om onder meer pensioenen en zorg te betalen. Hier zie je hoeveel volwassenen werken, hoeveel mensen werk zoeken en hoe lang al, hoeveel ouderen nog werken, en hoeveel mensen niet werken door ziekte.
     bevoegd: >-
       Arbeidsrecht en werkloosheidsuitkeringen zijn federaal. Werkzoekenden begeleiden is een taak van de
       gewesten en de Duitstalige Gemeenschap (VDAB, Le Forem, Actiris en ADG).
@@ -82,8 +80,7 @@ themas:
     vraag: Hoe gezond zijn we?
     kop: levensverwachting
     intro: >-
-      Hoe lang en hoe gezond we leven, hangt af van veel dingen: zorg, levensstijl, werk en inkomen.
-      Hier zie je hoe lang mensen gemiddeld leven en hoeveel we samen aan gezondheidszorg uitgeven.
+      Hoe lang en hoe gezond we leven, hangt af van veel dingen: zorg, levensstijl, werk en inkomen. Hier zie je hoe lang en hoeveel jaren gezond we gemiddeld leven, hoeveel overlijdens te vermijden waren, of mensen de zorg krijgen die ze nodig hebben, en hoeveel we aan zorg uitgeven.
     bevoegd: >-
       De ziekteverzekering en de financiering van ziekenhuizen zijn grotendeels federaal. Preventie,
       ouderenzorg en de eerstelijnszorg zijn vooral een zaak van de gemeenschappen.
@@ -109,8 +106,7 @@ themas:
     vraag: Kan iedereen rondkomen?
     kop: armoede_uitsluiting
     intro: >-
-      Een betaalbare woning en genoeg inkomen om rond te komen zijn basisbehoeften. Hier zie je hoeveel
-      mensen risico lopen op armoede of sociale uitsluiting en hoe snel de woningprijzen stijgen.
+      Een betaalbare woning en genoeg inkomen om rond te komen zijn basisbehoeften. Hier zie je hoeveel mensen risico lopen op armoede, hoeveel er basisdingen moeten missen, wie zwaar betaalt voor wonen en hoe snel de woningprijzen stijgen.
     bevoegd: >-
       Woonbeleid, zoals sociale huisvesting en huurregels, is een bevoegdheid van de gewesten. Uitkeringen
       en pensioenen zijn federaal; de OCMW's helpen mensen lokaal.
@@ -137,12 +133,20 @@ themas:
     vraag: Komen we vlot en veilig aan?
     kop: treinstiptheid
     intro: >-
-      Hoe we ons verplaatsen, bepaalt hoeveel tijd we onderweg zijn en hoe veilig dat is. Hier zie je hoe
-      stipt de treinen rijden en hoeveel mensen er sterven in het verkeer.
+      Hoe we ons verplaatsen, bepaalt hoeveel tijd we onderweg zijn en hoe veilig dat is. Hier zie je hoe stipt de treinen rijden, hoeveel we de auto en de trein gebruiken, hoeveel auto's er zijn en hoeveel mensen er sterven in het verkeer.
     bevoegd: >-
       Het spoor (NMBS en Infrabel) is federaal. Wegen, verkeersveiligheid op gewestwegen en bus en tram
       (De Lijn, TEC en MIVB) zijn bevoegdheden van de gewesten.
     begrippen: [stiptheid]
+
+  - id: veiligheid_justitie
+    nl: Veiligheid en justitie
+    icoon: justitie
+    vraag: "Hoe staat het met justitie?"
+    kop: gevangenis_bezetting
+    intro: "Justitie moet recht spreken en straffen laten uitvoeren. Hier zie je hoeveel mensen er in de gevangenis zitten en hoe vol de gevangenissen zijn."
+    bevoegd: "Justitie, de rechtbanken en de gevangenissen zijn federaal. De politie werkt op twee niveaus: de federale en de lokale politie. Justitiehuizen en hulp aan gedetineerden zijn een zaak van de gemeenschappen."
+    begrippen: []
 
   - id: demografie
     nl: Bevolking
@@ -328,6 +332,30 @@ indicatoren:
     verborgen: true
     bron: {instelling: Eurostat, dataset: gov_10a_main, filters: {unit: MIO_EUR, sector: S13, na_item: D41PAY}}
 
+  - id: pensioenuitgaven
+    thema: overheidsfinancien
+    titel: {nl: "Uitgaven aan pensioenen"}
+    vraag: {nl: "Hoeveel geven we uit aan pensioenen?"}
+    definitie: {nl: "Alle uitgaven aan pensioenen (rust-, vervroegde, invaliditeits- en overlevingspensioenen), in procent van het bbp (Europese indeling ESSPROS)."}
+    uitleg: {nl: "Pensioenen zijn de grootste uitgavenpost van de sociale zekerheid. Omdat we langer leven en er meer ouderen zijn, stijgt dit cijfer als er niets verandert. Dit cijfer zegt niets over hoe hoog één pensioen is."}
+    eenheid: "% bbp"
+    decimalen: 1
+    weergave: lijn
+    zoekwoorden: ["pensioen", "pensioenen", "vergrijzing", "rustpensioen", "sociale zekerheid"]
+    bron: {instelling: Eurostat, dataset: spr_exp_pens, filters: {spdepb: TOTAL, spdepm: TOTAL, unit: PC_GDP}}
+
+  - id: defensie_uitgaven
+    thema: overheidsfinancien
+    titel: {nl: "Uitgaven aan defensie"}
+    vraag: {nl: "Hoeveel geeft de overheid uit aan defensie?"}
+    definitie: {nl: "Overheidsuitgaven voor defensie (functie GF02 in de Europese indeling COFOG), in procent van het bbp."}
+    uitleg: {nl: "Militaire uitgaven, het leger en militaire hulp aan andere landen. De NAVO gebruikt een eigen, iets ruimere definitie; haar cijfers kunnen dus wat hoger liggen."}
+    eenheid: "% bbp"
+    decimalen: 1
+    weergave: lijn
+    zoekwoorden: ["defensie", "leger", "navo", "militair", "veiligheid"]
+    bron: {instelling: Eurostat, dataset: gov_10a_exp, filters: {unit: PC_GDP, sector: S13, na_item: TE, cofog99: GF02}}
+
   # ---------- Werk ----------
   - id: werkzaamheidsgraad
     thema: werk
@@ -357,6 +385,44 @@ indicatoren:
     bron: {instelling: Eurostat, dataset: une_rt_a, filters: {age: Y15-74, unit: PC_ACT, sex: T}}
     regionaal: {instelling: Eurostat, dataset: lfst_r_lfu3rt, filters: {sex: T, age: Y15-74, unit: PC, isced11: TOTAL}, landen: [BE1, BE2, BE3]}
 
+  - id: langdurige_werkloosheid
+    thema: werk
+    titel: {nl: "Langdurige werkloosheid"}
+    vraag: {nl: "Hoeveel werkzoekenden zoeken al langer dan een jaar?"}
+    definitie: {nl: "Aandeel van de werklozen (15 tot 74 jaar, internationale definitie) dat al minstens twaalf maanden werk zoekt."}
+    uitleg: {nl: "Hoe langer iemand werk zoekt, hoe moeilijker het meestal wordt om opnieuw aan de slag te gaan."}
+    eenheid: "%"
+    decimalen: 1
+    weergave: lijn
+    beeld: wafel
+    wafel_tekst: {nl: "werklozen zoekt al langer dan een jaar werk"}
+    zoekwoorden: ["langdurig werkloos", "werkloosheid", "werkzoekenden", "activering"]
+    bron: {instelling: Eurostat, dataset: une_ltu_a, filters: {indic_em: LTU, age: Y15-74, sex: T, unit: PC_UNE}}
+
+  - id: werkzaamheid_55_64
+    thema: werk
+    titel: {nl: "Werkende 55-plussers"}
+    vraag: {nl: "Hoeveel mensen tussen 55 en 64 werken nog?"}
+    definitie: {nl: "Aandeel van de 55- tot 64-jarigen dat een job heeft."}
+    uitleg: {nl: "Dit cijfer speelt mee in het debat over pensioenen en langer werken: hoe meer ouderen werken, hoe meer bijdragen er binnenkomen."}
+    eenheid: "%"
+    decimalen: 1
+    weergave: lijn
+    zoekwoorden: ["oudere werknemers", "langer werken", "pensioenleeftijd", "eindeloopbaan"]
+    bron: {instelling: Eurostat, dataset: lfsi_emp_a, filters: {indic_em: EMP_LFS, sex: T, age: Y55-64, unit: PC_POP}}
+
+  - id: inactief_ziekte
+    thema: werk
+    titel: {nl: "Niet aan het werk door ziekte"}
+    vraag: {nl: "Hoeveel mensen op werkleeftijd werken niet door ziekte of een handicap?"}
+    definitie: {nl: "Aandeel van de 20- tot 64-jarigen dat niet werkt en geen werk zoekt, met de eigen ziekte of handicap als belangrijkste reden (Europese enquête naar de arbeidskrachten)."}
+    uitleg: {nl: "Het gaat om wat mensen zelf antwoorden in een enquête, niet om het aantal mensen met een uitkering van het ziekenfonds. Het geeft wel een beeld van hoeveel mensen door hun gezondheid niet aan het werk zijn."}
+    eenheid: "%"
+    decimalen: 1
+    weergave: lijn
+    zoekwoorden: ["langdurig ziek", "ziekte", "invaliditeit", "arbeidsongeschikt", "handicap", "riziv"]
+    bron: {instelling: Eurostat, dataset: lfsa_igar, filters: {unit: PC_POP, sex: T, age: Y20-64, reason: ILL_DIS_OWN}}
+
   # ---------- Gezondheid ----------
   - id: levensverwachting
     thema: gezondheid
@@ -382,6 +448,54 @@ indicatoren:
     weergave: lijn
     zoekwoorden: [zorg, ziekenhuis, riziv, ziekenfonds]
     bron: {instelling: Eurostat, dataset: hlth_sha11_hf, filters: {unit: PC_GDP, icha11_hf: TOT_HF}}
+
+  - id: gezonde_levensjaren
+    thema: gezondheid
+    titel: {nl: "Gezonde levensjaren"}
+    vraag: {nl: "Hoeveel jaar leven we in goede gezondheid?"}
+    definitie: {nl: "Aantal jaren dat een pasgeborene naar verwachting leeft zonder beperkingen in het dagelijks leven door gezondheidsproblemen."}
+    uitleg: {nl: "Lang leven is één ding, gezond leven een ander. Het verschil met de levensverwachting zijn de jaren die we gemiddeld met beperkingen leven. Het cijfer steunt op wat mensen zelf antwoorden in een enquête."}
+    eenheid: "jaar"
+    decimalen: 1
+    weergave: lijn
+    zoekwoorden: ["gezond", "levensjaren", "gezondheid", "beperking", "ouder worden"]
+    bron: {instelling: Eurostat, dataset: hlth_hlye, filters: {unit: YR, sex: T, hlth_hle: HLY_Y0}}
+
+  - id: vermijdbare_sterfte
+    thema: gezondheid
+    titel: {nl: "Vermijdbare sterfte"}
+    vraag: {nl: "Hoeveel mensen sterven vroeg aan iets wat te vermijden was?"}
+    definitie: {nl: "Overlijdens vóór 75 jaar die vermeden hadden kunnen worden door preventie of door tijdige en goede zorg, per 100.000 inwoners (gestandaardiseerd naar leeftijd)."}
+    uitleg: {nl: "Denk aan longkanker door roken, verkeersongevallen of een behandelbare infectie. Het cijfer zegt iets over preventie en over de kwaliteit van de zorg samen."}
+    eenheid: "per 100.000"
+    decimalen: 0
+    weergave: lijn
+    zoekwoorden: ["sterfte", "preventie", "vermijdbaar", "kwaliteit zorg", "vroegtijdig overlijden"]
+    bron: {instelling: Eurostat, dataset: hlth_cd_apr, filters: {mortalit: TOTAL, sex: T, icd10: TOTAL, unit: RT}}
+
+  - id: onvervulde_zorg
+    thema: gezondheid
+    titel: {nl: "Afzien van zorg"}
+    vraag: {nl: "Hoeveel mensen krijgen niet de zorg die ze nodig hebben?"}
+    definitie: {nl: "Aandeel van de inwoners van 16 jaar en ouder dat zegt een medisch onderzoek of een behandeling nodig te hebben gehad maar die niet kreeg, omdat het te duur was, te ver of omdat de wachtlijst te lang was."}
+    uitleg: {nl: "Het gaat om wat mensen zelf antwoorden in een Europese enquête. Bij mensen met een laag inkomen ligt dit cijfer meestal hoger dan gemiddeld."}
+    eenheid: "%"
+    decimalen: 1
+    weergave: lijn
+    zoekwoorden: ["toegang zorg", "wachtlijst", "te duur", "dokter", "betaalbaarheid zorg"]
+    bron: {instelling: Eurostat, dataset: sdg_03_60, filters: {age: Y_GE16, sex: T, reason: TXP_TFAR_WLIST, unit: PC, quant_inc: TOTAL}}
+
+  - id: verpleegkundigen
+    thema: gezondheid
+    titel: {nl: "Verpleegkundigen"}
+    vraag: {nl: "Hoeveel verpleegkundigen zijn er aan het werk?"}
+    definitie: {nl: "Aantal praktiserende verpleegkundigen met een Europees erkende opleiding, per 100.000 inwoners."}
+    uitleg: {nl: "Praktiserend wil zeggen: ze zorgen echt voor patiënten. Landen tellen verpleegkundigen niet allemaal op dezelfde manier, dus vergelijk met voorzichtigheid."}
+    eenheid: "per 100.000"
+    decimalen: 0
+    weergave: lijn
+    zoekwoorden: ["verpleging", "verpleegkundigen", "zorgpersoneel", "tekort", "ziekenhuis"]
+    bron: {instelling: Eurostat, dataset: hlth_rs_prs2, filters: {unit: P_HTHAB, wstatus: PRACT, med_spec: NRS}}
 
   # ---------- Onderwijs ----------
   - id: diploma_hoger_onderwijs
@@ -467,6 +581,30 @@ indicatoren:
     weergave: kolommen
     zoekwoorden: [huis, huizenprijzen, vastgoed, kopen]
     bron: {instelling: Eurostat, dataset: prc_hpi_a, filters: {purchase: TOTAL, unit: RCH_A_AVG}}
+
+  - id: woonkosten_zwaar
+    thema: wonen_armoede
+    titel: {nl: "Zware woonkosten"}
+    vraag: {nl: "Hoeveel mensen geven een groot deel van hun inkomen uit aan wonen?"}
+    definitie: {nl: "Aandeel van de bevolking in een gezin dat meer dan 40% van zijn beschikbaar inkomen uitgeeft aan wonen (huur of rente op de lening, energie, water en onderhoud)."}
+    uitleg: {nl: "Wie zoveel aan wonen uitgeeft, houdt weinig over voor de rest. Huurders met een laag inkomen zitten vaker in die situatie dan eigenaars."}
+    eenheid: "%"
+    decimalen: 1
+    weergave: lijn
+    zoekwoorden: ["huur", "woonkosten", "betaalbaar wonen", "huurders", "wonen"]
+    bron: {instelling: Eurostat, dataset: ilc_lvho07a, filters: {rskpovth: TOTAL, age: TOTAL, sex: T, unit: PC}}
+
+  - id: ernstige_ontbering
+    thema: wonen_armoede
+    titel: {nl: "Ernstige ontbering"}
+    vraag: {nl: "Hoeveel mensen moeten het zonder basisdingen stellen?"}
+    definitie: {nl: "Aandeel van de bevolking dat zich minstens 7 van 13 basisdingen niet kan veroorloven, zoals de woning goed verwarmen, een onverwachte rekening betalen of een week op vakantie gaan."}
+    uitleg: {nl: "Waar het armoederisico vooral over het inkomen gaat, kijkt dit cijfer naar wat mensen zich in het dagelijks leven echt niet kunnen permitteren."}
+    eenheid: "%"
+    decimalen: 1
+    weergave: lijn
+    zoekwoorden: ["armoede", "ontbering", "verwarming", "rondkomen", "materiële deprivatie"]
+    bron: {instelling: Eurostat, dataset: ilc_mdsd11, filters: {age: TOTAL, sex: T, unit: PC}}
 
   # ---------- Klimaat en energie ----------
   - id: hernieuwbare_energie
@@ -608,6 +746,91 @@ indicatoren:
     weergave: lijn
     zoekwoorden: [ongevallen, verkeersveiligheid, auto, fiets]
     bron: {instelling: Eurostat, dataset: sdg_11_40, filters: {unit: RT, tra_infr: TOTAL}}
+
+  - id: auto_aandeel
+    thema: mobiliteit
+    titel: {nl: "Aandeel van de auto"}
+    vraag: {nl: "Hoeveel van onze verplaatsingen doen we met de auto?"}
+    definitie: {nl: "Aandeel van de auto in alle reizigerskilometers over land met auto, bus, autocar en trein (fiets en te voet tellen niet mee)."}
+    uitleg: {nl: "Het gaat om afgelegde kilometers, niet om het aantal ritten. Fietsen en stappen zitten niet in deze Europese statistiek."}
+    eenheid: "%"
+    decimalen: 1
+    weergave: lijn
+    beeld: wafel
+    wafel_tekst: {nl: "reizigerskilometers over land worden met de auto afgelegd"}
+    zoekwoorden: ["auto", "file", "modal split", "openbaar vervoer", "verkeer"]
+    bron: {instelling: Eurostat, dataset: tran_hv_psmod, filters: {unit: PC, vehicle: CAR}}
+
+  - id: trein_aandeel
+    thema: mobiliteit
+    titel: {nl: "Aandeel van de trein"}
+    vraag: {nl: "Hoeveel van onze verplaatsingen doen we met de trein?"}
+    definitie: {nl: "Aandeel van de trein in alle reizigerskilometers over land met auto, bus, autocar en trein."}
+    uitleg: {nl: "Samen met het aandeel van de auto en van bus en autocar is dit honderd procent van de reizigerskilometers in deze statistiek."}
+    eenheid: "%"
+    decimalen: 1
+    weergave: lijn
+    zoekwoorden: ["trein", "nmbs", "openbaar vervoer", "modal split", "spoor"]
+    bron: {instelling: Eurostat, dataset: tran_hv_psmod, filters: {unit: PC, vehicle: TRN}}
+
+  - id: autos_per_1000
+    thema: mobiliteit
+    titel: {nl: "Auto's per inwoner"}
+    vraag: {nl: "Hoeveel personenauto's zijn er per 1.000 inwoners?"}
+    definitie: {nl: "Aantal ingeschreven personenauto's per 1.000 inwoners."}
+    uitleg: {nl: "Bedrijfswagens die op naam van een bedrijf staan, tellen ook mee."}
+    eenheid: "per 1.000"
+    decimalen: 0
+    weergave: lijn
+    zoekwoorden: ["auto", "wagenpark", "bedrijfswagens", "autobezit"]
+    bron: {instelling: Eurostat, dataset: road_eqs_carhab, filters: {unit: NR}}
+
+  # ---------- Veiligheid en justitie ----------
+  - id: gevangenis_bezetting
+    thema: veiligheid_justitie
+    titel: {nl: "Bezetting van de gevangenissen"}
+    vraag: {nl: "Hoe vol zitten de gevangenissen?"}
+    definitie: {nl: "Aantal mensen in de gevangenis gedeeld door de officiële capaciteit, in procent. Boven honderd zitten er meer mensen dan er plaatsen zijn."}
+    uitleg: {nl: "Overbevolking betekent meer mensen per cel, minder begeleiding en meer spanning voor gedetineerden en personeel. Het cijfer is een gemiddelde: sommige gevangenissen zitten veel voller dan andere."}
+    eenheid: "%"
+    decimalen: 1
+    weergave: kolommen
+    zoekwoorden: ["gevangenis", "overbevolking", "detentie", "justitie", "gedetineerden"]
+    afgeleid:
+      formule: "gedetineerden * 100 / capaciteit"
+      invoer: {gedetineerden: gevangenen_aantal, capaciteit: gevangenis_capaciteit}
+
+  - id: gevangenen_per_100000
+    thema: veiligheid_justitie
+    titel: {nl: "Gedetineerden per inwoner"}
+    vraag: {nl: "Hoeveel mensen zitten er in de gevangenis?"}
+    definitie: {nl: "Aantal mensen in de gevangenis per 100.000 inwoners."}
+    uitleg: {nl: "Dit omvat ook mensen in voorlopige hechtenis, die nog niet veroordeeld zijn."}
+    eenheid: "per 100.000"
+    decimalen: 0
+    weergave: lijn
+    zoekwoorden: ["gevangenen", "gedetineerden", "gevangenis", "straffen"]
+    bron: {instelling: Eurostat, dataset: crim_pris_cap, filters: {indic_cr: PRIS_ACT_CAP, unit: P_HTHAB}}
+
+  - id: gevangenen_aantal
+    thema: veiligheid_justitie
+    titel: {nl: "Aantal gedetineerden"}
+    vraag: {nl: "Hoeveel mensen zitten er in de gevangenis?"}
+    definitie: {nl: "Aantal mensen in de gevangenis."}
+    eenheid: ""
+    decimalen: 0
+    verborgen: true
+    bron: {instelling: Eurostat, dataset: crim_pris_cap, filters: {indic_cr: PRIS_ACT_CAP, unit: NR}}
+
+  - id: gevangenis_capaciteit
+    thema: veiligheid_justitie
+    titel: {nl: "Capaciteit van de gevangenissen"}
+    vraag: {nl: "Hoeveel plaatsen hebben de gevangenissen?"}
+    definitie: {nl: "Officiële capaciteit van de gevangenissen, in aantal personen."}
+    eenheid: ""
+    decimalen: 0
+    verborgen: true
+    bron: {instelling: Eurostat, dataset: crim_pris_cap, filters: {indic_cr: PRIS_OFF_CAP, unit: NR}}
 
   # ---------- Bevolking ----------
   - id: bevolking

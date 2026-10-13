@@ -139,10 +139,10 @@ t:
     de: "Diese Website ist unabhängig und nicht mit den Institutionen verbunden, die die Zahlen veröffentlichen. Erläuterungen, Übersetzungen und abgeleitete Zahlen (wie Schulden pro Einwohner) stammen von dieser Website; die Institutionen sind nicht dafür verantwortlich, wie ihre Zahlen hier dargestellt werden."
     en: "This site is independent and not affiliated with the institutions that publish the figures. The explanations, translations and derived figures (such as debt per inhabitant) are this site's own; those institutions are not responsible for how their figures are presented here."
   voet_vibe:
-    nl: "Met <span aria-label=\"liefde\">♥</span> gevibecodet: deze site is gebouwd met hulp van AI (Claude). De cijfers zelf komen rechtstreeks uit de officiële bronnen, zonder dat er AI aan te pas komt."
-    fr: "Vibecodé avec <span aria-label=\"amour\">♥</span> : ce site a été construit avec l'aide de l'IA (Claude). Les chiffres eux-mêmes proviennent directement des sources officielles, sans intervention de l'IA."
-    de: "Mit <span aria-label=\"Liebe\">♥</span> gevibecodet: Diese Website wurde mit Hilfe von KI (Claude) gebaut. Die Zahlen selbst stammen direkt aus den offiziellen Quellen, ohne KI."
-    en: "Vibe-coded with <span aria-label=\"love\">♥</span>: this site was built with the help of AI (Claude). The figures themselves come straight from the official sources, with no AI involved."
+    nl: "Met <button type=\"button\" class=\"hartje\" aria-label=\"liefde\">♥</button> gevibecodet: deze site is gebouwd met hulp van AI (Claude). De cijfers zelf komen rechtstreeks uit de officiële bronnen, zonder dat er AI aan te pas komt."
+    fr: "Vibecodé avec <button type=\"button\" class=\"hartje\" aria-label=\"amour\">♥</button> : ce site a été construit avec l'aide de l'IA (Claude). Les chiffres eux-mêmes proviennent directement des sources officielles, sans intervention de l'IA."
+    de: "Mit <button type=\"button\" class=\"hartje\" aria-label=\"Liebe\">♥</button> gevibecodet: Diese Website wurde mit Hilfe von KI (Claude) gebaut. Die Zahlen selbst stammen direkt aus den offiziellen Quellen, ohne KI."
+    en: "Vibe-coded with <button type=\"button\" class=\"hartje\" aria-label=\"love\">♥</button>: this site was built with the help of AI (Claude). The figures themselves come straight from the official sources, with no AI involved."
 
   # ---- kaarten
   bron:
@@ -455,10 +455,10 @@ t:
     de: "Die letzten Monate"
     en: "The latest months"
   snel_noot:
-    nl: "Maand- en kwartaalcijfers van de Nationale Bank, weekprijzen van de Europese Commissie · opgehaald {datum}"
-    fr: "Chiffres mensuels et trimestriels de la Banque nationale, prix hebdomadaires de la Commission européenne · récupérés le {datum}"
-    de: "Monats- und Quartalszahlen der Nationalbank, Wochenpreise der Europäischen Kommission · abgerufen am {datum}"
-    en: "Monthly and quarterly figures from the National Bank, weekly prices from the European Commission · retrieved {datum}"
+    nl: "Maand- en kwartaalcijfers van de Nationale Bank · opgehaald {datum}"
+    fr: "Chiffres mensuels et trimestriels de la Banque nationale · récupérés le {datum}"
+    de: "Monats- und Quartalszahlen der Nationalbank · abgerufen am {datum}"
+    en: "Monthly and quarterly figures from the National Bank · retrieved {datum}"
   tegenover:
     nl: "{verschil} tegenover {periode}"
     fr: "{verschil} par rapport à {periode}"
@@ -971,6 +971,101 @@ t:
     fr: "L'adresse a peut-être changé. Retournez à la page d'accueil :"
     de: "Vielleicht hat sich die Adresse geändert. Zur Startseite:"
     en: "The address may have changed. Go to the home page:"
+  over_link:
+    nl: "Over deze site"
+    fr: "À propos de ce site"
+    de: "Über diese Website"
+    en: "About this site"
+  over_titel:
+    nl: "Over deze site"
+    fr: "À propos de ce site"
+    de: "Über diese Website"
+    en: "About this site"
+  over_intro:
+    nl: "Iedereen kan meepraten en stemmen over het beleid. Daarvoor heb je de cijfers nodig, en die zitten vaak verstopt in tabellen, rapporten en jargon. Deze site brengt de belangrijkste officiële cijfers over België samen, legt ze uit in gewone taal en toont bij elk cijfer waar het vandaan komt. De cijfers vertellen wat er is; wat je ervan vindt, beslis je zelf."
+    fr: "Chacun peut débattre et voter sur les politiques publiques. Pour cela, il faut des chiffres, et ils sont souvent cachés dans des tableaux, des rapports et du jargon. Ce site rassemble les principaux chiffres officiels sur la Belgique, les explique en langage clair et indique pour chaque chiffre d'où il vient. Les chiffres disent ce qui est ; ce que vous en pensez, c'est à vous de le décider."
+    de: "Jeder kann über Politik mitreden und abstimmen. Dafür braucht man Zahlen, und die sind oft in Tabellen, Berichten und Fachsprache versteckt. Diese Website bringt die wichtigsten offiziellen Zahlen über Belgien zusammen, erklärt sie in einfacher Sprache und zeigt bei jeder Zahl, woher sie kommt. Die Zahlen sagen, was ist; was Sie davon halten, entscheiden Sie selbst."
+    en: "Everyone can have a say in, and vote on, policy. To do that you need the figures, and they are often hidden in tables, reports and jargon. This site brings together the key official figures about Belgium, explains them in plain language and shows where every figure comes from. The figures tell you what is; what you make of it is up to you."
+  over_hoe_titel:
+    nl: "Hoe werkt het?"
+    fr: "Comment ça marche ?"
+    de: "Wie funktioniert das?"
+    en: "How does it work?"
+  over_hoe:
+    nl: "Elke dag haalt een programma de cijfers automatisch op bij de officiële bronnen, controleert ze en bouwt de site opnieuw op. Niemand tikt cijfers over, en bij de cijfers zelf komt geen AI aan te pas. Sommige cijfers berekenen we zelf uit officiële cijfers, zoals de schuld per inwoner; bij die cijfers staat de formule en de bron van elk onderdeel. Past een bron een cijfer later aan, dan nemen we de nieuwe versie over en houden we de herziening bij. Lukt het ophalen een keer niet, dan blijft het laatste geldige cijfer staan en vermelden we dat."
+    fr: "Chaque jour, un programme récupère automatiquement les chiffres auprès des sources officielles, les vérifie et reconstruit le site. Personne ne recopie de chiffres à la main, et aucune IA n'intervient dans les chiffres eux-mêmes. Certains chiffres sont calculés par nos soins à partir de chiffres officiels, comme la dette par habitant ; la formule et la source de chaque élément sont alors indiquées. Si une source révise un chiffre, nous reprenons la nouvelle version et gardons la trace de la révision. Si la récupération échoue un jour, le dernier chiffre valide reste affiché, avec une mention."
+    de: "Jeden Tag ruft ein Programm die Zahlen automatisch bei den offiziellen Quellen ab, prüft sie und baut die Website neu auf. Niemand tippt Zahlen ab, und bei den Zahlen selbst ist keine KI im Spiel. Manche Zahlen berechnen wir selbst aus offiziellen Zahlen, etwa die Schulden pro Einwohner; dort stehen die Formel und die Quelle jedes Bestandteils. Korrigiert eine Quelle später eine Zahl, übernehmen wir die neue Fassung und dokumentieren die Revision. Schlägt der Abruf einmal fehl, bleibt die letzte gültige Zahl stehen, mit einem Hinweis."
+    en: "Every day a program automatically fetches the figures from the official sources, checks them and rebuilds the site. Nobody types figures in, and no AI is involved in the figures themselves. Some figures we calculate ourselves from official figures, such as debt per inhabitant; those show the formula and the source of each part. If a source later revises a figure, we take over the new version and keep track of the revision. If fetching fails one day, the last valid figure stays up, with a note."
+  over_neutraal_titel:
+    nl: "Neutraal"
+    fr: "Neutre"
+    de: "Neutral"
+    en: "Neutral"
+  over_neutraal:
+    nl: "De site oordeelt niet. Zinnen zoals \"hoger dan het EU-gemiddelde\" worden uit de data berekend en vergelijken alleen. Kleuren worden enkel gebruikt om thema's te herkennen of om een officiële norm of een officieel doel te tonen. De federale regeringen kun je als laag op de grafieken tonen, met de waarschuwing dat een regering nooit de enige oorzaak is van hoe een cijfer evolueert."
+    fr: "Le site ne porte pas de jugement. Des phrases comme « plus élevé que la moyenne de l'UE » sont calculées à partir des données et ne font que comparer. Les couleurs servent uniquement à reconnaître les thèmes ou à montrer une norme ou un objectif officiel. Vous pouvez afficher les gouvernements fédéraux sur les graphiques, avec l'avertissement qu'un gouvernement n'est jamais la seule cause de l'évolution d'un chiffre."
+    de: "Die Website wertet nicht. Sätze wie „höher als der EU-Durchschnitt“ werden aus den Daten berechnet und vergleichen nur. Farben dienen nur dazu, Themen zu erkennen oder eine offizielle Norm oder ein offizielles Ziel zu zeigen. Die Föderalregierungen können Sie in den Diagrammen einblenden, mit dem Hinweis, dass eine Regierung nie die einzige Ursache für die Entwicklung einer Zahl ist."
+    en: "The site does not pass judgement. Sentences such as \"higher than the EU average\" are calculated from the data and only compare. Colours are used only to recognise topics or to show an official standard or target. You can show the federal governments on the charts, with the warning that a government is never the only cause of how a figure develops."
+  over_bronnen_titel:
+    nl: "Bronnen en hergebruik"
+    fr: "Sources et réutilisation"
+    de: "Quellen und Weiterverwendung"
+    en: "Sources and reuse"
+  over_bronnen:
+    nl: "De cijfers komen van deze instellingen. Zij staan hergebruik toe mits bronvermelding; hun eigen voorwaarden staan via de link."
+    fr: "Les chiffres proviennent de ces institutions. Elles autorisent la réutilisation moyennant mention de la source ; leurs propres conditions sont accessibles via le lien."
+    de: "Die Zahlen stammen von diesen Institutionen. Sie erlauben die Weiterverwendung mit Quellenangabe; ihre eigenen Bedingungen finden Sie über den Link."
+    en: "The figures come from these institutions. They allow reuse with acknowledgement of the source; their own terms are behind the link."
+  over_voorwaarden:
+    nl: "voorwaarden"
+    fr: "conditions"
+    de: "Bedingungen"
+    en: "terms"
+  over_privacy_titel:
+    nl: "Privacy"
+    fr: "Vie privée"
+    de: "Datenschutz"
+    en: "Privacy"
+  over_privacy:
+    nl: "Deze site gebruikt geen cookies en verzamelt geen persoonsgegevens. De rekenmodule rekent in je eigen browser: wat je invult, wordt nergens naartoe gestuurd. Wie de grafieken met regeringen aanzet, ziet dat de volgende keer terug; dat wordt enkel in je eigen browser bewaard."
+    fr: "Ce site n'utilise pas de cookies et ne collecte pas de données personnelles. Le simulateur calcule dans votre propre navigateur : ce que vous saisissez n'est envoyé nulle part. Si vous affichez les gouvernements sur les graphiques, ce choix est retenu uniquement dans votre propre navigateur."
+    de: "Diese Website verwendet keine Cookies und erhebt keine personenbezogenen Daten. Der Rechner rechnet in Ihrem eigenen Browser: Was Sie eingeben, wird nirgendwohin gesendet. Wenn Sie die Regierungen in den Diagrammen einblenden, wird diese Wahl nur in Ihrem eigenen Browser gespeichert."
+    en: "This site uses no cookies and collects no personal data. The calculator runs in your own browser: what you enter is not sent anywhere. If you switch on the governments on the charts, that choice is stored only in your own browser."
+  over_statistiek:
+    nl: "Om te weten hoeveel mensen de site bezoeken, tellen we bezoeken met GoatCounter: zonder cookies, zonder je te volgen over andere sites en zonder persoonsgegevens te bewaren."
+    fr: "Pour savoir combien de personnes visitent le site, nous comptons les visites avec GoatCounter : sans cookies, sans vous suivre sur d'autres sites et sans conserver de données personnelles."
+    de: "Um zu wissen, wie viele Menschen die Website besuchen, zählen wir Besuche mit GoatCounter: ohne Cookies, ohne Sie über andere Websites zu verfolgen und ohne personenbezogene Daten zu speichern."
+    en: "To know how many people visit the site, we count visits with GoatCounter: without cookies, without tracking you across other sites and without storing personal data."
+  over_ai_titel:
+    nl: "Gebouwd met AI"
+    fr: "Construit avec l'IA"
+    de: "Mit KI gebaut"
+    en: "Built with AI"
+  over_ai:
+    nl: "De code en de teksten van deze site zijn geschreven met hulp van Claude, een AI van Anthropic. De cijfers niet: die komen rechtstreeks en automatisch uit de bronnen. Alle code staat openbaar, zodat iedereen kan nagaan hoe het werkt."
+    fr: "Le code et les textes de ce site ont été écrits avec l'aide de Claude, une IA d'Anthropic. Pas les chiffres : ils proviennent directement et automatiquement des sources. Tout le code est public, pour que chacun puisse vérifier comment cela fonctionne."
+    de: "Der Code und die Texte dieser Website wurden mit Hilfe von Claude, einer KI von Anthropic, geschrieben. Die Zahlen nicht: Sie kommen direkt und automatisch aus den Quellen. Der gesamte Code ist öffentlich, damit jeder prüfen kann, wie es funktioniert."
+    en: "The code and texts of this site were written with the help of Claude, an AI by Anthropic. Not the figures: they come straight and automatically from the sources. All code is public, so anyone can check how it works."
+  over_mij_titel:
+    nl: "Over de maker"
+    fr: "À propos de l'auteur"
+    de: "Über den Macher"
+    en: "About the maker"
+  over_mij:
+    nl: "Ik ben Jonathan Maes. Ik maakte deze site als persoonlijk en onafhankelijk project, omdat ik vind dat iedereen de cijfers achter het beleid moet kunnen vinden en begrijpen. Geen partij, organisatie of overheid betaalt of stuurt dit project."
+    fr: "Je suis Jonathan Maes. J'ai créé ce site comme projet personnel et indépendant, parce que je pense que chacun doit pouvoir trouver et comprendre les chiffres derrière les politiques publiques. Aucun parti, aucune organisation ni aucun pouvoir public ne finance ou ne dirige ce projet."
+    de: "Ich bin Jonathan Maes. Ich habe diese Website als persönliches und unabhängiges Projekt erstellt, weil ich finde, dass jeder die Zahlen hinter der Politik finden und verstehen können sollte. Keine Partei, Organisation oder Behörde bezahlt oder steuert dieses Projekt."
+    en: "I'm Jonathan Maes. I made this site as a personal, independent project, because I believe everyone should be able to find and understand the figures behind policy. No party, organisation or government pays for or steers this project."
+  over_fout_titel:
+    nl: "Fout gezien?"
+    fr: "Vous avez repéré une erreur ?"
+    de: "Fehler entdeckt?"
+    en: "Spotted a mistake?"
+  over_beschrijving:
+    nl: "Waarom deze site bestaat, hoe de cijfers worden opgehaald, welke bronnen we gebruiken en wie ze maakt."
+    fr: "Pourquoi ce site existe, comment les chiffres sont récupérés, quelles sources nous utilisons et qui le réalise."
+    de: "Warum es diese Website gibt, wie die Zahlen abgerufen werden, welche Quellen wir nutzen und wer sie macht."
+    en: "Why this site exists, how the figures are fetched, which sources we use and who makes it."
 # Teksten die JavaScript gebruikt (grafieken, zoeken, delen, rekenmodule)
 js:
   lopend_jaar:
@@ -1168,3 +1263,8 @@ js:
     fr: "+ Sécurité sociale (ONSS, voir plus haut)"
     de: "+ Soziale Sicherheit (LSS, siehe oben)"
     en: "+ Social security (NSSO, see above)"
+  ei:
+    nl: "Merci om mee te kijken!"
+    fr: "Merci de jeter un œil !"
+    de: "Danke fürs Reinschauen!"
+    en: "Thanks for having a look!"
