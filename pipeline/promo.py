@@ -64,7 +64,13 @@ h1.groot {{ font-size: 104px; margin-top: 110px; }}
 .maker {{ display: inline-flex; align-items: center; gap: 18px; font-size: 25px; line-height: 1.3; }}
 .maker b {{ color: #1a1f24; font-size: 29px; }}
 .maker img {{ width: 84px; height: 84px; border-radius: 50%; object-fit: cover; }}
-.scherm {{ margin: 40px 0 auto; width: 680px; flex-shrink: 0; align-self: center; border-radius: 18px; overflow: hidden; border: 2px solid #dfe3e7; box-shadow: 0 24px 60px rgba(20,30,45,.16); background: #fff; }}
+.stapel {{ position: relative; align-self: center; width: 560px; margin-top: 84px; flex-shrink: 0; }}
+.stapel > i {{ position: absolute; inset: 0; border-radius: 18px; background: #fff; border: 2px solid #dfe3e7; box-shadow: 0 10px 30px rgba(20,30,45,.08); }}
+.stapel > i:nth-of-type(1) {{ transform: translate(34px, -22px) rotate(3deg); opacity: .55; }}
+.stapel > i:nth-of-type(2) {{ transform: translate(17px, -11px) rotate(1.5deg); opacity: .8; }}
+.voorbeeld {{ position: absolute; top: -50px; left: -60px; z-index: 2; background: #fdda24; color: #1a1f24; font-size: 22px; font-weight: 600; padding: 8px 16px; border-radius: 10px; transform: rotate(-3deg); box-shadow: 0 6px 16px rgba(20,30,45,.12); }}
+.scherm {{ position: relative; border-radius: 18px; overflow: hidden; border: 2px solid #dfe3e7; box-shadow: 0 24px 60px rgba(20,30,45,.16); background: #fff; }}
+.cta-midden {{ align-self: center; margin-top: 40px; font-size: 38px; padding: 22px 40px; }}
 .scherm-balk {{ display: flex; align-items: center; gap: 9px; height: 46px; padding: 0 20px; background: #eef0f3; border-bottom: 2px solid #dfe3e7; }}
 .scherm-balk i {{ width: 13px; height: 13px; border-radius: 50%; background: #c9ced4; }}
 .scherm-balk span {{ margin-left: 18px; font-size: 20px; color: #6b737b; }}
@@ -221,11 +227,19 @@ def dias(d: dict, scherm: Path | None = None) -> list[tuple[str, str]]:
         volgende(), TOTAAL, THEMA_KLEUR["overheidsfinancien"])))
 
     # 9. afsluiter
+    n_cijfers = sum(1 for i in d["indicatoren"] if not i.get("verborgen"))
+    if scherm:
+        inhoud = ('<h1 class="groot" style="font-size:80px;margin-top:56px">Zoek het zelf op.</h1>'
+                  '<p class="sub" style="font-size:34px;margin-top:20px">Elk cijfer met een link naar de bron. Geen mening, geen reclame, geen cookies.</p>'
+                  f'<div class="stapel"><span class="voorbeeld">Eén voorbeeld van de {n_cijfers} cijfers op de site</span>'
+                  f'<i></i><i></i><div class="scherm"><img src="{scherm.resolve().as_uri()}" alt=""></div></div>'
+                  f'<span class="cta cta-midden">👉 {DOMEIN}</span>')
+    else:
+        inhoud = ('<h1 class="groot" style="font-size:88px">Zoek het zelf op.</h1>'
+                  '<p class="sub">Elk cijfer met een link naar de bron. Een rekenmodule voor je eigen belastingen. Vlaanderen, Wallonië en Brussel naast elkaar. Geen mening, geen reclame, geen cookies.</p>'
+                  f'<span class="cta">{DOMEIN}</span>')
     uit.append(("08-afsluiter", dia(
-        '<h1 class="groot" style="font-size:84px;margin-top:64px">Zoek het zelf op.</h1>' +
-        ('<p class="sub" style="font-size:34px;margin-top:24px">Elk cijfer met een link naar de bron. Vergelijk met de buurlanden, de gewesten of je eigen loon. Geen mening, geen reclame, geen cookies.</p>' if scherm else
-         '<p class="sub">Elk cijfer met een link naar de bron. Een rekenmodule voor je eigen belastingen. Vlaanderen, Wallonië en Brussel naast elkaar. Geen mening, geen reclame, geen cookies.</p>')
-        + (f'<div class="scherm"><img src="{scherm.resolve().as_uri()}" alt=""></div>' if scherm else f'<span class="cta">{DOMEIN}</span>'),
+        inhoud,
         f'<span class="maker"><img src="{(SITE / "img" / "jonathan-maes@2x.jpg").resolve().as_uri()}" alt=""><span>Een onafhankelijk project van<br><b>Jonathan Maes</b></span></span>',
         volgende(), TOTAAL)))
     return uit
