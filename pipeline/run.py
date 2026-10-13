@@ -24,7 +24,7 @@ from pathlib import Path
 
 import yaml
 
-from . import eurostat, infrabel, nbb, olie, planbureau, uitgaven
+from . import eurostat, infrabel, nbb, olie, planbureau, riziv, uitgaven
 from .eurostat import BronFout
 
 WORTEL = Path(__file__).resolve().parent.parent
@@ -142,6 +142,11 @@ def haal_indicator(ind: dict, cat: dict, oud: list[dict] | None = None) -> tuple
         rijen = [{"geo": w.geo, "jaar": w.jaar, "waarde": w.waarde, "status": w.status} for w in res.waarnemingen]
         valideer(rijen, ["BE"])
         return rijen, {"api_urls": [res.url], "bijgewerkt_bron": None, "laatste_periode": res.labels.get("laatste_maand")}
+    if bron["instelling"] == "RIZIV":
+        res = riziv.haal_op(bron)
+        rijen = [{"geo": w.geo, "jaar": w.jaar, "waarde": w.waarde, "status": w.status} for w in res.waarnemingen]
+        valideer(rijen, ["BE"])
+        return rijen, {"api_urls": [res.url], "bijgewerkt_bron": None, "laatste_periode": None}
     if bron["instelling"] != "Eurostat":
         raise BronFout(f"Bron {bron['instelling']} wordt nog niet ondersteund.")
     res = eurostat.haal_op(bron["dataset"], bron["filters"], landen, cat["vanaf_jaar"])
@@ -270,7 +275,8 @@ def schrijf_site_data(cat: dict, data: dict, status: dict, tijd: str) -> None:
             bron = {"instelling": "Berekend", "formule": ind["afgeleid"]["formule"], "invoer": ind["afgeleid"]["invoer"]}
         else:
             b = ind["bron"]
-            pagina = infrabel.pagina_url(b["dataset"]) if b["instelling"] == "Infrabel" else eurostat.databrowser_url(b["dataset"])
+            pagina = (infrabel.pagina_url(b["dataset"]) if b["instelling"] == "Infrabel" else
+                      b.get("url") or riziv.PAGINA if b["instelling"] == "RIZIV" else eurostat.databrowser_url(b["dataset"]))
             bron = {"instelling": b["instelling"], "dataset": b["dataset"], "filters": b.get("filters", {}),
                     "url": pagina, "api_urls": st.get("api_urls", []),
                     "bijgewerkt_bron": st.get("bijgewerkt_bron"), "laatste_periode": st.get("laatste_periode")}

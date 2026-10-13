@@ -14,7 +14,7 @@ themas:
   werk:
     nl: Jobs
     vraag: How many people are working?
-    intro: How many people have a job helps determine how much tax and contributions come in to pay for pensions and healthcare, among other things. Here you can see how many adults work, how many people are looking for work and for how long and how many older people are still working.
+    intro: How many people have a job helps determine how much tax and contributions come in to pay for pensions and healthcare, among other things. Here you can see how many adults work, how many people are looking for work and for how long, how many older people are still working and how many people are long-term sick.
     bevoegd: Labour law and unemployment benefits are federal. Supporting job seekers is a task for the regions and the German-speaking Community (VDAB, Le Forem, Actiris and ADG).
   gezondheid:
     nl: Health
@@ -619,6 +619,20 @@ indicatoren:
     - inmates
     - prison
     - sentences
+  invaliditeit:
+    titel: Long-term sick (invalidity)
+    vraag: How many employees and unemployed people are long-term sick?
+    definitie: 'Number of employees and unemployed people in invalidity on 31 December: they have been unable to work for more than a year and receive a benefit from their health insurance fund. Self-employed people and civil servants with their own scheme are not included.'
+    uitleg: 'This is a number of people, not a percentage. According to the RIZIV/INAMI, mental disorders and diseases of the muscles and joints are the largest groups. The latest years are provisional: the RIZIV/INAMI may still revise them.'
+    zoekwoorden:
+    - long-term sick
+    - invalidity
+    - incapacity for work
+    - illness
+    - riziv
+    - inami
+    - burnout
+    - health insurance
 uitgaven:
   GF10:
     nl: Social protection
@@ -685,6 +699,7 @@ instellingen:
   OESO: OECD
   IMF: IMF
   Koninklijke Commissie voor Geschiedenis: Royal Historical Commission
+  RIZIV: RIZIV/INAMI
 niet_meegerekend:
 - The work bonus for low wages (a reduction of your social security contribution and your tax)
 - 'The final settlement of the special social security contribution: this shows the amount withheld from your pay, for a single person'

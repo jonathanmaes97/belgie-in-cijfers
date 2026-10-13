@@ -37,6 +37,7 @@ VOORWAARDEN = {
     "Nationale Bank van België": ("https://www.nbb.be/en/disclaimer-and-legal-information/copyright-and-use-information", True),
     "Infrabel": ("https://opendata.infrabel.be/pages/license/", True),
     "Federaal Planbureau": ("https://www.plan.be", False),
+    "RIZIV": ("https://www.inami.fgov.be/nl/statistieken/statistieken-uitkeringen", False),
     "Europese Commissie": ("https://commission.europa.eu/legal-notice_en", True),
     "Koninklijke Commissie voor Geschiedenis": ("https://www.commissionroyalehistoire.be/belelite/nl/gov/governmentsoverview/fed", False),
 }
@@ -53,7 +54,8 @@ KERNCIJFERS = ["schuld_per_inwoner", "rente_per_dag", "belastingwig", "werkzaamh
 UI = yaml.safe_load((WORTEL / "config" / "vertalingen" / "ui.yaml").read_text(encoding="utf-8"))
 TALEN = list(UI["talen"])  # nl eerst: dat is de brontaal
 TAAL = "nl"
-PER_ID: dict = {}  # alle indicatoren (ook verborgen), om bij afgeleide cijfers naar de echte bronnen te linken
+PER_ID: dict = {}
+NAMEN: dict = {}  # namen van instellingen in de huidige taal  # alle indicatoren (ook verborgen), om bij afgeleide cijfers naar de echte bronnen te linken
 
 
 def zet_taal(taal: str) -> None:
@@ -354,7 +356,7 @@ def bronnen_van(ind: dict) -> list[dict]:
 
 
 def bronlink(b: dict) -> str:
-    return f'<a href="{escape(b["url"])}" rel="noopener">{escape(b["instelling"])} · {escape(b["dataset"])}</a>'
+    return f'<a href="{escape(b["url"])}" rel="noopener">{escape(NAMEN.get(b["instelling"], b["instelling"]))} · {escape(b["dataset"])}</a>'
 
 
 def bronregel(ind: dict, bpad: str) -> str:
@@ -1000,6 +1002,8 @@ def bouw_taal(basis: dict, taal: str) -> None:
     per_id = {i["id"]: i for i in data["indicatoren"]}
     PER_ID.clear()
     PER_ID.update(per_id)
+    NAMEN.clear()
+    NAMEN.update(data.get("_instellingen") or {})
     doel_map = SITE / map_van(taal)
     (doel_map / "thema").mkdir(parents=True, exist_ok=True)
     (doel_map / "index.html").write_text(startpagina(data, per_id), encoding="utf-8")

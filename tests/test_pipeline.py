@@ -224,3 +224,19 @@ def test_halfjaarcijfers_worden_jaargemiddelde():
                 "value": {"0": 0.30, "1": 0.40, "2": 0.38}}
     w = ontleed(antwoord).waarnemingen
     assert [(x.jaar, round(x.waarde, 4), x.status) for x in w] == [(2025, 0.35, ""), (2026, 0.38, "j")]
+
+
+def test_riziv_tabel1_met_controle():
+    from pipeline.riziv import lees_tabel1
+    tekst = """2021 2022 2023 2024 (*) 2025 (*)
+Arbeiders
+Mannen 144.488 146.583 150.173 151.412 156.540
+Totaal 296.080 302.058 310.989 314.999 326.800
+Bedienden
+Totaal 159.916 169.869 182.692 199.552 210.928
+Totaal
+Algemeen totaal 455.996 471.927 493.681 514.551 537.728"""
+    t = lees_tabel1(tekst)
+    assert t[2025] == (537728, True) and t[2021] == (455996, False)
+    with pytest.raises(BronFout):
+        lees_tabel1(tekst.replace("537.728", "537.729"))

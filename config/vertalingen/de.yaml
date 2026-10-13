@@ -14,7 +14,7 @@ themas:
   werk:
     nl: Arbeit
     vraag: Wie viele Menschen arbeiten?
-    intro: Wie viele Menschen eine Arbeit haben, bestimmt mit, wie viele Steuern und Beiträge eingehen, um unter anderem Renten und Gesundheitsversorgung zu bezahlen. Hier sehen Sie, wie viele Erwachsene arbeiten, wie viele Menschen Arbeit suchen und wie lange schon und wie viele Ältere noch arbeiten.
+    intro: Wie viele Menschen eine Arbeit haben, bestimmt mit, wie viele Steuern und Beiträge eingehen, um unter anderem Renten und Gesundheitsversorgung zu bezahlen. Hier sehen Sie, wie viele Erwachsene arbeiten, wie viele Menschen Arbeit suchen und wie lange schon, wie viele Ältere noch arbeiten und wie viele Menschen langzeitkrank sind.
     bevoegd: Arbeitsrecht und Arbeitslosengeld sind föderal. Die Begleitung von Arbeitsuchenden ist Aufgabe der Regionen und der Deutschsprachigen Gemeinschaft (VDAB, Le Forem, Actiris und ADG).
   gezondheid:
     nl: Gesundheit
@@ -621,6 +621,19 @@ indicatoren:
     - Inhaftierte
     - Gefängnis
     - Strafen
+  invaliditeit:
+    titel: Langzeitkranke (Invalidität)
+    vraag: Wie viele Arbeitnehmer und Arbeitslose sind langzeitkrank?
+    definitie: 'Zahl der Arbeitnehmer und Arbeitslosen in Invalidität am 31. Dezember: Sie sind seit mehr als einem Jahr arbeitsunfähig und erhalten eine Leistung der Krankenkasse. Selbstständige und Beamte mit eigenem System zählen nicht mit.'
+    uitleg: 'Es handelt sich um eine Zahl von Menschen, nicht um einen Prozentsatz. Laut LIKIV sind psychische Störungen und Erkrankungen von Muskeln und Gelenken die größten Gruppen. Die letzten Jahre sind vorläufig: Das LIKIV kann sie noch korrigieren.'
+    zoekwoorden:
+    - Langzeitkranke
+    - Invalidität
+    - Arbeitsunfähigkeit
+    - Krankheit
+    - LIKIV
+    - Burn-out
+    - Krankenkasse
 uitgaven:
   GF10:
     nl: Soziale Sicherung
@@ -687,6 +700,7 @@ instellingen:
   OESO: OECD
   IMF: IWF
   Koninklijke Commissie voor Geschiedenis: Königliche Kommission für Geschichte
+  RIZIV: LIKIV
 niet_meegerekend:
 - Der Beschäftigungsbonus für niedrige Löhne (eine Ermäßigung Ihres LSS-Beitrags und Ihrer Steuer)
 - 'Die endgültige Abrechnung des Sonderbeitrags zur sozialen Sicherheit: hier steht der Einbehalt über Ihren Lohn, für eine alleinstehende Person'
