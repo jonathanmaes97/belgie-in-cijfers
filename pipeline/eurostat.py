@@ -65,14 +65,15 @@ def ontleed(antwoord: dict) -> Resultaat:
     groottes: list[int] = antwoord["size"]
     dims = antwoord["dimension"]
 
+    te_veel = []
     for dim, grootte in zip(ids, groottes):
         if dim in ("geo", "time"):
             continue
         if grootte != 1:
             codes = list(dims[dim]["category"]["index"].keys())
-            raise BronFout(
-                f"Dimensie '{dim}' heeft {grootte} waarden {codes[:15]}; voeg een filter toe in de catalogus."
-            )
+            te_veel.append(f"'{dim}' heeft {grootte} waarden {codes[:15]}")
+    if te_veel:
+        raise BronFout("Dimensie " + "; ".join(te_veel) + "; voeg een filter toe in de catalogus.")
 
     def codes_per_index(dim: str) -> list[str]:
         index = dims[dim]["category"]["index"]

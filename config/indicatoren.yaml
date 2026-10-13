@@ -301,7 +301,7 @@ indicatoren:
     beeld: wafel
     wafel_tekst: {nl: "euro loonkost gaat naar belastingen en sociale bijdragen (alleenstaande, gemiddeld loon)"}
     zoekwoorden: [belastingen, loon, netto, bruto, rsz, loonkost, belastingwig, personenbelasting]
-    bron: {instelling: Eurostat, dataset: earn_nt_taxwedge, filters: {ecase: P1_NCH_AW100}}
+    bron: {instelling: Eurostat, dataset: earn_nt_taxwedge, filters: {}}
 
   - id: overheidsschuld_eur
     thema: overheidsfinancien
