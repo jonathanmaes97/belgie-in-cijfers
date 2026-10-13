@@ -58,6 +58,11 @@ h1.groot {{ font-size: 104px; margin-top: 110px; }}
 .kern div {{ padding: 30px 28px; border-right: 2px solid #e1e4e8; display: flex; flex-direction: column; gap: 8px; }}
 .kern div:last-child {{ border-right: 0; }}
 .kern b {{ font-size: 50px; letter-spacing: -.03em; }} .kern span {{ font-size: 24px; color: #6b737b; }}
+.invoer {{ display: flex; justify-content: space-between; align-items: center; margin-top: 40px; padding: 30px 36px; border: 3px solid #1a1f24; border-radius: 22px; background: #fff; font-size: 34px; color: #5b636b; }}
+.invoer b {{ font-size: 60px; color: #1a1f24; letter-spacing: -.02em; }}
+.maker {{ display: flex; align-items: center; gap: 26px; font-size: 32px; line-height: 1.35; color: #4a525a; margin-top: 110px; }}
+.maker b {{ color: #1a1f24; font-size: 40px; }}
+.maker img {{ width: 150px; height: 150px; border-radius: 50%; object-fit: cover; }}
 .cta {{ display: inline-block; margin-top: 70px; padding: 28px 44px; border-radius: 18px; background: #1a1f24; color: #fff; font-size: 40px; font-weight: 600; }}
 </style></head><body style="--k:{kleur}"><div class="raster"></div><div class="gloed"></div><div class="gloed2"></div>
 <div class="binnen">
@@ -68,7 +73,17 @@ h1.groot {{ font-size: 104px; margin-top: 110px; }}
 </div></body></html>"""
 
 
-TOTAAL = 8
+TOTAAL = 9
+
+
+def rekenvoorbeeld(maandloon: float) -> dict:
+    """Rekent met dezelfde rekenmodule als de site (site/rekenmodule.js), via Node."""
+    import subprocess
+    code = (f"const R=require('{(SITE / 'rekenmodule.js').as_posix()}');"
+            f"const P=require('{(SITE / 'data' / 'fiscaal-2026.json').as_posix()}');"
+            f"const u=R.bereken({{maandloon:{maandloon},vakantiegeld:true,eindejaarspremie:true,eindejaarsMaanden:1,kinderen:0,"
+            f"gemeentePct:P.gemeentebelasting.voorbeeld_percentage}},P);console.log(JSON.stringify(u));")
+    return json.loads(subprocess.run(["node", "-e", code], capture_output=True, text=True, check=True).stdout)
 
 
 def dias(d: dict) -> list[tuple[str, str]]:
@@ -116,6 +131,22 @@ def dias(d: dict) -> list[tuple[str, str]]:
         f'<p class="label">Uitgaven</p><h1>En waar gaan die 100 euro naartoe?</h1>'
         f'<div class="inhoud">{rijen}<p class="sub" style="font-size:30px">De vijf grootste posten van alle Belgische overheden samen, in {ju}.</p></div>',
         f"Eurostat, gov_10a_exp (COFOG), {ju}", volgende(), TOTAAL, THEMA_KLEUR["overheidsfinancien"])))
+
+    # 3b. rekenmodule: vul je brutoloon in
+    loon = 3500
+    rk = rekenvoorbeeld(loon)
+    waarheen = "".join(
+        f'<div class="rij"><span class="stip" style="background:{kleuren[i]}"></span><span>{escape(f["nl"])}</span><b>{eur(rk["totaal"] * u["aandelen"][f["code"]]["BE"][ju] / 100)}</b></div>'
+        for i, f in enumerate(top[:3]))
+    gem = json.loads((SITE / "data" / "fiscaal-2026.json").read_text(encoding="utf-8"))["gemeentebelasting"]["voorbeeld_percentage"]
+    uit.append(("rekenmodule", dia(
+        f'<p class="label">Rekenmodule</p><h1 style="font-size:62px">Vul je brutoloon in en zie waar je bijdrage naartoe gaat.</h1>'
+        f'<div class="invoer"><span>Brutoloon per maand</span><b>{eur(loon)}</b></div>'
+        f'<p class="sub" style="font-size:34px;margin-top:34px">Je betaalt <b style="color:#1a1f24">{pct(rk["druk"] * 100, 1)}</b> aan sociale bijdragen en belastingen: '
+        f'{eur(rk["totaal"])} per jaar. Verdeeld zoals alle overheidsuitgaven:</p>'
+        f'<div class="inhoud" style="margin-top:20px">{waarheen}</div>',
+        f"Voorbeeld: bediende, alleenstaand, met vakantiegeld en eindejaarspremie, gemeentebelasting {pct(gem, 0)}. Tarieven 2026.",
+        volgende(), TOTAAL, THEMA_KLEUR["overheidsfinancien"])))
 
     # 4. gewesten
     def gw(ind_id: str) -> tuple[str, int]:
@@ -167,8 +198,9 @@ def dias(d: dict) -> list[tuple[str, str]]:
     uit.append(("08-afsluiter", dia(
         '<h1 class="groot" style="font-size:88px">Zoek het zelf op.</h1>'
         '<p class="sub">Elk cijfer met een link naar de bron. Een rekenmodule voor je eigen belastingen. Vlaanderen, Wallonië en Brussel naast elkaar. Geen mening, geen reclame, geen cookies.</p>'
-        f'<span class="cta">{DOMEIN}</span>',
-        "Een onafhankelijk project van Jonathan Maes", volgende(), TOTAAL)))
+        f'<span class="cta">{DOMEIN}</span>'
+        f'<div class="maker"><img src="{(SITE / "img" / "jonathan-maes@2x.jpg").resolve().as_uri()}" alt=""><span>Een onafhankelijk project van<br><b>Jonathan Maes</b></span></div>',
+        "", volgende(), TOTAAL)))
     return uit
 
 
@@ -183,7 +215,8 @@ def main() -> None:
         b = pw.chromium.launch()
         pg = b.new_page(viewport={"width": 1080, "height": 1350})
         assert len(lijst) == TOTAAL
-        for naam, inhoud in lijst:
+        for nr, (naam, inhoud) in enumerate(lijst, 1):
+            naam = f"{nr:02d}-" + naam.split("-", 1)[-1] if naam[:2].isdigit() else f"{nr:02d}-{naam}"
             html = doel / f"{naam}.html"
             html.write_text(inhoud, encoding="utf-8")
             pg.goto(html.resolve().as_uri())
