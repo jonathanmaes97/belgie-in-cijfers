@@ -1,6 +1,6 @@
 # Verkenning van bronnen (fase 0)
 
-Laatste test: 2026-10-13T16:46:24+00:00
+Laatste test: 2026-10-13T17:19:38+00:00
 
 Automatisch gegenereerd door `pipeline/probe_sources.py`. ✅ = antwoordt met data, ⚠️ = antwoordt maar mogelijk geen bruikbare data, ❌ = niet bereikbaar.
 
@@ -11,7 +11,7 @@ Automatisch gegenereerd door `pipeline/probe_sources.py`. ✅ = antwoordt met da
 | Nationale Bank | [NBB.Stat SDMX-dataflows](https://stat.nbb.be/restsdmx/sdmx.ashx/GetDataStructure/ALL) | ❌ | — | ConnectionError |
 | Nationale Bank | [NBB data-API (nieuw)](https://nsidisseminate-stat.nbb.be/rest/dataflow/all/all/latest) | ✅ HTTP 200 | application/vnd.sdmx.structure+xml | `<?xml version="1.0" encoding="utf-8"?> <!--NSI Web Service v8.19.9.0--> <message:Structure xmlns:message="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/mess` |
 | Infrabel | [Open data catalogus: stiptheid](https://opendata.infrabel.be/api/explore/v2.1/catalog/datasets?where=search(%22punctuality%22)&limit=20) | ✅ HTTP 200 | application/json | `{"total_count": 1, "results": [{"visibility": "domain", "fields": [{"name": "dat_dep", "annotations": {"facet": true, "timerangeFilter": true, "facetsort": "-al` |
-| iRail | [Stations (NMBS, via iRail)](https://api.irail.be/stations/?format=json&lang=nl) | ✅ HTTP 200 | application/json | `{"version":"1.4","timestamp":"1791910005","station":[{"@id":"http://irail.be/stations/NMBS/008883006","id":"BE.NMBS.008883006","name":"'s Gravenbrakel","locatio` |
+| iRail | [Stations (NMBS, via iRail)](https://api.irail.be/stations/?format=json&lang=nl) | ✅ HTTP 200 | application/json | `{"version":"1.4","timestamp":"1791911988","station":[{"@id":"http://irail.be/stations/NMBS/008883006","id":"BE.NMBS.008883006","name":"'s Gravenbrakel","locatio` |
 | data.gov.be | [Federale open-data catalogus](https://data.gov.be/api/3/action/package_search?q=statbel&rows=5) | ❌ HTTP 404 | text/html | `<!DOCTYPE html> <html lang="en" dir="ltr" prefix="og: https://ogp.me/ns#" class="no-sidebars not-logged-in page--api"> <head> <meta charset="utf-8" /> <no` |
 | Sciensano | [Epistat open data](https://epistat.sciensano.be/) | ⚠️ HTTP 200 | text/html | `<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <meta http-equiv="x-ua-compatible" content="ie=edge"> <title>Epistat â Epi` |
 | Federaal Planbureau | [Indicatoren duurzame ontwikkeling](https://indicators.be/nl/) | ❌ HTTP 404 | text/html | `<!DOCTYPE HTML> <html lang="en" prefix="og: http://ogp.me/ns#"> <head> <link rel="stylesheet" href="https://unpkg.com/orejime@2.2.1/dist/orejime.css" />` |
