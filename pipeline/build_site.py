@@ -24,6 +24,9 @@ SITE = WORTEL / "site"
 REPO_URL = "https://github.com/jonathanmaes97/belgie-in-cijfers"
 SITE_URL = "https://jonathanmaes97.github.io/belgie-in-cijfers/"
 MERK = "State of the Union"
+MAKER = "Jonathan Maes"
+CONTACT = "sotu@jonathanmaes.be"
+LINKEDIN_URL = ""  # in te vullen: link naar het LinkedIn-profiel van de maker
 ONDERTITEL = "België in cijfers"
 GEWESTEN = [("BE2", "Vlaanderen"), ("BE3", "Wallonië"), ("BE1", "Brussel")]
 # Thema's waar federale regeringen als laag zinvol zijn (onderwijs is volledig een bevoegdheid van de gemeenschappen).
@@ -307,6 +310,8 @@ def pagina(titel: str, beschrijving: str, inhoud: str, pad: str, themas: list[di
         titel=escape(titel), beschrijving=escape(beschrijving), inhoud=inhoud, pad=pad, repo=REPO_URL,
         themabalk=themabalk(themas, actief, pad), bijgewerkt=bijgewerkt, zoek=icoon("zoek"),
         og=f"{SITE_URL}og/{og}.png", url=SITE_URL + url, merk=MERK, ondertitel=ONDERTITEL,
+        maker=MAKER, contact=CONTACT,
+        linkedin=f' (<a href="{LINKEDIN_URL}" rel="noopener">LinkedIn</a>)' if LINKEDIN_URL else "",
     )
 
 
@@ -376,7 +381,7 @@ def startpagina(data: dict, per_id: dict) -> str:
     <h2 id="hoe-titel">Waarom kun je deze cijfers vertrouwen?</h2>
     <ol>
       <li>{icoon("bron")}<b>Officiële bronnen</b><span>Elk cijfer komt van een officiële instelling, zoals Eurostat of Infrabel. Bij elk cijfer staat de bron, met een link.</span></li>
-      <li>{icoon("klok")}<b>Elke dag bijgewerkt</b><span>Een programma haalt de cijfers elke dag automatisch op. Niemand tikt ze over, en er komt geen AI aan te pas.</span></li>
+      <li>{icoon("klok")}<b>Elke dag bijgewerkt</b><span>Een programma haalt de cijfers elke dag automatisch op. Niemand tikt ze over, en bij de cijfers zelf komt geen AI aan te pas.</span></li>
       <li>{icoon("code")}<b>Iedereen kan het narekenen</b><span>Alle data en berekeningen zijn openbaar. Je kunt elk cijfer downloaden en zelf controleren.</span></li>
     </ol>
   </section>
@@ -530,10 +535,17 @@ SJABLOON = """<!doctype html>
 {inhoud}
 </main>
 <footer class="voet">
-  <div class="binnen">
-    <p><b>{merk}: {ondertitel}</b> is een onafhankelijk en open project. De cijfers worden elke dag automatisch bijgewerkt; laatste update op {bijgewerkt}.</p>
-    <p>Alle code en data staan openbaar op <a href="{repo}">GitHub</a>. Bronnen stellen cijfers soms bij: bekijk de <a href="{repo}/blob/main/data/changelog.json">herzieningen</a> en de <a href="{repo}/blob/main/reports/status.md">status van elke bron</a>.</p>
-    <p>Fout gezien of een cijfer dat ontbreekt? <a href="{repo}/issues/new">Laat het weten</a>.</p>
+  <div class="binnen voet-raster">
+    <div>
+      <p class="voet-merk"><span class="merk-blok" aria-hidden="true"><i></i><i></i><i></i></span><b>{merk}: {ondertitel}</b></p>
+      <p>Een onafhankelijk en open project. De cijfers worden elke dag automatisch bijgewerkt; laatste update op {bijgewerkt}.</p>
+      <p>Alle code en data staan openbaar op <a href="{repo}">GitHub</a>. Bronnen stellen cijfers soms bij: bekijk de <a href="{repo}/blob/main/data/changelog.json">herzieningen</a> en de <a href="{repo}/blob/main/reports/status.md">status van elke bron</a>.</p>
+    </div>
+    <div>
+      <p>Gemaakt door <b>{maker}</b>{linkedin}.</p>
+      <p>Vraag, idee of fout gezien? Mail naar <a href="mailto:{contact}">{contact}</a> of <a href="{repo}/issues/new">meld het op GitHub</a>.</p>
+      <p class="vibe">Met <span aria-label="liefde">♥</span> gevibecodet: deze site is gebouwd met hulp van AI (Claude). De cijfers zelf komen rechtstreeks uit de officiële bronnen, zonder dat er AI aan te pas komt.</p>
+    </div>
   </div>
 </footer>
 <script src="{pad}app.js" defer></script>
