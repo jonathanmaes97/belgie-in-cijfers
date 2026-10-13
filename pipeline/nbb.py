@@ -24,9 +24,9 @@ REEKSEN = [
         "eenheid": "", "decimalen": 0, "begin": "2019-01",
     },
     {
-        "id": "conjunctuurbarometer", "flow": "DF_BUSSURVM", "sleutel": "M.SYNC.BE.A999.X", "vergelijk": None,
+        "id": "conjunctuurbarometer", "flow": "DF_BUSSURVM", "sleutel": "M.SYNC.BE.A999.S", "vergelijk": None,
         "titel": {"nl": "Conjunctuurbarometer"}, "vraag": {"nl": "Hoe zien de bedrijven het?"},
-        "uitleg": {"nl": "De barometer van de Nationale Bank vat de maandelijkse enquêtes bij bedrijven samen (industrie, bouw, handel en diensten). Hij wordt vooral gebruikt om de richting te zien: stijgt hij, dan zijn bedrijven positiever."},
+        "uitleg": {"nl": "De barometer van de Nationale Bank vat de maandelijkse enquêtes bij bedrijven samen (industrie, bouw, handel en diensten), gezuiverd voor seizoensinvloeden. Hij wordt vooral gebruikt om de richting te zien: stijgt hij, dan zijn bedrijven positiever."},
         "eenheid": "", "decimalen": 1, "begin": "2019-01",
     },
     {

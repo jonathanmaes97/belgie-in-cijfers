@@ -153,3 +153,12 @@ def test_planbureau_inflatie_en_spilindex():
     assert [m["vooruitzicht"] for m in uit["maanden"]] == [False, False, False, True]
     assert [o["maand"] for o in uit["overschrijdingen"]] == ["2026-06", "2026-11"]
     assert uit["laatste_gemeten"] == "2026-07"
+
+
+def test_rekenmodule_in_node():
+    import shutil
+    import subprocess
+    if not shutil.which("node"):
+        pytest.skip("node niet beschikbaar")
+    r = subprocess.run(["node", str(WORTEL / "tests" / "test_rekenmodule.js")], capture_output=True, text=True)
+    assert r.returncode == 0, r.stderr

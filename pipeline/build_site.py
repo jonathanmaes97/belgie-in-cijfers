@@ -64,6 +64,7 @@ ICONEN = {
     "klok": '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
     "code": '<path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/>',
     "kaart": '<path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/>',
+    "reken": '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8"/><path d="M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01M8 18h.01M12 18h4"/>',
 }
 
 
@@ -308,7 +309,7 @@ def pagina(titel: str, beschrijving: str, inhoud: str, pad: str, themas: list[di
            bijgewerkt: str, og: str, url: str) -> str:
     return SJABLOON.format(
         titel=escape(titel), beschrijving=escape(beschrijving), inhoud=inhoud, pad=pad, repo=REPO_URL,
-        themabalk=themabalk(themas, actief, pad), bijgewerkt=bijgewerkt, zoek=icoon("zoek"),
+        themabalk=themabalk(themas, actief, pad), bijgewerkt=bijgewerkt, zoek=icoon("zoek"), reken=icoon("reken"),
         og=f"{SITE_URL}og/{og}.png", url=SITE_URL + url, merk=MERK, ondertitel=ONDERTITEL,
         maker=MAKER, contact=CONTACT,
         linkedin=f' (<a href="{LINKEDIN_URL}" rel="noopener">LinkedIn</a>)' if LINKEDIN_URL else "",
@@ -354,6 +355,8 @@ def startpagina(data: dict, per_id: dict) -> str:
                   "z": " ".join(i.get("zoekwoorden", [])), "u": f'thema/{i["thema"]}.html#{i["id"]}'}
                  for i in data["indicatoren"] if not i["verborgen"]]
     zoekindex += [{"v": t["vraag"], "t": t["nl"], "th": "Thema", "z": "", "u": f'thema/{t["id"]}.html'} for t in data["themas"]]
+    zoekindex.append({"v": "Hoeveel belastingen betaal ik?", "t": "Rekenmodule", "th": "Rekenmodule",
+                      "z": "loon brutoloon netto belasting rekenen simulator schijven belastingdruk vakantiegeld eindejaarspremie", "u": "rekenmodule.html"})
     zoekindex.append({"v": "Waar gaat ons belastinggeld naartoe?", "t": "Overheidsuitgaven per functie", "th": "Overheidsfinanciën",
                       "z": "belastinggeld uitgaven pensioenen defensie onderwijs zorg begroting", "u": "thema/overheidsfinancien.html#belastinggeld"})
     zoekindex.append({"v": "Wanneer volgt de volgende indexering?", "t": "Inflatie en index", "th": "Economie",
@@ -377,6 +380,7 @@ def startpagina(data: dict, per_id: dict) -> str:
   <div class="binnen"><div class="ticks">{ticks}</div>{teller}</div>
 </section>
 <div class="binnen">
+  <a class="reken-tegel" href="rekenmodule.html" style="--t:{THEMA_KLEUR["overheidsfinancien"]}"><span class="tk-icoon">{icoon("reken")}</span><span><b>Hoeveel belastingen betaal ik?</b><span>Vul je brutoloon in en zie je totale belastingdruk, je netto en waar je bijdrage naartoe gaat.</span></span>{icoon("pijl")}</a>
   {snelblok(data)}
   <section aria-labelledby="thema-titel" class="blok">
     <div class="blok-kop"><h2 id="thema-titel">Kies een thema</h2><a href="gewesten.html" class="blok-link">Of vergelijk de gewesten {icoon("pijl")}</a></div>
@@ -635,6 +639,83 @@ def gewestenpagina(data: dict) -> str:
                   inhoud, pad, data["themas"], "gewesten", datum(data["gegenereerd"]), "gewesten", "gewesten.html")
 
 
+def rekenpagina(data: dict) -> str:
+    """Rekenmodule: van brutoloon naar belastingdruk (bedienden, inkomstenjaar 2026)."""
+    import yaml
+    P = yaml.safe_load((WORTEL / "config" / "fiscaal" / "2026.yaml").read_text(encoding="utf-8"))
+    bronnen = []
+    for sleutel, v in P.items():
+        if isinstance(v, dict):
+            for k, b in v.items():
+                if k.startswith("bron") and isinstance(b, dict):
+                    bronnen.append(f'<li><a href="{escape(b["url"])}" rel="noopener">{escape(b["naam"])}</a></li>')
+    niet = "".join(f"<li>{escape(x)}</li>" for x in P["niet_meegerekend"])
+    kinderen = "".join(f'<option value="{k}">{k}</option>' for k in range(0, 7))
+    kleur = THEMA_KLEUR["overheidsfinancien"]
+    inhoud = f'''
+<section class="themakop" style="--t:{kleur}">
+  <div class="binnen">
+    <p class="kruimel"><a href="./">{MERK}</a> / Rekenmodule</p>
+    <div class="themakop-titel"><span class="tk-icoon groot">{icoon("reken")}</span><h1>Hoeveel belastingen betaal ik?</h1></div>
+    <p class="intro">Vul je brutoloon in. Je ziet hoeveel er naar de sociale zekerheid en naar belastingen gaat, hoeveel je netto overhoudt, en waar dat geld naartoe gaat. Een benadering voor bedienden, op basis van de officiële tarieven voor inkomstenjaar {P["inkomstenjaar"]}.</p>
+  </div>
+</section>
+<div class="binnen reken" style="--t:{kleur}">
+  <noscript><p class="geen-data">Deze rekenmodule heeft JavaScript nodig.</p></noscript>
+  <form class="reken-invoer kaart" id="reken-form" autocomplete="off">
+    <h2>Jouw situatie</h2>
+    <label class="veld"><span>Brutoloon per maand</span><span class="invoer-euro"><b>€</b><input id="maandloon" type="number" inputmode="decimal" min="0" step="50" value="3500"></span></label>
+    <label class="vink"><input id="vakantiegeld" type="checkbox" checked><span>Dubbel vakantiegeld <small>{P["dubbel_vakantiegeld"]["percentage_maandloon"]}% van een maandloon</small></span></label>
+    <label class="vink"><input id="eindejaarspremie" type="checkbox" checked><span>Eindejaarspremie</span></label>
+    <label class="veld klein"><span>Hoeveel maandlonen bedraagt je eindejaarspremie?</span><input id="ejp-maanden" type="number" min="0" max="3" step="0.25" value="1"></label>
+    <label class="veld"><span>Kinderen ten laste</span><select id="kinderen">{kinderen}</select></label>
+    <div id="kind-extra" hidden>
+      <label class="veld klein"><span>Waarvan jonger dan 3 jaar</span><input id="jonger3" type="number" min="0" max="6" step="1" value="0"></label>
+      <label class="vink"><input id="alleenstaand" type="checkbox"><span>Ik ben een alleenstaande ouder</span></label>
+    </div>
+    <label class="veld"><span>Gemeentebelasting <small>het percentage van jouw gemeente staat op je aanslagbiljet</small></span><span class="invoer-euro"><input id="gemeente" type="number" min="0" max="12" step="0.1" value="{P["gemeentebelasting"]["voorbeeld_percentage"]}"><b>%</b></span></label>
+  </form>
+  <div class="reken-uitkomst" aria-live="polite">
+    <section class="kaart">
+      <p class="reken-kop">Je betaalt <b id="r-druk">…</b> van je brutoloon aan sociale bijdragen en belastingen.</p>
+      <div class="reken-balk" id="r-balk" role="img" aria-label="Verdeling van je brutoloon"></div>
+      <ul class="reken-legende" id="r-legende"></ul>
+      <div class="reken-cijfers">
+        <div><span>Bruto per jaar</span><b id="r-bruto">…</b></div>
+        <div><span>Netto per jaar</span><b id="r-netto">…</b></div>
+        <div><span>Netto gemiddeld per maand</span><b id="r-nettomaand">…</b></div>
+        <div><span>Van 100 euro opslag hou je</span><b id="r-marg">…</b></div>
+      </div>
+    </section>
+    <section class="kaart">
+      <h2>Zo wordt het berekend</h2>
+      <table class="reken-tabel"><tbody id="r-stappen"></tbody></table>
+      <h3>Belasting per schijf</h3>
+      <p class="klein-grijs">Je belastbaar inkomen wordt in schijven verdeeld. Elke schijf heeft haar eigen tarief: alleen het deel boven een grens wordt aan het hogere tarief belast.</p>
+      <table class="reken-tabel"><tbody id="r-schijven"></tbody></table>
+    </section>
+    <section class="kaart">
+      <h2>Waar gaat jouw bijdrage naartoe?</h2>
+      <p class="klein-grijs">Als je totale bijdrage verdeeld zou worden zoals alle Belgische overheidsuitgaven in <span id="r-waarheen-jaar">…</span> (Eurostat). Dit is een illustratie: in werkelijkheid gaat je RSZ-bijdrage naar de sociale zekerheid en wordt het geld uit alle bronnen samen verdeeld.</p>
+      <ul class="waarheen" id="r-waarheen"></ul>
+    </section>
+    <section class="kaart">
+      <h2>Wat zit er niet in?</h2>
+      <p class="klein-grijs">Deze rekenmodule is een benadering. Je echte loonbrief en aanslagbiljet kunnen afwijken, onder meer door:</p>
+      <ul class="lijst">{niet}</ul>
+      <h3>Bronnen van alle bedragen</h3>
+      <ul class="lijst bronnen">{"".join(dict.fromkeys(bronnen))}</ul>
+      <p class="klein-grijs">Voor een officiële berekening: de simulator Tax-Calc van FOD Financiën.</p>
+    </section>
+  </div>
+</div>
+<script src="rekenmodule.js"></script>
+<script src="reken.js"></script>
+'''
+    return pagina(f"Hoeveel belastingen betaal ik? · {MERK}", "Van brutoloon naar netto: hoeveel gaat naar sociale zekerheid en belastingen, en waar gaat het naartoe?",
+                  inhoud, "", data["themas"], "reken", datum(data["gegenereerd"]), "thema-overheidsfinancien", "rekenmodule.html")
+
+
 def bouw() -> None:
     data = json.loads((SITE / "data" / "dashboard.json").read_text(encoding="utf-8"))
     per_id = {i["id"]: i for i in data["indicatoren"]}
@@ -644,8 +725,15 @@ def bouw() -> None:
     for f in (WORTEL / "data" / "clean").glob("*.csv"):
         shutil.copy(f, csv_map / f.name)
 
+    # parameters voor de rekenmodule (met bronnen) naar de site kopiëren
+    import yaml
+    for f in (WORTEL / "config" / "fiscaal").glob("*.yaml"):
+        (SITE / "data" / f"fiscaal-{f.stem}.json").write_text(
+            json.dumps(yaml.safe_load(f.read_text(encoding="utf-8")), ensure_ascii=False, indent=1), encoding="utf-8")
+
     (SITE / "index.html").write_text(startpagina(data, per_id), encoding="utf-8")
     (SITE / "gewesten.html").write_text(gewestenpagina(data), encoding="utf-8")
+    (SITE / "rekenmodule.html").write_text(rekenpagina(data), encoding="utf-8")
     themamap = SITE / "thema"
     themamap.mkdir(exist_ok=True)
     themas = data["themas"]
@@ -681,7 +769,7 @@ SJABLOON = """<!doctype html>
 <header class="kop">
   <div class="binnen">
     <a class="merk" href="{pad}"><span class="merk-blok" aria-hidden="true"><i></i><i></i><i></i></span><span class="merk-tekst"><b>{merk}</b><span>{ondertitel}</span></span></a>
-    <a class="kop-zoek" href="{pad}#zoek" aria-label="Zoek een cijfer">{zoek}<span>Zoek</span></a>
+    <nav class="kop-links"><a class="kop-zoek" href="{pad}rekenmodule.html">{reken}<span>Hoeveel belasting betaal ik?</span></a><a class="kop-zoek" href="{pad}#zoek" aria-label="Zoek een cijfer">{zoek}<span>Zoek</span></a></nav>
   </div>
 </header>
 {themabalk}

@@ -1,0 +1,90 @@
+{
+ "inkomstenjaar": 2026,
+ "aanslagjaar": 2027,
+ "rsz_werknemer": {
+  "percentage": 13.07,
+  "bron": {
+   "naam": "RSZ, administratieve instructies DmfA (inhouding van 13,07%, ook op het dubbel vakantiegeld)",
+   "url": "https://www.socialsecurity.be/employer/instructions/dmfa/nl/latest/instructions/fill_in_dmfa/wholecompanydatadeclaration/holidaypaydeductions.html"
+  }
+ },
+ "dubbel_vakantiegeld": {
+  "percentage_maandloon": 92,
+  "bron": {
+   "naam": "Securex, Hoe wordt het vakantiegeld van de bedienden berekend? (sociaal secretariaat; officiële wettekst nog te koppelen)",
+   "url": "https://www.securex.be/nl/lex4you/werkgever/themas/verlonen/vakantiegeld/hoe-wordt-het-vakantiegeld-van-de-bedienden-berekend"
+  }
+ },
+ "forfaitaire_beroepskosten": {
+  "percentage": 30,
+  "maximum": 6070,
+  "bron": {
+   "naam": "FOD Financiën, Beroepsinkomen (forfaitaire kosten werknemers, inkomstenjaar 2026)",
+   "url": "https://financien.belgium.be/nl/particulieren/belastingaangifte/inkomsten/beroepsinkomen"
+  }
+ },
+ "schijven": {
+  "lijst": [
+   [
+    0,
+    16720,
+    25
+   ],
+   [
+    16720,
+    29510,
+    40
+   ],
+   [
+    29510,
+    51070,
+    45
+   ],
+   [
+    51070,
+    null,
+    50
+   ]
+  ],
+  "bron": {
+   "naam": "FOD Financiën, Belastingtarieven (inkomstenjaar 2026)",
+   "url": "https://financien.belgium.be/nl/particulieren/belastingaangifte/inkomsten/belastingtarieven"
+  }
+ },
+ "belastingvrije_som": {
+  "basis": 11180,
+  "kinderen": {
+   "1": 2030,
+   "2": 5230,
+   "3": 11720,
+   "4": 18970
+  },
+  "per_kind_vanaf_5": 7240,
+  "per_kind_jonger_dan_3": 760,
+  "alleenstaande_met_kinderen": 2030,
+  "bron_basis": {
+   "naam": "FOD Financiën, Belastingtarieven (belastingvrije som, inkomstenjaar 2026)",
+   "url": "https://financien.belgium.be/nl/particulieren/belastingaangifte/inkomsten/belastingtarieven"
+  },
+  "bron_kinderen": {
+   "naam": "FOD Financiën, Kinderen ten laste (verhoging van de belastingvrije som, inkomstenjaar 2026)",
+   "url": "https://financien.belgium.be/nl/particulieren/belastingaangifte/persoonlijke-situatie/personen-ten-laste/kinderen"
+  }
+ },
+ "gemeentebelasting": {
+  "voorbeeld_percentage": 7,
+  "bron": {
+   "naam": "FOD Financiën, Gemeentebelasting",
+   "url": "https://financien.belgium.be/nl/particulieren/belastingaangifte/aanslagbiljet/gemeentebelasting"
+  }
+ },
+ "niet_meegerekend": [
+  "De werkbonus voor lage lonen (een korting op je RSZ-bijdrage en je belasting)",
+  "De bijzondere bijdrage voor de sociale zekerheid (een kleine jaarlijkse bijdrage die afhangt van het gezinsinkomen)",
+  "De bijdragen van je werkgever bovenop je brutoloon",
+  "Fiscale voordelen zoals pensioensparen, dienstencheques, kinderopvang, giften en een woonbonus",
+  "De belastingsituatie van een partner (bij een gezamenlijke aangifte)",
+  "Maaltijdcheques, een bedrijfswagen en andere extralegale voordelen",
+  "Arbeiders: hun vakantiegeld en RSZ worden anders berekend; deze versie rekent voor bedienden"
+ ]
+}
