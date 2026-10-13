@@ -68,7 +68,7 @@ themas:
     vraag: Hoeveel mensen werken er?
     kop: werkzaamheidsgraad
     intro: >-
-      Hoeveel mensen een job hebben, bepaalt mee hoeveel belastingen en bijdragen er binnenkomen om onder meer pensioenen en zorg te betalen. Hier zie je hoeveel volwassenen werken, hoeveel mensen werk zoeken en hoe lang al, hoeveel ouderen nog werken, en hoeveel mensen niet werken door ziekte.
+      Hoeveel mensen een job hebben, bepaalt mee hoeveel belastingen en bijdragen er binnenkomen om onder meer pensioenen en zorg te betalen. Hier zie je hoeveel volwassenen werken, hoeveel mensen werk zoeken en hoe lang al en hoeveel ouderen nog werken.
     bevoegd: >-
       Arbeidsrecht en werkloosheidsuitkeringen zijn federaal. Werkzoekenden begeleiden is een taak van de
       gewesten en de Duitstalige Gemeenschap (VDAB, Le Forem, Actiris en ADG).
@@ -410,18 +410,6 @@ indicatoren:
     weergave: lijn
     zoekwoorden: ["oudere werknemers", "langer werken", "pensioenleeftijd", "eindeloopbaan"]
     bron: {instelling: Eurostat, dataset: lfsi_emp_a, filters: {indic_em: EMP_LFS, sex: T, age: Y55-64, unit: PC_POP}}
-
-  - id: inactief_ziekte
-    thema: werk
-    titel: {nl: "Niet aan het werk door ziekte"}
-    vraag: {nl: "Hoeveel mensen op werkleeftijd werken niet door ziekte of een handicap?"}
-    definitie: {nl: "Aandeel van de 20- tot 64-jarigen dat niet werkt en geen werk zoekt, met de eigen ziekte of handicap als belangrijkste reden (Europese enquête naar de arbeidskrachten)."}
-    uitleg: {nl: "Het gaat om wat mensen zelf antwoorden in een enquête, niet om het aantal mensen met een uitkering van het ziekenfonds. Het geeft wel een beeld van hoeveel mensen door hun gezondheid niet aan het werk zijn."}
-    eenheid: "%"
-    decimalen: 1
-    weergave: lijn
-    zoekwoorden: ["langdurig ziek", "ziekte", "invaliditeit", "arbeidsongeschikt", "handicap", "riziv"]
-    bron: {instelling: Eurostat, dataset: lfsa_igar, filters: {unit: PC_POP, sex: T, age: Y20-64, reason: ILL_DIS_OWN}}
 
   # ---------- Gezondheid ----------
   - id: levensverwachting

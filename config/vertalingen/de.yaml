@@ -14,7 +14,7 @@ themas:
   werk:
     nl: Arbeit
     vraag: Wie viele Menschen arbeiten?
-    intro: Wie viele Menschen eine Arbeit haben, bestimmt mit, wie viele Steuern und Beiträge eingehen, um unter anderem Renten und Gesundheitsversorgung zu bezahlen. Hier sehen Sie, wie viele Erwachsene arbeiten, wie viele Menschen Arbeit suchen und wie lange schon, wie viele Ältere noch arbeiten und wie viele wegen Krankheit nicht arbeiten.
+    intro: Wie viele Menschen eine Arbeit haben, bestimmt mit, wie viele Steuern und Beiträge eingehen, um unter anderem Renten und Gesundheitsversorgung zu bezahlen. Hier sehen Sie, wie viele Erwachsene arbeiten, wie viele Menschen Arbeit suchen und wie lange schon und wie viele Ältere noch arbeiten.
     bevoegd: Arbeitsrecht und Arbeitslosengeld sind föderal. Die Begleitung von Arbeitsuchenden ist Aufgabe der Regionen und der Deutschsprachigen Gemeinschaft (VDAB, Le Forem, Actiris und ADG).
   gezondheid:
     nl: Gesundheit
@@ -500,18 +500,6 @@ indicatoren:
     - länger arbeiten
     - Rentenalter
     - Laufbahnende
-  inactief_ziekte:
-    titel: Nicht erwerbstätig wegen Krankheit
-    vraag: Wie viele Menschen im erwerbsfähigen Alter arbeiten wegen Krankheit oder Behinderung nicht?
-    definitie: Anteil der 20- bis 64-Jährigen, die nicht arbeiten und keine Arbeit suchen, mit eigener Krankheit oder Behinderung als Hauptgrund (Europäische Arbeitskräfteerhebung).
-    uitleg: Es geht um das, was Menschen selbst in einer Umfrage antworten, nicht um die Zahl der Menschen mit Krankengeld. Es gibt aber ein Bild davon, wie viele Menschen wegen ihrer Gesundheit nicht arbeiten.
-    zoekwoorden:
-    - Langzeitkranke
-    - Krankheit
-    - Invalidität
-    - Arbeitsunfähigkeit
-    - Behinderung
-    - LIKIV
   gezonde_levensjaren:
     titel: Gesunde Lebensjahre
     vraag: Wie viele Jahre leben wir in guter Gesundheit?

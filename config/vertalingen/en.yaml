@@ -14,7 +14,7 @@ themas:
   werk:
     nl: Jobs
     vraag: How many people are working?
-    intro: How many people have a job helps determine how much tax and contributions come in to pay for pensions and healthcare, among other things. Here you can see how many adults work, how many people are looking for work and for how long, how many older people are still working, and how many do not work because of illness.
+    intro: How many people have a job helps determine how much tax and contributions come in to pay for pensions and healthcare, among other things. Here you can see how many adults work, how many people are looking for work and for how long and how many older people are still working.
     bevoegd: Labour law and unemployment benefits are federal. Supporting job seekers is a task for the regions and the German-speaking Community (VDAB, Le Forem, Actiris and ADG).
   gezondheid:
     nl: Health
@@ -498,17 +498,6 @@ indicatoren:
     - working longer
     - retirement age
     - end of career
-  inactief_ziekte:
-    titel: Not working due to illness
-    vraag: How many people of working age do not work because of illness or disability?
-    definitie: Share of 20- to 64-year-olds who are not working and not looking for work, with their own illness or disability as the main reason (European Labour Force Survey).
-    uitleg: This is what people themselves answer in a survey, not the number of people receiving sickness benefit. It does give a picture of how many people are out of work because of their health.
-    zoekwoorden:
-    - long-term sick
-    - illness
-    - disability
-    - incapacity for work
-    - riziv
   gezonde_levensjaren:
     titel: Healthy life years
     vraag: How many years do we live in good health?

@@ -14,7 +14,7 @@ themas:
   werk:
     nl: Emploi
     vraag: Combien de personnes travaillent ?
-    intro: Le nombre de personnes qui ont un emploi détermine en partie les impôts et cotisations qui rentrent pour payer, entre autres, les pensions et les soins de santé. Vous voyez ici combien d'adultes travaillent, combien de personnes cherchent un emploi et depuis combien de temps, combien de personnes plus âgées travaillent encore, et combien ne travaillent pas pour cause de maladie.
+    intro: Le nombre de personnes qui ont un emploi détermine en partie les impôts et cotisations qui rentrent pour payer, entre autres, les pensions et les soins de santé. Vous voyez ici combien d'adultes travaillent, combien de personnes cherchent un emploi et depuis combien de temps et combien de personnes plus âgées travaillent encore.
     bevoegd: Le droit du travail et les allocations de chômage sont fédéraux. L'accompagnement des demandeurs d'emploi est une mission des régions et de la Communauté germanophone (VDAB, Le Forem, Actiris et ADG).
   gezondheid:
     nl: Santé
@@ -497,18 +497,6 @@ indicatoren:
     - travailler plus longtemps
     - âge de la pension
     - fin de carrière
-  inactief_ziekte:
-    titel: Sans emploi pour cause de maladie
-    vraag: Combien de personnes en âge de travailler ne travaillent pas en raison d'une maladie ou d'un handicap ?
-    definitie: Part des 20-64 ans qui ne travaillent pas et ne cherchent pas d'emploi, avec leur propre maladie ou handicap comme raison principale (enquête européenne sur les forces de travail).
-    uitleg: Il s'agit de ce que les personnes répondent elles-mêmes dans une enquête, pas du nombre de personnes qui touchent une indemnité de la mutualité. Cela donne toutefois une idée du nombre de personnes qui ne travaillent pas à cause de leur santé.
-    zoekwoorden:
-    - malades de longue durée
-    - maladie
-    - invalidité
-    - incapacité de travail
-    - handicap
-    - inami
   gezonde_levensjaren:
     titel: Années de vie en bonne santé
     vraag: Combien d'années vivons-nous en bonne santé ?
