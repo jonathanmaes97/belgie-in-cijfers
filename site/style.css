@@ -336,3 +336,18 @@ code { font-size: .82rem; background: var(--achter); padding: 1px 5px; border-ra
 .consensus tr.eigen { background: color-mix(in srgb, var(--t) 8%, transparent); font-weight: 600; }
 .consensus td.upd { color: var(--zacht); font-size: .8rem; white-space: nowrap; }
 .bron-klein { font-size: .78rem !important; }
+
+/* ---------- uitgaven per functie ---------- */
+.intro-klein { margin: 0; color: var(--gedempt); }
+.honderd { display: flex; height: 30px; border-radius: var(--r); overflow: hidden; gap: 2px; background: var(--vlak); }
+.honderd i { display: block; height: 100%; min-width: 2px; }
+.uitgaven-doos { overflow-x: auto; }
+.uitgaven table { width: 100%; border-collapse: collapse; min-width: 560px; font-variant-numeric: tabular-nums; }
+.uitgaven th, .uitgaven td { padding: 9px 10px; border-bottom: 1px solid var(--raster); text-align: right; vertical-align: top; }
+.uitgaven thead th { font-size: .82rem; font-weight: 600; color: var(--gedempt); }
+.uitgaven th[scope=row], .uitgaven thead th:first-child { text-align: left; }
+.uitgaven tbody th { font-weight: 600; }
+.uitgaven tbody th small { display: block; font-weight: 400; color: var(--gedempt); font-size: .8rem; margin-left: 20px; }
+.uitgaven .stip { display: inline-block; width: 11px; height: 11px; border-radius: 3px; margin-right: 9px; vertical-align: -1px; }
+.uitgaven tr.detail th { font-weight: 400; color: var(--gedempt); padding-left: 30px; font-size: .9rem; }
+.uitgaven tr.detail td { color: var(--gedempt); font-size: .9rem; }

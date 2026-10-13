@@ -24,7 +24,7 @@ from pathlib import Path
 
 import yaml
 
-from . import eurostat, infrabel, planbureau
+from . import eurostat, infrabel, planbureau, uitgaven
 from .eurostat import BronFout
 
 WORTEL = Path(__file__).resolve().parent.parent
@@ -33,6 +33,8 @@ SCHOON = WORTEL / "data" / "clean"
 CHANGELOG = WORTEL / "data" / "changelog.json"
 SITE_DATA = WORTEL / "site" / "data" / "dashboard.json"
 STATUS = WORTEL / "reports" / "status.md"
+
+EXTRA = [("vooruitzichten", planbureau.haal_op), ("uitgaven", uitgaven.haal_op)]
 
 # Een herziening wordt pas gemeld vanaf dit verschil (afrondingsruis negeren).
 HERZIENING_DREMPEL = 0.05
@@ -221,20 +223,22 @@ def main(argv=None) -> int:
             data[id_] = lees_csv(SCHOON / f"{id_}.csv")
             status[id_] = {"ok": False, **lees_meta(id_), "melding": str(e)}
 
-    # vooruitzichten van het Planbureau (geen jaarreeks per land, dus apart bewaard)
-    vz_pad = SCHOON / "vooruitzichten.json"
-    if args.offline:
-        status["_vooruitzichten"] = {"ok": vz_pad.exists(), "melding": ""}
-    else:
-        print("→ vooruitzichten Planbureau")
+    # aparte bronnen die geen jaarreeks per land zijn (Planbureau, uitgaven per functie, ...)
+    for naam, ophalen in EXTRA:
+        pad = SCHOON / f"{naam}.json"
+        sleutel = f"_{naam}"
+        if args.offline:
+            status[sleutel] = {"ok": pad.exists(), "melding": ""}
+            continue
+        print(f"→ {naam}")
         try:
-            vz = planbureau.haal_op()
-            vz["opgehaald"] = tijd
-            vz_pad.write_text(json.dumps(vz, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
-            status["_vooruitzichten"] = {"ok": True, "opgehaald": tijd, "melding": ""}
+            inhoud = ophalen()
+            inhoud["opgehaald"] = tijd
+            pad.write_text(json.dumps(inhoud, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+            status[sleutel] = {"ok": True, "opgehaald": tijd, "melding": ""}
         except (BronFout, KeyError, ValueError) as e:
             print(f"  ✗ {e}", file=sys.stderr)
-            status["_vooruitzichten"] = {"ok": False, "melding": str(e)}
+            status[sleutel] = {"ok": False, "melding": str(e)}
 
     if nieuwe_herzieningen:
         log = json.loads(CHANGELOG.read_text(encoding="utf-8")) if CHANGELOG.exists() else []
@@ -281,12 +285,14 @@ def schrijf_site_data(cat: dict, data: dict, status: dict, tijd: str) -> None:
             "norm": ind.get("norm"), "bron": bron, "opgehaald": st.get("opgehaald"),
             "ok": st.get("ok", False), "melding": st.get("melding", ""), "reeksen": reeksen,
         })
-    vz_pad = SCHOON / "vooruitzichten.json"
-    vooruitzichten = json.loads(vz_pad.read_text(encoding="utf-8")) if vz_pad.exists() else None
+    extra = {}
+    for naam, _ in EXTRA:
+        pad = SCHOON / f"{naam}.json"
+        extra[naam] = json.loads(pad.read_text(encoding="utf-8")) if pad.exists() else None
     reg = yaml.safe_load((WORTEL / "config" / "regeringen.yaml").read_text(encoding="utf-8"))
     regeringen = {"bron": reg["bron"], "federaal": [{**r, "van": str(r["van"]), "tot": str(r["tot"]) if r["tot"] else None} for r in reg["federaal"]]}
     uit = {"gegenereerd": tijd, "themas": cat["themas"], "begrippen": cat.get("begrippen", {}),
-           "landnamen": cat["landnamen"], "regeringen": regeringen, "vooruitzichten": vooruitzichten, "indicatoren": indicatoren}
+           "landnamen": cat["landnamen"], "regeringen": regeringen, **extra, "indicatoren": indicatoren}
     SITE_DATA.parent.mkdir(parents=True, exist_ok=True)
     SITE_DATA.write_text(json.dumps(uit, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
@@ -296,8 +302,9 @@ def schrijf_status(cat: dict, status: dict, tijd: str) -> None:
     for ind in cat["indicatoren"]:
         s = status.get(ind["id"], {})
         regels.append(f"| {ind['id']} | {'✅' if s.get('ok') else '❌'} | {s.get('opgehaald') or '—'} | {(s.get('melding', '') + ' ' + s.get('melding_regio', '')).strip().replace('|', '/')} |")
-    v = status.get("_vooruitzichten", {})
-    regels.append(f"| vooruitzichten Planbureau | {'✅' if v.get('ok') else '❌'} | {v.get('opgehaald') or '—'} | {v.get('melding', '')} |")
+    for naam, _ in EXTRA:
+        v = status.get(f"_{naam}", {})
+        regels.append(f"| {naam} | {'✅' if v.get('ok') else '❌'} | {v.get('opgehaald') or '—'} | {v.get('melding', '')} |")
     STATUS.parent.mkdir(parents=True, exist_ok=True)
     STATUS.write_text("\n".join(regels) + "\n", encoding="utf-8")
 

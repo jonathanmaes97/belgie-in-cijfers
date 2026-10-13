@@ -354,6 +354,8 @@ def startpagina(data: dict, per_id: dict) -> str:
                   "z": " ".join(i.get("zoekwoorden", [])), "u": f'thema/{i["thema"]}.html#{i["id"]}'}
                  for i in data["indicatoren"] if not i["verborgen"]]
     zoekindex += [{"v": t["vraag"], "t": t["nl"], "th": "Thema", "z": "", "u": f'thema/{t["id"]}.html'} for t in data["themas"]]
+    zoekindex.append({"v": "Waar gaat ons belastinggeld naartoe?", "t": "Overheidsuitgaven per functie", "th": "Overheidsfinanciën",
+                      "z": "belastinggeld uitgaven pensioenen defensie onderwijs zorg begroting", "u": "thema/overheidsfinancien.html#belastinggeld"})
     zoekindex.append({"v": "Wanneer volgt de volgende indexering?", "t": "Inflatie en index", "th": "Economie",
                       "z": "index indexering spilindex inflatie vooruitzicht planbureau loon uitkering", "u": "thema/economie.html#inflatie-en-index"})
     zoekindex.append({"v": "Hoe verschillen Vlaanderen, Wallonië en Brussel?", "t": "Per gewest", "th": "Gewesten",
@@ -445,6 +447,50 @@ def vooruitzichtenblok(data: dict) -> str:
 </section>'''
 
 
+UITGAVEN_KLEUREN = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#008300", "#6250d6"]
+
+
+def uitgavenblok(data: dict, per_id: dict) -> str:
+    """Waar gaat ons belastinggeld naartoe? Overheidsuitgaven per functie (Eurostat COFOG)."""
+    u = data.get("uitgaven")
+    if not u:
+        return ""
+    jaar = str(u["jaar"])
+    aandeel = lambda code, geo="BE": (u["aandelen"].get(code, {}).get(geo, {}) or {}).get(jaar)
+    bev = waarde_in(per_id["bevolking"], "BE", int(jaar)) if "bevolking" in per_id else None
+    functies = sorted(u["functies"], key=lambda f: -(aandeel(f["code"]) or 0))
+    kleur = {f["code"]: (UITGAVEN_KLEUREN[i] if i < len(UITGAVEN_KLEUREN) else "#9aa0a6") for i, f in enumerate(functies)}
+    balk = "".join(f'<i style="width:{aandeel(f["code"]) or 0:.2f}%;background:{kleur[f["code"]]}" title="{escape(f["nl"])}: {getal(aandeel(f["code"]) or 0, 1)}%"></i>' for f in functies)
+    rijen = []
+    for f in functies:
+        a, eu = aandeel(f["code"]), aandeel(f["code"], "EU27_2020")
+        mio = (u["miljoen_euro"].get(f["code"]) or {}).get(jaar)
+        per_inw = f'€ {getal(mio * 1e6 / bev, 0)}' if mio and bev else "—"
+        detail = ""
+        for d in u["details"]:
+            if d["deel_van"] == f["code"] and aandeel(d["code"]) is not None:
+                dm = (u["miljoen_euro"].get(d["code"]) or {}).get(jaar)
+                detail += (f'<tr class="detail"><th scope="row">{escape(d["nl"])}</th><td>€ {getal(aandeel(d["code"]), 1)}</td>'
+                           f'<td>{"€ " + getal(dm * 1e6 / bev, 0) if dm and bev else "—"}</td><td>{getal(aandeel(d["code"], "EU27_2020"), 1) + "%" if aandeel(d["code"], "EU27_2020") is not None else "—"}</td></tr>')
+        rijen.append(f'<tr><th scope="row"><span class="stip" style="background:{kleur[f["code"]]}"></span>{escape(f["nl"])}<small>{escape(f["uitleg"])}</small></th>'
+                     f'<td>€ {getal(a, 1) if a is not None else "—"}</td><td>{per_inw}</td><td>{getal(eu, 1) + "%" if eu is not None else "—"}</td></tr>{detail}')
+    totaal_mio = sum(((u["miljoen_euro"].get(f["code"]) or {}).get(jaar) or 0) for f in u["functies"])
+    totaal_zin = f' Samen is dat € {getal(totaal_mio * 1e6 / bev, 0)} per inwoner.' if bev and totaal_mio else ""
+    b = u["bron"]
+    return f'''
+<section class="vz kaart uitgaven" id="belastinggeld">
+  <header><p class="label">Overheidsuitgaven per functie</p><h3>Waar gaat ons belastinggeld naartoe?</h3></header>
+  <p class="intro-klein">Van elke 100 euro die alle Belgische overheden samen in {jaar} uitgaven, ging zoveel naar elk domein.{totaal_zin}</p>
+  <div class="honderd" role="img" aria-label="Verdeling van 100 euro overheidsuitgaven">{balk}</div>
+  <div class="uitgaven-doos"><table>
+    <thead><tr><th scope="col">Domein</th><th scope="col">Per 100 euro</th><th scope="col">Per inwoner per jaar</th><th scope="col">EU-gemiddelde</th></tr></thead>
+    <tbody>{"".join(rijen)}</tbody>
+  </table></div>
+  <p class="uitleg">{icoon("info")}<span>Het gaat om alle uitgaven van de federale overheid, de gemeenschappen, de gewesten, de gemeenten en de sociale zekerheid samen. Ze worden betaald met belastingen, sociale bijdragen en leningen. "Per inwoner" is het totale bedrag gedeeld door het aantal inwoners: het is geen bedrag dat je zelf betaalt.</span></p>
+  <footer class="bron">{icoon("bron")}<span>Bron: <a href="{escape(b["url"])}" rel="noopener">Eurostat · {escape(b["dataset"])}</a> (indeling COFOG) · opgehaald {datum(u.get("opgehaald"))} · per inwoner berekend met de bevolking op 1 januari {jaar}</span></footer>
+</section>'''
+
+
 def regeringschakelaar() -> str:
     return ('<div class="regeringen js"><label class="schakelaar"><input type="checkbox" id="toon-regeringen">'
             '<span class="schuif" aria-hidden="true"></span>Toon de federale regeringen op de grafieken</label>'
@@ -474,6 +520,7 @@ def themapagina(data: dict, thema: dict, vorige: dict, volgende: dict) -> str:
 <div class="binnen" style="--t:{THEMA_KLEUR.get(thema["id"])}">
   {schakelaar}
   {vooruitzichtenblok(data) if thema["id"] == "economie" else ""}
+  {uitgavenblok(data, {i["id"]: i for i in data["indicatoren"]}) if thema["id"] == "overheidsfinancien" else ""}
   <div class="kaart-raster">{"".join(kaart(i, pad) for i in inds)}</div>
   {f'<section class="begrippen"><h2>Moeilijke woorden uitgelegd</h2><dl>{begrippen}</dl></section>' if begrippen else ""}
   <nav class="buren-nav" aria-label="Andere thema's">
