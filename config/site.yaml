@@ -5,4 +5,4 @@ domein: https://stateoftheunion.be/
 github_pages: https://jonathanmaes97.github.io/belgie-in-cijfers/
 # Bezoekersstatistieken zonder cookies (GoatCounter). Maak gratis een account op https://www.goatcounter.com
 # en vul hier het adres in, bv. https://sotu.goatcounter.com/count. Leeg = geen statistieken.
-goatcounter: null
+goatcounter: https://stateoftheunion.goatcounter.com/count

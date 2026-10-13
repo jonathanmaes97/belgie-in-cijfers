@@ -1348,3 +1348,8 @@ js:
     fr: "Merci de jeter un œil !"
     de: "Danke fürs Reinschauen!"
     en: "Thanks for having a look!"
+  legende_hint:
+    nl: "Klik om dit land te tonen of te verbergen"
+    fr: "Cliquez pour afficher ou masquer ce pays"
+    de: "Klicken, um dieses Land ein- oder auszublenden"
+    en: "Click to show or hide this country"

@@ -505,3 +505,19 @@ small.cofog a { color: inherit; }
 .gt-rij i { display: block; height: 8px; border-radius: 4px; background: var(--t-licht, var(--t)); opacity: .75; }
 .gt-rij b { font-size: .85rem !important; font-variant-numeric: tabular-nums; }
 .themabalk a.gewesten-link { border-left: 0; border-right: 1px solid var(--lijn); border-radius: 6px 0 0 6px; padding-left: 7px; padding-right: 12px; margin-left: 0; margin-right: 4px; }
+
+/* klikbare legende in de lijngrafieken */
+.legende-knop { display: inline-flex; align-items: center; gap: 6px; font: inherit; color: inherit; background: none; border: 1px solid transparent; border-radius: 999px; padding: 2px 8px 2px 6px; margin-left: -6px; cursor: pointer; }
+.legende-knop:hover { border-color: var(--lijn); color: var(--tekst); }
+.legende-knop[aria-pressed="false"] { opacity: .45; text-decoration: line-through; }
+.legende-knop[aria-pressed="false"] i { background: var(--lijn) !important; border-color: var(--lijn) !important; }
+
+/* tabellen met belastingen en uitgaven passend maken op een gsm */
+@media (max-width: 600px) {
+  .uitgaven table { min-width: 0; }
+  .uitgaven th, .uitgaven td { padding: 8px 4px; font-size: .84rem; }
+  .uitgaven tbody th small { margin-left: 0; }
+  .uitgaven th:nth-child(3), .uitgaven td:nth-child(3) { display: none; }
+  .uitgaven .stip { margin-right: 6px; }
+}
+@media (max-width: 600px) { .inkomsten th:nth-child(4), .inkomsten td:nth-child(4) { display: none; } }

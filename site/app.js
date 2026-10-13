@@ -14,7 +14,7 @@
 
   function maak(tag, attrs, ouder, tekst) {
     const el = document.createElementNS(NS, tag);
-    for (const k in attrs) el.setAttribute(k, attrs[k]);
+    for (const k in attrs) if (attrs[k] !== null && attrs[k] !== undefined) el.setAttribute(k, attrs[k]);
     if (tekst !== undefined) el.textContent = tekst;
     if (ouder) ouder.appendChild(el);
     return el;
@@ -72,19 +72,46 @@
     };
   }
 
+  // Landen in de lijngrafieken: elk een eigen kleur, en je kunt ze tonen of verbergen via de legende.
+  // De keuze geldt voor alle grafieken op de pagina, zodat je makkelijk één buurland kunt volgen.
+  const BUUR = { NL: "#e07b39", DE: "#8a6fbf", FR: "#3b8fc4", LU: "#c25f8f" };
+  const verborgen = new Set();
+  let nadruk = null;          // land waar de muis boven de legende op staat
+  let herteken = () => {};    // wordt ingesteld in grafieken()
+
   function legende(doos, items) {
     const l = document.createElement("div");
     l.className = "legende";
     items.forEach((it) => {
-      const s = document.createElement("span");
+      const s = document.createElement(it.geo ? "button" : "span");
       const i = document.createElement("i");
       if (it.vorm) i.className = it.vorm;
       i.style.setProperty("--k", it.kleur);
       s.appendChild(i);
       s.appendChild(document.createTextNode(it.naam));
+      if (it.geo) {
+        s.type = "button";
+        s.className = "legende-knop";
+        s.setAttribute("aria-pressed", verborgen.has(it.geo) ? "false" : "true");
+        s.title = t("legende_hint", "Klik om te tonen of te verbergen");
+        s.addEventListener("click", () => {
+          if (verborgen.has(it.geo)) verborgen.delete(it.geo); else verborgen.add(it.geo);
+          nadruk = null;
+          herteken();
+        });
+        s.addEventListener("pointerenter", () => { if (!verborgen.has(it.geo)) { nadruk = it.geo; markeer(doos); } });
+        s.addEventListener("pointerleave", () => { nadruk = null; markeer(doos); });
+      }
       l.appendChild(s);
     });
     doos.appendChild(l);
+  }
+  // één land laten oplichten zonder de grafiek opnieuw te tekenen
+  function markeer(doos) {
+    doos.querySelectorAll("path[data-geo]").forEach((p) => {
+      p.style.opacity = !nadruk || p.dataset.geo === nadruk ? "" : "0.18";
+      p.style.strokeWidth = nadruk && p.dataset.geo === nadruk ? "3" : "";
+    });
   }
 
   const naam = (data, g) => (UI.landnamen && UI.landnamen[g]) || (data.landnamen[g] && data.landnamen[g].nl) || g;
@@ -119,16 +146,21 @@
   // ---------- lijn: België, EU en buren door de jaren ----------
   function lijn(doos, ind, data, kl) {
     const B = doos.clientWidth, H = 220, mt = 12, mb = 22;
-    const geos = ["BE", "EU27_2020", "NL", "DE", "FR", "LU"].filter((g) => ind.reeksen[g] && ind.reeksen[g].length);
+    const beschikbaar = ["BE", "EU27_2020", "NL", "DE", "FR", "LU"].filter((g) => ind.reeksen[g] && ind.reeksen[g].length);
+    const geos = beschikbaar.filter((g) => g === "BE" || !verborgen.has(g));
     const stijl = { BE: { k: kl.thema, d: 3 }, EU27_2020: { k: kl.eu, d: 2, s: "5 4" } };
+    Object.entries(BUUR).forEach(([g, k]) => { stijl[g] = { k, d: 1.8 }; });
     const anders = { k: kl.ander, d: 1.4 };
+    const buren = geos.filter((g) => BUUR[g]);
     const alle = geos.flatMap((g) => ind.reeksen[g]);
     const j0 = Math.min(...alle.map((r) => r[0])), j1 = Math.max(...alle.map((r) => r[0]));
     const vals = alle.map((r) => r[1]).concat(ind.norm ? [ind.norm.waarde] : []);
     const tk = ticks(Math.min(...vals), Math.max(...vals), 4);
     const svg = maak("svg", { viewBox: `0 0 ${B} ${H}` }, doos);
     const ml = meetTekst(svg, tk.map(kort)) + 10;
-    const eindLabels = ["BE", "EU27_2020"].filter((g) => ind.reeksen[g]).map((g) => ({ g, r: ind.reeksen[g][ind.reeksen[g].length - 1] }));
+    // eindlabels voor België en de EU, en voor buurlanden als je er maximaal twee toont
+    const metLabel = ["BE", "EU27_2020"].concat(buren.length <= 2 ? buren : []).filter((g) => geos.includes(g));
+    const eindLabels = metLabel.map((g) => ({ g, r: ind.reeksen[g][ind.reeksen[g].length - 1] }));
     const mr = Math.min(B * 0.32, meetTekst(svg, eindLabels.map((e) => kortNaam(data, e.g) + " " + fmt(e.r[1], ind)), "sterk") + 12);
     const x = (j) => ml + ((j - j0) / Math.max(1, j1 - j0)) * (B - ml - mr);
     const y = (v) => mt + (1 - (v - tk[0]) / (tk[tk.length - 1] - tk[0])) * (H - mt - mb);
@@ -146,16 +178,19 @@
     [...geos].reverse().forEach((g) => {
       const s = stijl[g] || anders;
       const d = ind.reeksen[g].map((r, i) => (i ? "L" : "M") + x(r[0]).toFixed(1) + "," + y(r[1]).toFixed(1)).join("");
-      maak("path", { d, fill: "none", stroke: s.k, "stroke-width": s.d, "stroke-linejoin": "round", "stroke-linecap": "round", "stroke-dasharray": s.s || "" }, svg);
+      maak("path", { d, fill: "none", stroke: s.k, "stroke-width": s.d, "stroke-linejoin": "round", "stroke-linecap": "round", "stroke-dasharray": s.s || "", "data-geo": g }, svg);
     });
-    // eindlabels uit elkaar houden
+    // eindlabels uit elkaar houden (minstens 15 pixels tussen twee labels)
     const pos = eindLabels.map((e) => ({ ...e, y: y(e.r[1]) })).sort((a, b) => a.y - b.y);
-    if (pos.length === 2 && pos[1].y - pos[0].y < 15) { const m = (pos[0].y + pos[1].y) / 2; pos[0].y = m - 8; pos[1].y = m + 8; }
+    for (let k = 0; k < 3; k++) for (let i = 1; i < pos.length; i++) {
+      const tekort = 15 - (pos[i].y - pos[i - 1].y);
+      if (tekort > 0) { pos[i - 1].y -= tekort / 2; pos[i].y += tekort / 2; }
+    }
     pos.forEach((p) => {
       maak("circle", { cx: x(p.r[0]), cy: y(p.r[1]), r: p.g === "BE" ? 4.5 : 3.5, fill: (stijl[p.g] || anders).k }, svg);
-      maak("text", { x: x(j1) + 8, y: p.y, "dominant-baseline": "middle", class: p.g === "BE" ? "sterk" : "" }, svg, kortNaam(data, p.g) + " " + fmt(p.r[1], ind));
+      maak("text", { x: x(j1) + 8, y: p.y, "dominant-baseline": "middle", class: p.g === "BE" ? "sterk" : "", fill: BUUR[p.g] || null }, svg, kortNaam(data, p.g) + " " + fmt(p.r[1], ind));
     });
-    const items = geos.map((g) => ({ naam: naam(data, g), kleur: (stijl[g] || anders).k, vorm: g === "EU27_2020" ? "stip" : "" }));
+    const items = beschikbaar.map((g) => ({ naam: naam(data, g), kleur: (stijl[g] || anders).k, vorm: g === "EU27_2020" ? "stip" : "", geo: g === "BE" ? null : g }));
     if (ind.norm) items.push({ naam: normLabel(ind), kleur: kl.norm, vorm: "stip" });
     legende(doos, items);
     // hover
@@ -239,7 +274,7 @@
     const lo = Math.min(...vals), hi = Math.max(...vals);
     const x = (v) => ml + ((v - lo) / (hi - lo || 1)) * (B - ml - mr);
     rijen.forEach((r, i) => {
-      const yy = 4 + i * rh, kleur = r.g === "BE" ? kl.thema : r.g === "EU27_2020" ? kl.eu : kl.ander;
+      const yy = 4 + i * rh, kleur = r.g === "BE" ? kl.thema : r.g === "EU27_2020" ? kl.eu : BUUR[r.g] || kl.ander;
       const x0 = x(Math.min(0, r.w[1])), x1 = x(Math.max(0, r.w[1]));
       maak("text", { x: ml - 10, y: yy + rh / 2 - 2, "text-anchor": "end", "dominant-baseline": "middle", class: r.g === "BE" ? "sterk" : "" }, svg, naam(data, r.g));
       maak("rect", { x: x0, y: yy + 5, width: Math.max(2, x1 - x0), height: rh - 16, rx: 4, fill: kleur }, svg);
@@ -334,6 +369,7 @@
     const dozen = [...document.querySelectorAll("[data-grafiek]")];
     const vzDozen = [...document.querySelectorAll("[data-vz]")];
     const alles = () => { dozen.forEach((d) => per[d.dataset.grafiek] && teken(d, per[d.dataset.grafiek], data)); vzDozen.forEach((d) => vzGrafiek(d, data)); };
+    herteken = alles;
     alles();
     document.querySelectorAll(".tabs").forEach((tabs) => {
       tabs.addEventListener("click", (ev) => {
