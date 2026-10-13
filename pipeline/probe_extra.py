@@ -13,8 +13,13 @@ import requests
 from .probe_fiscaal import tekst
 
 WORTEL = Path(__file__).resolve().parent.parent
-EUROSTAT = "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/{ds}?geo=BE&lastTimePeriod=2&lang=EN"
-DATASETS: list[str] = []  # eerste ronde gedaan: sdg_04_40, nrg_pc_204, nrg_pc_202, educ_outc_pisa
+EUROSTAT = "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/{ds}?geo=BE&lastTimePeriod=1&lang=EN"
+DATASETS: list[str] = [  # ronde 3: gezondheid, mobiliteit en onderwerpen uit het politieke debat
+    "hlth_hlye", "sdg_03_60", "hlth_cd_apr", "lfsa_igar", "hlth_rs_prs2", "hlth_rs_bds1",
+    "tran_hv_psmod", "road_eqs_carhab", "road_eqr_zevpc", "sdg_12_30",
+    "une_ltu_a", "lfsi_emp_a", "crim_pris_cap", "ilc_lvho07a", "ilc_mdsd11", "spr_exp_pens", "tps00001",
+    "lfsa_ergan", "earn_nt_net", "prc_hicp_aind", "gov_10a_taxag",
+]
 LICENTIES = [
     "https://opendata.infrabel.be/pages/license/",
     "https://www.plan.be/nl/disclaimer",
@@ -41,7 +46,7 @@ def eurostat(s: requests.Session, uit: list[str]) -> None:
         for dim in j["id"]:
             cat = j["dimension"][dim]["category"]
             labels = cat.get("label", {})
-            waarden = ", ".join(f"{k} ({labels.get(k, '')})" for k in list(cat["index"])[:60])
+            waarden = ", ".join(f"{k} ({labels.get(k, '')})" for k in list(cat["index"])[:80])
             uit.append(f"- **{dim}**: {waarden}")
         waarden = list(j.get("value", {}).items())[:12]
         uit.append(f"- eerste waarden: {waarden}\n")
@@ -123,12 +128,12 @@ def main() -> None:
     s = requests.Session()
     s.headers["User-Agent"] = "belgie-in-cijfers (bronverkenning; github.com/jonathanmaes97/belgie-in-cijfers)"
     uit = ["# Verkenning: PISA, energieprijzen, mazout, BBSZ\n"]
-    for stap in (eurostat, olie, bbsz, licenties):
+    for stap in (eurostat,):
         try:
             stap(s, uit)
         except Exception as e:  # een verkenning mag nooit de publicatie tegenhouden
             uit.append(f"## {stap.__name__}: FOUT {type(e).__name__}: {e}\n")
-    (WORTEL / "reports" / "extra2.md").write_text("\n".join(uit) + "\n", encoding="utf-8")
+    (WORTEL / "reports" / "extra3.md").write_text("\n".join(uit) + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":
