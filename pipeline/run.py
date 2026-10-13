@@ -132,7 +132,7 @@ def afleiden(ind: dict, data: dict[str, list[dict]]) -> list[dict]:
 
 # ---------------------------------------------------------------- hoofdlus
 
-def haal_indicator(ind: dict, cat: dict) -> tuple[list[dict], dict]:
+def haal_indicator(ind: dict, cat: dict, oud: list[dict] | None = None) -> tuple[list[dict], dict]:
     bron = ind["bron"]
     landen = ind.get("landen", cat["standaard_landen"])
     if bron["instelling"] == "Infrabel":
@@ -146,16 +146,22 @@ def haal_indicator(ind: dict, cat: dict) -> tuple[list[dict], dict]:
     rijen = [{"geo": w.geo, "jaar": w.jaar, "waarde": w.waarde, "status": w.status} for w in res.waarnemingen]
     urls = [res.url]
     bijgewerkt = res.bijgewerkt_bron
+    melding_regio = ""
     if ind.get("regionaal"):
         reg = ind["regionaal"]
         try:
             r2 = eurostat.haal_op(reg["dataset"], reg["filters"], reg["landen"], cat["vanaf_jaar"])
+            if not r2.waarnemingen:
+                raise BronFout("geen cijfers per gewest in het antwoord")
             rijen += [{"geo": w.geo, "jaar": w.jaar, "waarde": w.waarde, "status": w.status} for w in r2.waarnemingen]
             urls.append(r2.url)
         except BronFout as e:
+            # vorige gewestcijfers behouden en de fout melden
+            melding_regio = f"gewesten: {e}"
             print(f"  ! regionale reeks mislukt: {e}", file=sys.stderr)
+            rijen += [r for r in (oud or []) if r["geo"] in reg["landen"]]
     valideer(rijen, landen)
-    meta = {"api_urls": urls, "bijgewerkt_bron": bijgewerkt}
+    meta = {"api_urls": urls, "bijgewerkt_bron": bijgewerkt, "melding_regio": melding_regio}
     return rijen, meta
 
 
@@ -184,7 +190,7 @@ def main(argv=None) -> int:
             continue
         print(f"→ {id_}")
         try:
-            rijen, extra = haal_indicator(ind, cat)
+            rijen, extra = haal_indicator(ind, cat, oud)
             nieuwe_herzieningen += herzieningen(id_, oud, rijen)
             schrijf_csv(pad, rijen)
             meta = {**meta, **extra, "opgehaald": tijd, "laatste_poging": tijd, "melding": ""}
@@ -270,7 +276,7 @@ def schrijf_status(cat: dict, status: dict, tijd: str) -> None:
     regels = [f"# Status van de datapipeline\n", f"Laatste run: {tijd}\n", "| Indicator | Status | Opgehaald | Melding |", "|---|---|---|---|"]
     for ind in cat["indicatoren"]:
         s = status.get(ind["id"], {})
-        regels.append(f"| {ind['id']} | {'✅' if s.get('ok') else '❌'} | {s.get('opgehaald') or '—'} | {s.get('melding', '').replace('|', '/')} |")
+        regels.append(f"| {ind['id']} | {'✅' if s.get('ok') else '❌'} | {s.get('opgehaald') or '—'} | {(s.get('melding', '') + ' ' + s.get('melding_regio', '')).strip().replace('|', '/')} |")
     STATUS.parent.mkdir(parents=True, exist_ok=True)
     STATUS.write_text("\n".join(regels) + "\n", encoding="utf-8")
 

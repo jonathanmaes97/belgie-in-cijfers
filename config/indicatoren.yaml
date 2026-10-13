@@ -193,6 +193,7 @@ indicatoren:
     weergave: lijn
     zoekwoorden: [welvaart, rijkdom, inkomen]
     bron: {instelling: Eurostat, dataset: nama_10_pc, filters: {unit: CP_EUR_HAB, na_item: B1GQ}}
+    regionaal: {instelling: Eurostat, dataset: nama_10r_2gdp, filters: {unit: EUR_HAB}, landen: [BE1, BE2, BE3]}
 
   - id: inflatie
     thema: economie
@@ -334,6 +335,7 @@ indicatoren:
     weergave: lijn
     zoekwoorden: [werklozen, werkzoekenden, vdab, forem, actiris]
     bron: {instelling: Eurostat, dataset: une_rt_a, filters: {age: Y15-74, unit: PC_ACT, sex: T}}
+    regionaal: {instelling: Eurostat, dataset: lfst_r_lfu3rt, filters: {sex: T, age: Y15-74, unit: PC, isced11: TOTAL}, landen: [BE1, BE2, BE3]}
 
   # ---------- Gezondheid ----------
   - id: levensverwachting
@@ -347,6 +349,7 @@ indicatoren:
     weergave: lijn
     zoekwoorden: [leeftijd, sterfte, gezondheid]
     bron: {instelling: Eurostat, dataset: demo_mlexpec, filters: {sex: T, age: Y_LT1, unit: YR}}
+    regionaal: {instelling: Eurostat, dataset: demo_r_mlifexp, filters: {sex: T, age: Y_LT1, unit: YR}, landen: [BE1, BE2, BE3]}
 
   - id: zorguitgaven
     thema: gezondheid
@@ -374,6 +377,7 @@ indicatoren:
     wafel_tekst: {nl: "25- tot 34-jarigen heeft een diploma hoger onderwijs"}
     zoekwoorden: [hogeschool, universiteit, diploma, studeren]
     bron: {instelling: Eurostat, dataset: edat_lfse_03, filters: {isced11: ED5-8, sex: T, age: Y25-34, unit: PC}}
+    regionaal: {instelling: Eurostat, dataset: edat_lfse_04, filters: {sex: T, isced11: ED5-8, age: Y25-34, unit: PC}, landen: [BE1, BE2, BE3]}
 
   - id: vroegtijdige_schoolverlaters
     thema: onderwijs
@@ -388,6 +392,7 @@ indicatoren:
     wafel_tekst: {nl: "jongeren van 18 tot 24 jaar heeft geen diploma secundair en volgt geen opleiding meer"}
     zoekwoorden: [schoolverlaters, ongekwalificeerd, school, diploma]
     bron: {instelling: Eurostat, dataset: edat_lfse_14, filters: {sex: T, wstatus: POP, age: Y18-24, unit: PC}}
+    regionaal: {instelling: Eurostat, dataset: edat_lfse_16, filters: {sex: T, unit: PC}, landen: [BE1, BE2, BE3]}
 
   # ---------- Wonen en armoede ----------
   - id: armoede_uitsluiting
@@ -403,6 +408,7 @@ indicatoren:
     wafel_tekst: {nl: "inwoners loopt risico op armoede of sociale uitsluiting"}
     zoekwoorden: [armoede, arm, rondkomen, uitsluiting, arope]
     bron: {instelling: Eurostat, dataset: ilc_peps01n, filters: {unit: PC, age: TOTAL, sex: T}}
+    regionaal: {instelling: Eurostat, dataset: ilc_peps11n, filters: {unit: PC}, landen: [BE1, BE2, BE3]}
 
   - id: woningprijzen
     thema: wonen_armoede
@@ -488,6 +494,7 @@ indicatoren:
     landen: [BE]
     zoekwoorden: [inwoners, bevolking, mensen]
     bron: {instelling: Eurostat, dataset: tps00001, filters: {indic_de: JAN}}
+    regionaal: {instelling: Eurostat, dataset: demo_r_d2jan, filters: {sex: T, age: TOTAL, unit: NR}, landen: [BE1, BE2, BE3]}
 
   - id: aandeel_65plus
     thema: demografie
@@ -502,3 +509,4 @@ indicatoren:
     wafel_tekst: {nl: "inwoners is 65 jaar of ouder"}
     zoekwoorden: [ouderen, vergrijzing, pensioen, senioren]
     bron: {instelling: Eurostat, dataset: demo_pjanind, filters: {indic_de: PC_Y65_MAX}}
+    regionaal: {instelling: Eurostat, dataset: demo_r_pjanind2, filters: {indic_de: PC_Y65_MAX}, landen: [BE1, BE2, BE3]}

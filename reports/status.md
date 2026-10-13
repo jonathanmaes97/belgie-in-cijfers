@@ -1,6 +1,6 @@
 # Status van de datapipeline
 
-Laatste run: 2026-10-13T13:44:21+00:00
+Laatste run: 2026-10-13T13:51:07+00:00
 
 | Indicator | Status | Opgehaald | Melding |
 |---|---|---|---|
