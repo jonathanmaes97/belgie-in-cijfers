@@ -81,7 +81,7 @@ De huisvesting van de kinderen is gelijkmatig verdeeld over u en uw ex-partner. 
 - HTTP 200
 
 - BESTAND https://financien.belgium.be/sites/default/files/media/documents/tarieven-gemeentebelasting-2026.pdf → HTTP 404 text/html; charset=utf-8
-- BESTAND https://financien.belgium.be/sites/default/files/media/documents/tarieven-gemeentebelasting-2026.xlsx → HTTP 200 text/html; charset=UTF-8
+- BESTAND https://financien.belgium.be/sites/default/files/media/documents/tarieven-gemeentebelasting-2026.xlsx → HTTP 404 text/html; charset=utf-8
 ```
 Gemeentebelasting | FOD Financiën
 Overslaan en naar de inhoud gaan
