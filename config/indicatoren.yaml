@@ -226,7 +226,7 @@ indicatoren:
     definitie: {nl: Netto uitstoot van broeikasgassen per inwoner, in ton CO₂-equivalent.}
     eenheid: " ton"
     decimalen: 1
-    bron: {instelling: Eurostat, dataset: sdg_13_10, filters: {unit: T_HAB, src_crf: TOTX4_MEMONIA}}
+    bron: {instelling: Eurostat, dataset: sdg_13_10, filters: {unit: T_HAB}}
 
   # ---------- Mobiliteit ----------
   - id: verkeersdoden
@@ -235,7 +235,7 @@ indicatoren:
     definitie: {nl: Aantal mensen dat binnen 30 dagen na een verkeersongeval overlijdt, per miljoen inwoners.}
     eenheid: " per mln"
     decimalen: 0
-    bron: {instelling: Eurostat, dataset: sdg_11_40, filters: {unit: RT}}
+    bron: {instelling: Eurostat, dataset: sdg_11_40, filters: {unit: RT, tra_infr: TOTAL}}
 
   # ---------- Bevolking ----------
   - id: bevolking
