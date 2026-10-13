@@ -1,7 +1,7 @@
 # Adres van de site. Vul `domein` in zodra de eigen domeinnaam werkt (bv. https://voorbeeld.be/),
 # en stel hetzelfde domein in bij GitHub → Settings → Pages → Custom domain.
 # Zolang `domein` leeg is, gebruikt de site het adres van GitHub Pages.
-domein: null
+domein: https://stateoftheunion.be/
 github_pages: https://jonathanmaes97.github.io/belgie-in-cijfers/
 # Bezoekersstatistieken zonder cookies (GoatCounter). Maak gratis een account op https://www.goatcounter.com
 # en vul hier het adres in, bv. https://sotu.goatcounter.com/count. Leeg = geen statistieken.
