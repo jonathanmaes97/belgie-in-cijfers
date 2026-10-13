@@ -377,6 +377,7 @@ def startpagina(data: dict, per_id: dict) -> str:
   <div class="binnen"><div class="ticks">{ticks}</div>{teller}</div>
 </section>
 <div class="binnen">
+  {snelblok(data)}
   <section aria-labelledby="thema-titel" class="blok">
     <div class="blok-kop"><h2 id="thema-titel">Kies een thema</h2><a href="gewesten.html" class="blok-link">Of vergelijk de gewesten {icoon("pijl")}</a></div>
     <div class="thema-raster">{"".join(kaarten)}</div>
@@ -489,6 +490,58 @@ def uitgavenblok(data: dict, per_id: dict) -> str:
   <p class="uitleg">{icoon("info")}<span>Het gaat om alle uitgaven van de federale overheid, de gemeenschappen, de gewesten, de gemeenten en de sociale zekerheid samen. Ze worden betaald met belastingen, sociale bijdragen en leningen. "Per inwoner" is het totale bedrag gedeeld door het aantal inwoners: het is geen bedrag dat je zelf betaalt.</span></p>
   <footer class="bron">{icoon("bron")}<span>Bron: <a href="{escape(b["url"])}" rel="noopener">Eurostat · {escape(b["dataset"])}</a> (indeling COFOG) · opgehaald {datum(u.get("opgehaald"))} · per inwoner berekend met de bevolking op 1 januari {jaar}</span></footer>
 </section>'''
+
+
+def periode_tekst(p: str) -> str:
+    if "-Q" in p:
+        return f"{p[-1]}e kwartaal {p[:4]}"
+    return maand_tekst(p) if len(p) >= 7 else p
+
+
+def mini_spark(punten: list, b: int = 160, h: int = 40) -> str:
+    ys = [p[1] for p in punten]
+    if len(ys) < 3:
+        return ""
+    lo, hi = min(ys), max(ys)
+    span = (hi - lo) or 1
+    pts = [(i / (len(ys) - 1) * (b - 6) + 3, h - 4 - (y - lo) / span * (h - 8)) for i, y in enumerate(ys)]
+    nul = f'<line x1="0" x2="{b}" y1="{h - 4 - (0 - lo) / span * (h - 8):.1f}" y2="{h - 4 - (0 - lo) / span * (h - 8):.1f}" class="nul"/>' if lo < 0 < hi else ""
+    d = "M" + " L".join(f"{x:.1f},{y:.1f}" for x, y in pts)
+    return f'<svg class="spark" viewBox="0 0 {b} {h}" aria-hidden="true">{nul}<path d="{d}" pathLength="1"/><circle cx="{pts[-1][0]:.1f}" cy="{pts[-1][1]:.1f}" r="3"/></svg>'
+
+
+def snelblok(data: dict) -> str:
+    """De laatste maanden: maand- en kwartaalcijfers van de Nationale Bank."""
+    snel = data.get("snel")
+    if not snel:
+        return ""
+    kaarten = []
+    for r in snel["reeksen"]:
+        p = r["punten"]
+        laatst, vorig = p[-1], p[-2] if len(p) > 1 else None
+        stap = 4 if "-Q" in laatst[0] else 12
+        jaar_eerder = p[-1 - stap] if len(p) > stap else None
+        fmt = lambda v: getal(v, r["decimalen"]) + r["eenheid"]
+        verschil = lambda a, b: ("+" if a - b > 0 else "−" if a - b < 0 else "±") + getal(abs(a - b), r["decimalen"]) + (" procentpunt" if r["eenheid"] == "%" else "")
+        regels = []
+        if vorig:
+            regels.append(f'{verschil(laatst[1], vorig[1])} tegenover {periode_tekst(vorig[0])}')
+        if jaar_eerder:
+            regels.append(f'een jaar eerder: {fmt(jaar_eerder[1])}')
+        if r.get("vergelijk"):
+            v = {x[0]: x[1] for x in r["vergelijk"]["punten"]}
+            if laatst[0] in v:
+                regels.append(f'{escape(r["vergelijk"]["naam"]["nl"])}: {fmt(v[laatst[0]])}')
+        kaarten.append(
+            f'<article class="snel-kaart"><p class="sk-vraag">{escape(r["vraag"]["nl"])}</p>'
+            f'<p class="sk-titel">{escape(r["titel"]["nl"])}</p>'
+            f'<p class="sk-waarde">{fmt(laatst[1])}</p><p class="sk-periode">{periode_tekst(laatst[0])}</p>'
+            f'{mini_spark(p[-24:])}<ul>{"".join(f"<li>{x}</li>" for x in regels)}</ul>'
+            f'<details><summary>Wat is dit?</summary><p>{escape(r["uitleg"]["nl"])}</p></details>'
+            f'<p class="sk-bron">Bron: <a href="{escape(r["bron"]["url"])}" rel="noopener">Nationale Bank</a> · <a href="{escape(r["api_url"])}" rel="noopener">ruwe data</a></p></article>')
+    return (f'<section class="blok snel" aria-labelledby="snel-titel"><div class="blok-kop"><h2 id="snel-titel">De laatste maanden</h2>'
+            f'<span class="blok-noot">Maand- en kwartaalcijfers van de Nationale Bank · opgehaald {datum(snel.get("opgehaald"))}</span></div>'
+            f'<div class="snel-raster">{"".join(kaarten)}</div></section>')
 
 
 def regeringschakelaar() -> str:

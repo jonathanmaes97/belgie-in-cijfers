@@ -50,7 +50,7 @@ jobs:
           python -m pipeline.probe_sources
           python -m pipeline.probe_planbureau
           python -m pipeline.probe_nbb
-          python -m pipeline.probe_fiscaal
+          python -m pipeline.probe_fiscaal2
 
       - name: Wijzigingen bewaren
         run: |
