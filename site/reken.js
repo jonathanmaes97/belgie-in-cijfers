@@ -4,10 +4,17 @@
   const form = document.getElementById("reken-form");
   if (!form || !window.Rekenmodule) return;
   const BASIS = document.currentScript.src.replace(/reken\.js.*$/, "");
-  const nf0 = new Intl.NumberFormat("nl-BE", { maximumFractionDigits: 0 });
-  const nf1 = new Intl.NumberFormat("nl-BE", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
-  const eur = (x) => "€ " + nf0.format(Math.round(x));
-  const pct = (x) => nf1.format(x * 100) + "%";
+  let UI = {};
+  try { UI = JSON.parse(document.getElementById("ui").textContent); } catch (e) {}
+  const LOC = UI.locale || "nl-BE";
+  const T = (k, vars) => String((UI.t && UI.t[k]) || k).replace(/\{(\w+)\}/g, (m, n) => (vars && n in vars ? vars[n] : m));
+  const [EV, EN] = (UI.eenheden && UI.eenheden["€"]) || ["€ ", ""];
+  const P_TEKEN = (UI.eenheden && UI.eenheden["%"] && UI.eenheden["%"][1]) || "%";
+  const nf0 = new Intl.NumberFormat(LOC, { maximumFractionDigits: 0 });
+  const nf1 = new Intl.NumberFormat(LOC, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  const nf2 = new Intl.NumberFormat(LOC, { maximumFractionDigits: 2 });
+  const eur = (x) => EV + nf0.format(Math.round(x)) + EN;
+  const pct = (x) => nf1.format(x * 100) + P_TEKEN;
   const $ = (id) => document.getElementById(id);
   let P = null, uitgaven = null;
 
@@ -48,8 +55,8 @@
 
     // balk: netto | RSZ | personenbelasting | gemeentebelasting
     const delen = [
-      ["netto", u.netto, "Netto voor jou"], ["rsz", u.rsz, "Sociale zekerheid (RSZ)"],
-      ["pb", u.personenbelasting, "Personenbelasting"], ["gem", u.gemeentebelasting, "Gemeentebelasting"],
+      ["netto", u.netto, T("r_netto")], ["rsz", u.rsz, T("r_rsz")],
+      ["pb", u.personenbelasting, T("r_pb")], ["gem", u.gemeentebelasting, T("r_gem")],
     ];
     const balk = $("r-balk"); balk.textContent = "";
     const leg = $("r-legende"); leg.textContent = "";
@@ -59,32 +66,32 @@
       balk.appendChild(d);
       const li = document.createElement("li");
       const sw = document.createElement("span"); sw.className = "sw deel-" + k;
-      li.append(sw, document.createTextNode(`${naam}: ${eur(v)} (${nf1.format(aandeel)}%)`));
+      li.append(sw, document.createTextNode(`${naam}: ${eur(v)} (${nf1.format(aandeel)}${P_TEKEN})`));
       leg.appendChild(li);
     });
 
     // stappen
     const t = $("r-stappen"); t.textContent = "";
     t.append(
-      rij("Brutoloon (12 maanden)", eur(u.loon)),
-      ...(u.vakantiegeld ? [rij("+ dubbel vakantiegeld", eur(u.vakantiegeld))] : []),
-      ...(u.eindejaarspremie ? [rij("+ eindejaarspremie", eur(u.eindejaarspremie))] : []),
-      rij("= Bruto per jaar", eur(u.bruto), "som"),
-      rij(`− Sociale zekerheid (RSZ, ${new Intl.NumberFormat("nl-BE", { maximumFractionDigits: 2 }).format(P.rsz_werknemer.percentage)}%)`, "− " + eur(u.rsz)),
-      rij(`− Forfaitaire beroepskosten (${P.forfaitaire_beroepskosten.percentage}%, max. ${eur(P.forfaitaire_beroepskosten.maximum)})`, "− " + eur(u.beroepskosten)),
-      rij("= Belastbaar inkomen", eur(u.belastbaar), "som"),
+      rij(T("r_loon"), eur(u.loon)),
+      ...(u.vakantiegeld ? [rij(T("r_vg"), eur(u.vakantiegeld))] : []),
+      ...(u.eindejaarspremie ? [rij(T("r_ejp"), eur(u.eindejaarspremie))] : []),
+      rij(T("r_bruto"), eur(u.bruto), "som"),
+      rij(T("r_rsz_rij", { pct: nf2.format(P.rsz_werknemer.percentage) }), "− " + eur(u.rsz)),
+      rij(T("r_kosten_rij", { pct: nf2.format(P.forfaitaire_beroepskosten.percentage), max: eur(P.forfaitaire_beroepskosten.maximum) }), "− " + eur(u.beroepskosten)),
+      rij(T("r_belastbaar"), eur(u.belastbaar), "som"),
     );
     const s = $("r-schijven"); s.textContent = "";
     u.basisbelasting.per.forEach((x) => {
       if (x.deel <= 0) return;
-      s.appendChild(rij(`${eur(x.van)} tot ${x.tot === null ? "meer" : eur(x.tot)} aan ${x.tarief}%`, `${eur(x.deel)} → ${eur(x.belasting)}`));
+      s.appendChild(rij(T("r_schijf", { van: eur(x.van), tot: x.tot === null ? T("r_meer") : eur(x.tot), tarief: nf2.format(x.tarief) }), `${eur(x.deel)} → ${eur(x.belasting)}`));
     });
     s.append(
-      rij("= Belasting op je inkomen", eur(u.basisbelasting.totaal), "som"),
-      rij(`− Belastingvrije som (${eur(u.belastingvrijeSom.totaal)} wordt niet belast)`, "− " + eur(u.vrijstelling)),
-      rij("= Personenbelasting", eur(u.personenbelasting), "som"),
-      rij(`+ Gemeentebelasting (${nf1.format(i.gemeentePct)}% van de personenbelasting)`, eur(u.gemeentebelasting)),
-      rij("Totaal aan sociale bijdragen en belastingen", eur(u.totaal), "som totaal"),
+      rij(T("r_belasting_inkomen"), eur(u.basisbelasting.totaal), "som"),
+      rij(T("r_bvs", { bedrag: eur(u.belastingvrijeSom.totaal) }), "− " + eur(u.vrijstelling)),
+      rij(T("r_pb_som"), eur(u.personenbelasting), "som"),
+      rij(T("r_gem_rij", { pct: nf1.format(i.gemeentePct) }), eur(u.gemeentebelasting)),
+      rij(T("r_totaal"), eur(u.totaal), "som totaal"),
     );
 
     // waar gaat het naartoe?
@@ -96,7 +103,7 @@
       const max = f[0][1];
       f.forEach(([x, a]) => {
         const li = document.createElement("li");
-        const naam = document.createElement("span"); naam.className = "w-naam"; naam.textContent = x.nl;
+        const naam = document.createElement("span"); naam.className = "w-naam"; naam.textContent = (UI.uitgaven && UI.uitgaven[x.code]) || x.nl;
         const balkje = document.createElement("span"); balkje.className = "w-balk"; const b = document.createElement("i"); b.style.width = (a / max) * 100 + "%"; balkje.appendChild(b);
         const bedrag = document.createElement("span"); bedrag.className = "w-bedrag"; bedrag.textContent = eur((u.totaal * a) / 100);
         li.append(naam, balkje, bedrag);

@@ -1,0 +1,309 @@
+# English translation of the content texts. Keys follow config/indicatoren.yaml.
+# No figures here: figures always come from the data.
+themas:
+  economie:
+    nl: Economy
+    vraag: Is our economy growing?
+    intro: "The economy is everything we produce and earn together. When it grows, there is usually more work and more money for wages and public services. Here you can see how fast the Belgian economy is growing, how much we produce per person and how fast prices are rising."
+    bevoegd: "The European Central Bank sets interest rates in the euro area. In Belgium, economic policy is shared between the federal government (for example taxes) and the regions (for example support for businesses and investment)."
+  overheidsfinancien:
+    nl: Public finances
+    vraag: What state are the public finances in?
+    intro: "The government collects taxes and social contributions and spends that money on pensions, healthcare, education and roads, among other things. If it spends more than it receives, there is a deficit and the debt rises. The government pays interest on that debt."
+    bevoegd: "Every government has its own budget: the federal government, the communities, the regions and the local authorities. The figures here add them all together, as Europe requires."
+  werk:
+    nl: Jobs
+    vraag: How many people are working?
+    intro: "How many people have a job helps determine how much tax and contributions come in to pay for pensions and healthcare, among other things. Here you can see how many adults work and how many people are looking for work, including by region."
+    bevoegd: "Labour law and unemployment benefits are federal. Supporting job seekers is a task for the regions and the German-speaking Community (VDAB, Le Forem, Actiris and ADG)."
+  gezondheid:
+    nl: Health
+    vraag: How healthy are we?
+    intro: "How long and how healthily we live depends on many things: care, lifestyle, work and income. Here you can see how long people live on average and how much we spend together on healthcare."
+    bevoegd: "Health insurance and hospital funding are largely federal. Prevention, elderly care and primary care are mainly the responsibility of the communities."
+  onderwijs:
+    nl: Education
+    vraag: How well educated are we?
+    intro: "A qualification increases the chance of a job and a good income. Here you can see how many young people leave school without a qualification and how many young adults have a higher education degree."
+    bevoegd: "In Belgium, education is the responsibility of the communities: the Flemish, French and German-speaking Communities each have their own education system."
+  wonen_armoede:
+    nl: Housing and poverty
+    vraag: Can everyone make ends meet?
+    intro: "Affordable housing and enough income to get by are basic needs. Here you can see how many people are at risk of poverty or social exclusion and how fast house prices are rising."
+    bevoegd: "Housing policy, such as social housing and rental rules, is the responsibility of the regions. Benefits and pensions are federal; the local public social welfare centres (OCMW/CPAS) help people locally."
+  klimaat_energie:
+    nl: Climate and energy
+    vraag: How green is our energy?
+    intro: "Greenhouse gases are warming the planet. Europe wants emissions to fall and more energy to come from the sun, wind and other renewable sources. Here you can see how Belgium is doing: how much we emit, how much energy is renewable and what share of our electricity comes from nuclear power stations."
+    bevoegd: "Responsibilities are shared: the federal government is responsible for offshore wind and nuclear energy, among other things, and the regions for onshore renewable energy and energy saving."
+  mobiliteit:
+    nl: Mobility
+    vraag: Do we get where we're going smoothly and safely?
+    intro: "How we travel determines how much time we spend on the road and how safe that is. Here you can see how punctual the trains are and how many people die on the roads."
+    bevoegd: "The railways (SNCB/NMBS and Infrabel) are federal. Roads, road safety on regional roads, and buses and trams (De Lijn, TEC and STIB/MIVB) are the responsibility of the regions."
+  demografie:
+    nl: Population
+    vraag: How many of us are there, and who is joining us?
+    intro: "How many people live in Belgium and how old they are determines how many schools, homes, care services and pensions are needed. The population changes through births and deaths, and through people moving to or leaving Belgium. Here you can see both."
+    bevoegd: "Population figures come from the National Register. Migration policy is federal; integration is the responsibility of the communities."
+
+begrippen:
+  bbp: {term: GDP, uitleg: "Gross domestic product: the value of everything a country produces in a year. It is the usual measure of the size of an economy."}
+  reeel: {term: Real growth, uitleg: "Growth with the effect of price rises taken out. This shows whether we really produce more, not just at higher prices."}
+  inflatie: {term: Inflation, uitleg: "How much the prices of what households buy rise on average in a year."}
+  procent_bbp: {term: As a percentage of GDP, uitleg: "An amount compared with the size of the economy. This lets you compare countries of different sizes fairly."}
+  voorlopig: {term: Provisional, uitleg: "A first figure that the source may still revise. We always show the latest version and keep track of revisions."}
+  werkzaamheidsgraad: {term: Employment rate, uitleg: "The share of people aged 20 to 64 who work. Part-time workers count too."}
+  werkloosheidsgraad: {term: Unemployment rate, uitleg: "The share of unemployed people among those who work or are actively looking for work. People who are not looking, such as students, do not count."}
+  hoger_onderwijs: {term: Higher education, uitleg: "A bachelor's or master's degree, or equivalent training after secondary school."}
+  arope: {term: Poverty or social exclusion, uitleg: "People who have a low income, cannot afford basic things (such as turning on the heating), or live in a household where almost nobody works."}
+  co2_equivalent: {term: CO₂ equivalent, uitleg: "All greenhouse gases converted into the amount of CO₂ that would cause the same warming."}
+  gwh: {term: Gigawatt hour (GWh), uitleg: "A measure of an amount of electricity: one million kilowatt hours."}
+  stiptheid: {term: Punctuality, uitleg: "A train is punctual if it arrives at its final destination less than 6 minutes late. Cancelled trains are not included in this figure."}
+  vergrijzing: {term: Ageing, uitleg: "The share of older people in the population is growing, because we live longer and fewer children are born."}
+
+landnamen:
+  BE: Belgium
+  EU27_2020: EU average
+  NL: Netherlands
+  DE: Germany
+  FR: France
+  LU: Luxembourg
+  BE1: Brussels
+  BE2: Flanders
+  BE3: Wallonia
+
+indicatoren:
+  bbp_groei:
+    titel: Economic growth
+    vraag: How much does the economy grow each year?
+    definitie: "Annual growth of gross domestic product, adjusted for inflation."
+    uitleg: "A positive figure means that together we produced more than the year before. A negative figure, as in the COVID year 2020, means the economy shrank."
+    zoekwoorden: [growth, recession, economy, gdp]
+  bbp_per_inwoner:
+    titel: GDP per inhabitant
+    vraag: How much do we produce per person?
+    definitie: "Gross domestic product divided by the number of inhabitants, at current prices."
+    uitleg: "A measure of a country's prosperity. It is not an income everyone receives, but total production divided by the number of inhabitants."
+    zoekwoorden: [prosperity, wealth, income]
+  inflatie:
+    titel: Inflation
+    vraag: How much more expensive is life getting?
+    definitie: "Average annual rise in consumer prices (harmonised index, HICP)."
+    uitleg: "With inflation of 3%, what cost 100 euros last year now costs 103 euros on average. In Belgium, many wages and benefits rise automatically with prices (indexation)."
+    zoekwoorden: [prices, index, indexation, cost of living, purchasing power]
+  schuld_per_inwoner:
+    titel: Debt per inhabitant
+    vraag: How much government debt is there per inhabitant?
+    definitie: Government debt divided by the number of inhabitants on 1 January of the same year.
+    uitleg: "This is not an amount you have to pay yourself. It shows how large total government debt is if you divided it among all inhabitants."
+    zoekwoorden: [national debt, debt, borrowing]
+  overheidsschuld:
+    titel: Government debt
+    vraag: How large is government debt compared with the economy?
+    definitie: "Consolidated gross debt of all levels of government together, as a percentage of GDP."
+    uitleg: "At 100%, the debt is as large as everything the country produces in a year. European rules ask for debt of at most 60%."
+    norm: European standard 60%
+    zoekwoorden: [national debt, debt ratio, maastricht]
+  begrotingssaldo:
+    titel: Budget balance
+    vraag: Does the government spend more than it receives?
+    definitie: "Surplus (+) or deficit (−) of all levels of government together, as a percentage of GDP."
+    uitleg: "A negative figure is a deficit: the government spent more than it received and had to borrow. European rules ask for a deficit of at most 3%."
+    norm: European standard −3%
+    zoekwoorden: [deficit, budget, surplus]
+  rente_per_dag:
+    titel: Interest per day
+    vraag: How much interest does the government pay per day?
+    definitie: "Annual government interest payments divided by 365, in millions of euros."
+    uitleg: "Interest is the price the government pays to borrow money. That money cannot go to other spending."
+    zoekwoorden: [interest, interest payments]
+  rentelasten:
+    titel: Interest payments
+    vraag: How much interest do we pay compared with the economy?
+    definitie: "Interest the government pays on its debt, as a percentage of GDP."
+    uitleg: "This lets you compare the interest burden of countries of different sizes."
+    zoekwoorden: [interest]
+  belastingdruk:
+    titel: Tax burden
+    vraag: How much tax and contributions do we pay together?
+    definitie: "All taxes and social contributions together, as a percentage of GDP."
+    uitleg: "All taxes (on income, consumption, wealth) and social contributions together, compared with the size of the economy. It says nothing about what one person pays."
+    zoekwoorden: [taxes, taxation, fiscal, social security]
+  belastingwig:
+    titel: Tax burden on a lower wage
+    vraag: How much of what an employer pays goes to taxes and contributions?
+    definitie: "Tax wedge: personal income tax plus employee and employer social contributions, as a percentage of total labour costs. For a single person without children earning 67% of the average wage (this is how Eurostat defines this series)."
+    uitleg: "Suppose an employer spends 100 euros on your wage. This figure shows how much of it goes to the government and social security, including your own income tax. You receive the rest as take-home pay. It concerns an example person: single, no children, with a wage of two thirds of the average. For higher wages the burden is higher, for the lowest wages it is lower."
+    wafel_tekst: euros of labour costs go to taxes and social contributions (single person, lower wage)
+    zoekwoorden: [taxes, wage, salary, net, gross, labour cost, tax wedge, income tax]
+  werkzaamheidsgraad:
+    titel: Employment rate
+    vraag: How many adults have a job?
+    definitie: Share of 20- to 64-year-olds who have a job.
+    uitleg: "Students, retirees under 65, the long-term sick and job seekers do not work and lower this figure. Belgium aims for 80% by 2030."
+    norm: Belgian target for 2030 80%
+    zoekwoorden: [jobs, employment, 80 percent]
+  werkloosheid:
+    titel: Unemployment
+    vraag: How many people are looking for work?
+    definitie: Share of unemployed people in the labour force aged 15 to 74 (international definition).
+    uitleg: "According to the international definition: people without work who are actively looking and can start soon. This is not the same as the number of people receiving unemployment benefit."
+    zoekwoorden: [unemployed, job seekers, vdab, forem, actiris]
+  levensverwachting:
+    titel: Life expectancy
+    vraag: How old do we live to on average?
+    definitie: Average number of years a newborn will live at that year's mortality rates.
+    uitleg: "How long a baby born this year will live on average, if the health of the population stays as it is now."
+    zoekwoorden: [age, mortality, health]
+  zorguitgaven:
+    titel: Healthcare spending
+    vraag: How much do we spend on healthcare?
+    definitie: "Total healthcare expenditure, public and private, as a percentage of GDP."
+    uitleg: "What the government, health insurance funds, insurers and patients themselves spend on care together."
+    zoekwoorden: [care, hospital, health insurance]
+  diploma_hoger_onderwijs:
+    titel: Higher education degree
+    vraag: How many young adults have a higher education degree?
+    definitie: Share of 25- to 34-year-olds with a higher education degree.
+    uitleg: "This concerns people aged 25 to 34 with a bachelor's, master's or equivalent degree."
+    wafel_tekst: 25- to 34-year-olds have a higher education degree
+    zoekwoorden: [college, university, degree, studying]
+  vroegtijdige_schoolverlaters:
+    titel: Early school leavers
+    vraag: How many young people leave school without a qualification?
+    definitie: Share of 18- to 24-year-olds without a secondary school qualification who are no longer in education or training.
+    uitleg: "Young people without a secondary school qualification often have a harder time on the labour market."
+    wafel_tekst: young people aged 18 to 24 have no secondary qualification and are no longer in education or training
+    zoekwoorden: [school leavers, dropouts, school, qualification]
+  armoede_uitsluiting:
+    titel: Risk of poverty
+    vraag: How many people are at risk of poverty?
+    definitie: "Share of the population with a low income, severe material deprivation or very low work intensity (AROPE)."
+    uitleg: "This is the European measure. You are counted if you have a low income, cannot afford basic things, or live in a household where almost nobody works."
+    wafel_tekst: inhabitants are at risk of poverty or social exclusion
+    zoekwoorden: [poverty, poor, making ends meet, exclusion, arope]
+  woningprijzen:
+    titel: House prices
+    vraag: How much more expensive do homes get each year?
+    definitie: Annual rise in house prices (house price index).
+    uitleg: "How much the price of a home rises or falls on average compared with the year before, new and existing homes together."
+    zoekwoorden: [house, house prices, property, real estate, buying]
+  hernieuwbare_energie:
+    titel: Renewable energy
+    vraag: How much of our energy comes from renewable sources?
+    definitie: Share of renewable sources in gross final energy consumption.
+    uitleg: "This covers all energy: electricity, but also heating and transport. Sun, wind, biomass and hydropower count as renewable."
+    zoekwoorden: [solar panels, wind turbines, green electricity, energy]
+  uitstoot_per_inwoner:
+    titel: Emissions per inhabitant
+    vraag: How much greenhouse gas do we emit per person?
+    definitie: "Net greenhouse gas emissions per inhabitant, in tonnes of CO₂ equivalent."
+    uitleg: "The emissions of the whole country (transport, industry, heating, agriculture) divided by the number of inhabitants. Forests that absorb CO₂ are deducted."
+    zoekwoorden: [co2, climate, emissions, greenhouse gases]
+  kernenergie_aandeel:
+    titel: Nuclear power in our electricity
+    vraag: How much of our electricity comes from nuclear power stations?
+    definitie: Share of nuclear power in the country's gross electricity production.
+    uitleg: "This concerns electricity only, not all energy. Nuclear power stations emit virtually no greenhouse gases while running, but nuclear power does not count as renewable energy. Electricity imported from abroad is not included in this figure."
+    zoekwoorden: [nuclear, nuclear power station, doel, tihange, electricity, power]
+  treinstiptheid:
+    titel: Train punctuality
+    vraag: How many trains arrive on time?
+    definitie: Share of domestic passenger trains arriving at their final destination less than 6 minutes late, per year (all months together).
+    uitleg: "A train that is 6 or more minutes late counts as late. Cancelled trains are not included in this figure. For the current year, it covers the months so far."
+    wafel_tekst: trains arrived on time
+    zoekwoorden: [train, sncb, nmbs, infrabel, delay, late, railway]
+  verkeersdoden:
+    titel: Road deaths
+    vraag: How many people die on the roads?
+    definitie: "Number of people who die within 30 days of a road accident, per million inhabitants."
+    uitleg: "Per million inhabitants, so you can compare countries of different sizes."
+    zoekwoorden: [accidents, road safety, car, bicycle]
+  bevolking:
+    titel: Inhabitants
+    vraag: How many people live in Belgium?
+    definitie: Number of inhabitants on 1 January.
+    uitleg: "Everyone who officially lives in Belgium and is registered in the National Register."
+    zoekwoorden: [inhabitants, population, people]
+  aandeel_65plus:
+    titel: People aged 65 and over
+    vraag: How many inhabitants are 65 or older?
+    definitie: Share of the population aged 65 or over.
+    uitleg: "The larger this share, the more is needed for pensions and care, and the fewer people of working age there are to pay for it."
+    wafel_tekst: inhabitants are 65 or older
+    zoekwoorden: [elderly, ageing, pension, seniors]
+  netto_migratie:
+    titel: Net migration
+    vraag: How many people are added through migration, on balance?
+    definitie: Number of people moving to the country minus the number leaving, per 1,000 inhabitants (including statistical adjustment).
+    uitleg: "This covers everyone who moves, including Belgians who leave for abroad or come back. A positive figure means more people come to live here than leave."
+    zoekwoorden: [migration, immigration, emigration, migrants, moving]
+  natuurlijke_aangroei:
+    titel: Natural increase
+    vraag: Are more people born than die?
+    definitie: Number of births minus the number of deaths, per 1,000 inhabitants.
+    uitleg: "Together with net migration, this determines whether the population grows. A negative figure means more people die than are born."
+    zoekwoorden: [births, deaths, mortality, babies, increase]
+  geboren_buitenland:
+    titel: Born abroad
+    vraag: How many inhabitants were born abroad?
+    definitie: Share of inhabitants born outside the country, regardless of their nationality.
+    uitleg: "The country of birth says nothing about nationality: Belgians born abroad are counted too, while children of migrants born here are not."
+    wafel_tekst: inhabitants were born abroad
+    zoekwoorden: [migration, migrants, abroad, origin, newcomers]
+  asielaanvragen:
+    titel: First-time asylum applications
+    vraag: How many people apply for asylum for the first time?
+    definitie: Number of people who submit an application for international protection for the first time in that year.
+    uitleg: "An asylum application is not yet a recognition: some applications are rejected. Only first applications count here, not repeated ones."
+    zoekwoorden: [asylum, refugees, asylum seekers, reception, protection]
+
+uitgaven:
+  GF10: {nl: Social protection, uitleg: "pensions, benefits, child benefit, support in case of sickness and unemployment"}
+  GF07: {nl: Health, uitleg: "hospitals, reimbursement of doctors and medicines"}
+  GF04: {nl: Economic affairs, uitleg: "traffic and transport, energy, agriculture, support for businesses"}
+  GF01: {nl: General public services, uitleg: "running the government, interest on public debt, development aid"}
+  GF09: {nl: Education, uitleg: "schools, colleges and universities"}
+  GF03: {nl: Public order and safety, uitleg: "police, fire services, courts, prisons"}
+  GF08: {nl: "Culture, sport and religion", uitleg: "culture, sport, media, religious services"}
+  GF06: {nl: Housing and community amenities, uitleg: "social housing, water, street lighting"}
+  GF05: {nl: Environmental protection, uitleg: "waste, waste water treatment, nature conservation"}
+  GF02: {nl: Defence, uitleg: "army and military spending"}
+  GF1002: {nl: of which pensions and elderly care}
+  GF0107: {nl: of which interest on public debt}
+
+snel:
+  consumentenvertrouwen:
+    titel: Consumer confidence
+    vraag: How optimistic are households?
+    uitleg: "A monthly survey of households about the economy, unemployment, their own finances and saving. Zero is neutral: a negative figure means more pessimists than optimists."
+  conjunctuurbarometer:
+    titel: Business barometer
+    vraag: How do businesses see things?
+    uitleg: "The National Bank's barometer summarises the monthly business surveys (industry, construction, trade and services). It is mainly used to see the direction: if it rises, businesses are more positive."
+  werkloosheid_maand:
+    titel: Unemployment this month
+    vraag: How many people are looking for work right now?
+    uitleg: "Unemployment rate according to the international definition, seasonally adjusted, so you can compare months with each other."
+    vergelijk: EU
+  bbp_kwartaal:
+    titel: Growth this quarter
+    vraag: Is the economy growing right now?
+    uitleg: "GDP growth (after inflation) compared with the previous quarter, adjusted for seasonal and calendar effects. Two consecutive quarters of contraction are often called a recession."
+
+instellingen:
+  Federaal Planbureau: Federal Planning Bureau
+  Nationale Bank van België: National Bank of Belgium
+  Europese Commissie: European Commission
+  OESO: OECD
+  IMF: IMF
+
+niet_meegerekend:
+  - "The work bonus for low wages (a reduction of your social security contribution and your tax)"
+  - "The special social security contribution (a small annual contribution that depends on household income)"
+  - "Your employer's contributions on top of your gross salary"
+  - "Tax benefits such as pension savings, service vouchers, childcare, donations and a housing bonus"
+  - "A partner's tax situation (in a joint tax return)"
+  - "Meal vouchers, a company car and other fringe benefits"
+  - "Blue-collar workers: their holiday pay and social security contributions are calculated differently; this version calculates for white-collar employees"

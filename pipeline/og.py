@@ -3,6 +3,8 @@
 Draait na de pipeline, in GitHub Actions. Elke afbeelding toont actuele cijfers uit
 site/data/dashboard.json, met de bron erbij.
 
+Er komt een set per taal: index.png (Nederlands), index-fr.png, index-de.png, index-en.png, enzovoort.
+
 Gebruik: python -m pipeline.og   (vereist: pip install playwright && playwright install chromium)
 """
 from __future__ import annotations
@@ -10,7 +12,10 @@ from __future__ import annotations
 import json
 from html import escape
 
-from .build_site import MERK, ONDERTITEL, SITE, SITE_URL, THEMA_KLEUR, GEWESTEN, datum, kort_met_eenheid, laatste, maand_tekst, waarde_in
+from . import build_site as bs
+from .build_site import MERK, SITE, SITE_URL, THEMA_KLEUR, GEWEST_CODES, T, TALEN, datum, kort_met_eenheid, laatste, landnaam, maand_tekst, tx, vertaal, waarde_in, zet_taal
+
+TOT_EN_MET = {"nl": "t.e.m.", "fr": "jusqu'à", "de": "bis", "en": "to"}
 
 FONTS = (SITE / "fonts").resolve().as_uri()
 
@@ -26,14 +31,14 @@ def cijferblok(ind: dict) -> str:
         return ""
     jaar, w, status = be
     eu = waarde_in(ind, "EU27_2020", jaar)
-    sub = f"België {jaar}" + (f" · EU {kort_met_eenheid(eu, ind)}" if eu is not None else "")
+    sub = f'{T("land")} {jaar}' + (f' · {T("eu_kort")} {kort_met_eenheid(eu, ind)}' if eu is not None else "")
     if "j" in status and ind["bron"].get("laatste_periode"):
-        sub += f" · t.e.m. {maand_tekst(ind['bron']['laatste_periode'])}"
-    return blok(ind["titel"]["nl"], kort_met_eenheid(w, ind), sub, THEMA_KLEUR.get(ind["thema"], "#888"))
+        sub += f" · {TOT_EN_MET[bs.TAAL]} {maand_tekst(ind['bron']['laatste_periode'])}"
+    return blok(tx(ind["titel"]), kort_met_eenheid(w, ind), sub, THEMA_KLEUR.get(ind["thema"], "#888"))
 
 
 def html(titel: str, blokken: list[str], bronnen: set[str], bijgewerkt: str, accent: str) -> str:
-    return f"""<!doctype html><html><head><meta charset="utf-8"><style>
+    return f"""<!doctype html><html lang="{bs.TAAL}"><head><meta charset="utf-8"><style>
 @font-face {{ font-family: Plex; src: url("{FONTS}/plex-sans.woff2"); font-weight: 100 700; }}
 @font-face {{ font-family: PlexMono; src: url("{FONTS}/plex-mono.woff2"); font-weight: 500; }}
 * {{ box-sizing: border-box; margin: 0; }}
@@ -59,35 +64,40 @@ h1 {{ font-size: 62px; line-height: 1.02; font-weight: 650; letter-spacing: -.03
 .voet {{ margin-top: 22px; font-size: 17px; color: #5b636b; display: flex; justify-content: space-between; }}
 </style></head><body><div class="raster"></div><div class="gloed"></div><div class="gloed2"></div>
 <div class="binnen">
-  <div class="merk"><div class="vlag"><i></i><i></i><i></i></div><div><b>{MERK}</b><span>{ONDERTITEL}</span></div></div>
+  <div class="merk"><div class="vlag"><i></i><i></i><i></i></div><div><b>{MERK}</b><span>{T("ondertitel")}</span></div></div>
   <h1>{escape(titel)}</h1>
   <div class="cijfers">{"".join(blokken)}</div>
-  <div class="voet"><span>Bron: {escape(", ".join(sorted(bronnen)))} · bijgewerkt {bijgewerkt}</span><span>{SITE_URL.replace("https://", "").rstrip("/")}</span></div>
+  <div class="voet"><span>{T("bron")}: {escape(", ".join(sorted(bronnen)))} · {T("vz_bijgewerkt").lower()} {bijgewerkt}</span><span>{SITE_URL.replace("https://", "").rstrip("/")}</span></div>
 </div></body></html>"""
 
 
 def main() -> None:
     from playwright.sync_api import sync_playwright
 
-    data = json.loads((SITE / "data" / "dashboard.json").read_text(encoding="utf-8"))
-    per_id = {i["id"]: i for i in data["indicatoren"]}
-    bij = datum(data["gegenereerd"])
+    basis = json.loads((SITE / "data" / "dashboard.json").read_text(encoding="utf-8"))
     bron = lambda inds: {("Eurostat" if i["bron"]["instelling"] == "Berekend" else i["bron"]["instelling"]) for i in inds}
 
     paginas: dict[str, str] = {}
-    kern = [per_id[i] for i in ("schuld_per_inwoner", "werkzaamheidsgraad", "treinstiptheid") if i in per_id and laatste(per_id[i], "BE")]
-    paginas["index"] = html("Hoe gaat het met België?", [cijferblok(i) for i in kern], bron(kern), bij, "#2357a6")
-    for t in data["themas"]:
-        inds = [i for i in data["indicatoren"] if i["thema"] == t["id"] and not i["verborgen"] and laatste(i, "BE")][:3]
-        paginas[f'thema-{t["id"]}'] = html(t["vraag"], [cijferblok(i) for i in inds], bron(inds), bij, THEMA_KLEUR.get(t["id"], "#2357a6"))
-    w = per_id.get("werkzaamheidsgraad")
-    if w:
-        blokken = []
-        for g, naam in GEWESTEN:
-            r = laatste(w, g)
-            if r:
-                blokken.append(blok(naam, kort_met_eenheid(r[1], w), f"werkzaamheidsgraad {r[0]}", THEMA_KLEUR["werk"]))
-        paginas["gewesten"] = html("Hoe verschillen Vlaanderen, Wallonië en Brussel?", blokken, {"Eurostat"}, bij, "#e03a3e")
+    for taal in TALEN:
+        zet_taal(taal)
+        data = vertaal(basis, taal)
+        per_id = {i["id"]: i for i in data["indicatoren"]}
+        bij = datum(data["gegenereerd"])
+        achter = "" if taal == "nl" else f"-{taal}"
+        kern = [per_id[i] for i in ("schuld_per_inwoner", "werkzaamheidsgraad", "treinstiptheid") if i in per_id and laatste(per_id[i], "BE")]
+        paginas[f"index{achter}"] = html(T("held_titel").replace("<br>", " "), [cijferblok(i) for i in kern], bron(kern), bij, "#2357a6")
+        for t in data["themas"]:
+            inds = [i for i in data["indicatoren"] if i["thema"] == t["id"] and not i["verborgen"] and laatste(i, "BE")][:3]
+            paginas[f'thema-{t["id"]}{achter}'] = html(t["vraag"], [cijferblok(i) for i in inds], bron(inds), bij, THEMA_KLEUR.get(t["id"], "#2357a6"))
+        w = per_id.get("werkzaamheidsgraad")
+        if w:
+            blokken = []
+            for g in GEWEST_CODES:
+                r = laatste(w, g)
+                if r:
+                    blokken.append(blok(landnaam(data, g), kort_met_eenheid(r[1], w), f'{tx(w["titel"])} {r[0]}', THEMA_KLEUR["werk"]))
+            paginas[f"gewesten{achter}"] = html(T("gw_titel"), blokken, {"Eurostat"}, bij, "#e03a3e")
+    zet_taal("nl")
 
     uit = SITE / "og"
     uit.mkdir(exist_ok=True)

@@ -177,7 +177,7 @@ indicatoren:
     thema: economie
     titel: {nl: Economische groei}
     vraag: {nl: "Hoeveel groeit de economie per jaar?"}
-    definitie: {nl: Jaarlijkse groei van het bruto binnenlands product, na correctie voor inflatie.}
+    definitie: {nl: "Jaarlijkse groei van het bruto binnenlands product, na correctie voor inflatie."}
     uitleg: {nl: "Een positief cijfer betekent dat we samen meer produceerden dan het jaar ervoor. Een negatief cijfer, zoals in het coronajaar 2020, betekent een krimp."}
     eenheid: "%"
     decimalen: 1
@@ -189,7 +189,7 @@ indicatoren:
     thema: economie
     titel: {nl: Bbp per inwoner}
     vraag: {nl: "Hoeveel produceren we per persoon?"}
-    definitie: {nl: Bruto binnenlands product gedeeld door het aantal inwoners, in lopende prijzen.}
+    definitie: {nl: "Bruto binnenlands product gedeeld door het aantal inwoners, in lopende prijzen."}
     uitleg: {nl: "Een maat voor de welvaart van een land. Het is geen inkomen dat iedereen krijgt, maar de totale productie gedeeld door het aantal inwoners."}
     eenheid: " €"
     decimalen: 0
@@ -202,7 +202,7 @@ indicatoren:
     thema: economie
     titel: {nl: Inflatie}
     vraag: {nl: "Hoeveel duurder wordt het leven?"}
-    definitie: {nl: Jaarlijkse gemiddelde stijging van de consumptieprijzen (geharmoniseerde index, HICP).}
+    definitie: {nl: "Jaarlijkse gemiddelde stijging van de consumptieprijzen (geharmoniseerde index, HICP)."}
     uitleg: {nl: "Bij een inflatie van 3% kost wat vorig jaar 100 euro kostte, nu gemiddeld 103 euro. In België stijgen veel lonen en uitkeringen automatisch mee (de indexering)."}
     eenheid: "%"
     decimalen: 1
@@ -229,7 +229,7 @@ indicatoren:
     thema: overheidsfinancien
     titel: {nl: Overheidsschuld}
     vraag: {nl: "Hoe groot is de staatsschuld vergeleken met de economie?"}
-    definitie: {nl: Geconsolideerde brutoschuld van alle overheden samen, in procent van het bbp.}
+    definitie: {nl: "Geconsolideerde brutoschuld van alle overheden samen, in procent van het bbp."}
     uitleg: {nl: "Bij 100% is de schuld even groot als alles wat het land in één jaar produceert. Europese regels vragen een schuld van maximaal 60%."}
     eenheid: "% bbp"
     decimalen: 1
@@ -242,7 +242,7 @@ indicatoren:
     thema: overheidsfinancien
     titel: {nl: Begrotingssaldo}
     vraag: {nl: "Geeft de overheid meer uit dan ze ontvangt?"}
-    definitie: {nl: Overschot (+) of tekort (−) van alle overheden samen, in procent van het bbp.}
+    definitie: {nl: "Overschot (+) of tekort (−) van alle overheden samen, in procent van het bbp."}
     uitleg: {nl: "Een negatief cijfer is een tekort: de overheid gaf meer uit dan ze ontving en moest lenen. Europese regels vragen een tekort van maximaal 3%."}
     eenheid: "% bbp"
     decimalen: 1
@@ -255,7 +255,7 @@ indicatoren:
     thema: overheidsfinancien
     titel: {nl: Rente per dag}
     vraag: {nl: "Hoeveel rente betaalt de overheid per dag?"}
-    definitie: {nl: Jaarlijkse rentelasten van de overheid gedeeld door 365, in miljoen euro.}
+    definitie: {nl: "Jaarlijkse rentelasten van de overheid gedeeld door 365, in miljoen euro."}
     uitleg: {nl: "Rente is de prijs die de overheid betaalt om geld te lenen. Dat geld kan niet naar andere uitgaven gaan."}
     eenheid: " mln €"
     decimalen: 1
@@ -269,7 +269,7 @@ indicatoren:
     thema: overheidsfinancien
     titel: {nl: Rentelasten}
     vraag: {nl: "Hoeveel rente betalen we vergeleken met de economie?"}
-    definitie: {nl: Rente die de overheid betaalt op haar schuld, in procent van het bbp.}
+    definitie: {nl: "Rente die de overheid betaalt op haar schuld, in procent van het bbp."}
     uitleg: {nl: "Zo kun je de rentelast van landen van verschillende grootte vergelijken."}
     eenheid: "% bbp"
     decimalen: 1
@@ -281,7 +281,7 @@ indicatoren:
     thema: overheidsfinancien
     titel: {nl: Belastingdruk}
     vraag: {nl: "Hoeveel belastingen en bijdragen betalen we samen?"}
-    definitie: {nl: Alle belastingen en sociale bijdragen samen, in procent van het bbp.}
+    definitie: {nl: "Alle belastingen en sociale bijdragen samen, in procent van het bbp."}
     uitleg: {nl: "Alle belastingen (op inkomen, consumptie, vermogen) en sociale bijdragen samen, vergeleken met de grootte van de economie. Het zegt niets over wat één persoon betaalt."}
     eenheid: "% bbp"
     decimalen: 1
@@ -308,7 +308,7 @@ indicatoren:
     thema: overheidsfinancien
     titel: {nl: Overheidsschuld in euro}
     vraag: {nl: "Hoeveel schuld heeft de overheid in euro?"}
-    definitie: {nl: Geconsolideerde brutoschuld van alle overheden samen, in miljoen euro.}
+    definitie: {nl: "Geconsolideerde brutoschuld van alle overheden samen, in miljoen euro."}
     eenheid: " mln €"
     decimalen: 0
     landen: [BE]
@@ -319,7 +319,7 @@ indicatoren:
     thema: overheidsfinancien
     titel: {nl: Rentelasten in euro}
     vraag: {nl: "Hoeveel rente betaalt de overheid in euro?"}
-    definitie: {nl: Rente die de overheid betaalt op haar schuld, in miljoen euro.}
+    definitie: {nl: "Rente die de overheid betaalt op haar schuld, in miljoen euro."}
     eenheid: " mln €"
     decimalen: 0
     landen: [BE]
@@ -373,7 +373,7 @@ indicatoren:
     thema: gezondheid
     titel: {nl: Uitgaven aan gezondheidszorg}
     vraag: {nl: "Hoeveel geven we uit aan zorg?"}
-    definitie: {nl: Totale uitgaven aan gezondheidszorg, publiek en privé, in procent van het bbp.}
+    definitie: {nl: "Totale uitgaven aan gezondheidszorg, publiek en privé, in procent van het bbp."}
     uitleg: {nl: "Wat de overheid, de ziekenfondsen, verzekeraars en patiënten zelf samen aan zorg uitgeven."}
     eenheid: "% bbp"
     decimalen: 1
@@ -417,7 +417,7 @@ indicatoren:
     thema: wonen_armoede
     titel: {nl: Risico op armoede}
     vraag: {nl: "Hoeveel mensen lopen risico op armoede?"}
-    definitie: {nl: Aandeel van de bevolking met een laag inkomen, ernstige materiële ontbering of een zeer lage werkintensiteit (AROPE).}
+    definitie: {nl: "Aandeel van de bevolking met een laag inkomen, ernstige materiële ontbering of een zeer lage werkintensiteit (AROPE)."}
     uitleg: {nl: "Dit is de Europese maatstaf. Je telt mee als je een laag inkomen hebt, je basisdingen niet kunt veroorloven, of in een gezin woont waar bijna niemand werkt."}
     eenheid: "%"
     decimalen: 1
@@ -457,7 +457,7 @@ indicatoren:
     thema: klimaat_energie
     titel: {nl: Uitstoot per inwoner}
     vraag: {nl: "Hoeveel broeikasgassen stoten we per persoon uit?"}
-    definitie: {nl: Netto uitstoot van broeikasgassen per inwoner, in ton CO₂-equivalent.}
+    definitie: {nl: "Netto uitstoot van broeikasgassen per inwoner, in ton CO₂-equivalent."}
     uitleg: {nl: "De uitstoot van het hele land (verkeer, industrie, verwarming, landbouw) gedeeld door het aantal inwoners. Bossen die CO₂ opnemen, worden ervan afgetrokken."}
     eenheid: " ton"
     decimalen: 1
@@ -484,7 +484,7 @@ indicatoren:
     thema: klimaat_energie
     titel: {nl: Elektriciteit uit kernenergie}
     vraag: {nl: "Hoeveel elektriciteit maken kerncentrales?"}
-    definitie: {nl: Bruto elektriciteitsproductie uit kernenergie, in gigawattuur.}
+    definitie: {nl: "Bruto elektriciteitsproductie uit kernenergie, in gigawattuur."}
     eenheid: " GWh"
     decimalen: 0
     verborgen: true
@@ -494,7 +494,7 @@ indicatoren:
     thema: klimaat_energie
     titel: {nl: Elektriciteitsproductie}
     vraag: {nl: "Hoeveel elektriciteit produceren we?"}
-    definitie: {nl: Totale bruto elektriciteitsproductie, in gigawattuur.}
+    definitie: {nl: "Totale bruto elektriciteitsproductie, in gigawattuur."}
     eenheid: " GWh"
     decimalen: 0
     verborgen: true
@@ -525,7 +525,7 @@ indicatoren:
     thema: mobiliteit
     titel: {nl: Verkeersdoden}
     vraag: {nl: "Hoeveel mensen sterven er in het verkeer?"}
-    definitie: {nl: Aantal mensen dat binnen 30 dagen na een verkeersongeval overlijdt, per miljoen inwoners.}
+    definitie: {nl: "Aantal mensen dat binnen 30 dagen na een verkeersongeval overlijdt, per miljoen inwoners."}
     uitleg: {nl: "Per miljoen inwoners, zodat je landen van verschillende grootte kunt vergelijken."}
     eenheid: " per miljoen"
     decimalen: 0

@@ -86,8 +86,9 @@ def test_herzieningen_gedetecteerd():
 def test_belgische_getalnotatie():
     assert getal(58271.3, 0) == "58.271"
     assert getal(-5.2, 1) == "−5,2"
-    assert kort_met_eenheid(39.1, {"eenheid": " mln €", "decimalen": 1}) == "€ 39,1 mln"
-    assert met_eenheid(107.9, {"eenheid": "% bbp", "decimalen": 1}) == "107,9% van het bbp"
+    gewoon = lambda s: s.replace("\u00a0", " ")  # harde spaties tellen als gewone
+    assert gewoon(kort_met_eenheid(39.1, {"eenheid": " mln €", "decimalen": 1})) == "€ 39,1 mln"
+    assert gewoon(met_eenheid(107.9, {"eenheid": "% bbp", "decimalen": 1})) == "107,9% van het bbp"
 
 
 def test_zinnen_vergelijken_neutraal():
@@ -162,3 +163,54 @@ def test_rekenmodule_in_node():
         pytest.skip("node niet beschikbaar")
     r = subprocess.run(["node", str(WORTEL / "tests" / "test_rekenmodule.js")], capture_output=True, text=True)
     assert r.returncode == 0, r.stderr
+
+
+def test_catalogus_teksten_niet_afgekapt():
+    """Een komma in een {nl: ...}-veld zonder aanhalingstekens knipt de tekst stilletjes af in YAML."""
+    cat = yaml.safe_load((WORTEL / "config" / "indicatoren.yaml").read_text(encoding="utf-8"))
+    for ind in cat["indicatoren"]:
+        for veld in ("titel", "vraag", "definitie", "uitleg", "wafel_tekst"):
+            if isinstance(ind.get(veld), dict):
+                assert set(ind[veld]) <= {"nl", "fr", "de", "en"}, f"{ind['id']}.{veld}: {list(ind[veld])}"
+
+
+def test_vertalingen_volledig_en_zonder_cijfers_uit_het_niets():
+    import re
+    cat = yaml.safe_load((WORTEL / "config" / "indicatoren.yaml").read_text(encoding="utf-8"))
+    ui = yaml.safe_load((WORTEL / "config" / "vertalingen" / "ui.yaml").read_text(encoding="utf-8"))
+    for sectie in ("t", "js", "vlaggen"):
+        for sleutel, w in ui[sectie].items():
+            assert set(w) == {"nl", "fr", "de", "en"}, f"ui.{sectie}.{sleutel}"
+            # dezelfde plaatshouders in elke taal
+            assert len({tuple(sorted(re.findall(r"\{(\w+)\}", v))) for v in w.values()}) == 1, f"ui.{sectie}.{sleutel}"
+    zichtbaar = [i["id"] for i in cat["indicatoren"] if not i.get("verborgen")]
+    for taal in ("fr", "de", "en"):
+        v = yaml.safe_load((WORTEL / "config" / "vertalingen" / f"{taal}.yaml").read_text(encoding="utf-8"))
+        assert {t["id"] for t in cat["themas"]} <= set(v["themas"]), taal
+        assert set(cat["landnamen"]) <= set(v["landnamen"]), taal
+        for i in zichtbaar:
+            assert i in v["indicatoren"], f"{taal}: {i} ontbreekt"
+            nl = next(x for x in cat["indicatoren"] if x["id"] == i)
+            for veld in ("titel", "vraag", "definitie", "uitleg", "wafel_tekst"):
+                if nl.get(veld):
+                    tekst = v["indicatoren"][i].get(veld)
+                    assert tekst, f"{taal}: {i}.{veld} ontbreekt"
+                    # een vertaling mag geen getallen bevatten die niet in het Nederlands staan
+                    getallen = lambda s: set(re.findall(r"\d+", re.sub(r"(?<=\d)[\s.,  ](?=\d)", "", s)))
+                    assert getallen(tekst) <= getallen(nl[veld]["nl"]), f"{taal}: {i}.{veld} {getallen(tekst) - getallen(nl[veld]['nl'])}"
+
+
+def test_getalnotatie_per_taal():
+    from pipeline import build_site as bs
+    ind = {"eenheid": " mln €", "decimalen": 1}
+    gewoon = lambda s: s.replace(" ", " ")  # harde spaties tellen als gewone
+    try:
+        verwacht = {"nl": ("58.271", "€ 39,1 mln", "4,5%"), "fr": ("58 271", "39,1 M€", "4,5 %"),
+                    "de": ("58.271", "39,1 Mio. €", "4,5 %"), "en": ("58,271", "€39.1m", "4.5%")}
+        for taal, (g, m, p) in verwacht.items():
+            bs.zet_taal(taal)
+            assert bs.getal(58271.3, 0) == g, taal
+            assert gewoon(bs.kort_met_eenheid(39.1, ind)) == m, taal
+            assert gewoon(bs.pct(4.5)) == p, taal
+    finally:
+        bs.zet_taal("nl")

@@ -1,0 +1,1069 @@
+# Vaste teksten van de site, per taal (nl, fr, de, en).
+# {naam} is een plaatshouder die de code invult. HTML in teksten is toegestaan waar de code dat verwacht.
+
+talen:
+  nl: {naam: Nederlands, kort: NL, locale: nl-BE}
+  fr: {naam: Français, kort: FR, locale: fr-BE}
+  de: {naam: Deutsch, kort: DE, locale: de-BE}
+  en: {naam: English, kort: EN, locale: en-GB}
+
+maanden:
+  nl: [januari, februari, maart, april, mei, juni, juli, augustus, september, oktober, november, december]
+  fr: [janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre]
+  de: [Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]
+  en: [January, February, March, April, May, June, July, August, September, October, November, December]
+
+maanden_kort:
+  nl: [jan, feb, mrt, apr, mei, jun, jul, aug, sep, okt, nov, dec]
+  fr: [janv., févr., mars, avr., mai, juin, juil., août, sept., oct., nov., déc.]
+  de: [Jan., Feb., März, Apr., Mai, Juni, Juli, Aug., Sept., Okt., Nov., Dez.]
+  en: [Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
+
+vlaggen:
+  p:
+    nl: "voorlopig"
+    fr: "provisoire"
+    de: "vorläufig"
+    en: "provisional"
+  e:
+    nl: "geschat"
+    fr: "estimé"
+    de: "geschätzt"
+    en: "estimated"
+  b:
+    nl: "breuk in reeks"
+    fr: "rupture de série"
+    de: "Zeitreihenbruch"
+    en: "break in series"
+  d:
+    nl: "definitie wijkt af"
+    fr: "définition différente"
+    de: "abweichende Definition"
+    en: "different definition"
+  u:
+    nl: "onbetrouwbaar"
+    fr: "peu fiable"
+    de: "unzuverlässig"
+    en: "unreliable"
+  j:
+    nl: "jaar nog bezig"
+    fr: "année en cours"
+    de: "Jahr läuft noch"
+    en: "year not yet complete"
+
+t:
+  # ---- algemeen en sjabloon
+  ondertitel:
+    nl: "België in cijfers"
+    fr: "La Belgique en chiffres"
+    de: "Belgien in Zahlen"
+    en: "Belgium in numbers"
+  land:
+    nl: "België"
+    fr: "Belgique"
+    de: "Belgien"
+    en: "Belgium"
+  eu_gemiddelde:
+    nl: "EU-gemiddelde"
+    fr: "moyenne de l'UE"
+    de: "EU-Durchschnitt"
+    en: "EU average"
+  eu_kort:
+    nl: "EU"
+    fr: "UE"
+    de: "EU"
+    en: "EU"
+  naar_inhoud:
+    nl: "Naar de inhoud"
+    fr: "Aller au contenu"
+    de: "Zum Inhalt"
+    en: "Skip to content"
+  zoek:
+    nl: "Zoek"
+    fr: "Rechercher"
+    de: "Suchen"
+    en: "Search"
+  zoek_cijfer:
+    nl: "Zoek een cijfer"
+    fr: "Rechercher un chiffre"
+    de: "Eine Zahl suchen"
+    en: "Search for a figure"
+  kop_reken:
+    nl: "Hoeveel belasting betaal ik?"
+    fr: "Combien d'impôts est-ce que je paie ?"
+    de: "Wie viel Steuern zahle ich?"
+    en: "How much tax do I pay?"
+  themas_aria:
+    nl: "Thema's"
+    fr: "Thèmes"
+    de: "Themen"
+    en: "Topics"
+  gewesten_kort:
+    nl: "Gewesten"
+    fr: "Régions"
+    de: "Regionen"
+    en: "Regions"
+  taal_aria:
+    nl: "Taal"
+    fr: "Langue"
+    de: "Sprache"
+    en: "Language"
+  onbekend:
+    nl: "onbekend"
+    fr: "inconnu"
+    de: "unbekannt"
+    en: "unknown"
+  voet_project:
+    nl: "Een onafhankelijk en open project. De cijfers worden elke dag automatisch bijgewerkt; laatste update op {datum}."
+    fr: "Un projet indépendant et ouvert. Les chiffres sont mis à jour automatiquement chaque jour ; dernière mise à jour le {datum}."
+    de: "Ein unabhängiges und offenes Projekt. Die Zahlen werden jeden Tag automatisch aktualisiert; letzte Aktualisierung am {datum}."
+    en: "An independent and open project. The figures are updated automatically every day; last update on {datum}."
+  voet_code:
+    nl: "Alle code en data staan openbaar op <a href=\"{repo}\">GitHub</a>. Bronnen stellen cijfers soms bij: bekijk de <a href=\"{repo}/blob/main/data/changelog.json\">herzieningen</a> en de <a href=\"{repo}/blob/main/reports/status.md\">status van elke bron</a>."
+    fr: "Tout le code et toutes les données sont publics sur <a href=\"{repo}\">GitHub</a>. Les sources révisent parfois leurs chiffres : consultez les <a href=\"{repo}/blob/main/data/changelog.json\">révisions</a> et l'<a href=\"{repo}/blob/main/reports/status.md\">état de chaque source</a>."
+    de: "Der gesamte Code und alle Daten sind öffentlich auf <a href=\"{repo}\">GitHub</a>. Quellen korrigieren ihre Zahlen manchmal: siehe die <a href=\"{repo}/blob/main/data/changelog.json\">Revisionen</a> und den <a href=\"{repo}/blob/main/reports/status.md\">Status jeder Quelle</a>."
+    en: "All code and data are public on <a href=\"{repo}\">GitHub</a>. Sources sometimes revise their figures: see the <a href=\"{repo}/blob/main/data/changelog.json\">revisions</a> and the <a href=\"{repo}/blob/main/reports/status.md\">status of each source</a>."
+  voet_maker:
+    nl: "Gemaakt door <b>{maker}</b>{linkedin}."
+    fr: "Réalisé par <b>{maker}</b>{linkedin}."
+    de: "Erstellt von <b>{maker}</b>{linkedin}."
+    en: "Made by <b>{maker}</b>{linkedin}."
+  voet_contact:
+    nl: "Vraag, idee of fout gezien? Mail naar <a href=\"mailto:{mail}\">{mail}</a> of <a href=\"{repo}/issues/new\">meld het op GitHub</a>."
+    fr: "Une question, une idée ou une erreur ? Écrivez à <a href=\"mailto:{mail}\">{mail}</a> ou <a href=\"{repo}/issues/new\">signalez-la sur GitHub</a>."
+    de: "Frage, Idee oder Fehler entdeckt? Schreiben Sie an <a href=\"mailto:{mail}\">{mail}</a> oder <a href=\"{repo}/issues/new\">melden Sie es auf GitHub</a>."
+    en: "Question, idea or spotted a mistake? Email <a href=\"mailto:{mail}\">{mail}</a> or <a href=\"{repo}/issues/new\">report it on GitHub</a>."
+  voet_vibe:
+    nl: "Met <span aria-label=\"liefde\">♥</span> gevibecodet: deze site is gebouwd met hulp van AI (Claude). De cijfers zelf komen rechtstreeks uit de officiële bronnen, zonder dat er AI aan te pas komt."
+    fr: "Vibecodé avec <span aria-label=\"amour\">♥</span> : ce site a été construit avec l'aide de l'IA (Claude). Les chiffres eux-mêmes proviennent directement des sources officielles, sans intervention de l'IA."
+    de: "Mit <span aria-label=\"Liebe\">♥</span> gevibecodet: Diese Website wurde mit Hilfe von KI (Claude) gebaut. Die Zahlen selbst stammen direkt aus den offiziellen Quellen, ohne KI."
+    en: "Vibe-coded with <span aria-label=\"love\">♥</span>: this site was built with the help of AI (Claude). The figures themselves come straight from the official sources, with no AI involved."
+
+  # ---- kaarten
+  bron:
+    nl: "Bron"
+    fr: "Source"
+    de: "Quelle"
+    en: "Source"
+  opgehaald:
+    nl: "opgehaald"
+    fr: "récupéré le"
+    de: "abgerufen am"
+    en: "retrieved"
+  berekend_eurostat:
+    nl: "Berekend uit cijfers van Eurostat"
+    fr: "Calculé à partir de chiffres d'Eurostat"
+    de: "Berechnet aus Eurostat-Zahlen"
+    en: "Calculated from Eurostat figures"
+  deel:
+    nl: "Deel"
+    fr: "Partager"
+    de: "Teilen"
+    en: "Share"
+  deel_aria:
+    nl: "Deel dit cijfer"
+    fr: "Partager ce chiffre"
+    de: "Diese Zahl teilen"
+    en: "Share this figure"
+  definitie_en_bron:
+    nl: "Definitie en bron"
+    fr: "Définition et source"
+    de: "Definition und Quelle"
+    en: "Definition and source"
+  definitie:
+    nl: "Definitie"
+    fr: "Définition"
+    de: "Definition"
+    en: "Definition"
+  berekening:
+    nl: "Berekening"
+    fr: "Calcul"
+    de: "Berechnung"
+    en: "Calculation"
+  met:
+    nl: "met"
+    fr: "avec"
+    de: "mit"
+    en: "using"
+  dataset:
+    nl: "Dataset"
+    fr: "Jeu de données"
+    de: "Datensatz"
+    en: "Dataset"
+  exacte_bevraging:
+    nl: "Exacte bevraging"
+    fr: "Requête exacte"
+    de: "Genaue Abfrage"
+    en: "Exact query"
+  open_ruwe_data:
+    nl: "open de ruwe data"
+    fr: "ouvrir les données brutes"
+    de: "Rohdaten öffnen"
+    en: "open the raw data"
+  bijgewerkt_bron:
+    nl: "Bijgewerkt door de bron"
+    fr: "Mis à jour par la source"
+    de: "Von der Quelle aktualisiert"
+    en: "Updated by the source"
+  norm_of_doel:
+    nl: "Norm of doel"
+    fr: "Norme ou objectif"
+    de: "Norm oder Ziel"
+    en: "Standard or target"
+  laatste_update:
+    nl: "Laatste update"
+    fr: "Dernière mise à jour"
+    de: "Letzte Aktualisierung"
+    en: "Last update"
+  mislukt:
+    nl: "Mislukt ({melding}). Je ziet de laatste geldige cijfers."
+    fr: "Échec ({melding}). Vous voyez les derniers chiffres valides."
+    de: "Fehlgeschlagen ({melding}). Sie sehen die letzten gültigen Zahlen."
+    en: "Failed ({melding}). You are seeing the last valid figures."
+  geen_cijfers:
+    nl: "Nog geen cijfers beschikbaar."
+    fr: "Pas encore de chiffres disponibles."
+    de: "Noch keine Zahlen verfügbar."
+    en: "No figures available yet."
+  tab_jaren:
+    nl: "Door de jaren"
+    fr: "Au fil des ans"
+    de: "Im Zeitverlauf"
+    en: "Over the years"
+  tab_buren:
+    nl: "België en de buren"
+    fr: "La Belgique et ses voisins"
+    de: "Belgien und seine Nachbarn"
+    en: "Belgium and its neighbours"
+  tab_gewesten:
+    nl: "Per gewest"
+    fr: "Par région"
+    de: "Nach Region"
+    en: "By region"
+  kies_weergave:
+    nl: "Kies een weergave"
+    fr: "Choisir un affichage"
+    de: "Ansicht wählen"
+    en: "Choose a view"
+  grafiek_aria:
+    nl: "Grafiek: {titel}"
+    fr: "Graphique : {titel}"
+    de: "Diagramm: {titel}"
+    en: "Chart: {titel}"
+  zin_hoger:
+    nl: "Dat is hoger dan het EU-gemiddelde ({eu})."
+    fr: "C'est plus élevé que la moyenne de l'UE ({eu})."
+    de: "Das ist höher als der EU-Durchschnitt ({eu})."
+    en: "That is higher than the EU average ({eu})."
+  zin_lager:
+    nl: "Dat is lager dan het EU-gemiddelde ({eu})."
+    fr: "C'est plus bas que la moyenne de l'UE ({eu})."
+    de: "Das ist niedriger als der EU-Durchschnitt ({eu})."
+    en: "That is lower than the EU average ({eu})."
+  zin_gelijk:
+    nl: "Dat is gelijk aan het EU-gemiddelde ({eu})."
+    fr: "C'est égal à la moyenne de l'UE ({eu})."
+    de: "Das entspricht dem EU-Durchschnitt ({eu})."
+    en: "That is equal to the EU average ({eu})."
+  zin_vroeger:
+    nl: "In {jaar} was dit {waarde}."
+    fr: "En {jaar}, c'était {waarde}."
+    de: "{jaar} lag der Wert bei {waarde}."
+    en: "In {jaar} it was {waarde}."
+  zin_lopend:
+    nl: "Cijfer voor {jaar} tot en met {maand}."
+    fr: "Chiffre pour {jaar} jusqu'à {maand} inclus."
+    de: "Wert für {jaar} bis einschließlich {maand}."
+    en: "Figure for {jaar} up to and including {maand}."
+  wafel_kop:
+    nl: "Ongeveer {n} op de 100"
+    fr: "Environ {n} sur 100"
+    de: "Etwa {n} von 100"
+    en: "About {n} in 100"
+  wafel_aria:
+    nl: "{n} op de 100"
+    fr: "{n} sur 100"
+    de: "{n} von 100"
+    en: "{n} in 100"
+  doel:
+    nl: "Doel"
+    fr: "Objectif"
+    de: "Ziel"
+    en: "Target"
+  doel_nog:
+    nl: "Nog <b>{n} procentpunt</b> tot het doel."
+    fr: "Encore <b>{n} points de pourcentage</b> jusqu'à l'objectif."
+    de: "Noch <b>{n} Prozentpunkte</b> bis zum Ziel."
+    en: "<b>{n} percentage points</b> to go to the target."
+  doel_bereikt:
+    nl: "Het doel is bereikt."
+    fr: "L'objectif est atteint."
+    de: "Das Ziel ist erreicht."
+    en: "The target has been reached."
+
+  # ---- startpagina
+  editie:
+    nl: "Editie {datum}"
+    fr: "Édition du {datum}"
+    de: "Ausgabe vom {datum}"
+    en: "Edition of {datum}"
+  held_titel:
+    nl: "Hoe gaat het<br>met België?"
+    fr: "Comment va<br>la Belgique ?"
+    de: "Wie geht es<br>Belgien?"
+    en: "How is<br>Belgium doing?"
+  held_sub:
+    nl: "De belangrijkste cijfers over ons land, in gewone taal. Rechtstreeks van officiële bronnen, elke dag automatisch bijgewerkt, en bij elk cijfer staat waar het vandaan komt."
+    fr: "Les chiffres clés de notre pays, en langage clair. Directement issus des sources officielles, mis à jour automatiquement chaque jour, et chaque chiffre indique sa source."
+    de: "Die wichtigsten Zahlen über unser Land, in einfacher Sprache. Direkt aus offiziellen Quellen, jeden Tag automatisch aktualisiert, und bei jeder Zahl steht, woher sie kommt."
+    en: "The key figures about our country, in plain language. Straight from official sources, updated automatically every day, and every figure shows where it comes from."
+  zoek_placeholder:
+    nl: "Waar ben je benieuwd naar? Bv. treinen, schuld, Wallonië…"
+    fr: "Que voulez-vous savoir ? Par ex. trains, dette, Flandre…"
+    de: "Was interessiert Sie? Z. B. Züge, Schulden, Wallonie…"
+    en: "What are you curious about? E.g. trains, debt, Wallonia…"
+  zoek_geen:
+    nl: "Nog geen cijfer gevonden. Probeer een ander woord, of kies hieronder een thema."
+    fr: "Aucun chiffre trouvé. Essayez un autre mot ou choisissez un thème ci-dessous."
+    de: "Keine Zahl gefunden. Versuchen Sie ein anderes Wort oder wählen Sie unten ein Thema."
+    en: "No figure found. Try another word, or pick a topic below."
+  teller:
+    nl: "Sinds je deze pagina opende, betaalde de Belgische overheid al {bedrag} aan rente op haar schuld."
+    fr: "Depuis que vous avez ouvert cette page, l'État belge a déjà payé {bedrag} d'intérêts sur sa dette."
+    de: "Seit Sie diese Seite geöffnet haben, hat der belgische Staat bereits {bedrag} Zinsen auf seine Schulden gezahlt."
+    en: "Since you opened this page, the Belgian government has paid {bedrag} in interest on its debt."
+  teller_noot:
+    nl: "Rekenvoorbeeld: de rentelasten van {jaar} ({voorlopig}{bedrag} volgens Eurostat), gelijk verdeeld over elke seconde van het jaar."
+    fr: "Exemple de calcul : les charges d'intérêts de {jaar} ({voorlopig}{bedrag} selon Eurostat), réparties uniformément sur chaque seconde de l'année."
+    de: "Rechenbeispiel: die Zinslasten von {jaar} ({voorlopig}{bedrag} laut Eurostat), gleichmäßig auf jede Sekunde des Jahres verteilt."
+    en: "Worked example: interest payments in {jaar} ({voorlopig}{bedrag} according to Eurostat), spread evenly over every second of the year."
+  voorlopig_komma:
+    nl: "voorlopig, "
+    fr: "provisoire, "
+    de: "vorläufig, "
+    en: "provisional, "
+  reken_tegel_titel:
+    nl: "Hoeveel belastingen betaal ik?"
+    fr: "Combien d'impôts est-ce que je paie ?"
+    de: "Wie viel Steuern zahle ich?"
+    en: "How much tax do I pay?"
+  reken_tegel_tekst:
+    nl: "Vul je brutoloon in en zie je totale belastingdruk, je netto en waar je bijdrage naartoe gaat."
+    fr: "Indiquez votre salaire brut et découvrez votre charge fiscale totale, votre net et où va votre contribution."
+    de: "Geben Sie Ihr Bruttogehalt ein und sehen Sie Ihre gesamte Abgabenlast, Ihr Netto und wohin Ihr Beitrag fließt."
+    en: "Enter your gross salary and see your total tax burden, your take-home pay and where your contribution goes."
+  kies_thema:
+    nl: "Kies een thema"
+    fr: "Choisissez un thème"
+    de: "Wählen Sie ein Thema"
+    en: "Choose a topic"
+  vergelijk_link:
+    nl: "Of vergelijk de gewesten"
+    fr: "Ou comparez les régions"
+    de: "Oder vergleichen Sie die Regionen"
+    en: "Or compare the regions"
+  n_cijfers:
+    nl: "{n} cijfers"
+    fr: "{n} chiffres"
+    de: "{n} Zahlen"
+    en: "{n} figures"
+  gewestvlak_naam:
+    nl: "Vlaanderen, Wallonië, Brussel"
+    fr: "Flandre, Wallonie, Bruxelles"
+    de: "Flandern, Wallonie, Brüssel"
+    en: "Flanders, Wallonia, Brussels"
+  gewestvlak_vraag:
+    nl: "Hoe verschillen de gewesten? Werk, armoede, gezondheid en onderwijs naast elkaar."
+    fr: "En quoi les régions diffèrent-elles ? Emploi, pauvreté, santé et enseignement côte à côte."
+    de: "Wie unterscheiden sich die Regionen? Arbeit, Armut, Gesundheit und Bildung im Vergleich."
+    en: "How do the regions differ? Jobs, poverty, health and education side by side."
+  gewestvlak_meer:
+    nl: "Vergelijk de gewesten"
+    fr: "Comparer les régions"
+    de: "Regionen vergleichen"
+    en: "Compare the regions"
+  vertrouwen_titel:
+    nl: "Waarom kun je deze cijfers vertrouwen?"
+    fr: "Pourquoi faire confiance à ces chiffres ?"
+    de: "Warum Sie diesen Zahlen vertrauen können"
+    en: "Why you can trust these figures"
+  vertrouwen_1_titel:
+    nl: "Officiële bronnen"
+    fr: "Sources officielles"
+    de: "Offizielle Quellen"
+    en: "Official sources"
+  vertrouwen_1:
+    nl: "Elk cijfer komt van een officiële instelling, zoals Eurostat, de Nationale Bank of het Planbureau. Bij elk cijfer staat de bron, met een link."
+    fr: "Chaque chiffre provient d'une institution officielle, comme Eurostat, la Banque nationale ou le Bureau du Plan. La source est indiquée pour chaque chiffre, avec un lien."
+    de: "Jede Zahl stammt von einer offiziellen Einrichtung wie Eurostat, der Nationalbank oder dem Planbüro. Bei jeder Zahl steht die Quelle mit Link."
+    en: "Every figure comes from an official institution, such as Eurostat, the National Bank or the Federal Planning Bureau. Each figure shows its source, with a link."
+  vertrouwen_2_titel:
+    nl: "Elke dag bijgewerkt"
+    fr: "Mis à jour chaque jour"
+    de: "Täglich aktualisiert"
+    en: "Updated every day"
+  vertrouwen_2:
+    nl: "Een programma haalt de cijfers elke dag automatisch op. Niemand tikt ze over, en bij de cijfers zelf komt geen AI aan te pas."
+    fr: "Un programme récupère les chiffres automatiquement chaque jour. Personne ne les recopie à la main, et aucune IA n'intervient dans les chiffres eux-mêmes."
+    de: "Ein Programm ruft die Zahlen jeden Tag automatisch ab. Niemand tippt sie ab, und bei den Zahlen selbst ist keine KI im Spiel."
+    en: "A program fetches the figures automatically every day. Nobody types them in, and no AI is involved in the figures themselves."
+  vertrouwen_3_titel:
+    nl: "Iedereen kan het narekenen"
+    fr: "Tout le monde peut vérifier"
+    de: "Jeder kann nachrechnen"
+    en: "Anyone can check"
+  vertrouwen_3:
+    nl: "Alle data en berekeningen zijn openbaar. Je kunt elk cijfer downloaden en zelf controleren."
+    fr: "Toutes les données et tous les calculs sont publics. Vous pouvez télécharger chaque chiffre et le vérifier vous-même."
+    de: "Alle Daten und Berechnungen sind öffentlich. Sie können jede Zahl herunterladen und selbst prüfen."
+    en: "All data and calculations are public. You can download every figure and check it yourself."
+  start_beschrijving:
+    nl: "De belangrijkste cijfers over België, in gewone taal en met bron. Elke dag automatisch bijgewerkt."
+    fr: "Les chiffres clés de la Belgique, en langage clair et avec leur source. Mis à jour automatiquement chaque jour."
+    de: "Die wichtigsten Zahlen über Belgien, in einfacher Sprache und mit Quelle. Jeden Tag automatisch aktualisiert."
+    en: "The key figures about Belgium, in plain language and with sources. Updated automatically every day."
+  thema:
+    nl: "Thema"
+    fr: "Thème"
+    de: "Thema"
+    en: "Topic"
+  zoek_index_vz:
+    nl: "Wanneer volgt de volgende indexering?"
+    fr: "Quand aura lieu la prochaine indexation ?"
+    de: "Wann kommt die nächste Indexierung?"
+    en: "When is the next indexation?"
+  zoek_index_uitgaven:
+    nl: "Waar gaat ons belastinggeld naartoe?"
+    fr: "Où va l'argent de nos impôts ?"
+    de: "Wohin fließt unser Steuergeld?"
+    en: "Where does our tax money go?"
+  zoek_index_gewesten:
+    nl: "Hoe verschillen Vlaanderen, Wallonië en Brussel?"
+    fr: "En quoi la Flandre, la Wallonie et Bruxelles diffèrent-elles ?"
+    de: "Wie unterscheiden sich Flandern, die Wallonie und Brüssel?"
+    en: "How do Flanders, Wallonia and Brussels differ?"
+
+  # ---- snelle cijfers
+  snel_titel:
+    nl: "De laatste maanden"
+    fr: "Les derniers mois"
+    de: "Die letzten Monate"
+    en: "The latest months"
+  snel_noot:
+    nl: "Maand- en kwartaalcijfers van de Nationale Bank · opgehaald {datum}"
+    fr: "Chiffres mensuels et trimestriels de la Banque nationale · récupérés le {datum}"
+    de: "Monats- und Quartalszahlen der Nationalbank · abgerufen am {datum}"
+    en: "Monthly and quarterly figures from the National Bank · retrieved {datum}"
+  tegenover:
+    nl: "{verschil} tegenover {periode}"
+    fr: "{verschil} par rapport à {periode}"
+    de: "{verschil} gegenüber {periode}"
+    en: "{verschil} compared with {periode}"
+  jaar_eerder:
+    nl: "een jaar eerder: {waarde}"
+    fr: "un an plus tôt : {waarde}"
+    de: "ein Jahr zuvor: {waarde}"
+    en: "a year earlier: {waarde}"
+  procentpunt:
+    nl: " procentpunt"
+    fr: " point de pourcentage"
+    de: " Prozentpunkte"
+    en: " percentage points"
+  wat_is_dit:
+    nl: "Wat is dit?"
+    fr: "Qu'est-ce que c'est ?"
+    de: "Was ist das?"
+    en: "What is this?"
+  nationale_bank:
+    nl: "Nationale Bank"
+    fr: "Banque nationale"
+    de: "Nationalbank"
+    en: "National Bank"
+  ruwe_data:
+    nl: "ruwe data"
+    fr: "données brutes"
+    de: "Rohdaten"
+    en: "raw data"
+  kwartaal:
+    nl: "{n}e kwartaal {jaar}"
+    fr: "{n}e trimestre {jaar}"
+    de: "{n}. Quartal {jaar}"
+    en: "Q{n} {jaar}"
+
+  # ---- vooruitzichten
+  vz_label:
+    nl: "Vooruitzichten van het Federaal Planbureau"
+    fr: "Prévisions du Bureau fédéral du Plan"
+    de: "Prognosen des Föderalen Planbüros"
+    en: "Forecasts of the Federal Planning Bureau"
+  vz_titel:
+    nl: "Hoeveel duurder wordt het leven, en wanneer volgt de index?"
+    fr: "Combien la vie va-t-elle augmenter, et quand viendra l'indexation ?"
+    de: "Wie viel teurer wird das Leben, und wann kommt die Indexierung?"
+    en: "How much more expensive will life get, and when is the next indexation?"
+  vz_inflatie:
+    nl: "Inflatie {jaar}"
+    fr: "Inflation {jaar}"
+    de: "Inflation {jaar}"
+    en: "Inflation {jaar}"
+  vz_verwacht:
+    nl: "verwacht jaargemiddelde"
+    fr: "moyenne annuelle prévue"
+    de: "erwarteter Jahresdurchschnitt"
+    en: "expected annual average"
+  vz_gemiddelde:
+    nl: "jaargemiddelde"
+    fr: "moyenne annuelle"
+    de: "Jahresdurchschnitt"
+    en: "annual average"
+  vz_volgende:
+    nl: "Volgende overschrijding van de spilindex"
+    fr: "Prochain dépassement de l'indice-pivot"
+    de: "Nächste Überschreitung des Schwellenindex"
+    en: "Next time the pivot index is exceeded"
+  vz_laatste:
+    nl: "Laatste overschrijding van de spilindex"
+    fr: "Dernier dépassement de l'indice-pivot"
+    de: "Letzte Überschreitung des Schwellenindex"
+    en: "Last time the pivot index was exceeded"
+  vz_verwachting:
+    nl: "verwachting"
+    fr: "prévision"
+    de: "Prognose"
+    en: "forecast"
+  vz_gemeten:
+    nl: "gemeten"
+    fr: "observé"
+    de: "gemessen"
+    en: "observed"
+  vz_daarna:
+    nl: "; daarna {lijst}"
+    fr: " ; ensuite {lijst}"
+    de: "; danach {lijst}"
+    en: "; then {lijst}"
+  vz_uitleg:
+    nl: "Wanneer de spilindex wordt overschreden, stijgen de sociale uitkeringen en de wedden van ambtenaren met 2%. Lonen in de privésector worden geïndexeerd volgens de regels van elke sector. De afgevlakte gezondheidsindex beslist wanneer dat gebeurt: zonder tabak, alcohol en brandstof, en uitgemiddeld over vier maanden."
+    fr: "Lorsque l'indice-pivot est dépassé, les allocations sociales et les traitements des fonctionnaires augmentent de 2 %. Les salaires du secteur privé sont indexés selon les règles de chaque secteur. C'est l'indice santé lissé qui décide du moment : sans tabac, alcool ni carburant, et en moyenne sur quatre mois."
+    de: "Wenn der Schwellenindex überschritten wird, steigen die Sozialleistungen und die Gehälter der Beamten um 2 %. Die Löhne in der Privatwirtschaft werden nach den Regeln des jeweiligen Sektors indexiert. Der geglättete Gesundheitsindex bestimmt den Zeitpunkt: ohne Tabak, Alkohol und Kraftstoff und gemittelt über vier Monate."
+    en: "When the pivot index is exceeded, social benefits and civil servants' salaries rise by 2%. Private-sector wages are indexed according to the rules of each sector. The smoothed health index decides when this happens: it excludes tobacco, alcohol and fuel, and is averaged over four months."
+  vz_grafiek_aria:
+    nl: "Inflatie per maand, gemeten en verwacht"
+    fr: "Inflation mensuelle, observée et prévue"
+    de: "Monatliche Inflation, gemessen und erwartet"
+    en: "Monthly inflation, observed and forecast"
+  vz_andere:
+    nl: "Wat verwachten andere instellingen?"
+    fr: "Que prévoient les autres institutions ?"
+    de: "Was erwarten andere Institutionen?"
+    en: "What do other institutions expect?"
+  vz_andere_uitleg:
+    nl: "Het Planbureau verzamelt de vooruitzichten van verschillende instellingen voor België. Ze verschillen omdat ze op een ander moment zijn gemaakt en van andere veronderstellingen uitgaan."
+    fr: "Le Bureau du Plan rassemble les prévisions de différentes institutions pour la Belgique. Elles diffèrent parce qu'elles ont été établies à un autre moment et reposent sur d'autres hypothèses."
+    de: "Das Planbüro sammelt die Prognosen verschiedener Institutionen für Belgien. Sie unterscheiden sich, weil sie zu einem anderen Zeitpunkt und mit anderen Annahmen erstellt wurden."
+    en: "The Planning Bureau collects the forecasts of various institutions for Belgium. They differ because they were made at different times and use different assumptions."
+  vz_instelling:
+    nl: "Instelling"
+    fr: "Institution"
+    de: "Institution"
+    en: "Institution"
+  vz_groei:
+    nl: "Economische groei (%)"
+    fr: "Croissance économique (%)"
+    de: "Wirtschaftswachstum (%)"
+    en: "Economic growth (%)"
+  vz_inflatie_kol:
+    nl: "Inflatie (%)"
+    fr: "Inflation (%)"
+    de: "Inflation (%)"
+    en: "Inflation (%)"
+  vz_saldo:
+    nl: "Begrotingssaldo (% bbp)"
+    fr: "Solde budgétaire (% du PIB)"
+    de: "Haushaltssaldo (% des BIP)"
+    en: "Budget balance (% of GDP)"
+  vz_bijgewerkt:
+    nl: "Bijgewerkt"
+    fr: "Mise à jour"
+    de: "Aktualisiert"
+    en: "Updated"
+  vz_bron_consensus:
+    nl: "Federaal Planbureau, vooruitzichten van verschillende instellingen"
+    fr: "Bureau fédéral du Plan, prévisions de différentes institutions"
+    de: "Föderales Planbüro, Prognosen verschiedener Institutionen"
+    en: "Federal Planning Bureau, forecasts of various institutions"
+  vz_bron_inflatie:
+    nl: "Federaal Planbureau, inflatievooruitzichten"
+    fr: "Bureau fédéral du Plan, prévisions d'inflation"
+    de: "Föderales Planbüro, Inflationsprognosen"
+    en: "Federal Planning Bureau, inflation forecasts"
+  versie_van:
+    nl: "versie van {datum}"
+    fr: "version du {datum}"
+    de: "Version vom {datum}"
+    en: "version of {datum}"
+  laatste_gemeten:
+    nl: "laatste gemeten maand: {maand}"
+    fr: "dernier mois observé : {maand}"
+    de: "letzter gemessener Monat: {maand}"
+    en: "last observed month: {maand}"
+
+  # ---- uitgaven
+  uit_label:
+    nl: "Overheidsuitgaven per functie"
+    fr: "Dépenses publiques par fonction"
+    de: "Staatsausgaben nach Aufgabenbereichen"
+    en: "Government spending by function"
+  uit_titel:
+    nl: "Waar gaat ons belastinggeld naartoe?"
+    fr: "Où va l'argent de nos impôts ?"
+    de: "Wohin fließt unser Steuergeld?"
+    en: "Where does our tax money go?"
+  uit_intro:
+    nl: "Van elke 100 euro die alle Belgische overheden samen in {jaar} uitgaven, ging zoveel naar elk domein."
+    fr: "Sur chaque tranche de 100 euros dépensée par l'ensemble des pouvoirs publics belges en {jaar}, voici ce qui est allé à chaque domaine."
+    de: "Von jeden 100 Euro, die alle belgischen Behörden zusammen {jaar} ausgegeben haben, ging so viel in jeden Bereich."
+    en: "Of every 100 euros spent by all Belgian governments together in {jaar}, this is how much went to each area."
+  uit_totaal:
+    nl: " Samen is dat {bedrag} per inwoner."
+    fr: " Au total, cela représente {bedrag} par habitant."
+    de: " Zusammen sind das {bedrag} pro Einwohner."
+    en: " Together that is {bedrag} per inhabitant."
+  uit_aria:
+    nl: "Verdeling van 100 euro overheidsuitgaven"
+    fr: "Répartition de 100 euros de dépenses publiques"
+    de: "Aufteilung von 100 Euro Staatsausgaben"
+    en: "Breakdown of 100 euros of government spending"
+  uit_domein:
+    nl: "Domein"
+    fr: "Domaine"
+    de: "Bereich"
+    en: "Area"
+  uit_per_100:
+    nl: "Per 100 euro"
+    fr: "Pour 100 euros"
+    de: "Pro 100 Euro"
+    en: "Per 100 euros"
+  uit_per_inwoner:
+    nl: "Per inwoner per jaar"
+    fr: "Par habitant et par an"
+    de: "Pro Einwohner und Jahr"
+    en: "Per inhabitant per year"
+  uit_uitleg:
+    nl: "Het gaat om alle uitgaven van de federale overheid, de gemeenschappen, de gewesten, de gemeenten en de sociale zekerheid samen. Ze worden betaald met belastingen, sociale bijdragen en leningen. \"Per inwoner\" is het totale bedrag gedeeld door het aantal inwoners: het is geen bedrag dat je zelf betaalt."
+    fr: "Il s'agit de toutes les dépenses de l'État fédéral, des communautés, des régions, des communes et de la sécurité sociale réunies. Elles sont financées par les impôts, les cotisations sociales et l'emprunt. « Par habitant » est le montant total divisé par le nombre d'habitants : ce n'est pas un montant que vous payez vous-même."
+    de: "Es geht um alle Ausgaben des Föderalstaats, der Gemeinschaften, der Regionen, der Gemeinden und der sozialen Sicherheit zusammen. Sie werden mit Steuern, Sozialbeiträgen und Krediten bezahlt. „Pro Einwohner“ ist der Gesamtbetrag geteilt durch die Zahl der Einwohner: Es ist kein Betrag, den Sie selbst zahlen."
+    en: "This covers all spending by the federal government, the communities, the regions, the municipalities and social security together. It is paid for by taxes, social contributions and borrowing. \"Per inhabitant\" is the total divided by the number of inhabitants: it is not an amount you pay yourself."
+  uit_bron_noot:
+    nl: "(indeling COFOG) · per inwoner berekend met de bevolking op 1 januari {jaar}"
+    fr: "(classification COFOG) · par habitant calculé avec la population au 1er janvier {jaar}"
+    de: "(COFOG-Klassifikation) · pro Einwohner berechnet mit der Bevölkerung am 1. Januar {jaar}"
+    en: "(COFOG classification) · per inhabitant calculated using the population on 1 January {jaar}"
+
+  # ---- regeringen en themapagina
+  reg_schakelaar:
+    nl: "Toon de federale regeringen op de grafieken"
+    fr: "Afficher les gouvernements fédéraux sur les graphiques"
+    de: "Föderalregierungen in den Diagrammen anzeigen"
+    en: "Show the federal governments on the charts"
+  reg_uitleg:
+    nl: "Een regering is nooit de enige oorzaak van hoe een cijfer evolueert. Veel cijfers reageren pas jaren later op beleid, en ze hangen ook af van de wereldeconomie, Europese regels en het beleid van de deelstaten."
+    fr: "Un gouvernement n'est jamais la seule cause de l'évolution d'un chiffre. Beaucoup de chiffres ne réagissent à une politique que des années plus tard, et ils dépendent aussi de l'économie mondiale, des règles européennes et des politiques des entités fédérées."
+    de: "Eine Regierung ist nie die einzige Ursache dafür, wie sich eine Zahl entwickelt. Viele Zahlen reagieren erst Jahre später auf Politik, und sie hängen auch von der Weltwirtschaft, europäischen Regeln und der Politik der Gliedstaaten ab."
+    en: "A government is never the only cause of how a figure develops. Many figures only respond to policy years later, and they also depend on the world economy, European rules and the policies of the regions and communities."
+  wie_beslist:
+    nl: "Wie beslist hierover?"
+    fr: "Qui décide ?"
+    de: "Wer entscheidet darüber?"
+    en: "Who decides?"
+  op_deze_pagina:
+    nl: "Op deze pagina"
+    fr: "Sur cette page"
+    de: "Auf dieser Seite"
+    en: "On this page"
+  begrippen_titel:
+    nl: "Moeilijke woorden uitgelegd"
+    fr: "Les mots difficiles expliqués"
+    de: "Schwierige Begriffe erklärt"
+    en: "Difficult words explained"
+  vorig_thema:
+    nl: "Vorig thema"
+    fr: "Thème précédent"
+    de: "Vorheriges Thema"
+    en: "Previous topic"
+  volgend_thema:
+    nl: "Volgend thema"
+    fr: "Thème suivant"
+    de: "Nächstes Thema"
+    en: "Next topic"
+  andere_themas:
+    nl: "Andere thema's"
+    fr: "Autres thèmes"
+    de: "Andere Themen"
+    en: "Other topics"
+
+  # ---- gewestenpagina
+  gw_kruimel:
+    nl: "Per gewest"
+    fr: "Par région"
+    de: "Nach Region"
+    en: "By region"
+  gw_titel:
+    nl: "Hoe verschillen Vlaanderen, Wallonië en Brussel?"
+    fr: "En quoi la Flandre, la Wallonie et Bruxelles diffèrent-elles ?"
+    de: "Wie unterscheiden sich Flandern, die Wallonie und Brüssel?"
+    en: "How do Flanders, Wallonia and Brussels differ?"
+  gw_intro:
+    nl: "België heeft drie gewesten: het Vlaams, het Waals en het Brussels Hoofdstedelijk Gewest. Ze zijn onder meer bevoegd voor economie, werkbegeleiding, wonen, mobiliteit en milieu. Daarnaast zijn er drie gemeenschappen (Vlaams, Frans en Duitstalig) voor onder meer onderwijs, cultuur en welzijn."
+    fr: "La Belgique compte trois régions : la Région flamande, la Région wallonne et la Région de Bruxelles-Capitale. Elles sont notamment compétentes pour l'économie, l'accompagnement des demandeurs d'emploi, le logement, la mobilité et l'environnement. Il existe aussi trois communautés (flamande, française et germanophone), compétentes notamment pour l'enseignement, la culture et l'aide aux personnes."
+    de: "Belgien hat drei Regionen: die Flämische Region, die Wallonische Region und die Region Brüssel-Hauptstadt. Sie sind unter anderem für Wirtschaft, Arbeitsvermittlung, Wohnen, Mobilität und Umwelt zuständig. Daneben gibt es drei Gemeinschaften (Flämische, Französische und Deutschsprachige), zuständig unter anderem für Bildung, Kultur und Soziales."
+    en: "Belgium has three regions: the Flemish Region, the Walloon Region and the Brussels-Capital Region. They are responsible for, among other things, the economy, job-seeker support, housing, mobility and the environment. There are also three communities (Flemish, French and German-speaking), responsible for education, culture and welfare, among other things."
+  gw_goed_titel:
+    nl: "Goed om te weten"
+    fr: "Bon à savoir"
+    de: "Gut zu wissen"
+    en: "Good to know"
+  gw_goed:
+    nl: "De cijfers hieronder volgen het grondgebied van de gewesten. Wallonië omvat dus ook de Duitstalige Gemeenschap, en Brussel telt alle inwoners van de negentien Brusselse gemeenten, ook al vallen die onder twee gemeenschappen."
+    fr: "Les chiffres ci-dessous suivent le territoire des régions. La Wallonie inclut donc aussi la Communauté germanophone, et Bruxelles compte tous les habitants des dix-neuf communes bruxelloises, même si elles relèvent de deux communautés."
+    de: "Die Zahlen unten folgen dem Gebiet der Regionen. Die Wallonie umfasst also auch die Deutschsprachige Gemeinschaft, und Brüssel zählt alle Einwohner der neunzehn Brüsseler Gemeinden, auch wenn diese zu zwei Gemeinschaften gehören."
+    en: "The figures below follow the territory of the regions. Wallonia therefore also includes the German-speaking Community, and Brussels counts all residents of the nineteen Brussels municipalities, even though they fall under two communities."
+  gw_lees_titel:
+    nl: "Hoe lees je de tabel?"
+    fr: "Comment lire le tableau ?"
+    de: "Wie liest man die Tabelle?"
+    en: "How to read the table"
+  gw_lees:
+    nl: "Per cijfer zie je het recentste jaar waarvoor alle drie de gewesten een cijfer hebben. De balkjes maken het verschil zichtbaar; klik op een vraag voor het verloop door de jaren."
+    fr: "Pour chaque chiffre, vous voyez l'année la plus récente pour laquelle les trois régions disposent d'un chiffre. Les barres rendent la différence visible ; cliquez sur une question pour voir l'évolution au fil des ans."
+    de: "Für jede Zahl sehen Sie das jüngste Jahr, für das alle drei Regionen eine Zahl haben. Die Balken machen den Unterschied sichtbar; klicken Sie auf eine Frage, um die Entwicklung über die Jahre zu sehen."
+    en: "For each figure you see the most recent year for which all three regions have data. The bars make the difference visible; click a question to see how it changed over the years."
+  gw_cijfer:
+    nl: "Cijfer"
+    fr: "Chiffre"
+    de: "Zahl"
+    en: "Figure"
+  gw_voetnoot:
+    nl: "Enkel cijfers waarvoor Eurostat een officiële opsplitsing per gewest publiceert. Andere cijfers, zoals de overheidsschuld, bestaan niet op die manier per gewest; die voegen we toe zodra er een officiële bron is."
+    fr: "Uniquement les chiffres pour lesquels Eurostat publie une ventilation officielle par région. D'autres chiffres, comme la dette publique, n'existent pas sous cette forme par région ; nous les ajouterons dès qu'une source officielle existera."
+    de: "Nur Zahlen, für die Eurostat eine offizielle Aufschlüsselung nach Regionen veröffentlicht. Andere Zahlen, etwa die Staatsschulden, gibt es so nicht pro Region; wir fügen sie hinzu, sobald es eine offizielle Quelle gibt."
+    en: "Only figures for which Eurostat publishes an official breakdown by region. Other figures, such as government debt, do not exist in this form per region; we will add them as soon as there is an official source."
+  gw_beschrijving:
+    nl: "Vlaanderen, Wallonië en Brussel naast elkaar: werk, armoede, gezondheid, onderwijs en meer."
+    fr: "Flandre, Wallonie et Bruxelles côte à côte : emploi, pauvreté, santé, enseignement et plus encore."
+    de: "Flandern, Wallonie und Brüssel im Vergleich: Arbeit, Armut, Gesundheit, Bildung und mehr."
+    en: "Flanders, Wallonia and Brussels side by side: jobs, poverty, health, education and more."
+
+  # ---- rekenmodule (pagina)
+  rk_kruimel:
+    nl: "Rekenmodule"
+    fr: "Simulateur"
+    de: "Rechner"
+    en: "Calculator"
+  rk_titel:
+    nl: "Hoeveel belastingen betaal ik?"
+    fr: "Combien d'impôts est-ce que je paie ?"
+    de: "Wie viel Steuern zahle ich?"
+    en: "How much tax do I pay?"
+  rk_intro:
+    nl: "Vul je brutoloon in. Je ziet hoeveel er naar de sociale zekerheid en naar belastingen gaat, hoeveel je netto overhoudt, en waar dat geld naartoe gaat. Een benadering voor bedienden, op basis van de officiële tarieven voor inkomstenjaar {jaar}."
+    fr: "Indiquez votre salaire brut. Vous verrez ce qui va à la sécurité sociale et aux impôts, ce qu'il vous reste en net, et où va cet argent. Une approximation pour les employés, sur la base des barèmes officiels des revenus {jaar}."
+    de: "Geben Sie Ihr Bruttogehalt ein. Sie sehen, wie viel an die soziale Sicherheit und an Steuern geht, wie viel Ihnen netto bleibt und wohin das Geld fließt. Eine Annäherung für Angestellte auf Grundlage der offiziellen Tarife für das Einkommensjahr {jaar}."
+    en: "Enter your gross salary. You will see how much goes to social security and to taxes, how much you take home, and where that money goes. An approximation for white-collar employees, based on the official rates for income year {jaar}."
+  rk_noscript:
+    nl: "Deze rekenmodule heeft JavaScript nodig."
+    fr: "Ce simulateur nécessite JavaScript."
+    de: "Dieser Rechner benötigt JavaScript."
+    en: "This calculator requires JavaScript."
+  rk_situatie:
+    nl: "Jouw situatie"
+    fr: "Votre situation"
+    de: "Ihre Situation"
+    en: "Your situation"
+  rk_maandloon:
+    nl: "Brutoloon per maand"
+    fr: "Salaire brut mensuel"
+    de: "Bruttogehalt pro Monat"
+    en: "Gross salary per month"
+  rk_vakantiegeld:
+    nl: "Dubbel vakantiegeld"
+    fr: "Double pécule de vacances"
+    de: "Doppeltes Urlaubsgeld"
+    en: "Double holiday pay"
+  rk_vakantiegeld_noot:
+    nl: "{pct}% van een maandloon"
+    fr: "{pct} % d'un salaire mensuel"
+    de: "{pct} % eines Monatsgehalts"
+    en: "{pct}% of a monthly salary"
+  rk_ejp:
+    nl: "Eindejaarspremie"
+    fr: "Prime de fin d'année"
+    de: "Jahresendprämie"
+    en: "End-of-year bonus"
+  rk_ejp_maanden:
+    nl: "Hoeveel maandlonen bedraagt je eindejaarspremie?"
+    fr: "À combien de mois de salaire s'élève votre prime de fin d'année ?"
+    de: "Wie viele Monatsgehälter beträgt Ihre Jahresendprämie?"
+    en: "How many monthly salaries is your end-of-year bonus?"
+  rk_kinderen:
+    nl: "Kinderen ten laste"
+    fr: "Enfants à charge"
+    de: "Unterhaltsberechtigte Kinder"
+    en: "Dependent children"
+  rk_jonger3:
+    nl: "Waarvan jonger dan 3 jaar"
+    fr: "Dont de moins de 3 ans"
+    de: "Davon unter 3 Jahren"
+    en: "Of whom under 3"
+  rk_alleenstaand:
+    nl: "Ik ben een alleenstaande ouder"
+    fr: "Je suis un parent isolé"
+    de: "Ich bin alleinerziehend"
+    en: "I am a single parent"
+  rk_gemeente:
+    nl: "Gemeentebelasting"
+    fr: "Taxe communale"
+    de: "Gemeindesteuer"
+    en: "Municipal tax"
+  rk_gemeente_noot:
+    nl: "het percentage van jouw gemeente staat op je aanslagbiljet"
+    fr: "le pourcentage de votre commune figure sur votre avertissement-extrait de rôle"
+    de: "der Prozentsatz Ihrer Gemeinde steht auf Ihrem Steuerbescheid"
+    en: "your municipality's rate is shown on your tax assessment"
+  rk_kop:
+    nl: "Je betaalt <b id=\"r-druk\">…</b> van je brutoloon aan sociale bijdragen en belastingen."
+    fr: "Vous payez <b id=\"r-druk\">…</b> de votre salaire brut en cotisations sociales et impôts."
+    de: "Sie zahlen <b id=\"r-druk\">…</b> Ihres Bruttogehalts an Sozialbeiträgen und Steuern."
+    en: "You pay <b id=\"r-druk\">…</b> of your gross salary in social contributions and taxes."
+  rk_balk_aria:
+    nl: "Verdeling van je brutoloon"
+    fr: "Répartition de votre salaire brut"
+    de: "Aufteilung Ihres Bruttogehalts"
+    en: "Breakdown of your gross salary"
+  rk_bruto_jaar:
+    nl: "Bruto per jaar"
+    fr: "Brut par an"
+    de: "Brutto pro Jahr"
+    en: "Gross per year"
+  rk_netto_jaar:
+    nl: "Netto per jaar"
+    fr: "Net par an"
+    de: "Netto pro Jahr"
+    en: "Net per year"
+  rk_netto_maand:
+    nl: "Netto gemiddeld per maand"
+    fr: "Net moyen par mois"
+    de: "Netto im Monatsdurchschnitt"
+    en: "Average net per month"
+  rk_marginaal:
+    nl: "Van 100 euro opslag hou je"
+    fr: "Sur 100 euros d'augmentation, il vous reste"
+    de: "Von 100 Euro Gehaltserhöhung bleiben Ihnen"
+    en: "Of a 100-euro raise you keep"
+  rk_berekend:
+    nl: "Zo wordt het berekend"
+    fr: "Comment c'est calculé"
+    de: "So wird es berechnet"
+    en: "How it is calculated"
+  rk_schijven:
+    nl: "Belasting per schijf"
+    fr: "Impôt par tranche"
+    de: "Steuer pro Stufe"
+    en: "Tax per bracket"
+  rk_schijven_uitleg:
+    nl: "Je belastbaar inkomen wordt in schijven verdeeld. Elke schijf heeft haar eigen tarief: alleen het deel boven een grens wordt aan het hogere tarief belast."
+    fr: "Votre revenu imposable est divisé en tranches. Chaque tranche a son propre taux : seule la partie au-dessus d'un seuil est imposée au taux supérieur."
+    de: "Ihr steuerpflichtiges Einkommen wird in Stufen aufgeteilt. Jede Stufe hat ihren eigenen Satz: Nur der Teil oberhalb einer Grenze wird zum höheren Satz besteuert."
+    en: "Your taxable income is split into brackets. Each bracket has its own rate: only the part above a threshold is taxed at the higher rate."
+  rk_waarheen:
+    nl: "Waar gaat jouw bijdrage naartoe?"
+    fr: "Où va votre contribution ?"
+    de: "Wohin fließt Ihr Beitrag?"
+    en: "Where does your contribution go?"
+  rk_waarheen_uitleg:
+    nl: "Als je totale bijdrage verdeeld zou worden zoals alle Belgische overheidsuitgaven in <span id=\"r-waarheen-jaar\">…</span> (Eurostat). Dit is een illustratie: in werkelijkheid gaat je RSZ-bijdrage naar de sociale zekerheid en wordt het geld uit alle bronnen samen verdeeld."
+    fr: "Si votre contribution totale était répartie comme l'ensemble des dépenses publiques belges en <span id=\"r-waarheen-jaar\">…</span> (Eurostat). C'est une illustration : en réalité, vos cotisations ONSS vont à la sécurité sociale et l'argent de toutes les sources est réparti ensemble."
+    de: "Wenn Ihr gesamter Beitrag so verteilt würde wie alle belgischen Staatsausgaben im Jahr <span id=\"r-waarheen-jaar\">…</span> (Eurostat). Dies ist eine Veranschaulichung: In Wirklichkeit fließt Ihr LSS-Beitrag in die soziale Sicherheit, und das Geld aus allen Quellen wird gemeinsam verteilt."
+    en: "If your total contribution were divided like all Belgian government spending in <span id=\"r-waarheen-jaar\">…</span> (Eurostat). This is an illustration: in reality your social security contribution goes to social security, and money from all sources is pooled."
+  rk_niet:
+    nl: "Wat zit er niet in?"
+    fr: "Qu'est-ce qui n'est pas inclus ?"
+    de: "Was ist nicht enthalten?"
+    en: "What is not included?"
+  rk_niet_uitleg:
+    nl: "Deze rekenmodule is een benadering. Je echte loonbrief en aanslagbiljet kunnen afwijken, onder meer door:"
+    fr: "Ce simulateur est une approximation. Votre fiche de paie et votre avertissement-extrait de rôle réels peuvent différer, notamment en raison de :"
+    de: "Dieser Rechner ist eine Annäherung. Ihre tatsächliche Lohnabrechnung und Ihr Steuerbescheid können abweichen, unter anderem durch:"
+    en: "This calculator is an approximation. Your actual payslip and tax assessment may differ, among other things because of:"
+  rk_bronnen:
+    nl: "Bronnen van alle bedragen"
+    fr: "Sources de tous les montants"
+    de: "Quellen aller Beträge"
+    en: "Sources of all amounts"
+  rk_officieel:
+    nl: "Voor een officiële berekening: de simulator Tax-Calc van FOD Financiën."
+    fr: "Pour un calcul officiel : le simulateur Tax-Calc du SPF Finances."
+    de: "Für eine offizielle Berechnung: der Simulator Tax-Calc des FÖD Finanzen."
+    en: "For an official calculation: the Tax-Calc simulator of the FPS Finance."
+  rk_beschrijving:
+    nl: "Van brutoloon naar netto: hoeveel gaat naar sociale zekerheid en belastingen, en waar gaat het naartoe?"
+    fr: "Du brut au net : combien va à la sécurité sociale et aux impôts, et où cela va-t-il ?"
+    de: "Von brutto zu netto: Wie viel geht an die soziale Sicherheit und an Steuern, und wohin fließt es?"
+    en: "From gross to net: how much goes to social security and taxes, and where does it go?"
+
+# Teksten die JavaScript gebruikt (grafieken, zoeken, delen, rekenmodule)
+js:
+  lopend_jaar:
+    nl: "lopend jaar (nog niet volledig)"
+    fr: "année en cours (pas encore complète)"
+    de: "laufendes Jahr (noch nicht vollständig)"
+    en: "current year (not yet complete)"
+  voorlopig_haakjes:
+    nl: " (voorlopig)"
+    fr: " (provisoire)"
+    de: " (vorläufig)"
+    en: " (provisional)"
+  verwachting_haakjes:
+    nl: " (verwachting)"
+    fr: " (prévision)"
+    de: " (Prognose)"
+    en: " (forecast)"
+  buren_in:
+    nl: "België en de buren in"
+    fr: "La Belgique et ses voisins en"
+    de: "Belgien und seine Nachbarn im Jahr"
+    en: "Belgium and its neighbours in"
+  gewesten_in:
+    nl: "Per gewest in"
+    fr: "Par région en"
+    de: "Nach Region im Jahr"
+    en: "By region in"
+  grafiek_fout:
+    nl: "De grafiek kon niet geladen worden."
+    fr: "Le graphique n'a pas pu être chargé."
+    de: "Das Diagramm konnte nicht geladen werden."
+    en: "The chart could not be loaded."
+  link_gekopieerd:
+    nl: "Link gekopieerd"
+    fr: "Lien copié"
+    de: "Link kopiert"
+    en: "Link copied"
+  verwachting:
+    nl: "verwachting"
+    fr: "prévision"
+    de: "Prognose"
+    en: "forecast"
+  inflatie_gemeten:
+    nl: "Inflatie per maand (gemeten)"
+    fr: "Inflation mensuelle (observée)"
+    de: "Monatliche Inflation (gemessen)"
+    en: "Monthly inflation (observed)"
+  verwachting_planbureau:
+    nl: "verwachting Planbureau"
+    fr: "prévision du Bureau du Plan"
+    de: "Prognose des Planbüros"
+    en: "Planning Bureau forecast"
+  overschrijding:
+    nl: "overschrijding spilindex"
+    fr: "dépassement de l'indice-pivot"
+    de: "Überschreitung des Schwellenindex"
+    en: "pivot index exceeded"
+  spil_overschreden:
+    nl: "Spilindex overschreden"
+    fr: "Indice-pivot dépassé"
+    de: "Schwellenindex überschritten"
+    en: "Pivot index exceeded"
+  inflatie:
+    nl: "Inflatie"
+    fr: "Inflation"
+    de: "Inflation"
+    en: "Inflation"
+  r_netto:
+    nl: "Netto voor jou"
+    fr: "Net pour vous"
+    de: "Netto für Sie"
+    en: "Your take-home pay"
+  r_rsz:
+    nl: "Sociale zekerheid (RSZ)"
+    fr: "Sécurité sociale (ONSS)"
+    de: "Soziale Sicherheit (LSS)"
+    en: "Social security (NSSO)"
+  r_pb:
+    nl: "Personenbelasting"
+    fr: "Impôt des personnes physiques"
+    de: "Einkommensteuer"
+    en: "Personal income tax"
+  r_gem:
+    nl: "Gemeentebelasting"
+    fr: "Taxe communale"
+    de: "Gemeindesteuer"
+    en: "Municipal tax"
+  r_loon:
+    nl: "Brutoloon (12 maanden)"
+    fr: "Salaire brut (12 mois)"
+    de: "Bruttogehalt (12 Monate)"
+    en: "Gross salary (12 months)"
+  r_vg:
+    nl: "+ dubbel vakantiegeld"
+    fr: "+ double pécule de vacances"
+    de: "+ doppeltes Urlaubsgeld"
+    en: "+ double holiday pay"
+  r_ejp:
+    nl: "+ eindejaarspremie"
+    fr: "+ prime de fin d'année"
+    de: "+ Jahresendprämie"
+    en: "+ end-of-year bonus"
+  r_bruto:
+    nl: "= Bruto per jaar"
+    fr: "= Brut par an"
+    de: "= Brutto pro Jahr"
+    en: "= Gross per year"
+  r_rsz_rij:
+    nl: "− Sociale zekerheid (RSZ, {pct}%)"
+    fr: "− Sécurité sociale (ONSS, {pct} %)"
+    de: "− Soziale Sicherheit (LSS, {pct} %)"
+    en: "− Social security (NSSO, {pct}%)"
+  r_kosten_rij:
+    nl: "− Forfaitaire beroepskosten ({pct}%, max. {max})"
+    fr: "− Frais professionnels forfaitaires ({pct} %, max. {max})"
+    de: "− Pauschale Werbungskosten ({pct} %, max. {max})"
+    en: "− Flat-rate professional expenses ({pct}%, max. {max})"
+  r_belastbaar:
+    nl: "= Belastbaar inkomen"
+    fr: "= Revenu imposable"
+    de: "= Steuerpflichtiges Einkommen"
+    en: "= Taxable income"
+  r_schijf:
+    nl: "{van} tot {tot} aan {tarief}%"
+    fr: "de {van} à {tot} à {tarief} %"
+    de: "{van} bis {tot} zu {tarief} %"
+    en: "{van} to {tot} at {tarief}%"
+  r_meer:
+    nl: "meer"
+    fr: "plus"
+    de: "mehr"
+    en: "more"
+  r_belasting_inkomen:
+    nl: "= Belasting op je inkomen"
+    fr: "= Impôt sur votre revenu"
+    de: "= Steuer auf Ihr Einkommen"
+    en: "= Tax on your income"
+  r_bvs:
+    nl: "− Belastingvrije som ({bedrag} wordt niet belast)"
+    fr: "− Quotité exemptée ({bedrag} non imposés)"
+    de: "− Steuerfreibetrag ({bedrag} werden nicht besteuert)"
+    en: "− Tax-free allowance ({bedrag} is not taxed)"
+  r_pb_som:
+    nl: "= Personenbelasting"
+    fr: "= Impôt des personnes physiques"
+    de: "= Einkommensteuer"
+    en: "= Personal income tax"
+  r_gem_rij:
+    nl: "+ Gemeentebelasting ({pct}% van de personenbelasting)"
+    fr: "+ Taxe communale ({pct} % de l'impôt des personnes physiques)"
+    de: "+ Gemeindesteuer ({pct} % der Einkommensteuer)"
+    en: "+ Municipal tax ({pct}% of personal income tax)"
+  r_totaal:
+    nl: "Totaal aan sociale bijdragen en belastingen"
+    fr: "Total des cotisations sociales et impôts"
+    de: "Summe der Sozialbeiträge und Steuern"
+    en: "Total social contributions and taxes"

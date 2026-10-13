@@ -423,3 +423,16 @@ code { font-size: .82rem; background: var(--achter); padding: 1px 5px; border-ra
 .lijst { margin: 8px 0 0; padding-left: 20px; font-size: .9rem; }
 .lijst li { margin: 3px 0; }
 .bronnen { font-size: .82rem; }
+
+/* taalkeuze in de kop */
+.talen { display: flex; gap: 2px; align-items: center; margin-left: 4px; padding-left: 14px; border-left: 1px solid color-mix(in srgb, currentColor 18%, transparent); }
+.talen a { color: inherit; text-decoration: none; font-size: .8rem; font-weight: 500; padding: 4px 6px; border-radius: 6px; opacity: .6; }
+.talen a:hover { opacity: 1; background: color-mix(in srgb, currentColor 8%, transparent); }
+.talen a[aria-current] { opacity: 1; font-weight: 650; }
+@media (max-width: 640px) { .kop-links { gap: 10px; } .talen { padding-left: 8px; } .talen a { padding: 4px 4px; } }
+@media (max-width: 640px) {
+  .kop-links .kop-zoek span { display: none; }
+  .merk-tekst b, .merk-tekst span { white-space: nowrap; }
+  .kop .binnen { gap: 8px; }
+}
+@media (max-width: 400px) { .merk-tekst span { font-size: .92rem; } .talen a { font-size: .74rem; padding: 4px 3px; } }

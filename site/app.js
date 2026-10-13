@@ -5,6 +5,12 @@
   const NS = "http://www.w3.org/2000/svg";
   const BASIS = (document.currentScript && document.currentScript.src.replace(/app\.js.*$/, "")) || "./";
   const css = (el, naam) => getComputedStyle(el).getPropertyValue(naam).trim();
+  // Teksten en notaties in de taal van de pagina (zie build_site.js_teksten). Zonder #ui: Nederlands.
+  let UI = {};
+  try { UI = JSON.parse(document.getElementById("ui").textContent); } catch (e) {}
+  const LOC = UI.locale || "nl-BE";
+  const t = (k, terug) => (UI.t && UI.t[k]) || terug;
+  const eenheid = (e) => (UI.eenheden && UI.eenheden[e.trim()]) || (e.trim() === "€" ? ["€ ", ""] : ["", e]);
 
   function maak(tag, attrs, ouder, tekst) {
     const el = document.createElementNS(NS, tag);
@@ -14,19 +20,16 @@
     return el;
   }
 
-  const nf = (d) => new Intl.NumberFormat("nl-BE", { minimumFractionDigits: d, maximumFractionDigits: d });
+  const nf = (d) => new Intl.NumberFormat(LOC, { minimumFractionDigits: d, maximumFractionDigits: d });
+  const pctTeken = eenheid("%")[1];
   function fmt(x, ind) {
-    const s = nf(ind.decimalen).format(x).replace(/^-/, "−");
-    const e = ind.eenheid.trim();
-    if (e === "€") return "€ " + s;
-    if (e === "mln €") return "€ " + s + " mln";
-    if (e === "% bbp") return s + "%";
-    return s + ind.eenheid;
+    const [voor, na] = eenheid(ind.eenheid);
+    return voor + nf(ind.decimalen).format(x).replace(/^-/, "−") + na;
   }
   function kort(x) {
     const abs = Math.abs(x);
     const o = abs >= 1e6 ? { notation: "compact", maximumFractionDigits: 1 } : abs >= 10000 ? { notation: "compact", maximumFractionDigits: 0 } : { maximumFractionDigits: 1 };
-    return new Intl.NumberFormat("nl-BE", o).format(x).replace(/^-/, "−");
+    return new Intl.NumberFormat(LOC, o).format(x).replace(/^-/, "−");
   }
   function ticks(min, max, n) {
     if (min === max) { min -= 1; max += 1; }
@@ -84,8 +87,9 @@
     doos.appendChild(l);
   }
 
-  const naam = (data, g) => (data.landnamen[g] && data.landnamen[g].nl) || g;
-  const kortNaam = (data, g) => (g === "EU27_2020" ? "EU" : naam(data, g));
+  const naam = (data, g) => (UI.landnamen && UI.landnamen[g]) || (data.landnamen[g] && data.landnamen[g].nl) || g;
+  const kortNaam = (data, g) => (g === "EU27_2020" ? UI.euKort || "EU" : naam(data, g));
+  const normLabel = (ind) => (UI.normen && UI.normen[ind.id]) || ind.norm.label.nl;
 
   // ---------- regeringen als achtergrondbanden ----------
   let toonRegeringen = false;
@@ -152,7 +156,7 @@
       maak("text", { x: x(j1) + 8, y: p.y, "dominant-baseline": "middle", class: p.g === "BE" ? "sterk" : "" }, svg, kortNaam(data, p.g) + " " + fmt(p.r[1], ind));
     });
     const items = geos.map((g) => ({ naam: naam(data, g), kleur: (stijl[g] || anders).k, vorm: g === "EU27_2020" ? "stip" : "" }));
-    if (ind.norm) items.push({ naam: ind.norm.label.nl, kleur: kl.norm, vorm: "stip" });
+    if (ind.norm) items.push({ naam: normLabel(ind), kleur: kl.norm, vorm: "stip" });
     legende(doos, items);
     // hover
     const tip = maakTip(doos);
@@ -164,7 +168,7 @@
       const rijen = geos.map((g) => [g, ind.reeksen[g].find((w) => w[0] === j)]).filter((p) => p[1]);
       if (!rijen.length) return;
       regel.setAttribute("x1", x(j)); regel.setAttribute("x2", x(j)); regel.setAttribute("opacity", .5);
-      tip.toon(x(j) * s, 40, String(j), rijen.map(([g, w]) => ({ kleur: (stijl[g] || anders).k, tekst: naam(data, g) + ": " + fmt(w[1], ind) + (/[pj]/.test(w[2]) ? " (voorlopig)" : "") })));
+      tip.toon(x(j) * s, 40, String(j), rijen.map(([g, w]) => ({ kleur: (stijl[g] || anders).k, tekst: naam(data, g) + ": " + fmt(w[1], ind) + (/[pj]/.test(w[2]) ? t("voorlopig_haakjes", " (voorlopig)") : "") })));
     });
     vang.addEventListener("pointerleave", () => { tip.verberg(); regel.setAttribute("opacity", 0); });
   }
@@ -200,10 +204,10 @@
     });
     const l = reeks[reeks.length - 1], lx = ml + bw * (reeks.length - 1) + bw / 2;
     maak("text", { x: Math.min(lx, B - 4), y: l[1] >= 0 ? y(l[1]) - 6 : y(l[1]) + 14, "text-anchor": lx > B - 40 ? "end" : "middle", class: "sterk" }, svg, fmt(l[1], ind));
-    const items = [{ naam: "België", kleur: kl.thema, vorm: "vierkant" }];
-    if (Object.keys(eu).length) items.push({ naam: "EU-gemiddelde", kleur: kl.eu });
-    if (ind.norm) items.push({ naam: ind.norm.label.nl, kleur: kl.norm, vorm: "stip" });
-    if (reeks.some((r) => /j/.test(r[2]))) items.push({ naam: "lopend jaar (nog niet volledig)", kleur: kl.thema, vorm: "vierkant licht" });
+    const items = [{ naam: naam(data, "BE"), kleur: kl.thema, vorm: "vierkant" }];
+    if (Object.keys(eu).length) items.push({ naam: naam(data, "EU27_2020"), kleur: kl.eu });
+    if (ind.norm) items.push({ naam: normLabel(ind), kleur: kl.norm, vorm: "stip" });
+    if (reeks.some((r) => /j/.test(r[2]))) items.push({ naam: t("lopend_jaar", "lopend jaar (nog niet volledig)"), kleur: kl.thema, vorm: "vierkant licht" });
     legende(doos, items);
     const tip = maakTip(doos);
     const vang = maak("rect", { x: ml, y: 0, width: B - ml - mr, height: H - mb, fill: "transparent" }, svg);
@@ -211,8 +215,8 @@
       const rr = svg.getBoundingClientRect(), s = rr.width / B;
       const i = Math.max(0, Math.min(reeks.length - 1, Math.floor(((ev.clientX - rr.left) / s - ml) / bw)));
       const r = reeks[i];
-      const regels = [{ kleur: kl.thema, tekst: "België: " + fmt(r[1], ind) + (/[pj]/.test(r[2]) ? " (voorlopig)" : "") }];
-      if (eu[r[0]] !== undefined) regels.push({ kleur: kl.eu, tekst: "EU-gemiddelde: " + fmt(eu[r[0]], ind) });
+      const regels = [{ kleur: kl.thema, tekst: naam(data, "BE") + ": " + fmt(r[1], ind) + (/[pj]/.test(r[2]) ? t("voorlopig_haakjes", " (voorlopig)") : "") }];
+      if (eu[r[0]] !== undefined) regels.push({ kleur: kl.eu, tekst: naam(data, "EU27_2020") + ": " + fmt(eu[r[0]], ind) });
       tip.toon((ml + bw * i + bw / 2) * s, y(Math.max(0, r[1])) * s, String(r[0]), regels);
     });
     vang.addEventListener("pointerleave", () => tip.verberg());
@@ -244,7 +248,7 @@
     if (lo < 0) maak("line", { x1: x(0), x2: x(0), y1: 0, y2: H, stroke: kl.eu }, svg);
     if (ind.norm) maak("line", { x1: x(ind.norm.waarde), x2: x(ind.norm.waarde), y1: 0, y2: H, stroke: kl.norm, "stroke-dasharray": "3 4", "stroke-width": 1.5 }, svg);
     const items = [{ naam: titelJaar + " " + jaar, kleur: "transparent" }];
-    if (ind.norm) items.push({ naam: ind.norm.label.nl, kleur: kl.norm, vorm: "stip" });
+    if (ind.norm) items.push({ naam: normLabel(ind), kleur: kl.norm, vorm: "stip" });
     legende(doos, items);
   }
 
@@ -259,20 +263,20 @@
     const B = doos.clientWidth, H = 220, mt = 16, mb = 22;
     const tk = ticks(Math.min(0, ...m.map((r) => r.inflatie)), Math.max(...m.map((r) => r.inflatie)), 4);
     const svg = maak("svg", { viewBox: `0 0 ${B} ${H}` }, doos);
-    const ml = meetTekst(svg, tk.map((t) => kort(t) + "%")) + 10, mr = 10;
+    const ml = meetTekst(svg, tk.map((v) => kort(v) + pctTeken)) + 10, mr = 10;
     const x = (i) => ml + (i / Math.max(1, m.length - 1)) * (B - ml - mr);
     const y = (v) => mt + (1 - (v - tk[0]) / (tk[tk.length - 1] - tk[0])) * (H - mt - mb);
     tk.forEach((t) => {
       maak("line", { x1: ml, x2: B - mr, y1: y(t), y2: y(t), stroke: t === 0 ? kl.eu : kl.raster }, svg);
-      maak("text", { x: ml - 8, y: y(t), "text-anchor": "end", "dominant-baseline": "middle" }, svg, kort(t) + "%");
+      maak("text", { x: ml - 8, y: y(t), "text-anchor": "end", "dominant-baseline": "middle" }, svg, kort(t) + pctTeken);
     });
     const eersteVz = m.findIndex((r) => r.vooruitzicht);
     if (eersteVz > 0) {
       const xv = (x(eersteVz - 1) + x(eersteVz)) / 2;
       maak("rect", { x: xv, y: mt, width: B - mr - xv, height: H - mt - mb, class: "regering-band" }, svg);
-      maak("text", { x: xv + 6, y: mt + 10, class: "regering" }, svg, "verwachting");
+      maak("text", { x: xv + 6, y: mt + 10, class: "regering" }, svg, t("verwachting", "verwachting"));
     }
-    const mnd = ["jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"];
+    const mnd = UI.maanden || ["jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"];
     const label = (s) => mnd[+s.slice(5, 7) - 1] + " " + s.slice(0, 4);
     m.forEach((r, i) => { if (+r.maand.slice(5, 7) === 1 || i === 0) maak("text", { x: x(i), y: H - 4, "text-anchor": i === 0 ? "start" : "middle" }, svg, label(r.maand)); });
     const pad = (rijen) => rijen.map((r, j) => (j ? "L" : "M") + x(m.indexOf(r)).toFixed(1) + "," + y(r.inflatie).toFixed(1)).join("");
@@ -284,15 +288,15 @@
       maak("line", { x1: x(i), x2: x(i), y1: mt + 14, y2: y(m[i].inflatie) - 6, stroke: kl.norm, "stroke-dasharray": "2 3" }, svg);
       maak("circle", { cx: x(i), cy: y(m[i].inflatie), r: 5, fill: kl.norm }, svg);
     });
-    legende(doos, [{ naam: "Inflatie per maand (gemeten)", kleur: kl.thema }, { naam: "verwachting Planbureau", kleur: kl.thema, vorm: "stip" }, { naam: "overschrijding spilindex", kleur: kl.norm, vorm: "vierkant" }]);
+    legende(doos, [{ naam: t("inflatie_gemeten", "Inflatie per maand (gemeten)"), kleur: kl.thema }, { naam: t("verwachting_planbureau", "verwachting Planbureau"), kleur: kl.thema, vorm: "stip" }, { naam: t("overschrijding", "overschrijding spilindex"), kleur: kl.norm, vorm: "vierkant" }]);
     const tip = maakTip(doos);
     const vang = maak("rect", { x: ml, y: 0, width: B - ml - mr, height: H - mb, fill: "transparent" }, svg);
     vang.addEventListener("pointermove", (ev) => {
       const rr = svg.getBoundingClientRect(), s = rr.width / B;
       const i = Math.max(0, Math.min(m.length - 1, Math.round((((ev.clientX - rr.left) / s) - ml) / (B - ml - mr) * (m.length - 1))));
       const r = m[i], o = inf.overschrijdingen.find((q) => q.maand === r.maand);
-      const regels = [{ kleur: kl.thema, tekst: "Inflatie: " + nf(1).format(r.inflatie) + "%" + (r.vooruitzicht ? " (verwachting)" : "") }];
-      if (o) regels.push({ kleur: kl.norm, tekst: "Spilindex overschreden" + (o.vooruitzicht ? " (verwachting)" : "") });
+      const regels = [{ kleur: kl.thema, tekst: t("inflatie", "Inflatie") + ": " + nf(1).format(r.inflatie) + pctTeken + (r.vooruitzicht ? t("verwachting_haakjes", " (verwachting)") : "") }];
+      if (o) regels.push({ kleur: kl.norm, tekst: t("spil_overschreden", "Spilindex overschreden") + (o.vooruitzicht ? t("verwachting_haakjes", " (verwachting)") : "") });
       tip.toon(x(i) * s, y(r.inflatie) * s, label(r.maand), regels);
     });
     vang.addEventListener("pointerleave", () => tip.verberg());
@@ -319,8 +323,8 @@
     const tab = (kaart.querySelector(".tabs [aria-selected=true]") || {}).dataset;
     const kl = kleuren(kaart);
     const keuze = (tab && tab.tab) || "jaren";
-    if (keuze === "buren") return staven(doos, ind, data, kl, ["BE", "EU27_2020", "NL", "DE", "FR", "LU"], "België en de buren in");
-    if (keuze === "gewesten") return staven(doos, ind, data, kl, ["BE2", "BE3", "BE1", "BE", "EU27_2020"], "Per gewest in");
+    if (keuze === "buren") return staven(doos, ind, data, kl, ["BE", "EU27_2020", "NL", "DE", "FR", "LU"], t("buren_in", "België en de buren in"));
+    if (keuze === "gewesten") return staven(doos, ind, data, kl, ["BE2", "BE3", "BE1", "BE", "EU27_2020"], t("gewesten_in", "Per gewest in"));
     if (doos.dataset.weergave === "kolommen") return kolommen(doos, ind, data, kl);
     return lijn(doos, ind, data, kl);
   }
@@ -355,7 +359,7 @@
 
   if (document.querySelector("[data-grafiek], [data-vz]")) {
     fetch(BASIS + "data/dashboard.json").then((r) => r.json()).then(grafieken).catch(() => {
-      document.querySelectorAll("[data-grafiek]").forEach((d) => { d.textContent = "De grafiek kon niet geladen worden."; d.style.minHeight = "0"; });
+      document.querySelectorAll("[data-grafiek]").forEach((d) => { d.textContent = t("grafiek_fout", "De grafiek kon niet geladen worden."); d.style.minHeight = "0"; });
     });
   }
 
@@ -375,7 +379,8 @@
   const teller = document.getElementById("renteteller");
   if (teller) {
     const perSec = parseFloat(teller.dataset.perSeconde), begin = performance.now(), f0 = nf(0);
-    const loop = () => { teller.textContent = "€ " + f0.format(perSec * (performance.now() - begin) / 1000); };
+    const [ev, en] = eenheid("€");
+    const loop = () => { teller.textContent = ev + f0.format(perSec * (performance.now() - begin) / 1000) + en; };
     loop(); setInterval(loop, 100);
   }
 
@@ -400,7 +405,7 @@
       }).filter((h) => h.score > 0).sort((a, b) => b.score - a.score).slice(0, 8);
       if (!hits.length) {
         const li = document.createElement("li"); li.className = "geen";
-        li.textContent = "Nog geen cijfer gevonden. Probeer een ander woord, of kies hieronder een thema.";
+        li.textContent = UI.geenTreffer || "Nog geen cijfer gevonden. Probeer een ander woord, of kies hieronder een thema.";
         lijst.appendChild(li);
       }
       hits.forEach(({ it }) => {
@@ -436,6 +441,6 @@
     const url = location.href.split("#")[0] + "#" + knop.dataset.deel;
     const titel = knop.closest(".kaart").querySelector("h3").textContent;
     if (navigator.share) navigator.share({ title: titel, url }).catch(() => {});
-    else if (navigator.clipboard) navigator.clipboard.writeText(url).then(() => melding("Link gekopieerd"));
+    else if (navigator.clipboard) navigator.clipboard.writeText(url).then(() => melding(t("link_gekopieerd", "Link gekopieerd")));
   });
 })();
