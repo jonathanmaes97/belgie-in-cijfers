@@ -145,37 +145,29 @@ def riziv(s: requests.Session, uit: list[str]) -> None:
 
 
 def belastingen(s: requests.Session, uit: list[str]) -> None:
-    """Data on Taxation Trends (Europese Commissie, DG TAXUD): belastingen op arbeid, consumptie en kapitaal."""
-    import openpyxl
+    """REDISSTAT (DG TAXUD): alle dataflows en per dataflow de dimensies voor België."""
     basis = "https://webgate.ec.europa.eu/taxation_customs/redisstat/api/dissemination"
-    for url in (f"{basis}/sdmx/2.1/dataflow/all?format=JSON", f"{basis}/catalogue/toc/txt?lang=en", f"{basis}/sdmx/2.1/dataflow/all"):
+    r = s.get(f"{basis}/sdmx/2.1/dataflow/all?format=JSON", timeout=90)
+    items = r.json()["link"]["item"]
+    uit.append("## Dataflows\n" + "\n".join(f"- {x['extension']['id']}: {x['label']}" for x in items))
+    for x in items:
+        ds = x["extension"]["id"]
+        url = f"{basis}/statistics/1.0/data/{ds}?geo=BE&lastTimePeriod=1&lang=EN"
         try:
-            r = s.get(url, timeout=90)
-            uit.append(f"## {url}\n- HTTP {r.status_code}, {r.headers.get('Content-Type')}\n```\n{r.text[:12000]}\n```")
+            q = s.get(url, timeout=90)
         except requests.RequestException as e:
-            uit.append(f"## {url}: {e}")
-    for naam, url in {
-        "arbeid": "https://ec.europa.eu/taxation_customs/document/download/2c24dfb6-7cb3-468b-903f-b6b491da86e3_en",
-        "consumptie": "https://ec.europa.eu/taxation_customs/document/download/08209739-61d3-48c6-8fec-84777cca0edc_en",
-        "kapitaal": "https://ec.europa.eu/taxation_customs/document/download/1c4386fc-1086-45ba-9df4-65db9d25d28d_en",
-        "impliciet": "https://ec.europa.eu/taxation_customs/document/download/73ab0a07-7577-415d-87ab-8d18208f7fd5_en",
-    }.items():
-        try:
-            r = s.get(url, timeout=120)
-        except requests.RequestException as e:
-            uit.append(f"## {naam}: {e}")
+            uit.append(f"## {ds}: {e}")
             continue
-        uit.append(f"## {naam}: {r.url}\n- HTTP {r.status_code}, {len(r.content)} bytes, {r.headers.get('Content-Type')}, {r.headers.get('Content-Disposition')}")
-        if r.content[:2] != b"PK":
-            uit.append(f"```\n{r.text[:500]}\n```")
+        uit.append(f"## {ds} ({x['label']})\n- {url}\n- HTTP {q.status_code}")
+        if q.status_code != 200:
+            uit.append(f"```\n{q.text[:300]}\n```")
             continue
-        wb = openpyxl.load_workbook(io.BytesIO(r.content), read_only=True, data_only=True)
-        for ws in wb.worksheets[:6]:
-            uit.append(f"### blad {ws.title!r} ({ws.max_row}×{ws.max_column})")
-            for i, rij in enumerate(ws.iter_rows(values_only=True)):
-                if i >= 14:
-                    break
-                uit.append("    " + " | ".join("" if v is None else str(v)[:30] for v in rij[:20]))
+        j = q.json()
+        for dim in j.get("id", []):
+            cat = j["dimension"][dim]["category"]
+            lab = cat.get("label", {})
+            uit.append(f"- **{dim}**: " + ", ".join(f"{k} ({lab.get(k, '')})" for k in list(cat["index"])[:70]))
+        uit.append(f"- eerste waarden: {list(j.get('value', {}).items())[:8]}")
 
 
 def main() -> None:
