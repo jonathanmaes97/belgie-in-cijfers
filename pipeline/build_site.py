@@ -28,7 +28,8 @@ import yaml
 WORTEL = Path(__file__).resolve().parent.parent
 SITE = WORTEL / "site"
 REPO_URL = "https://github.com/jonathanmaes97/belgie-in-cijfers"
-SITE_URL = "https://jonathanmaes97.github.io/belgie-in-cijfers/"
+_SITE = yaml.safe_load((WORTEL / "config" / "site.yaml").read_text(encoding="utf-8"))
+SITE_URL = (_SITE.get("domein") or _SITE["github_pages"]).rstrip("/") + "/"
 MERK = "State of the Union"
 MAKER = "Jonathan Maes"
 CONTACT = "sotu@jonathanmaes.be"
@@ -960,8 +961,39 @@ def bouw() -> None:
     try:
         for taal in TALEN:
             bouw_taal(basis, taal)
+        bouw_extra(basis)
     finally:
         zet_taal("nl")
+
+
+def bouw_extra(basis: dict) -> None:
+    """robots.txt, sitemap.xml, 404-pagina en webmanifest."""
+    paginas = ["", "gewesten.html", "rekenmodule.html"] + [f'thema/{t["id"]}.html' for t in basis["themas"]]
+    dag = basis["gegenereerd"][:10]
+    regels = []
+    for url in paginas:
+        alt = "".join(f'<xhtml:link rel="alternate" hreflang="{t}" href="{SITE_URL}{map_van(t)}{url}"/>' for t in TALEN)
+        for t in TALEN:
+            regels.append(f"<url><loc>{SITE_URL}{map_van(t)}{url}</loc><lastmod>{dag}</lastmod>{alt}</url>")
+    (SITE / "sitemap.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
+        'xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + "\n".join(regels) + "\n</urlset>\n", encoding="utf-8")
+    (SITE / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}sitemap.xml\n", encoding="utf-8")
+    (SITE / "site.webmanifest").write_text(json.dumps({
+        "name": f"{MERK}: België in cijfers", "short_name": "België in cijfers", "start_url": "./", "display": "standalone",
+        "background_color": "#f6f7f9", "theme_color": "#f6f7f9",
+        "icons": [{"src": "icon-192.png", "sizes": "192x192", "type": "image/png"}, {"src": "icon-512.png", "sizes": "512x512", "type": "image/png"}],
+    }, ensure_ascii=False, indent=1), encoding="utf-8")
+    # 404: GitHub Pages toont deze pagina bij een onbekend adres; absolute paden, want de map is onbekend
+    zet_taal("nl")
+    data = vertaal(basis, "nl")
+    teksten = {t: (UI["t"]["n404_titel"][t], UI["t"]["n404_tekst"][t]) for t in TALEN}
+    blokken = "".join(f'<section class="blok" lang="{t}"><h2>{escape(a)}</h2><p>{escape(b)}</p><p><a href="{SITE_URL}{map_van(t)}">{SITE_URL}{map_van(t)}</a></p></section>'
+                      for t, (a, b) in teksten.items())
+    from urllib.parse import urlparse
+    wortel = urlparse(SITE_URL).path or "/"  # bv. /belgie-in-cijfers/ of / bij een eigen domein
+    html = pagina(f"404 · {MERK}", teksten["nl"][1], f'<div class="binnen" style="padding:48px 0">{blokken}</div>', wortel, data, None, "index", "")
+    (SITE / "404.html").write_text(html.replace('<link rel="canonical"', '<meta name="robots" content="noindex"><link rel="canonical"'), encoding="utf-8")
 
 
 SJABLOON = """<!doctype html>
@@ -982,7 +1014,13 @@ SJABLOON = """<!doctype html>
 <meta property="og:image" content="{og}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{titel}">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{og}">
+<link rel="icon" href="{bpad}favicon.svg" type="image/svg+xml">
+<link rel="icon" href="{bpad}favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="{bpad}apple-touch-icon.png">
+<link rel="manifest" href="{bpad}site.webmanifest">
 <meta name="theme-color" content="#0f1317">
 <link rel="preload" href="{bpad}fonts/plex-sans.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{bpad}style.css">

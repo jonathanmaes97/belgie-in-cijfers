@@ -961,6 +961,16 @@ t:
     de: "Auf Ihrer Lohnabrechnung steht jeden Monat ein anderer Betrag. Ihr Arbeitgeber behält einen Berufssteuervorabzug ein: einen Vorschuss auf Ihre Steuer, der mit Ihrem Steuerbescheid verrechnet wird. Dieser Rechner zeigt die Endabrechnung für das ganze Jahr."
     en: "Your payslip shows a different amount each month. Your employer withholds advance tax (bedrijfsvoorheffing): a prepayment on your tax that is settled with your tax assessment. This calculator shows the final settlement for the whole year."
 
+  n404_titel:
+    nl: "Deze pagina bestaat niet"
+    fr: "Cette page n'existe pas"
+    de: "Diese Seite gibt es nicht"
+    en: "This page does not exist"
+  n404_tekst:
+    nl: "Misschien is het adres veranderd. Ga naar de startpagina:"
+    fr: "L'adresse a peut-être changé. Retournez à la page d'accueil :"
+    de: "Vielleicht hat sich die Adresse geändert. Zur Startseite:"
+    en: "The address may have changed. Go to the home page:"
 # Teksten die JavaScript gebruikt (grafieken, zoeken, delen, rekenmodule)
 js:
   lopend_jaar:

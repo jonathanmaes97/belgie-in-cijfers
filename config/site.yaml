@@ -1,0 +1,5 @@
+# Adres van de site. Vul `domein` in zodra de eigen domeinnaam werkt (bv. https://voorbeeld.be/),
+# en stel hetzelfde domein in bij GitHub → Settings → Pages → Custom domain.
+# Zolang `domein` leeg is, gebruikt de site het adres van GitHub Pages.
+domein: null
+github_pages: https://jonathanmaes97.github.io/belgie-in-cijfers/
