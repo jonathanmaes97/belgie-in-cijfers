@@ -1,0 +1,305 @@
+{
+ "reeksen": [
+  {
+   "id": "benzine",
+   "titel": {
+    "nl": "Maximumprijs benzine"
+   },
+   "vraag": {
+    "nl": "Wat kost een liter benzine?"
+   },
+   "uitleg": {
+    "nl": "De officiële maximumprijs voor Benzine 95 RON E10 aan de pomp, met btw, zoals de FOD Economie die vastlegt. Tankstations mogen niet meer vragen, wel minder. Het grote cijfer is de prijs die nu geldt; de grafiek toont het gemiddelde per maand."
+   },
+   "eenheid": "€/l",
+   "decimalen": 3,
+   "punten": [
+    [
+     "2024-03",
+     1.7583,
+     ""
+    ],
+    [
+     "2024-06",
+     1.7474,
+     ""
+    ],
+    [
+     "2024-07",
+     1.7613,
+     ""
+    ],
+    [
+     "2024-08",
+     1.6999,
+     ""
+    ],
+    [
+     "2024-09",
+     1.6369,
+     ""
+    ],
+    [
+     "2024-10",
+     1.6598,
+     ""
+    ],
+    [
+     "2024-12",
+     1.6675,
+     ""
+    ],
+    [
+     "2025-01",
+     1.6945,
+     ""
+    ],
+    [
+     "2025-02",
+     1.7029,
+     ""
+    ],
+    [
+     "2025-03",
+     1.6396,
+     ""
+    ],
+    [
+     "2025-04",
+     1.6286,
+     ""
+    ],
+    [
+     "2025-05",
+     1.6203,
+     ""
+    ],
+    [
+     "2025-06",
+     1.6324,
+     ""
+    ],
+    [
+     "2025-10",
+     1.6453,
+     ""
+    ],
+    [
+     "2025-12",
+     1.5975,
+     ""
+    ],
+    [
+     "2026-01",
+     1.5765,
+     ""
+    ],
+    [
+     "2026-02",
+     1.6063,
+     ""
+    ],
+    [
+     "2026-03",
+     1.7614,
+     ""
+    ],
+    [
+     "2026-04",
+     1.8929,
+     ""
+    ],
+    [
+     "2026-05",
+     1.9575,
+     ""
+    ],
+    [
+     "2026-06",
+     1.845,
+     ""
+    ],
+    [
+     "2026-07",
+     1.9056,
+     ""
+    ],
+    [
+     "2026-08",
+     1.9252,
+     ""
+    ],
+    [
+     "2026-09",
+     2.057,
+     ""
+    ]
+   ],
+   "nu": {
+    "waarde": 2.105,
+    "geldig_vanaf": "2026-10-14",
+    "lijst": "2026/198"
+   },
+   "api_url": "https://economie.fgov.be/sites/default/files/Files/Energy/prices/Officiele-Maximumtarieven-aardolieproducten.pdf",
+   "bron": {
+    "instelling": "FOD Economie",
+    "naam": {
+     "nl": "FOD Economie (maximumprijzen)"
+    },
+    "url": "https://economie.fgov.be/nl/themas/energie/energieprijzen/maximumprijzen/officieel-tarief-van-de",
+    "dataset": "Officiële maximumprijzen aardolieproducten"
+   }
+  },
+  {
+   "id": "diesel",
+   "titel": {
+    "nl": "Maximumprijs diesel"
+   },
+   "vraag": {
+    "nl": "Wat kost een liter diesel?"
+   },
+   "uitleg": {
+    "nl": "De officiële maximumprijs voor Diesel B7 aan de pomp, met btw, zoals de FOD Economie die vastlegt. Tankstations mogen niet meer vragen, wel minder. Het grote cijfer is de prijs die nu geldt; de grafiek toont het gemiddelde per maand."
+   },
+   "eenheid": "€/l",
+   "decimalen": 3,
+   "punten": [
+    [
+     "2024-03",
+     1.8542,
+     ""
+    ],
+    [
+     "2024-06",
+     1.7953,
+     ""
+    ],
+    [
+     "2024-07",
+     1.8103,
+     ""
+    ],
+    [
+     "2024-08",
+     1.7433,
+     ""
+    ],
+    [
+     "2024-09",
+     1.6917,
+     ""
+    ],
+    [
+     "2024-10",
+     1.7226,
+     ""
+    ],
+    [
+     "2024-12",
+     1.7632,
+     ""
+    ],
+    [
+     "2025-01",
+     1.8103,
+     ""
+    ],
+    [
+     "2025-02",
+     1.8001,
+     ""
+    ],
+    [
+     "2025-03",
+     1.7445,
+     ""
+    ],
+    [
+     "2025-04",
+     1.686,
+     ""
+    ],
+    [
+     "2025-05",
+     1.6656,
+     ""
+    ],
+    [
+     "2025-06",
+     1.7141,
+     ""
+    ],
+    [
+     "2025-10",
+     1.7218,
+     ""
+    ],
+    [
+     "2025-12",
+     1.7019,
+     ""
+    ],
+    [
+     "2026-01",
+     1.6942,
+     ""
+    ],
+    [
+     "2026-02",
+     1.7291,
+     ""
+    ],
+    [
+     "2026-03",
+     2.0486,
+     ""
+    ],
+    [
+     "2026-04",
+     2.2269,
+     ""
+    ],
+    [
+     "2026-05",
+     2.1557,
+     ""
+    ],
+    [
+     "2026-06",
+     1.9977,
+     ""
+    ],
+    [
+     "2026-07",
+     2.1068,
+     ""
+    ],
+    [
+     "2026-08",
+     2.2576,
+     ""
+    ],
+    [
+     "2026-09",
+     2.4178,
+     ""
+    ]
+   ],
+   "nu": {
+    "waarde": 2.428,
+    "geldig_vanaf": "2026-10-14",
+    "lijst": "2026/198"
+   },
+   "api_url": "https://economie.fgov.be/sites/default/files/Files/Energy/prices/Officiele-Maximumtarieven-aardolieproducten.pdf",
+   "bron": {
+    "instelling": "FOD Economie",
+    "naam": {
+     "nl": "FOD Economie (maximumprijzen)"
+    },
+    "url": "https://economie.fgov.be/nl/themas/energie/energieprijzen/maximumprijzen/officieel-tarief-van-de",
+    "dataset": "Officiële maximumprijzen aardolieproducten"
+   }
+  }
+ ],
+ "opgehaald": "2026-10-13T23:36:57+00:00"
+}
