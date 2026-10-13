@@ -1,6 +1,6 @@
 # Status van de datapipeline
 
-Laatste run: 2026-10-13T14:22:56+00:00
+Laatste run: 2026-10-13T14:35:30+00:00
 
 | Indicator | Status | Opgehaald | Melding |
 |---|---|---|---|
@@ -32,3 +32,9 @@ Laatste run: 2026-10-13T14:22:56+00:00
 | verkeersdoden | ✅ | 2026-10-13T14:22:56+00:00 |  |
 | bevolking | ✅ | 2026-10-13T14:22:56+00:00 |  |
 | aandeel_65plus | ✅ | 2026-10-13T14:22:56+00:00 |  |
+| netto_migratie | ❌ | — | niet opgehaald (offline) |
+| natuurlijke_aangroei | ❌ | — | niet opgehaald (offline) |
+| geboren_buitenland | ❌ | — | Invoer 'bevolking_buitenland_geboren' ontbreekt. |
+| bevolking_buitenland_geboren | ❌ | — | niet opgehaald (offline) |
+| bevolking_naar_geboorteland | ❌ | — | niet opgehaald (offline) |
+| asielaanvragen | ❌ | — | niet opgehaald (offline) |

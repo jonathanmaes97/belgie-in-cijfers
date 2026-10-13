@@ -145,11 +145,12 @@ themas:
   - id: demografie
     nl: Bevolking
     icoon: bevolking
-    vraag: Hoeveel zijn we, en hoe oud?
+    vraag: Hoeveel zijn we, wie komt erbij?
     kop: bevolking
     intro: >-
       Hoeveel mensen er in België wonen en hoe oud ze zijn, bepaalt hoeveel scholen, woningen, zorg en
-      pensioenen er nodig zijn.
+      pensioenen er nodig zijn. De bevolking verandert door geboorten en overlijdens, en door mensen die
+      naar België verhuizen of vertrekken. Hier zie je beide.
     bevoegd: >-
       Bevolkingscijfers komen uit het Rijksregister. Migratiebeleid is federaal; inburgering is een zaak
       van de gemeenschappen.
@@ -546,3 +547,76 @@ indicatoren:
     zoekwoorden: [ouderen, vergrijzing, pensioen, senioren]
     bron: {instelling: Eurostat, dataset: demo_pjanind, filters: {indic_de: PC_Y65_MAX}}
     regionaal: {instelling: Eurostat, dataset: demo_r_pjanind2, filters: {indic_de: PC_Y65_MAX, unit: PC}, landen: [BE1, BE2, BE3]}
+
+  - id: netto_migratie
+    thema: demografie
+    titel: {nl: Netto migratie}
+    vraag: {nl: "Hoeveel mensen komen er netto bij door migratie?"}
+    definitie: {nl: "Aantal mensen dat naar het land verhuist min het aantal dat vertrekt, per 1.000 inwoners (inclusief statistische correctie)."}
+    uitleg: {nl: "Het gaat om iedereen die verhuist, ook Belgen die naar het buitenland vertrekken of terugkeren. Een positief cijfer betekent dat er meer mensen komen wonen dan er vertrekken."}
+    eenheid: " per 1.000"
+    decimalen: 1
+    weergave: kolommen
+    zoekwoorden: [migratie, immigratie, emigratie, migranten, verhuizen, inwijking]
+    bron: {instelling: Eurostat, dataset: demo_gind, filters: {indic_de: CNMIGRATRT}}
+
+  - id: natuurlijke_aangroei
+    thema: demografie
+    titel: {nl: Natuurlijke aangroei}
+    vraag: {nl: "Worden er meer mensen geboren dan er sterven?"}
+    definitie: {nl: "Aantal geboorten min het aantal overlijdens, per 1.000 inwoners."}
+    uitleg: {nl: "Samen met de netto migratie bepaalt dit of de bevolking groeit. Een negatief cijfer betekent dat er meer mensen sterven dan er geboren worden."}
+    eenheid: " per 1.000"
+    decimalen: 1
+    weergave: kolommen
+    zoekwoorden: [geboorten, overlijdens, sterfte, baby's, aangroei]
+    bron: {instelling: Eurostat, dataset: demo_gind, filters: {indic_de: NATGROWRT}}
+
+  - id: geboren_buitenland
+    thema: demografie
+    titel: {nl: Geboren in het buitenland}
+    vraag: {nl: "Hoeveel inwoners zijn in het buitenland geboren?"}
+    definitie: {nl: "Aandeel van de inwoners dat buiten het land geboren is, ongeacht hun nationaliteit."}
+    uitleg: {nl: "Het geboorteland zegt niets over de nationaliteit: ook Belgen die in het buitenland geboren zijn, tellen mee, en kinderen van migranten die hier geboren zijn niet."}
+    eenheid: "%"
+    decimalen: 1
+    weergave: lijn
+    beeld: wafel
+    wafel_tekst: {nl: "inwoners is in het buitenland geboren"}
+    zoekwoorden: [migratie, migranten, buitenland, herkomst, nieuwkomers]
+    afgeleid:
+      formule: "buitenland * 100 / totaal"
+      invoer: {buitenland: bevolking_buitenland_geboren, totaal: bevolking_naar_geboorteland}
+
+  - id: bevolking_buitenland_geboren
+    thema: demografie
+    titel: {nl: Inwoners geboren in het buitenland}
+    vraag: {nl: "Hoeveel inwoners zijn in het buitenland geboren (aantal)?"}
+    definitie: {nl: "Aantal inwoners op 1 januari dat buiten het land geboren is."}
+    eenheid: ""
+    decimalen: 0
+    verborgen: true
+    bron: {instelling: Eurostat, dataset: migr_pop3ctb, filters: {c_birth: FOR, age: TOTAL, sex: T, unit: NR}}
+
+  - id: bevolking_naar_geboorteland
+    thema: demografie
+    titel: {nl: Inwoners (naar geboorteland)}
+    vraag: {nl: "Hoeveel inwoners telt de reeks naar geboorteland?"}
+    definitie: {nl: "Totaal aantal inwoners op 1 januari in dezelfde reeks naar geboorteland."}
+    eenheid: ""
+    decimalen: 0
+    verborgen: true
+    bron: {instelling: Eurostat, dataset: migr_pop3ctb, filters: {c_birth: TOTAL, age: TOTAL, sex: T, unit: NR}}
+
+  - id: asielaanvragen
+    thema: demografie
+    titel: {nl: Eerste asielaanvragen}
+    vraag: {nl: "Hoeveel mensen vragen voor het eerst asiel aan?"}
+    definitie: {nl: "Aantal personen dat in dat jaar voor het eerst een verzoek om internationale bescherming indient."}
+    uitleg: {nl: "Een asielaanvraag is nog geen erkenning: een deel van de aanvragen wordt geweigerd. Alleen eerste aanvragen tellen hier mee, geen herhaalde."}
+    eenheid: ""
+    decimalen: 0
+    weergave: kolommen
+    landen: [BE]
+    zoekwoorden: [asiel, vluchtelingen, asielzoekers, opvang, bescherming]
+    bron: {instelling: Eurostat, dataset: migr_asyappctza, filters: {citizen: TOTAL, sex: T, age: TOTAL, applicant: FRST, unit: PER}}

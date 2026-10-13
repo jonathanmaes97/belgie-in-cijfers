@@ -40,7 +40,7 @@ jobs:
         continue-on-error: true
         run: |
           python -m pipeline.probe_sources
-          python -m pipeline.probe_infrabel
+          python -m pipeline.probe_planbureau
 
       - name: Wijzigingen bewaren
         run: |
