@@ -1,0 +1,9 @@
+{
+  "api_urls": [
+    "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/GOV_10DD_EDPT1/A.PC_GDP.S13.GD.BE+EU27_2020+NL+DE+FR/?startPeriod=2010"
+  ],
+  "bijgewerkt_bron": null,
+  "opgehaald": "2026-10-13T12:45:00+00:00",
+  "laatste_poging": "2026-10-13T12:45:00+00:00",
+  "melding": ""
+}
