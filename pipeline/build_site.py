@@ -497,7 +497,7 @@ def js_teksten(data: dict) -> str:
         "landnamen": {g: landnaam(data, g) for g in data["landnamen"]},
         "eenheden": eenheden,
         "normen": {i["id"]: tx(i["norm"]["label"]) for i in data["indicatoren"] if i.get("norm")},
-        "uitgaven": {f["code"]: f["nl"] for f in (data.get("uitgaven") or {}).get("functies", [])},
+        "uitgaven": {f["code"]: f["nl"] for f in (data.get("uitgaven") or {}).get("functies", []) + (data.get("uitgaven") or {}).get("details", [])},
     }
     return json.dumps(ui, ensure_ascii=False).replace("</", "<\\/")
 

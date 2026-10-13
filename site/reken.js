@@ -109,8 +109,15 @@
       const jaar = String(uitgaven.jaar);
       const f = uitgaven.functies.map((x) => [x, (uitgaven.aandelen[x.code] && uitgaven.aandelen[x.code].BE || {})[jaar] || 0]).sort((a, b) => b[1] - a[1]);
       const max = f[0][1];
+      const aandeel = (code) => (uitgaven.aandelen[code] && uitgaven.aandelen[code].BE || {})[jaar] || 0;
+      const regels = [];
       f.forEach(([x, a]) => {
+        regels.push([x, a, false]);
+        (uitgaven.details || []).filter((d) => d.deel_van === x.code).forEach((d) => regels.push([d, aandeel(d.code), true]));
+      });
+      regels.forEach(([x, a, sub]) => {
         const li = document.createElement("li");
+        if (sub) li.className = "sub";
         const naam = document.createElement("span"); naam.className = "w-naam"; naam.textContent = (UI.uitgaven && UI.uitgaven[x.code]) || x.nl;
         const balkje = document.createElement("span"); balkje.className = "w-balk"; const b = document.createElement("i"); b.style.width = (a / max) * 100 + "%"; balkje.appendChild(b);
         const bedrag = document.createElement("span"); bedrag.className = "w-bedrag"; bedrag.textContent = eur((u.totaal * a) / 100);
