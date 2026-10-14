@@ -525,3 +525,6 @@ small.cofog a { color: inherit; }
   .uitgaven .stip { margin-right: 6px; }
 }
 @media (max-width: 600px) { .inkomsten th:nth-child(4), .inkomsten td:nth-child(4) { display: none; } }
+
+.brug { display: flex; gap: 10px; align-items: flex-start; margin: 10px 0 14px; padding: 12px 14px; border-left: 3px solid var(--t); background: color-mix(in srgb, var(--t) 6%, transparent); border-radius: 0 10px 10px 0; font-size: .92rem; line-height: 1.5; }
+.brug .icoon { flex-shrink: 0; margin-top: 3px; color: var(--t-licht, var(--t)); }

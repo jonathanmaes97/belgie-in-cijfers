@@ -782,11 +782,21 @@ def inkomstenblok(data: dict, per_id: dict) -> str:
             f'<td>{eur(mio * 1e6 / bev) if mio and bev else "—"}</td>'
             f'<td>{pct(deel(c, "EU27_2020"), 1) if deel(c, "EU27_2020") is not None else "—"}</td>'
             f'<td><b>{pct(v, 1) if v is not None else "—"}</b>{eu_voet(veu)}</td></tr>')
+    totaal_mio = sum(((u["miljoen_euro"].get(f["code"]) or {}).get(jaar) or 0) for f in u["functies"])
+    totaal_zin = T("uit_totaal", bedrag=eur(totaal_mio * 1e6 / bev)) if bev and totaal_mio else ""
+    # brug naar het tekort: alle inkomsten en alle uitgaven per inwoner (Eurostat, gov_10a_main), zelfde jaar
+    brug = ""
+    ti = waarde_in(per_id["inkomsten_per_inwoner"], "BE", int(jaar)) if "inkomsten_per_inwoner" in per_id else None
+    tu = waarde_in(per_id["uitgaven_per_inwoner"], "BE", int(jaar)) if "uitgaven_per_inwoner" in per_id else None
+    if ti and tu:
+        sleutel = "ink_brug_tekort" if tu > ti else "ink_brug_overschot"
+        brug = f'<p class="brug">{icoon("info")}<span>{T(sleutel, jaar=jaar, inkomsten=eur(ti), uitgaven=eur(tu), verschil=eur(abs(tu - ti)))}</span></p>'
     b = u["bron"]
     return f'''
 <section class="vz kaart uitgaven inkomsten" id="belastingen-per-soort">
   <header><p class="label">{T("ink_label")}</p><h3>{T("ink_titel")}</h3></header>
-  <p class="intro-klein">{T("ink_intro", jaar=jaar)}</p>
+  <p class="intro-klein">{T("ink_intro", jaar=jaar)}{totaal_zin}</p>
+  {brug}
   <button type="button" class="controle-knop js" aria-pressed="false" data-controle>{icoon("bron")}<span>{T("ink_toon_controle")}</span></button>
   <div class="honderd" role="img" aria-label="{T("ink_aria")}">{balk}</div>
   <div class="uitgaven-doos"><table>

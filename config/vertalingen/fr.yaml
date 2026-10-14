@@ -621,7 +621,7 @@ indicatoren:
     titel: Malades de longue durée (invalidité)
     vraag: Combien de travailleurs et de chômeurs sont malades de longue durée ?
     definitie: 'Nombre de travailleurs salariés et de chômeurs en invalidité au 31 décembre : ils sont en incapacité de travail depuis plus d''un an et reçoivent une indemnité de la mutualité. Les indépendants et les fonctionnaires relevant d''un régime propre ne sont pas comptés.'
-    uitleg: 'Il s''agit d''un nombre de personnes, pas d''un pourcentage. Selon l''INAMI, les troubles psychiques et les maladies des muscles et des articulations sont les groupes les plus importants. Les dernières années sont provisoires : l''INAMI peut encore les réviser.'
+    uitleg: 'Il s''agit d''un nombre de personnes, pas d''un pourcentage. Selon l''INAMI, les troubles psychiques et les maladies des muscles et des articulations sont les groupes les plus importants. Les dernières années sont provisoires : l''INAMI peut encore les réviser. D''autres pays comptent les malades de longue durée autrement ; c''est pourquoi il n''y a pas de comparaison avec les voisins ici. Un chiffre comparable figure dans la carte suivante.'
     zoekwoorden:
     - malades de longue durée
     - invalidité
@@ -630,6 +630,16 @@ indicatoren:
     - inami
     - burn-out
     - mutualité
+  invaliditeit_uitgaven:
+    titel: Dépenses d'invalidité
+    vraag: Combien dépensons-nous pour les personnes qui ne peuvent pas travailler à cause d'une maladie ou d'un handicap, par rapport aux voisins ?
+    definitie: 'Prestations et aides pour les personnes qui, en raison d''une maladie ou d''un handicap, ne peuvent (partiellement) pas travailler ou ont besoin d''aide, en pourcentage du PIB. Classification européenne SESPROS, fonction « invalidité ».'
+    uitleg: 'Chaque pays compte les malades de longue durée à sa manière : le nombre d''invalides ci-dessus ne peut donc pas être comparé à d''autres pays. Ce chiffre-ci bien : Eurostat classe les dépenses de tous les pays de la même manière. Il contient plus que l''indemnité d''invalidité de la mutualité, par exemple aussi les allocations aux personnes handicapées.'
+    zoekwoorden:
+    - malade de longue durée
+    - invalidité
+    - handicap
+    - incapacité de travail
 uitgaven:
   GF10:
     nl: Protection sociale

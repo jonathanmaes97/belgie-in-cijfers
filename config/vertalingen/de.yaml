@@ -625,7 +625,7 @@ indicatoren:
     titel: Langzeitkranke (Invalidität)
     vraag: Wie viele Arbeitnehmer und Arbeitslose sind langzeitkrank?
     definitie: 'Zahl der Arbeitnehmer und Arbeitslosen in Invalidität am 31. Dezember: Sie sind seit mehr als einem Jahr arbeitsunfähig und erhalten eine Leistung der Krankenkasse. Selbstständige und Beamte mit eigenem System zählen nicht mit.'
-    uitleg: 'Es handelt sich um eine Zahl von Menschen, nicht um einen Prozentsatz. Laut LIKIV sind psychische Störungen und Erkrankungen von Muskeln und Gelenken die größten Gruppen. Die letzten Jahre sind vorläufig: Das LIKIV kann sie noch korrigieren.'
+    uitleg: 'Es handelt sich um eine Zahl von Menschen, nicht um einen Prozentsatz. Laut LIKIV sind psychische Störungen und Erkrankungen von Muskeln und Gelenken die größten Gruppen. Die letzten Jahre sind vorläufig: Das LIKIV kann sie noch korrigieren. Andere Länder zählen Langzeitkranke anders; deshalb gibt es hier keinen Vergleich mit den Nachbarn. Eine vergleichbare Zahl steht in der nächsten Karte.'
     zoekwoorden:
     - Langzeitkranke
     - Invalidität
@@ -634,6 +634,16 @@ indicatoren:
     - LIKIV
     - Burn-out
     - Krankenkasse
+  invaliditeit_uitgaven:
+    titel: Ausgaben für Invalidität
+    vraag: Wie viel geben wir für Menschen aus, die wegen Krankheit oder Behinderung nicht arbeiten können, im Vergleich zu den Nachbarn?
+    definitie: 'Leistungen und Hilfen für Menschen, die wegen Krankheit oder Behinderung (teilweise) nicht arbeiten können oder Hilfe brauchen, in Prozent des BIP. Europäische Klassifikation ESSOSS, Funktion „Invalidität“.'
+    uitleg: 'Jedes Land zählt Langzeitkranke auf seine eigene Weise, daher lässt sich die Zahl der Invaliden oben nicht mit anderen Ländern vergleichen. Diese Zahl schon: Eurostat ordnet die Ausgaben aller Länder gleich ein. Sie enthält mehr als die Invaliditätsleistung der Krankenkasse, zum Beispiel auch Beihilfen für Menschen mit Behinderung.'
+    zoekwoorden:
+    - langzeitkrank
+    - Invalidität
+    - Behinderung
+    - Arbeitsunfähigkeit
 uitgaven:
   GF10:
     nl: Soziale Sicherung

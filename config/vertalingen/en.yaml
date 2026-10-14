@@ -623,7 +623,7 @@ indicatoren:
     titel: Long-term sick (invalidity)
     vraag: How many employees and unemployed people are long-term sick?
     definitie: 'Number of employees and unemployed people in invalidity on 31 December: they have been unable to work for more than a year and receive a benefit from their health insurance fund. Self-employed people and civil servants with their own scheme are not included.'
-    uitleg: 'This is a number of people, not a percentage. According to the RIZIV/INAMI, mental disorders and diseases of the muscles and joints are the largest groups. The latest years are provisional: the RIZIV/INAMI may still revise them.'
+    uitleg: 'This is a number of people, not a percentage. According to the RIZIV/INAMI, mental disorders and diseases of the muscles and joints are the largest groups. The latest years are provisional: the RIZIV/INAMI may still revise them. Other countries count long-term sick people differently, so there is no comparison with the neighbours here. A comparable figure is in the next card.'
     zoekwoorden:
     - long-term sick
     - invalidity
@@ -633,6 +633,16 @@ indicatoren:
     - inami
     - burnout
     - health insurance
+  invaliditeit_uitgaven:
+    titel: Spending on disability
+    vraag: How much do we spend on people who cannot work because of illness or disability, compared with our neighbours?
+    definitie: 'Benefits and support for people who, because of illness or disability, cannot (fully) work or need help, as a percentage of GDP. European ESSPROS classification, function "disability".'
+    uitleg: 'Every country counts long-term sick people in its own way, so the number of people in invalidity above cannot be compared with other countries. This figure can: Eurostat classifies the spending of all countries in the same way. It covers more than the invalidity benefit from the health insurance fund, for example also allowances for people with disabilities.'
+    zoekwoorden:
+    - long-term sick
+    - disability
+    - invalidity
+    - incapacity for work
 uitgaven:
   GF10:
     nl: Social protection

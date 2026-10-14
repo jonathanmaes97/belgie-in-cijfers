@@ -332,6 +332,52 @@ indicatoren:
     verborgen: true
     bron: {instelling: Eurostat, dataset: gov_10a_main, filters: {unit: MIO_EUR, sector: S13, na_item: D41PAY}}
 
+  - id: overheid_inkomsten_eur
+    thema: overheidsfinancien
+    titel: {nl: "Alle inkomsten van de overheid"}
+    vraag: {nl: "Hoeveel ontving de overheid in totaal?"}
+    definitie: {nl: "Alle inkomsten van alle overheden samen (belastingen, sociale bijdragen, verkopen, rente, dividenden en andere), in miljoen euro."}
+    eenheid: " mln €"
+    decimalen: 0
+    landen: [BE]
+    verborgen: true
+    bron: {instelling: Eurostat, dataset: gov_10a_main, filters: {unit: MIO_EUR, sector: S13, na_item: TR}}
+
+  - id: overheid_uitgaven_eur
+    thema: overheidsfinancien
+    titel: {nl: "Alle uitgaven van de overheid"}
+    vraag: {nl: "Hoeveel gaf de overheid in totaal uit?"}
+    definitie: {nl: "Alle uitgaven van alle overheden samen, in miljoen euro."}
+    eenheid: " mln €"
+    decimalen: 0
+    landen: [BE]
+    verborgen: true
+    bron: {instelling: Eurostat, dataset: gov_10a_main, filters: {unit: MIO_EUR, sector: S13, na_item: TE}}
+
+  - id: inkomsten_per_inwoner
+    thema: overheidsfinancien
+    titel: {nl: "Inkomsten van de overheid per inwoner"}
+    vraag: {nl: "Hoeveel ontving de overheid per inwoner?"}
+    definitie: {nl: "Alle inkomsten van de overheid gedeeld door het aantal inwoners op 1 januari."}
+    eenheid: " €"
+    decimalen: 0
+    verborgen: true
+    afgeleid:
+      formule: "inkomsten * 1000000 / inwoners"
+      invoer: {inkomsten: overheid_inkomsten_eur, inwoners: bevolking}
+
+  - id: uitgaven_per_inwoner
+    thema: overheidsfinancien
+    titel: {nl: "Uitgaven van de overheid per inwoner"}
+    vraag: {nl: "Hoeveel gaf de overheid per inwoner uit?"}
+    definitie: {nl: "Alle uitgaven van de overheid gedeeld door het aantal inwoners op 1 januari."}
+    eenheid: " €"
+    decimalen: 0
+    verborgen: true
+    afgeleid:
+      formule: "uitgaven * 1000000 / inwoners"
+      invoer: {uitgaven: overheid_uitgaven_eur, inwoners: bevolking}
+
   - id: pensioenuitgaven
     thema: overheidsfinancien
     titel: {nl: "Uitgaven aan pensioenen"}
@@ -416,12 +462,24 @@ indicatoren:
     titel: {nl: "Langdurig zieken (invaliditeit)"}
     vraag: {nl: "Hoeveel werknemers en werklozen zijn langdurig ziek?"}
     definitie: {nl: "Aantal werknemers en werklozen in invaliditeit op 31 december: ze zijn langer dan een jaar arbeidsongeschikt en krijgen een uitkering van het ziekenfonds. Zelfstandigen en ambtenaren met een eigen regeling tellen niet mee."}
-    uitleg: {nl: "Dit is een aantal mensen, geen percentage. Volgens het RIZIV zijn psychische aandoeningen en ziekten van spieren en gewrichten de grootste groepen. De laatste jaren zijn voorlopig: het RIZIV kan ze nog bijstellen."}
+    uitleg: {nl: "Dit is een aantal mensen, geen percentage. Volgens het RIZIV zijn psychische aandoeningen en ziekten van spieren en gewrichten de grootste groepen. De laatste jaren zijn voorlopig: het RIZIV kan ze nog bijstellen. Andere landen tellen langdurig zieken anders; daarom staat hier geen vergelijking met de buren. Een vergelijkbaar cijfer staat in de volgende kaart."}
     eenheid: ""
     decimalen: 0
     weergave: kolommen
     zoekwoorden: [langdurig ziek, invaliditeit, arbeidsongeschikt, ziekte, riziv, burn-out, ziekenfonds]
     bron: {instelling: RIZIV, dataset: "Statistieken invaliditeit, tabel 1"}
+
+  - id: invaliditeit_uitgaven
+    thema: werk
+    titel: {nl: "Uitgaven aan invaliditeit"}
+    vraag: {nl: "Hoeveel geven we uit aan mensen die door ziekte of een handicap niet kunnen werken, vergeleken met de buren?"}
+    definitie: {nl: "Uitkeringen en hulp voor mensen die door ziekte of een handicap (deels) niet kunnen werken of hulp nodig hebben, in procent van het bbp. Europese indeling ESSPROS, functie 'invaliditeit'."}
+    uitleg: {nl: "Elk land telt langdurig zieken op zijn eigen manier, dus het aantal invaliden hierboven kan je niet vergelijken met andere landen. Dit cijfer wel: Eurostat deelt de uitgaven van alle landen op dezelfde manier in. Het bevat meer dan de invaliditeitsuitkering van het ziekenfonds, bv. ook tegemoetkomingen voor personen met een handicap."}
+    eenheid: "% bbp"
+    decimalen: 1
+    weergave: lijn
+    zoekwoorden: [langdurig ziek, invaliditeit, handicap, arbeidsongeschikt, uitkering, sociale zekerheid]
+    bron: {instelling: Eurostat, dataset: spr_exp_func, filters: {spdeps: SPR, spfunc: DIS, unit: PC_GDP}}
 
   # ---------- Gezondheid ----------
   - id: levensverwachting
