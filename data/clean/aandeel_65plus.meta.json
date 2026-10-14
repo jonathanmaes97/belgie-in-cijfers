@@ -4,8 +4,8 @@
     "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_r_pjanind2?lang=EN&sinceTimePeriod=2005&indic_de=PC_Y65_MAX&unit=PC&geo=BE1&geo=BE2&geo=BE3"
   ],
   "bijgewerkt_bron": "2026-09-25T23:00:00+0200",
-  "opgehaald": "2026-10-14T08:57:42+00:00",
-  "laatste_poging": "2026-10-14T08:57:42+00:00",
+  "opgehaald": "2026-10-14T10:19:41+00:00",
+  "laatste_poging": "2026-10-14T10:19:41+00:00",
   "melding": "",
   "melding_regio": ""
 }
