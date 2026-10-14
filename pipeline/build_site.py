@@ -496,7 +496,7 @@ def js_teksten(data: dict) -> str:
     """Teksten en notaties die app.js en reken.js nodig hebben, voor de huidige taal."""
     eenheden = {k: [v[0].replace(" ", NB), v[2].replace(" ", NB)] for k, v in EENHEDEN[TAAL].items()}
     ui = {
-        "taal": TAAL, "locale": UI["talen"][TAAL]["locale"],
+        "taal": TAAL, "locale": UI["talen"][TAAL]["locale"], "versie": data.get("gegenereerd", ""),
         "t": {k: v.get(TAAL) or v["nl"] for k, v in UI["js"].items()},
         "maanden": UI["maanden_kort"][TAAL],
         "land": T("land"), "geenTreffer": T("zoek_geen"), "eu": landnaam(data, "EU27_2020"), "euKort": T("eu_kort"),

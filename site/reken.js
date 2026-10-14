@@ -132,6 +132,6 @@
   form.addEventListener("submit", (e) => e.preventDefault());
   Promise.all([
     fetch(BASIS + "data/fiscaal-2026.json").then((r) => r.json()),
-    fetch(BASIS + "data/dashboard.json").then((r) => r.json()).catch(() => null),
+    fetch(BASIS + "data/dashboard.json?v=" + encodeURIComponent(UI.versie || "")).then((r) => r.json()).catch(() => null),
   ]).then(([p, d]) => { P = p; uitgaven = d && d.uitgaven; toon(); });
 })();

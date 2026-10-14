@@ -407,7 +407,7 @@
   }
 
   if (document.querySelector("[data-grafiek], [data-vz]")) {
-    fetch(BASIS + "data/dashboard.json").then((r) => r.json()).then(grafieken).catch(() => {
+    fetch(BASIS + "data/dashboard.json?v=" + encodeURIComponent(UI.versie || "")).then((r) => r.json()).then(grafieken).catch(() => {
       document.querySelectorAll("[data-grafiek]").forEach((d) => { d.textContent = t("grafiek_fout", "De grafiek kon niet geladen worden."); d.style.minHeight = "0"; });
     });
   }
