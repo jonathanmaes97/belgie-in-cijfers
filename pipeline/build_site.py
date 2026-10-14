@@ -201,6 +201,9 @@ def datum(iso: str | None) -> str:
     if not iso:
         return T("onbekend")
     d = datetime.fromisoformat(iso.replace("Z", "+00:00"))
+    if d.tzinfo:  # tijdstippen in Belgische tijd tonen (een run om 23:30 UTC valt al op de volgende dag)
+        from zoneinfo import ZoneInfo
+        d = d.astimezone(ZoneInfo("Europe/Brussels"))
     maand = UI["maanden"][TAAL][d.month - 1]
     if TAAL == "de":
         return f"{d.day}. {maand} {d.year}"

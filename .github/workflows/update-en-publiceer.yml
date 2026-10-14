@@ -3,6 +3,7 @@ name: Data bijwerken en site publiceren
 on:
   schedule:
     - cron: "23 5 * * *"   # elke dag om 05:23 UTC
+    - cron: "47 11 * * *"  # reserve: GitHub slaat geplande runs soms over of start ze veel later
   workflow_dispatch:        # handmatig starten via het tabblad Actions
   push:
     branches: [main]
