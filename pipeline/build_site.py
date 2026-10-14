@@ -390,6 +390,8 @@ def technisch(ind: dict, bpad: str = "") -> str:
             rijen.append(f'<dt>{T("exacte_bevraging")}</dt><dd><a href="{escape(u)}" rel="noopener">{T("open_ruwe_data")}</a></dd>')
         if b.get("bijgewerkt_bron"):
             rijen.append(f'<dt>{T("bijgewerkt_bron")}</dt><dd>{datum(b["bijgewerkt_bron"])}</dd>')
+    for n in ind.get("niet_getoond") or []:
+        rijen.append(f'<dt>{T("niet_getoond")}</dt><dd>{escape(tx(n["reden"]))}</dd>')
     if ind.get("norm"):
         rijen.append(f'<dt>{T("norm_of_doel")}</dt><dd>{escape(tx(ind["norm"]["label"]))} ({escape(ind["norm"]["bron"])})</dd>')
     if not ind["ok"] and ind.get("melding"):

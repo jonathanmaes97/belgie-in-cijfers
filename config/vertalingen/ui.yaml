@@ -139,7 +139,7 @@ t:
     de: "Diese Website ist unabhängig und nicht mit den Institutionen verbunden, die die Zahlen veröffentlichen. Erläuterungen, Übersetzungen und abgeleitete Zahlen (wie Schulden pro Einwohner) stammen von dieser Website; die Institutionen sind nicht dafür verantwortlich, wie ihre Zahlen hier dargestellt werden."
     en: "This site is independent and not affiliated with the institutions that publish the figures. The explanations, translations and derived figures (such as debt per inhabitant) are this site's own; those institutions are not responsible for how their figures are presented here."
   voet_vibe:
-    nl: "Met <button type=\"button\" class=\"hartje\" aria-label=\"liefde\">♥</button> gevibecodet: deze site is gebouwd met hulp van AI (Claude). De cijfers zelf komen rechtstreeks uit de officiële bronnen, zonder dat er AI aan te pas komt."
+    nl: "Met <button type=\"button\" class=\"hartje\" aria-label=\"liefde\">♥</button> gevibecoded: deze site is gebouwd met hulp van AI (Claude). De cijfers zelf komen rechtstreeks uit de officiële bronnen, zonder dat er AI aan te pas komt."
     fr: "Vibecodé avec <button type=\"button\" class=\"hartje\" aria-label=\"amour\">♥</button> : ce site a été construit avec l'aide de l'IA (Claude). Les chiffres eux-mêmes proviennent directement des sources officielles, sans intervention de l'IA."
     de: "Mit <button type=\"button\" class=\"hartje\" aria-label=\"Liebe\">♥</button> gevibecodet: Diese Website wurde mit Hilfe von KI (Claude) gebaut. Die Zahlen selbst stammen direkt aus den offiziellen Quellen, ohne KI."
     en: "Vibe-coded with <button type=\"button\" class=\"hartje\" aria-label=\"love\">♥</button>: this site was built with the help of AI (Claude). The figures themselves come straight from the official sources, with no AI involved."
@@ -494,6 +494,11 @@ t:
     fr: "moyenne en {periode} : {waarde}"
     de: "Durchschnitt im {periode}: {waarde}"
     en: "average in {periode}: {waarde}"
+  niet_getoond:
+    nl: "Niet getoond"
+    fr: "Non affiché"
+    de: "Nicht angezeigt"
+    en: "Not shown"
   ruwe_data:
     nl: "ruwe data"
     fr: "données brutes"

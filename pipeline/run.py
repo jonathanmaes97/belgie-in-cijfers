@@ -267,6 +267,9 @@ def schrijf_site_data(cat: dict, data: dict, status: dict, tijd: str) -> None:
     for ind in cat["indicatoren"]:
         id_ = ind["id"]
         rijen = data.get(id_, [])
+        # punten die volgens de config een kennelijke fout in de bron zijn: niet tonen (de CSV houdt ze wel)
+        weg = {(n["geo"], j) for n in ind.get("niet_getoond", []) for j in n["jaren"]}
+        rijen = [r for r in rijen if (r["geo"], r["jaar"]) not in weg]
         reeksen: dict[str, list] = {}
         for r in sorted(rijen, key=lambda r: r["jaar"]):
             reeksen.setdefault(r["geo"], []).append([r["jaar"], r["waarde"], r["status"]])
@@ -290,6 +293,7 @@ def schrijf_site_data(cat: dict, data: dict, status: dict, tijd: str) -> None:
             "eenheid": ind["eenheid"], "decimalen": ind["decimalen"], "verborgen": ind.get("verborgen", False),
             "norm": ind.get("norm"), "bron": bron, "opgehaald": st.get("opgehaald"),
             "ok": st.get("ok", False), "melding": st.get("melding", ""), "reeksen": reeksen,
+            "niet_getoond": ind.get("niet_getoond", []),
         })
     extra = {}
     for naam, _ in EXTRA:

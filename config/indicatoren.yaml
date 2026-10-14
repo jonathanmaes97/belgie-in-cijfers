@@ -804,6 +804,14 @@ indicatoren:
     weergave: lijn
     zoekwoorden: ["trein", "nmbs", "openbaar vervoer", "modal split", "spoor"]
     bron: {instelling: Eurostat, dataset: tran_hv_psmod, filters: {unit: PC, vehicle: TRN}}
+    niet_getoond:  # kennelijke fout in de bron: trein en auto lijken voor deze jaren omgewisseld
+      - geo: FR
+        jaren: [2010, 2011, 2012]
+        reden:
+          nl: "Bij Eurostat staat voor Frankrijk in 2010–2012 een aandeel van de trein van ongeveer 99% en van de auto van ongeveer 1%; de jaren ervoor en erna is dat omgekeerd. Dat is wellicht een fout in de bron, dus we tonen die jaren niet. In de CSV en bij Eurostat staan ze wel."
+          fr: "Chez Eurostat, la France affiche pour 2010–2012 une part du train d'environ 99 % et de la voiture d'environ 1 % ; les années avant et après, c'est l'inverse. Il s'agit probablement d'une erreur dans la source : nous n'affichons donc pas ces années. Elles figurent bien dans le CSV et chez Eurostat."
+          de: "Bei Eurostat hat Frankreich für 2010–2012 einen Bahnanteil von etwa 99 % und einen Autoanteil von etwa 1 %; in den Jahren davor und danach ist es umgekehrt. Das ist wohl ein Fehler in der Quelle, daher zeigen wir diese Jahre nicht. In der CSV und bei Eurostat stehen sie aber."
+          en: "Eurostat shows France in 2010–2012 with a rail share of about 99% and a car share of about 1%; in the years before and after it is the other way round. This is probably an error in the source, so we do not show those years. They are in the CSV and at Eurostat."
 
   - id: auto_aandeel
     thema: mobiliteit
@@ -818,6 +826,14 @@ indicatoren:
     wafel_tekst: {nl: "reizigerskilometers over land worden met de auto afgelegd"}
     zoekwoorden: ["auto", "file", "modal split", "openbaar vervoer", "verkeer"]
     bron: {instelling: Eurostat, dataset: tran_hv_psmod, filters: {unit: PC, vehicle: CAR}}
+    niet_getoond:  # kennelijke fout in de bron: trein en auto lijken voor deze jaren omgewisseld
+      - geo: FR
+        jaren: [2010, 2011, 2012]
+        reden:
+          nl: "Bij Eurostat staat voor Frankrijk in 2010–2012 een aandeel van de trein van ongeveer 99% en van de auto van ongeveer 1%; de jaren ervoor en erna is dat omgekeerd. Dat is wellicht een fout in de bron, dus we tonen die jaren niet. In de CSV en bij Eurostat staan ze wel."
+          fr: "Chez Eurostat, la France affiche pour 2010–2012 une part du train d'environ 99 % et de la voiture d'environ 1 % ; les années avant et après, c'est l'inverse. Il s'agit probablement d'une erreur dans la source : nous n'affichons donc pas ces années. Elles figurent bien dans le CSV et chez Eurostat."
+          de: "Bei Eurostat hat Frankreich für 2010–2012 einen Bahnanteil von etwa 99 % und einen Autoanteil von etwa 1 %; in den Jahren davor und danach ist es umgekehrt. Das ist wohl ein Fehler in der Quelle, daher zeigen wir diese Jahre nicht. In der CSV und bei Eurostat stehen sie aber."
+          en: "Eurostat shows France in 2010–2012 with a rail share of about 99% and a car share of about 1%; in the years before and after it is the other way round. This is probably an error in the source, so we do not show those years. They are in the CSV and at Eurostat."
 
   - id: autos_per_1000
     thema: mobiliteit
