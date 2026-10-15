@@ -1,0 +1,42 @@
+[
+ {
+  "datum": "2026-10-15T10:03:57+00:00",
+  "herzieningen": [
+   {
+    "indicator": "bbp_groei",
+    "geo": "BE",
+    "jaar": 2024,
+    "oud": 1.1,
+    "nieuw": 0.9
+   },
+   {
+    "indicator": "bbp_groei",
+    "geo": "BE",
+    "jaar": 2025,
+    "oud": 1.0,
+    "nieuw": 0.9
+   },
+   {
+    "indicator": "bbp_per_inwoner",
+    "geo": "BE",
+    "jaar": 2023,
+    "oud": 51090.0,
+    "nieuw": 51200.0
+   },
+   {
+    "indicator": "bbp_per_inwoner",
+    "geo": "BE",
+    "jaar": 2024,
+    "oud": 52310.0,
+    "nieuw": 52270.0
+   },
+   {
+    "indicator": "bbp_per_inwoner",
+    "geo": "BE",
+    "jaar": 2025,
+    "oud": 53930.0,
+    "nieuw": 53840.0
+   }
+  ]
+ }
+]
