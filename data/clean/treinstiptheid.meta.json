@@ -5,6 +5,6 @@
   "bijgewerkt_bron": null,
   "laatste_periode": "2026-09",
   "opgehaald": "2026-10-20T10:10:30+00:00",
-  "laatste_poging": "2026-10-20T10:10:30+00:00",
-  "melding": ""
+  "laatste_poging": "2026-10-20T15:51:07+00:00",
+  "melding": "HTTP 429: {\n  \"error\": \"Too many requests on the domain. Please contact the domain administrator.\",\n  \"errorcode\": 10003,\n  \"reset_time\": \"2026-10-21T00:00:00Z\",\n  \"call_limit\": 50000,\n  \"limit_time_unit\": \"day"
 }
