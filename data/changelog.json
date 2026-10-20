@@ -1,5 +1,73 @@
 [
  {
+  "datum": "2026-10-20T10:10:30+00:00",
+  "herzieningen": [
+   {
+    "indicator": "bbp_groei",
+    "geo": "EU27_2020",
+    "jaar": 2016,
+    "oud": 1.9,
+    "nieuw": 2.0
+   },
+   {
+    "indicator": "bbp_groei",
+    "geo": "EU27_2020",
+    "jaar": 2017,
+    "oud": 2.8,
+    "nieuw": 2.9
+   },
+   {
+    "indicator": "bbp_groei",
+    "geo": "EU27_2020",
+    "jaar": 2024,
+    "oud": 1.3,
+    "nieuw": 1.4
+   },
+   {
+    "indicator": "bbp_per_inwoner",
+    "geo": "EU27_2020",
+    "jaar": 2011,
+    "oud": 25880.0,
+    "nieuw": 25870.0
+   },
+   {
+    "indicator": "bbp_per_inwoner",
+    "geo": "EU27_2020",
+    "jaar": 2014,
+    "oud": 26860.0,
+    "nieuw": 26850.0
+   },
+   {
+    "indicator": "bbp_per_inwoner",
+    "geo": "EU27_2020",
+    "jaar": 2022,
+    "oud": 36180.0,
+    "nieuw": 36190.0
+   },
+   {
+    "indicator": "bbp_per_inwoner",
+    "geo": "EU27_2020",
+    "jaar": 2023,
+    "oud": 38450.0,
+    "nieuw": 38470.0
+   },
+   {
+    "indicator": "bbp_per_inwoner",
+    "geo": "EU27_2020",
+    "jaar": 2024,
+    "oud": 40110.0,
+    "nieuw": 40190.0
+   },
+   {
+    "indicator": "bbp_per_inwoner",
+    "geo": "EU27_2020",
+    "jaar": 2025,
+    "oud": 41700.0,
+    "nieuw": 41770.0
+   }
+  ]
+ },
+ {
   "datum": "2026-10-15T10:03:57+00:00",
   "herzieningen": [
    {
