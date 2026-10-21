@@ -1,5 +1,206 @@
 [
  {
+  "datum": "2026-10-21T16:08:01+00:00",
+  "herzieningen": [
+   {
+    "indicator": "belastingdruk",
+    "geo": "BE",
+    "jaar": 2023,
+    "oud": 44.4,
+    "nieuw": 44.3
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "BE",
+    "jaar": 2024,
+    "oud": 45.1,
+    "nieuw": 45.2
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "BE",
+    "jaar": 2025,
+    "oud": 44.6,
+    "nieuw": 44.7
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "EU27_2020",
+    "jaar": 2016,
+    "oud": 41.0,
+    "nieuw": 40.9
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "EU27_2020",
+    "jaar": 2019,
+    "oud": 41.0,
+    "nieuw": 40.9
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "EU27_2020",
+    "jaar": 2020,
+    "oud": 41.1,
+    "nieuw": 41.0
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "EU27_2020",
+    "jaar": 2024,
+    "oud": 40.3,
+    "nieuw": 40.2
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "LU",
+    "jaar": 2005,
+    "oud": 38.9,
+    "nieuw": 38.6
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "LU",
+    "jaar": 2006,
+    "oud": 36.7,
+    "nieuw": 36.9
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "LU",
+    "jaar": 2007,
+    "oud": 37.1,
+    "nieuw": 36.9
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "LU",
+    "jaar": 2008,
+    "oud": 36.3,
+    "nieuw": 36.4
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "LU",
+    "jaar": 2009,
+    "oud": 37.7,
+    "nieuw": 38.0
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "LU",
+    "jaar": 2010,
+    "oud": 37.0,
+    "nieuw": 37.4
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "LU",
+    "jaar": 2011,
+    "oud": 37.5,
+    "nieuw": 37.7
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "LU",
+    "jaar": 2012,
+    "oud": 37.8,
+    "nieuw": 38.3
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "LU",
+    "jaar": 2013,
+    "oud": 37.6,
+    "nieuw": 38.0
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "LU",
+    "jaar": 2014,
+    "oud": 37.5,
+    "nieuw": 37.8
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "LU",
+    "jaar": 2015,
+    "oud": 36.2,
+    "nieuw": 36.6
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "LU",
+    "jaar": 2016,
+    "oud": 36.9,
+    "nieuw": 37.3
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "LU",
+    "jaar": 2017,
+    "oud": 38.1,
+    "nieuw": 38.9
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "LU",
+    "jaar": 2018,
+    "oud": 41.1,
+    "nieuw": 41.7
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "LU",
+    "jaar": 2019,
+    "oud": 41.4,
+    "nieuw": 42.3
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "LU",
+    "jaar": 2020,
+    "oud": 40.2,
+    "nieuw": 41.0
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "LU",
+    "jaar": 2021,
+    "oud": 39.8,
+    "nieuw": 40.9
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "LU",
+    "jaar": 2022,
+    "oud": 40.7,
+    "nieuw": 41.4
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "LU",
+    "jaar": 2023,
+    "oud": 41.4,
+    "nieuw": 42.3
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "LU",
+    "jaar": 2024,
+    "oud": 42.7,
+    "nieuw": 42.5
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "LU",
+    "jaar": 2025,
+    "oud": 42.3,
+    "nieuw": 42.2
+   }
+  ]
+ },
+ {
   "datum": "2026-10-21T10:18:16+00:00",
   "herzieningen": [
    {
