@@ -1,5 +1,577 @@
 [
  {
+  "datum": "2026-10-21T10:18:16+00:00",
+  "herzieningen": [
+   {
+    "indicator": "overheidsschuld",
+    "geo": "BE",
+    "jaar": 2023,
+    "oud": 102.5,
+    "nieuw": 102.3
+   },
+   {
+    "indicator": "overheidsschuld",
+    "geo": "BE",
+    "jaar": 2024,
+    "oud": 103.9,
+    "nieuw": 104.0
+   },
+   {
+    "indicator": "overheidsschuld",
+    "geo": "BE",
+    "jaar": 2025,
+    "oud": 107.9,
+    "nieuw": 108.1
+   },
+   {
+    "indicator": "overheidsschuld",
+    "geo": "DE",
+    "jaar": 2013,
+    "oud": 77.5,
+    "nieuw": 77.4
+   },
+   {
+    "indicator": "overheidsschuld",
+    "geo": "DE",
+    "jaar": 2014,
+    "oud": 74.5,
+    "nieuw": 74.4
+   },
+   {
+    "indicator": "overheidsschuld",
+    "geo": "DE",
+    "jaar": 2015,
+    "oud": 71.2,
+    "nieuw": 71.0
+   },
+   {
+    "indicator": "overheidsschuld",
+    "geo": "DE",
+    "jaar": 2016,
+    "oud": 68.3,
+    "nieuw": 68.1
+   },
+   {
+    "indicator": "overheidsschuld",
+    "geo": "DE",
+    "jaar": 2017,
+    "oud": 64.0,
+    "nieuw": 63.7
+   },
+   {
+    "indicator": "overheidsschuld",
+    "geo": "DE",
+    "jaar": 2018,
+    "oud": 60.8,
+    "nieuw": 60.5
+   },
+   {
+    "indicator": "overheidsschuld",
+    "geo": "DE",
+    "jaar": 2019,
+    "oud": 58.7,
+    "nieuw": 58.3
+   },
+   {
+    "indicator": "overheidsschuld",
+    "geo": "DE",
+    "jaar": 2020,
+    "oud": 68.0,
+    "nieuw": 67.5
+   },
+   {
+    "indicator": "overheidsschuld",
+    "geo": "DE",
+    "jaar": 2021,
+    "oud": 67.9,
+    "nieuw": 67.4
+   },
+   {
+    "indicator": "overheidsschuld",
+    "geo": "DE",
+    "jaar": 2022,
+    "oud": 64.4,
+    "nieuw": 64.1
+   },
+   {
+    "indicator": "overheidsschuld",
+    "geo": "DE",
+    "jaar": 2023,
+    "oud": 62.3,
+    "nieuw": 61.8
+   },
+   {
+    "indicator": "overheidsschuld",
+    "geo": "DE",
+    "jaar": 2024,
+    "oud": 62.2,
+    "nieuw": 61.4
+   },
+   {
+    "indicator": "overheidsschuld",
+    "geo": "DE",
+    "jaar": 2025,
+    "oud": 63.5,
+    "nieuw": 62.8
+   },
+   {
+    "indicator": "overheidsschuld",
+    "geo": "EU27_2020",
+    "jaar": 2015,
+    "oud": 85.1,
+    "nieuw": 85.0
+   },
+   {
+    "indicator": "overheidsschuld",
+    "geo": "EU27_2020",
+    "jaar": 2016,
+    "oud": 84.1,
+    "nieuw": 84.0
+   },
+   {
+    "indicator": "overheidsschuld",
+    "geo": "EU27_2020",
+    "jaar": 2018,
+    "oud": 79.5,
+    "nieuw": 79.4
+   },
+   {
+    "indicator": "overheidsschuld",
+    "geo": "EU27_2020",
+    "jaar": 2019,
+    "oud": 77.5,
+    "nieuw": 77.4
+   },
+   {
+    "indicator": "overheidsschuld",
+    "geo": "EU27_2020",
+    "jaar": 2020,
+    "oud": 89.5,
+    "nieuw": 89.4
+   },
+   {
+    "indicator": "overheidsschuld",
+    "geo": "EU27_2020",
+    "jaar": 2021,
+    "oud": 86.7,
+    "nieuw": 86.6
+   },
+   {
+    "indicator": "overheidsschuld",
+    "geo": "EU27_2020",
+    "jaar": 2022,
+    "oud": 82.4,
+    "nieuw": 82.3
+   },
+   {
+    "indicator": "overheidsschuld",
+    "geo": "EU27_2020",
+    "jaar": 2023,
+    "oud": 80.5,
+    "nieuw": 80.3
+   },
+   {
+    "indicator": "overheidsschuld",
+    "geo": "EU27_2020",
+    "jaar": 2024,
+    "oud": 80.7,
+    "nieuw": 80.3
+   },
+   {
+    "indicator": "overheidsschuld",
+    "geo": "EU27_2020",
+    "jaar": 2025,
+    "oud": 81.7,
+    "nieuw": 81.5
+   },
+   {
+    "indicator": "overheidsschuld",
+    "geo": "FR",
+    "jaar": 2025,
+    "oud": 115.6,
+    "nieuw": 115.7
+   },
+   {
+    "indicator": "overheidsschuld",
+    "geo": "LU",
+    "jaar": 2005,
+    "oud": 8.0,
+    "nieuw": 7.9
+   },
+   {
+    "indicator": "overheidsschuld",
+    "geo": "LU",
+    "jaar": 2024,
+    "oud": 26.3,
+    "nieuw": 25.9
+   },
+   {
+    "indicator": "overheidsschuld",
+    "geo": "LU",
+    "jaar": 2025,
+    "oud": 26.5,
+    "nieuw": 26.0
+   },
+   {
+    "indicator": "overheidsschuld",
+    "geo": "NL",
+    "jaar": 2023,
+    "oud": 45.8,
+    "nieuw": 45.9
+   },
+   {
+    "indicator": "overheidsschuld",
+    "geo": "NL",
+    "jaar": 2024,
+    "oud": 43.8,
+    "nieuw": 44.0
+   },
+   {
+    "indicator": "overheidsschuld",
+    "geo": "NL",
+    "jaar": 2025,
+    "oud": 44.4,
+    "nieuw": 44.7
+   },
+   {
+    "indicator": "begrotingssaldo",
+    "geo": "DE",
+    "jaar": 2020,
+    "oud": -4.4,
+    "nieuw": -4.3
+   },
+   {
+    "indicator": "begrotingssaldo",
+    "geo": "DE",
+    "jaar": 2023,
+    "oud": -2.5,
+    "nieuw": -2.2
+   },
+   {
+    "indicator": "begrotingssaldo",
+    "geo": "DE",
+    "jaar": 2025,
+    "oud": -2.7,
+    "nieuw": -2.9
+   },
+   {
+    "indicator": "begrotingssaldo",
+    "geo": "EU27_2020",
+    "jaar": 2022,
+    "oud": -3.2,
+    "nieuw": -3.1
+   },
+   {
+    "indicator": "begrotingssaldo",
+    "geo": "LU",
+    "jaar": 2005,
+    "oud": -0.2,
+    "nieuw": -0.6
+   },
+   {
+    "indicator": "begrotingssaldo",
+    "geo": "LU",
+    "jaar": 2006,
+    "oud": 1.9,
+    "nieuw": 2.2
+   },
+   {
+    "indicator": "begrotingssaldo",
+    "geo": "LU",
+    "jaar": 2007,
+    "oud": 4.4,
+    "nieuw": 4.1
+   },
+   {
+    "indicator": "begrotingssaldo",
+    "geo": "LU",
+    "jaar": 2009,
+    "oud": -0.2,
+    "nieuw": -0.5
+   },
+   {
+    "indicator": "begrotingssaldo",
+    "geo": "LU",
+    "jaar": 2010,
+    "oud": -0.3,
+    "nieuw": -0.5
+   },
+   {
+    "indicator": "begrotingssaldo",
+    "geo": "LU",
+    "jaar": 2011,
+    "oud": 0.7,
+    "nieuw": 0.4
+   },
+   {
+    "indicator": "begrotingssaldo",
+    "geo": "LU",
+    "jaar": 2013,
+    "oud": 0.8,
+    "nieuw": 0.7
+   },
+   {
+    "indicator": "begrotingssaldo",
+    "geo": "LU",
+    "jaar": 2014,
+    "oud": 1.3,
+    "nieuw": 1.1
+   },
+   {
+    "indicator": "begrotingssaldo",
+    "geo": "LU",
+    "jaar": 2015,
+    "oud": 1.3,
+    "nieuw": 1.2
+   },
+   {
+    "indicator": "begrotingssaldo",
+    "geo": "LU",
+    "jaar": 2016,
+    "oud": 1.9,
+    "nieuw": 1.8
+   },
+   {
+    "indicator": "begrotingssaldo",
+    "geo": "LU",
+    "jaar": 2017,
+    "oud": 1.4,
+    "nieuw": 1.5
+   },
+   {
+    "indicator": "begrotingssaldo",
+    "geo": "LU",
+    "jaar": 2019,
+    "oud": 2.7,
+    "nieuw": 2.8
+   },
+   {
+    "indicator": "begrotingssaldo",
+    "geo": "LU",
+    "jaar": 2020,
+    "oud": -3.1,
+    "nieuw": -3.0
+   },
+   {
+    "indicator": "begrotingssaldo",
+    "geo": "LU",
+    "jaar": 2021,
+    "oud": 1.1,
+    "nieuw": 1.5
+   },
+   {
+    "indicator": "begrotingssaldo",
+    "geo": "LU",
+    "jaar": 2022,
+    "oud": 0.2,
+    "nieuw": 0.3
+   },
+   {
+    "indicator": "begrotingssaldo",
+    "geo": "LU",
+    "jaar": 2024,
+    "oud": 0.9,
+    "nieuw": 0.6
+   },
+   {
+    "indicator": "begrotingssaldo",
+    "geo": "LU",
+    "jaar": 2025,
+    "oud": -2.0,
+    "nieuw": -1.8
+   },
+   {
+    "indicator": "begrotingssaldo",
+    "geo": "NL",
+    "jaar": 2023,
+    "oud": -0.4,
+    "nieuw": -0.3
+   },
+   {
+    "indicator": "rentelasten",
+    "geo": "BE",
+    "jaar": 2025,
+    "oud": 2.2,
+    "nieuw": 2.3
+   },
+   {
+    "indicator": "rentelasten",
+    "geo": "DE",
+    "jaar": 2024,
+    "oud": 1.1,
+    "nieuw": 1.0
+   },
+   {
+    "indicator": "rentelasten",
+    "geo": "LU",
+    "jaar": 2018,
+    "oud": 0.3,
+    "nieuw": 0.4
+   },
+   {
+    "indicator": "rentelasten",
+    "geo": "LU",
+    "jaar": 2021,
+    "oud": 0.1,
+    "nieuw": 0.2
+   },
+   {
+    "indicator": "overheidsschuld_eur",
+    "geo": "BE",
+    "jaar": 2014,
+    "oud": 431863.7,
+    "nieuw": 431870.8
+   },
+   {
+    "indicator": "overheidsschuld_eur",
+    "geo": "BE",
+    "jaar": 2015,
+    "oud": 439193.1,
+    "nieuw": 439196.7
+   },
+   {
+    "indicator": "overheidsschuld_eur",
+    "geo": "BE",
+    "jaar": 2016,
+    "oud": 453193.4,
+    "nieuw": 453211.9
+   },
+   {
+    "indicator": "overheidsschuld_eur",
+    "geo": "BE",
+    "jaar": 2017,
+    "oud": 455075.8,
+    "nieuw": 455131.9
+   },
+   {
+    "indicator": "overheidsschuld_eur",
+    "geo": "BE",
+    "jaar": 2018,
+    "oud": 460209.7,
+    "nieuw": 460276.8
+   },
+   {
+    "indicator": "overheidsschuld_eur",
+    "geo": "BE",
+    "jaar": 2019,
+    "oud": 468384.8,
+    "nieuw": 468404.8
+   },
+   {
+    "indicator": "overheidsschuld_eur",
+    "geo": "BE",
+    "jaar": 2020,
+    "oud": 516438.5,
+    "nieuw": 516493.7
+   },
+   {
+    "indicator": "overheidsschuld_eur",
+    "geo": "BE",
+    "jaar": 2021,
+    "oud": 550285.3,
+    "nieuw": 550321.6
+   },
+   {
+    "indicator": "overheidsschuld_eur",
+    "geo": "BE",
+    "jaar": 2022,
+    "oud": 580354.3,
+    "nieuw": 580379.2
+   },
+   {
+    "indicator": "overheidsschuld_eur",
+    "geo": "BE",
+    "jaar": 2023,
+    "oud": 617175.3,
+    "nieuw": 617214.9
+   },
+   {
+    "indicator": "overheidsschuld_eur",
+    "geo": "BE",
+    "jaar": 2024,
+    "oud": 644198.6,
+    "nieuw": 644027.4
+   },
+   {
+    "indicator": "overheidsschuld_eur",
+    "geo": "BE",
+    "jaar": 2025,
+    "oud": 692460.8,
+    "nieuw": 692831.9
+   },
+   {
+    "indicator": "rentelasten_eur",
+    "geo": "BE",
+    "jaar": 2023,
+    "oud": 11677.1,
+    "nieuw": 11726.7
+   },
+   {
+    "indicator": "rentelasten_eur",
+    "geo": "BE",
+    "jaar": 2024,
+    "oud": 13524.4,
+    "nieuw": 13603.1
+   },
+   {
+    "indicator": "rentelasten_eur",
+    "geo": "BE",
+    "jaar": 2025,
+    "oud": 14281.7,
+    "nieuw": 14511.8
+   },
+   {
+    "indicator": "overheid_inkomsten_eur",
+    "geo": "BE",
+    "jaar": 2023,
+    "oud": 293330.9,
+    "nieuw": 293280.9
+   },
+   {
+    "indicator": "overheid_inkomsten_eur",
+    "geo": "BE",
+    "jaar": 2024,
+    "oud": 308044.6,
+    "nieuw": 308088.3
+   },
+   {
+    "indicator": "overheid_inkomsten_eur",
+    "geo": "BE",
+    "jaar": 2025,
+    "oud": 314736.4,
+    "nieuw": 315402.6
+   },
+   {
+    "indicator": "overheid_uitgaven_eur",
+    "geo": "BE",
+    "jaar": 2022,
+    "oud": 294745.9,
+    "nieuw": 294751.2
+   },
+   {
+    "indicator": "overheid_uitgaven_eur",
+    "geo": "BE",
+    "jaar": 2023,
+    "oud": 318050.9,
+    "nieuw": 318101.1
+   },
+   {
+    "indicator": "overheid_uitgaven_eur",
+    "geo": "BE",
+    "jaar": 2024,
+    "oud": 335100.1,
+    "nieuw": 335329.6
+   },
+   {
+    "indicator": "overheid_uitgaven_eur",
+    "geo": "BE",
+    "jaar": 2025,
+    "oud": 347956.3,
+    "nieuw": 348825.5
+   }
+  ]
+ },
+ {
   "datum": "2026-10-20T10:10:30+00:00",
   "herzieningen": [
    {

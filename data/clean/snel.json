@@ -481,6 +481,11 @@
      "2026-09",
      -10.0,
      "A"
+    ],
+    [
+     "2026-10",
+     -13.0,
+     "A"
     ]
    ],
    "api_url": "https://nsidisseminate-stat.nbb.be/rest/data/BE2,DF_CONSN,1.0/M.CCI.BE?startPeriod=2019-01&format=csvfile",
@@ -2108,5 +2113,5 @@
    }
   }
  ],
- "opgehaald": "2026-10-20T15:51:07+00:00"
+ "opgehaald": "2026-10-21T10:18:16+00:00"
 }
