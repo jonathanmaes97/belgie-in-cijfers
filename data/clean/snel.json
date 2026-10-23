@@ -976,6 +976,11 @@
      "2026-09",
      -12.1,
      "A"
+    ],
+    [
+     "2026-10",
+     -9.8,
+     "A"
     ]
    ],
    "api_url": "https://nsidisseminate-stat.nbb.be/rest/data/BE2,DF_BUSSURVM,1.0/M.SYNC.BE.A999.S?startPeriod=2019-01&format=csvfile",
@@ -2113,5 +2118,5 @@
    }
   }
  ],
- "opgehaald": "2026-10-23T10:13:12+00:00"
+ "opgehaald": "2026-10-23T15:56:21+00:00"
 }
