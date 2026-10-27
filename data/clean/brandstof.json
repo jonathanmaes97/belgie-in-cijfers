@@ -136,9 +136,9 @@
     ]
    ],
    "nu": {
-    "waarde": 2.002,
-    "geldig_vanaf": "2026-10-23",
-    "lijst": "2026/205"
+    "waarde": 1.988,
+    "geldig_vanaf": "2026-10-28",
+    "lijst": "2026/208"
    },
    "api_url": "https://economie.fgov.be/sites/default/files/Files/Energy/prices/Officiele-Maximumtarieven-aardolieproducten.pdf",
    "bron": {
@@ -286,9 +286,9 @@
     ]
    ],
    "nu": {
-    "waarde": 2.444,
-    "geldig_vanaf": "2026-10-23",
-    "lijst": "2026/205"
+    "waarde": 2.51,
+    "geldig_vanaf": "2026-10-28",
+    "lijst": "2026/208"
    },
    "api_url": "https://economie.fgov.be/sites/default/files/Files/Energy/prices/Officiele-Maximumtarieven-aardolieproducten.pdf",
    "bron": {
@@ -301,5 +301,5 @@
    }
   }
  ],
- "opgehaald": "2026-10-26T17:39:44+00:00"
+ "opgehaald": "2026-10-27T10:41:51+00:00"
 }

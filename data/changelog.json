@@ -1,5 +1,101 @@
 [
  {
+  "datum": "2026-10-27T10:41:51+00:00",
+  "herzieningen": [
+   {
+    "indicator": "pensioenuitgaven",
+    "geo": "DE",
+    "jaar": 2017,
+    "oud": 11.59,
+    "nieuw": 11.54
+   },
+   {
+    "indicator": "pensioenuitgaven",
+    "geo": "DE",
+    "jaar": 2018,
+    "oud": 11.63,
+    "nieuw": 11.58
+   },
+   {
+    "indicator": "pensioenuitgaven",
+    "geo": "DE",
+    "jaar": 2019,
+    "oud": 11.81,
+    "nieuw": 11.74
+   },
+   {
+    "indicator": "pensioenuitgaven",
+    "geo": "DE",
+    "jaar": 2020,
+    "oud": 12.57,
+    "nieuw": 12.47
+   },
+   {
+    "indicator": "pensioenuitgaven",
+    "geo": "DE",
+    "jaar": 2021,
+    "oud": 12.11,
+    "nieuw": 12.01
+   },
+   {
+    "indicator": "pensioenuitgaven",
+    "geo": "DE",
+    "jaar": 2022,
+    "oud": 11.59,
+    "nieuw": 11.52
+   },
+   {
+    "indicator": "pensioenuitgaven",
+    "geo": "DE",
+    "jaar": 2023,
+    "oud": 11.51,
+    "nieuw": 11.41
+   },
+   {
+    "indicator": "pensioenuitgaven",
+    "geo": "DE",
+    "jaar": 2024,
+    "oud": 11.83,
+    "nieuw": 11.67
+   },
+   {
+    "indicator": "pensioenuitgaven",
+    "geo": "FR",
+    "jaar": 2024,
+    "oud": 15.06,
+    "nieuw": 14.98
+   },
+   {
+    "indicator": "pensioenuitgaven",
+    "geo": "LU",
+    "jaar": 2024,
+    "oud": 10.39,
+    "nieuw": 10.26
+   },
+   {
+    "indicator": "pensioenuitgaven",
+    "geo": "NL",
+    "jaar": 2024,
+    "oud": 11.18,
+    "nieuw": 11.25
+   },
+   {
+    "indicator": "werkzaamheidsgraad",
+    "geo": "LU",
+    "jaar": 2025,
+    "oud": 73.9,
+    "nieuw": 73.6
+   },
+   {
+    "indicator": "werkzaamheid_55_64",
+    "geo": "LU",
+    "jaar": 2025,
+    "oud": 49.5,
+    "nieuw": 48.9
+   }
+  ]
+ },
+ {
   "datum": "2026-10-24T09:37:30+00:00",
   "herzieningen": [
    {
