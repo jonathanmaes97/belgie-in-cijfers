@@ -1,5 +1,143 @@
 [
  {
+  "datum": "2026-10-28T11:25:53+00:00",
+  "herzieningen": [
+   {
+    "indicator": "belastingdruk",
+    "geo": "DE",
+    "jaar": 2014,
+    "oud": 39.7,
+    "nieuw": 39.6
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "DE",
+    "jaar": 2015,
+    "oud": 40.0,
+    "nieuw": 39.9
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "DE",
+    "jaar": 2016,
+    "oud": 40.5,
+    "nieuw": 40.4
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "DE",
+    "jaar": 2017,
+    "oud": 40.7,
+    "nieuw": 40.5
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "DE",
+    "jaar": 2018,
+    "oud": 41.1,
+    "nieuw": 40.9
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "DE",
+    "jaar": 2019,
+    "oud": 41.4,
+    "nieuw": 41.2
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "DE",
+    "jaar": 2020,
+    "oud": 41.3,
+    "nieuw": 40.9
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "DE",
+    "jaar": 2021,
+    "oud": 42.0,
+    "nieuw": 41.7
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "DE",
+    "jaar": 2022,
+    "oud": 41.4,
+    "nieuw": 41.2
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "DE",
+    "jaar": 2023,
+    "oud": 40.1,
+    "nieuw": 39.7
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "DE",
+    "jaar": 2024,
+    "oud": 40.9,
+    "nieuw": 40.3
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "EU27_2020",
+    "jaar": 2022,
+    "oud": 40.7,
+    "nieuw": 40.6
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "FR",
+    "jaar": 2023,
+    "oud": 45.6,
+    "nieuw": 45.5
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "FR",
+    "jaar": 2024,
+    "oud": 45.3,
+    "nieuw": 45.1
+   },
+   {
+    "indicator": "belastingdruk",
+    "geo": "NL",
+    "jaar": 2024,
+    "oud": 39.4,
+    "nieuw": 39.7
+   },
+   {
+    "indicator": "netto_migratie",
+    "geo": "EU27_2020",
+    "jaar": 2022,
+    "oud": 7.1,
+    "nieuw": 7.7
+   },
+   {
+    "indicator": "netto_migratie",
+    "geo": "EU27_2020",
+    "jaar": 2023,
+    "oud": 6.4,
+    "nieuw": 6.6
+   },
+   {
+    "indicator": "netto_migratie",
+    "geo": "EU27_2020",
+    "jaar": 2024,
+    "oud": 5.4,
+    "nieuw": 5.5
+   },
+   {
+    "indicator": "natuurlijke_aangroei",
+    "geo": "EU27_2020",
+    "jaar": 2022,
+    "oud": -2.9,
+    "nieuw": -2.8
+   }
+  ]
+ },
+ {
   "datum": "2026-10-27T10:41:51+00:00",
   "herzieningen": [
    {
