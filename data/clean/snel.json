@@ -2108,6 +2108,11 @@
      "2026-Q2",
      0.1,
      "P"
+    ],
+    [
+     "2026-Q3",
+     0.3,
+     "P"
     ]
    ],
    "api_url": "https://nsidisseminate-stat.nbb.be/rest/data/BE2,DF_QNA_DISS,1.0/Q.1.B1GM.VZ.LQ.Y?startPeriod=2019-Q1&format=csvfile",
@@ -2118,5 +2123,5 @@
    }
   }
  ],
- "opgehaald": "2026-10-28T17:26:16+00:00"
+ "opgehaald": "2026-10-29T11:36:17+00:00"
 }
