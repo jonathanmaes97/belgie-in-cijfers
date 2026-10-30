@@ -1,5 +1,17 @@
 [
  {
+  "datum": "2026-10-30T11:27:54+00:00",
+  "herzieningen": [
+   {
+    "indicator": "woonkosten_zwaar",
+    "geo": "EU27_2020",
+    "jaar": 2025,
+    "oud": 7.7,
+    "nieuw": 7.6
+   }
+  ]
+ },
+ {
   "datum": "2026-10-28T11:25:53+00:00",
   "herzieningen": [
    {
