@@ -3,8 +3,8 @@
     "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_ind_ren?lang=EN&sinceTimePeriod=2005&nrg_bal=REN&unit=PC&geo=BE&geo=EU27_2020&geo=NL&geo=DE&geo=FR&geo=LU"
   ],
   "bijgewerkt_bron": "2026-09-15T23:00:00+0200",
-  "opgehaald": "2026-10-31T10:58:55+00:00",
-  "laatste_poging": "2026-10-31T10:58:55+00:00",
+  "opgehaald": "2026-10-31T16:20:16+00:00",
+  "laatste_poging": "2026-10-31T16:20:16+00:00",
   "melding": "",
   "melding_regio": ""
 }
