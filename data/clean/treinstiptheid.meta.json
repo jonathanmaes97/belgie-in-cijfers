@@ -3,8 +3,8 @@
     "https://opendata.infrabel.be/api/explore/v2.1/catalog/datasets/nationale-stiptheid-per-maand/exports/json?select=maand%2Creg%2Ctel%2Creg_ytd%2Ctel_ytd"
   ],
   "bijgewerkt_bron": null,
-  "laatste_periode": "2026-09",
-  "opgehaald": "2026-11-05T19:02:50+00:00",
-  "laatste_poging": "2026-11-05T19:02:50+00:00",
+  "laatste_periode": "2026-10",
+  "opgehaald": "2026-11-06T13:02:00+00:00",
+  "laatste_poging": "2026-11-06T13:02:00+00:00",
   "melding": ""
 }

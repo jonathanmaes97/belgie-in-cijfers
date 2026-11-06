@@ -1,5 +1,17 @@
 [
  {
+  "datum": "2026-11-06T13:02:00+00:00",
+  "herzieningen": [
+   {
+    "indicator": "treinstiptheid",
+    "geo": "BE",
+    "jaar": 2026,
+    "oud": 93.1392,
+    "nieuw": 92.9374
+   }
+  ]
+ },
+ {
   "datum": "2026-10-30T11:27:54+00:00",
   "herzieningen": [
    {
