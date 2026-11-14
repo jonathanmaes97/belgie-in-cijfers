@@ -1,5 +1,73 @@
 [
  {
+  "datum": "2026-11-14T12:17:52+00:00",
+  "herzieningen": [
+   {
+    "indicator": "aandeel_65plus",
+    "geo": "EU27_2020",
+    "jaar": 2025,
+    "oud": 22.0,
+    "nieuw": 21.9
+   },
+   {
+    "indicator": "bevolking_buitenland_geboren",
+    "geo": "EU27_2020",
+    "jaar": 2022,
+    "oud": 56045896.0,
+    "nieuw": 56415585.0
+   },
+   {
+    "indicator": "bevolking_buitenland_geboren",
+    "geo": "EU27_2020",
+    "jaar": 2023,
+    "oud": 60115595.0,
+    "nieuw": 60620756.0
+   },
+   {
+    "indicator": "bevolking_buitenland_geboren",
+    "geo": "EU27_2020",
+    "jaar": 2024,
+    "oud": 62634187.0,
+    "nieuw": 63531556.0
+   },
+   {
+    "indicator": "bevolking_buitenland_geboren",
+    "geo": "EU27_2020",
+    "jaar": 2025,
+    "oud": 64719037.0,
+    "nieuw": 65792992.0
+   },
+   {
+    "indicator": "bevolking_naar_geboorteland",
+    "geo": "EU27_2020",
+    "jaar": 2022,
+    "oud": 445972024.0,
+    "nieuw": 446178368.0
+   },
+   {
+    "indicator": "bevolking_naar_geboorteland",
+    "geo": "EU27_2020",
+    "jaar": 2023,
+    "oud": 447695350.0,
+    "nieuw": 448268023.0
+   },
+   {
+    "indicator": "bevolking_naar_geboorteland",
+    "geo": "EU27_2020",
+    "jaar": 2024,
+    "oud": 449306184.0,
+    "nieuw": 450054483.0
+   },
+   {
+    "indicator": "bevolking_naar_geboorteland",
+    "geo": "EU27_2020",
+    "jaar": 2025,
+    "oud": 450646971.0,
+    "nieuw": 451284558.0
+   }
+  ]
+ },
+ {
   "datum": "2026-11-06T13:02:00+00:00",
   "herzieningen": [
    {
