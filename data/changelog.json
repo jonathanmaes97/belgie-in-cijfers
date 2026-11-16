@@ -1,5 +1,24 @@
 [
  {
+  "datum": "2026-11-16T13:47:53+00:00",
+  "herzieningen": [
+   {
+    "indicator": "bevolking_buitenland_geboren",
+    "geo": "EU27_2020",
+    "jaar": 2021,
+    "oud": 55624109.0,
+    "nieuw": 55434681.0
+   },
+   {
+    "indicator": "bevolking_naar_geboorteland",
+    "geo": "EU27_2020",
+    "jaar": 2021,
+    "oud": 445891011.0,
+    "nieuw": 445767723.0
+   }
+  ]
+ },
+ {
   "datum": "2026-11-14T12:17:52+00:00",
   "herzieningen": [
    {
