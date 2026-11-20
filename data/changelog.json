@@ -1,5 +1,31 @@
 [
  {
+  "datum": "2026-11-20T14:08:49+00:00",
+  "herzieningen": [
+   {
+    "indicator": "aandeel_65plus",
+    "geo": "FR",
+    "jaar": 2023,
+    "oud": 21.1,
+    "nieuw": 21.2
+   },
+   {
+    "indicator": "bevolking_buitenland_geboren",
+    "geo": "FR",
+    "jaar": 2023,
+    "oud": 8963311.0,
+    "nieuw": 8959320.0
+   },
+   {
+    "indicator": "bevolking_naar_geboorteland",
+    "geo": "FR",
+    "jaar": 2023,
+    "oud": 68277210.0,
+    "nieuw": 68436003.0
+   }
+  ]
+ },
+ {
   "datum": "2026-11-16T13:47:53+00:00",
   "herzieningen": [
    {
